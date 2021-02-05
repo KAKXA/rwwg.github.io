@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>How to factor a big integer? - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="Factoring an Integer Trial Division And Quadratic Sieve" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/factoring-an-integer-trial-division-and-quadratic-sieve/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="How to factor a big integer?" />
+<meta property="og:description" content="Factoring an Integer Trial Division And Quadratic Sieve" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/factoring-an-integer-trial-division-and-quadratic-sieve/" />
+<meta property="article:published_time" content="2020-01-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-12T00:00:00+00:00" />
+<meta itemprop="name" content="How to factor a big integer?">
+<meta itemprop="description" content="Factoring an Integer Trial Division And Quadratic Sieve">
+<meta itemprop="datePublished" content="2020-01-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2235">
+
+
+
+<meta itemprop="keywords" content="number theory,english," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to factor a big integer?"/>
+<meta name="twitter:description" content="Factoring an Integer Trial Division And Quadratic Sieve"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">How to factor a big integer?</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-01-12 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1-abstract">1. Abstract</a></li>
+            <li><a href="#2-trial-division">2. Trial Division</a></li>
+            <li><a href="#3-quadratic-sieve">3. Quadratic Sieve</a></li>
+            <li><a href="#4-the-factorization-of-18393075391668469672027802484408130559">4. The Factorization of 18393075391668469672027802484408130559</a></li>
+            <li><a href="#5-references">5. References</a></li>
+            <li><a href="#6-source-code">6. Source Code</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h3 id="1-abstract">1. Abstract</h3>
+<ul>
+<li>
+<p>This essay is to explain the factoring of an integer  18393075391668469672027802484408130559.</p>
+</li>
+<li>
+<p>The result and time:</p>
+<table>
+<thead>
+<tr>
+<th>Factors</th>
+<th>Time/s</th>
+<th>Programming Language</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>104743</td>
+<td></td>
+<td>Java</td>
+</tr>
+<tr>
+<td>1299721</td>
+<td>1 (together with the first one)</td>
+<td>Java</td>
+</tr>
+<tr>
+<td>283839307517</td>
+<td></td>
+<td>Java</td>
+</tr>
+<tr>
+<td>475999687667509</td>
+<td>102 (together with the third one)</td>
+<td>Java</td>
+</tr>
+<tr>
+<td></td>
+<td>103 (in total)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3 id="2-trial-division">2. Trial Division</h3>
+<ul>
+<li>As the integer N includes 38 decimal digits, to find the factors with few digits, like factors fewer than 1,00,000,000, we use trial division. Iterating from 2 to 1,00,000,000,  find integer n which meets the following equation:
+$$
+N\equiv0\pmod n
+$$
+When we find an n, record it and divide N  by n to avoid appearing a composite number in the following iteration. After the loop meets its end, we check if M is equal to 1 or a prime number. For our M , it is divided into a integer with 27 decimal digits. Thus we should try better algorithm to solve the problem.</li>
+</ul>
+<h3 id="3-quadratic-sieve">3. Quadratic Sieve</h3>
+<h4 id="fermat-and-kraitchik">Fermat And Kraitchik</h4>
+<ul>
+<li>
+<p>Before introducing quadratic sieve, consider the following question: find two factors of 9991. A clever way is to write 9991 as 10000 - 9, which is:
+$$
+9991=100^2-3^2=(100+3)\times(100-3)=103\times97
+$$
+so we find two factors 103 and 97. This method is a factorization of <strong>Fermat</strong>[1].</p>
+</li>
+<li>
+<p>Now what we need is to find two square integers. It is hard to find numbers meeting the equation most of the time, and the method can be improved. In 1920s, <strong>Maurice Kraitchik</strong>[1] came up with an enhancement, consider:
+$$
+a^2-b^2\equiv0\pmod N\<br>
+(a+b)(a-b)\equiv0\pmod N\<br>
+N|(a+b)(a-b)
+$$
+(a+b) and (a-b) is respectively by at least one of N&rsquo;s prime factors only if</p>
+<p>$$
+\gcd(a+b,N)\ne1
+$$
+and
+$$
+\gcd(a-b,N)\ne1
+$$
+satisfying the above conditions, gcd(a+b,N) and gcd(a-b,N) will be two factors of N.</p>
+</li>
+</ul>
+<h4 id="qx">Q(x)</h4>
+<ul>
+<li>Consider
+$$
+x_{i}\equiv a_{i}^2\pmod N\ \ \
+\ \ \ \ \ a_{i} = [\sqrt{N}]+i
+\ \ \ \ \ i = 1,2,3,4,&hellip;
+$$
+It can be verified by computer that it is hard to find an x which is a square number in finite time. Now postulate that:
+$$
+x_i\times x_j= t^2\ \ \ \ \ \ \ t\in \mathbb{Z} \<br>
+x_{i} \equiv a_{i}^2\pmod N\<br>
+x_{j} \equiv a_{j}^2\pmod N\<br>
+i\ne j
+$$
+Now, although the two numbers are not square numbers, their multiplication is. So:
+$$
+x_i\times x_j \equiv t^2 \pmod N
+$$
+the left formula is also a square number so we can consider the two formula for the factors. In this way, we try to find more than one integer x. Define Q(x) as follows:
+$$
+Q(x) \equiv ([\sqrt{N}] + x)^2 \pmod N
+$$</li>
+</ul>
+<h4 id="y-smooth">Y-Smooth</h4>
+<ul>
+<li>
+<p>To find a series of Q(x) whose multiplication is a square number, we should construct a set of prime numbers. We define a vector Y, including several prime numbers. If Q(x) can only be divided by some elements of  Y,  we call  it a <strong>Y-Smooth</strong> integer. We add Y-Smooth Q(x) into a vector Q. So
+$$
+Q = (Q(x_1),Q(x_2),&hellip;,Q(x_n))
+$$
+At the same time, for each one in Q, present it as a multiplication of integers in Y, like:
+$$
+Y=(2,3,5)\<br>
+Q(x)=300 = 2^2\times3^1\times5^2
+$$
+now develop a vector for Q(x) itself:
+$$
+(2,1,2)
+$$
+as 2&rsquo;s and 5&rsquo;s exponents are even numbers, we don&rsquo;t need to consider them, since we only need an extra 3 to construct a square number 900. So the vector for Q(x) and Y convert to:
+$$
+(0,1,0)
+$$</p>
+</li>
+<li>
+<p>To get appropriate Y, consider:
+$$
+([\sqrt{N}] + x)^2 \equiv Q(x) \pmod N\<br>
+(\frac {Q(x)}{N})=1\<br>
+(\frac{p_1p_2&hellip;p_n}{N})= 1\<br>
+$$
+If each p satisfies:
+$$
+(\frac {p_i} N) = 1
+$$
+their product should be a square number. Constructing a proper Y helps to find Q(x)  more easily.</p>
+</li>
+</ul>
+<h4 id="system-of-linear-congruence-equations">System of Linear Congruence Equations</h4>
+<ul>
+<li>
+<p>Let us change every Q(x) in Q to Q(x)&lsquo;s vector presentation on Y. Thus, if the dimension of Y is y, the dimension of Q, the number of Y-smooth Q(x) that are found, is q, we construct a y*q matrix A[2]**. For example, for 6,8,9,12 and Y(2,3), the matrix A is like:</p>
+<p>$$
+\begin{pmatrix} 1 &amp; 1 &amp; 0 &amp; 0 \<br>
+1 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}\<br>
+$$
+while q is greater than y, just like the above matrix A indicates, there must be at least a vector x which satisfies:
+$$
+A_{y\times q}x_{q\times 1}\equiv0\pmod 2\<br>
+x = (i_1,i_2,i_3,&hellip;,i_q)^T\ \ \ \ \ \ i \in{0,1}
+$$
+as for its proof, consider:
+$$
+Ax = 0
+$$
+according to linear algebra, we know that, if rank(A) is smaller than n, which is the number of A&rsquo;s column vectors, there will be (rank(A) - n) vectors which represent the system of polynomial solution. Then:
+$$
+Ax \bmod 2=0\bmod 2\<br>
+A\times(x\bmod2)=0\bmod2\<br>
+Ax\equiv0\pmod2\ \ \ \ \ \ \
+x = (i_1,i_2,i_3,&hellip;,i_q)^T\ \ \ \ \ \ i \in{0,1}
+$$
+now solve the matrix A:
+$$
+{\begin{pmatrix} 1 &amp; 1 &amp; 0 &amp; 0 \<br>
+1 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}\}
+\begin{pmatrix} x_1\x_2\x_3\x_4\end{pmatrix}
+\equiv
+\begin{pmatrix} 0\0\0\0\end{pmatrix}\pmod2\<br>
+\begin{pmatrix} x_1\x_2\x_3\x_4\end{pmatrix}\equiv
+\begin{pmatrix}0\0\1\0\end{pmatrix}\pmod2\<br>
+or\<br>
+\begin{pmatrix} x_1\x_2\x_3\x_4\end{pmatrix}\equiv
+\begin{pmatrix} 1\1\0\1\end{pmatrix}\pmod2
+$$</p>
+</li>
+<li>
+<p>Try the second solution as an example. Because the 1st, 2nd, 4th position is 1, we select 6, 8 and 12. Their product is 576, a square number.</p>
+</li>
+</ul>
+<h4 id="an-example-of-factorization">An Example of Factorization</h4>
+<ul>
+<li>
+<p>The quadratic sieve is likely run as this flow chart:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">graph TD
+A.1[Construct y-dimension vector Y ] --&gt; B
+A.2[&#34;Construct Q(x)&#34;] --&gt; B[Get a new x]
+B --&gt;|&#34;Q(x) is Y-Smooth&#34;| D[record x to set Q]
+B --&gt;|&#34;Q(x) is not Y-Smooth&#34;| B
+D --&gt;|Q includes more than y elements| E[&#34;Construct 0,1 matrix A &lt;br&gt;through Q(x) and Y&#34;]
+D --&gt;|Q includes few than y+1 elements| B
+E --&gt; F[&#34;Solve Ax=0(mod 2)&#34;]
+F --&gt; G[&#34;Multiply the sqaure root R of &lt;br&gt; corresponding Q(x)s&#39; product&#34;]
+F --&gt; H[&#34;Calculate the product X of corresponding (x+[N^(0.5)]&#34;]
+H --&gt; I[&#34;Calculate gcd(X+R,N) as s1,gcd(X-R,N) as s2&#34;]
+G --&gt; I
+I --&gt;|s1 and s2 are not equal to 1| J
+I --&gt;|s1 or s2 are equal to 1| K[&#34;Try another solution of Ax=0(mod 2)&#34;]
+K --&gt;G
+J[&#34;Found two factors s1, s2&#34;]
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>We choose 2041 as the integer for factoring.</p>
+</li>
+</ul>
+<ol>
+<li>Choose (2,3,5,7) as Y, for:</li>
+</ol>
+<p>$$
+(\frac{2041} {2})=(\frac{2041} {3}=(\frac{2041} {5})=(\frac{2041} {7})=1Second, construct Q(x):
+$$</p>
+<ol start="2">
+<li>Construct Q(x):</li>
+</ol>
+<p>$$
+Q(x) = (45 + x)^2 \pmod {2041}Third, from i= 1,2,3&hellip;, we get
+$$</p>
+<ol start="3">
+<li>
+<p>From x= 1,2,3&hellip;, we get Q(x)=75,168,263,360,459,560,&hellip;</p>
+</li>
+<li>
+<p>To simplify the matrix, from 75,168,360,560 we can construct a matrix and:
+$$
+\begin{pmatrix}0 &amp; 1 &amp; 1 &amp; 0\<br>
+1 &amp; 1 &amp; 0 &amp; 0\<br>
+0 &amp; 0 &amp; 1 &amp; 1\<br>
+0 &amp; 1 &amp; 0 &amp; 1\end{pmatrix}x\equiv0\pmod2
+$$</p>
+</li>
+<li>
+<p>We get solution:
+$$
+x= \begin{pmatrix}1\1\1\1\end{pmatrix}
+$$</p>
+</li>
+<li>
+<p>Now calculate the products R,X with corresponding Q(x) and (x+45). We find:
+$$
+X=5402838\<br>
+R=50400
+$$</p>
+</li>
+<li>
+<p>Then
+$$
+s1=\gcd(X+R)=157\ne1\<br>
+s2=\gcd(X-R)=13\ne1
+$$</p>
+</li>
+<li>
+<p>We get 157 and 13 as two factors of 2041.</p>
+</li>
+</ol>
+<h3 id="4-the-factorization-of-18393075391668469672027802484408130559">4. The Factorization of 18393075391668469672027802484408130559</h3>
+<ul>
+<li>
+<p>After the trial division for
+$$
+18393075391668469672027802484408130559
+$$
+, we get three smaller integers, two small ones are prime numbers
+$$
+104743\times 1299721\times 135107421725854039500365153
+$$</p>
+</li>
+<li>
+<p>We find a 500-dimension Y
+$$
+(2447\ 5519\ 401\ 5521\ 1427\ 6547\ 7573\ 5527\ 6553\ 7577\ 2459\ 4507\ 419\ 4517\ \ 1447\ 4519\ 6569\ 2477\ 433\ 6577\ 7603\ 6581\ 439\ 5569\ 4547\ 4549\ 457\ 1481\ \ 461\ 3533\ 1487\ 6607\ 4561\ 3539\ 3541\ 4567\ 5591\ 3547\ 6619\ 7643\ 479\ 7649\ \ 2531\ 3557\ 1511\ 3559\ 4583\ 491\ 2539\ 2543\ 4591\ 499\ 4597\ 503\ 2551\ 1531\ \ 4603\ 3581\ 6653\ 6659\ 6661\ 5639\ 3593\ 5641\ 7691\ 1549\ 5647\ 6673\ 2579\ \ 5651\ 7699\ 5653\ 3607\ 7703\ 5657\ 5659\ 541\ 4637\ 1567\ 2591\ 2593\ 3617\ \ 547\ 1571\ 4643\ 4649\ 1579\ 557\ 7727\ 2609\ 4657\ 563\ 5683\ 6709\ 4663\ 2617\ \ 571\ 2621\ 7741\ 4673\ 5701\ 1607\ 4679\ 3659\ 1613\ 5711\ 7759\ 593\ 6737\ 4691\ \ 5717\ 599\ 3671\ 601\ 2659\ 613\ 1637\ 5737\ 6763\ 5743\ 4723\ 2677\ 5749\ 2683\ \ 3709\ 1663\ 2687\ 1667\ 2693\ 6793\ 2699\ 653\ 3727\ 4751\ 7823\ 659\ 5779\ 661\ \ 3733\ 7829\ 4759\ 2713\ 1697\ 7841\ 1699\ 677\ 2729\ 6827\ 7853\ 4783\ 5807\ 3761\ \ 691\ 4789\ 5813\ 3767\ 1721\ 6841\ 1723\ 7867\ 2749\ 4801\ 7873\ 5827\ 1733\ \ 7879\ 6857\ 4813\ 719\ 2767\ 5843\ 3797\ 6869\ 727\ 1753\ 2777\ 5849\ 5851\ 5857\ \ 6883\ 5861\ 743\ 2791\ 2797\ 751\ 7919\ 2803\ 757\ 5879\3833\ 5881\ 1787\ 6907\ \ 4861\ 773\ 3847\ 5897\ 3853\ 5903\ 2833\ 787\ 1811\ 3863\ 2843\ 7963\ 797\ 1823\ \ 5923\ 6947\ 3877\ 6949\ 1831\ 4903\ 5927\ 809\ 2857\ 811\ 2861\ 4909\ 6959\ 6961\ \ 5939\ 821\ 6967\ 7993\ 6971\ 5953\ 4931\ 1861\ 4933\ 2887\ 3911\ 6983\ 1867\ \ 3917\ 1871\ 3919\ 4943\ 6991\ 6997\ 4951\ 3929\ 7001\ 863\ 2917\ 4967\ 3947\ \ 7019\ 881\ 883\ 1913\ 2939\ 7039\ 4993\ 7043\ 4999\ 907\ 1931\ 1933\ 2957\ 6029\ \ 5009\ 7057\ 5011\ 3989\ 6037\ 919\ 2969\ 2971\ 1949\ 1951\ 5023\ 4003\ 6053\ \ 7079\ 5039\ 947\ 4019\ 1973\ 2999\ 953\ 1979\ 3011\ 967\ 6089\ 3019\ 6091\ 3023\ \ 977\ 4051\ 5077\ 7127\ 5081\ 2011\ 2017\ 997\ 4073\ 5099\ 4079\ 5107\ 3061\ 6133\ \ 2039\ 7159\ 1021\ 4093\ 5119\ 6143)^T
+$$</p>
+</li>
+<li>
+<p>The matrix A is a 500*501 one, so here is no space for it, you can print them from the program[2].</p>
+</li>
+<li>
+<p>The solution for A
+$$
+Ax\equiv0\pmod 2\<br>
+x=\<br>
+(0\ 0\ 0\ 0\ 0\ 1\ 0\ 1\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 1\ 0\ 0\ \ 1\ 0\ 0\ 1\ 1\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 1\ 1\ 1\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 1\ 0\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 0\ 1\ 0\ 1\ 0\ 1\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 1\ 1\ 1\ 0 1\ 1\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 1\ 1\ 1\ 0\ 1\ 1\ 1\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 1\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 1\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 1\ 1\ 1\ 1\ 0\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 1\ 1\ 0\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 0\ 1\ 1\ 1\ 1\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 1\ 1\ 0\ 1\ 1\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 1\ 1\ 1\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 0\ 1\ 1\ 1)^T
+$$</p>
+</li>
+<li>
+<p>After calculating, we get R and X, you can get the two numbers in the link[3];</p>
+<p>R= 20750223421403862845340186048864525101592391560738445997187639108162146813209860560839581681013617780346072719960764809004544717842239043750377944517643978443457211645463582601324938586087250666814295830490847548137571787672230733787436374209058671906109885730555203842129983152525304189380340531891514188621728644812172781376541799806023058638778203401484060966834236823242803648626616148544969434275933973391148277197770801251358917128503832670780387473600115263826581048807546160569676518131460262815488173298973943546768621024688010355671076912937903837130376263566039127868296900154066563742546649312718258653163165629086052698383263661846573940726167387264304923002949198772870878050828764999807811473432492971416900527292116776652667561438056975277137941546624122524834543312034638969580779352984250900213406284747617226256868940281345201833018760372287284383569598190136559907772960387621592813978869779144987421348480973545579285910533192736290651738749783100338637441989377330682016445535723116581801345531126146011251015176459077621193431577105619917346960860570431845620086632255078206668185036026964203919751753406445407844666516126470176137381523677396014947076483547110643709943312459077499635274795857771711162510287816225484374867824150032392268283866650137696025071313276082930717654891138994161632335246928445707481529064112520544487143497305607318779690002112318213289670584265832684328529943087551002308024706511293548764296491252564733424339816199802679475528555797954118687886410755067040178382398036648258188937752645407817862312249863911878172333673507270894422541560774353499619844313214298455661112607846251724632819787011101849838807665133997734430831130820186197374264855559040487314549710880455272078460096015314825929719666694636767326227709638129339729708837184375795119018721454846695644801457916288262186452258939159822879439610453608445599748543190585727588106160955502555328535540770883992394191205748036875115487298155098116250602571886584403841048853643644049946538562747333795412113061113982511484221058211637564063416473614590947602250169811716877627117305341861279308505146597184749041368673889268734647201220196552213460679548055149551117336081461607600627716267016454144</p>
+<p>,</p>
+<p>X=</p>
+<p>1240101920056374950847947188314232933035061163220454236711103252813405006450801144694863171579176717635879903543395095835755093927657899557367440702059809129442818442726207095775874374170820377379012694344552365124867939624783935387223484728988512185727844077264349955971609822376771454230882122608434009063324945952295018009382246913945654795950335762939466643174350305474537839599027896714014490217163179182151556905613840381859883000897888574670084835660945414963203583273885932858439742093208933847306817108250093687597912360498623924351460113907392156648572161043392114585902459626936093113487951127971795922644135185745756884221420808794650546316899430306833499222348089332827326187300262581894818961509259995482841391051579729958695384323263352880158719205240593639466149707964146209945090528852138706137554763911760687715813065601029913982373918884149474745432297842480018756195149799581480833063007782688990118937580564322075427284730328762134400476350328088849710175004346375106191188786912881214367738503359984591514128534568347288278672938171184185088338803269173933738753183720522598996179702055496204327643961886678241248326593791086625993364965240212421125242029139801108062453298520999413696818502863438346715281056716651699103451873529779090556025775290835558041539041149422709521792850627597214274905699033077247434915845526411455925905278859873685069245011954209680668811307303301074634032402364759418788325987033166385196207111270677569057535159301641013170469491594661532504469901113736224934179961245129002588283112546251241976609597109817877427760738481389235941102758018598864511051422928559663804402770758654468402531813250898651456474596269669462681665902936038122780144422692224243689777273653669794615842077592264589820193945002897523822430710986690321908750044377694914861722371080659239763014997123999634877459212962697022991711257926544737616153343484838675409997825326290012132355513648831490383031047317485826131393091186989126318873219080143037030949286452815492820923798147638828266537307853482967494153183588290173251428093141515974886029784972681951390848157028249072508039973584300123374720347369820837495211839854955221455833738210498221880605773303905891446748307644563273815381015246923677914470435910429792440063917721432202402137810673438543327793627952396130181585097295643996469739539263588030080214325212442211397734330464561595931140811297445449779531908968341517710024771868209804475040952245869272512317498488217212638997172162194445244932339160603174137975906465664360069574493009957472326318571824062579075775056124034392806895770888807962054778960270717046676015732050925810330215652759524151470335486927445726943738613206007512773906579579252632985628600355592553456061193494827020632532256963733739018130320825551033319379394879523530561055268018379747862001020538531776459270970256891973081720777617310394981913495174512027899704491012545253609528651736337627297240964060381447372412827096660803487569098991206400000000000000000000000000000000000000000000000000000</p>
+</li>
+<li>
+<p>At last, we get the other two factors:
+$$
+\gcd(R+X,135107421725854039500365153)= 475999687667509\<br>
+\gcd(R-X,135107421725854039500365153)= 283839307517
+$$</p>
+</li>
+</ul>
+<h3 id="5-references">5. References</h3>
+<p>[1] Carl Pomerance : A Tale of Two Sieves</p>
+<p>[2] <a href="https://bbs.pediy.com/thread-224471.htm">https://bbs.pediy.com/thread-224471.htm</a></p>
+<h3 id="6-source-code">6. Source Code</h3>
+<ul>
+<li>My source code includes:
+<ol>
+<li>Main.java: Includes main function containing trial sieve and calling of functions of quadratic sieve in the following file.</li>
+<li>GL.java: Includes Euclidean algorithm and Legendre Symbol;</li>
+<li>MakeVecter.java: Includes the codes to construct 500-dimension Y;</li>
+<li>Factors.java: A class to save Y, Q, A, and x.</li>
+<li>GetFactors.java: Includes the codes to construct the 500*501 matrix A;</li>
+<li>Congruence.java: Includes the codes to solve the system of linear congruence equations of A;</li>
+<li>GetSquare.java: Includes the codes to calculate the two square numbers, and print the other two factors.</li>
+</ol>
+</li>
+<li>Since nearly all algorithms in quadratic sieve are coded by myself, they may be too long to be put in the essay. You can get the code from the following links.</li>
+<li>I have compile and run the codes under my PC environment of Ubuntu 19.04 , Java 13. If you have problems understanding the codes or fail to run them, please mail me at <a href="mailto:gerunwei@foxmail.com">gerunwei@foxmail.com</a> or any other way.</li>
+</ul>
+<p>[3]</p>
+<ul>
+<li><a href="https://github.com/rwwg/FactoringInteger">https://github.com/rwwg/FactoringInteger</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-01-12
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/number-theory/">number theory</a>
+          <a href="/tags/english/">english</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/python-%E9%AB%98%E9%98%B6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Python 高阶</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E5%AD%A6%E4%B9%A0%E4%B9%8B%E9%81%93-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+            <span class="next-text nav-default">学习之道 读书笔记</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:runweige@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.linkedin.com/in/runweige/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
