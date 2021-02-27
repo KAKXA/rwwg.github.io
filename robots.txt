@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://rwwg.github.io/sitemap.xml
