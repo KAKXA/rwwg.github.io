@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>English on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/english/</link>
+    <description>Recent content in English on Ge&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 12 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://rwwg.github.io/tags/english/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to factor a big integer?</title>
+      <link>https://rwwg.github.io/post/factoring-an-integer-trial-division-and-quadratic-sieve/</link>
+      <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/factoring-an-integer-trial-division-and-quadratic-sieve/</guid>
+      <description>1. Abstract   This essay is to explain the factoring of an integer 18393075391668469672027802484408130559.
+  The result and time:</description>
+    </item>
+    
+    <item>
+      <title>Collins COBUILD English Grammar 读书笔记</title>
+      <link>https://rwwg.github.io/post/enggra/</link>
+      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/enggra/</guid>
+      <description>Referring to people and things: nouns, pronouns, and determiners English Chinese Grammar I got some scissors. 我拿到了</description>
+    </item>
+    
+    <item>
+      <title>CPP</title>
+      <link>https://rwwg.github.io/post/cpp/</link>
+      <pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/cpp/</guid>
+      <description>C++ Unit 5 循环和关系表达式 表达式+分号=语句</description>
+    </item>
+    
+  </channel>
+</rss>

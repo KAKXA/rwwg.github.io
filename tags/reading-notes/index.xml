@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reading notes on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/reading-notes/</link>
+    <description>Recent content in reading notes on Ge&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 20 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://rwwg.github.io/tags/reading-notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>学习之道 读书笔记</title>
+      <link>https://rwwg.github.io/post/%E5%AD%A6%E4%B9%A0%E4%B9%8B%E9%81%93-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/%E5%AD%A6%E4%B9%A0%E4%B9%8B%E9%81%93-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>学习之道 2 放松点 我们的大脑有两种截然不同</description>
+    </item>
+    
+    <item>
+      <title>Collins COBUILD English Grammar 读书笔记</title>
+      <link>https://rwwg.github.io/post/enggra/</link>
+      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/enggra/</guid>
+      <description>Referring to people and things: nouns, pronouns, and determiners English Chinese Grammar I got some scissors. 我拿到了</description>
+    </item>
+    
+    <item>
+      <title>CPP</title>
+      <link>https://rwwg.github.io/post/cpp/</link>
+      <pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/cpp/</guid>
+      <description>C++ Unit 5 循环和关系表达式 表达式+分号=语句</description>
+    </item>
+    
+  </channel>
+</rss>
