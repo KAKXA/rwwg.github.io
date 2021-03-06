@@ -6,10 +6,19 @@
     <description>Recent content in Simplified Chinese on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 15 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TCP的快重传和快恢复</title>
+      <link>https://rwwg.github.io/post/%E5%BF%AB%E9%87%8D%E4%BC%A0%E4%B8%8E%E5%BF%AB%E6%81%A2%E5%A4%8D/</link>
+      <pubDate>Sat, 06 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/%E5%BF%AB%E9%87%8D%E4%BC%A0%E4%B8%8E%E5%BF%AB%E6%81%A2%E5%A4%8D/</guid>
+      <description>假设发送方向接收方发送$M_1$,$M_</description>
+    </item>
     
     <item>
       <title>LaTex大矩阵的写法</title>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Ge&#39;s Blog</title>
+  <title>TCP的快重传和快恢复 - Ge&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="rwwg" /><meta name="description" content="rwwg的博客." />
+<meta name="author" content="rwwg" /><meta name="description" content="重新捡起计算机网络,发现原来就没弄懂的知识" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-<link rel="canonical" href="https://rwwg.github.io/" />
-  <link href="https://rwwg.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Ge&#39;s Blog" />
-  <link href="https://rwwg.github.io/index.xml" rel="feed" type="application/rss+xml" title="Ge&#39;s Blog" />
+<link rel="canonical" href="https://rwwg.github.io/post/%E5%BF%AB%E9%87%8D%E4%BC%A0%E4%B8%8E%E5%BF%AB%E6%81%A2%E5%A4%8D/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,15 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Ge&#39;s Blog" />
-<meta property="og:description" content="rwwg的博客." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://rwwg.github.io/" />
-<meta property="og:updated_time" content="2021-03-06T00:00:00+00:00" />
-<meta itemprop="name" content="Ge&#39;s Blog">
-<meta itemprop="description" content="rwwg的博客."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Ge&#39;s Blog"/>
-<meta name="twitter:description" content="rwwg的博客."/>
+<meta property="og:title" content="TCP的快重传和快恢复" />
+<meta property="og:description" content="重新捡起计算机网络,发现原来就没弄懂的知识" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/%E5%BF%AB%E9%87%8D%E4%BC%A0%E4%B8%8E%E5%BF%AB%E6%81%A2%E5%A4%8D/" />
+<meta property="article:published_time" content="2021-03-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-06T00:00:00+00:00" />
+<meta itemprop="name" content="TCP的快重传和快恢复">
+<meta itemprop="description" content="重新捡起计算机网络,发现原来就没弄懂的知识">
+<meta itemprop="datePublished" content="2021-03-06T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-06T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="183">
+
+
+
+<meta itemprop="keywords" content="network,simplified chinese," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TCP的快重传和快恢复"/>
+<meta name="twitter:description" content="重新捡起计算机网络,发现原来就没弄懂的知识"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -115,117 +121,73 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">Manjaro KDE常见问题与解决方案</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-08-07 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      设置主屏幕与关闭笔记本显示屏 1 2 xrandr --output HDMI-1 --mode
-    </div>
-    <div class="read-more">
-      <a href="/post/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">TCP的快重传和快恢复</h1>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/windows-10-%E4%B8%8B%E6%9E%B6%E8%AE%BEgit%E6%9C%8D%E5%8A%A1/">Windows 10 下架设Git服务</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-07-15 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      架设git远程仓库 git --bare init初始化一个
-    </div>
-    <div class="read-more">
-      <a href="/post/windows-10-%E4%B8%8B%E6%9E%B6%E8%AE%BEgit%E6%9C%8D%E5%8A%A1/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
+      <div class="post-meta">
+        <span class="post-time"> 2021-03-06 </span>
+        
+        
+      </div>
+    </header>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E5%9C%A8ubuntu-gnome%E4%B8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">Ubuntu Gnome 常见问题与解决方案</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-11 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      修改/home下各文件夹的用途 sudo vim ~/.config/user-dirs.dirs 修改
-    </div>
-    <div class="read-more">
-      <a href="/post/%E5%9C%A8ubuntu-gnome%E4%B8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="read-more-link">Read more...</a>
-    </div>
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
   </div>
-</article>
+</div>
+    <div class="post-content">
+      <ul>
+<li>假设发送方向接收方发送$M_1$,$M_2$,$M_3$;</li>
+<li>当接受方只接受到$M_1$,$M_2$,而$M_3$堵塞在网络中长时间无法到达,接收方会频繁地向发送方传$M_2$已经收到的消息;</li>
+<li>当发送方接受到大于等于3条$M_2$的确认报文时,就重置阻塞窗口为ssthresh的大小,然后执行拥塞避免算法;</li>
+<li>与此同时,不等$M_3$的超时时间结束,发送方立即重传$M_3$;</li>
+</ul>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python-%E9%AB%98%E9%98%B6/">Python 高阶</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-03-30 </span>
-      
     </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Python 运算符与数据类型 // 只取结果的整数部分 文
-    </div>
-    <div class="read-more">
-      <a href="/post/python-%E9%AB%98%E9%98%B6/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/factoring-an-integer-trial-division-and-quadratic-sieve/">How to factor a big integer?</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-01-12 </span>
-      
-    </div>
-  </header>
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-03-06
+        
+    </span>
+  </p>
   
-  <div class="post-content">
-    <div class="post-summary">
-      1. Abstract   This essay is to explain the factoring of an integer 18393075391668469672027802484408130559.
-  The result and time:
-    </div>
-    <div class="read-more">
-      <a href="/post/factoring-an-integer-trial-division-and-quadratic-sieve/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
-      </a>
-    <a class="next" href="/page/3/">
-        <span class="next-text">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/network/">network</a>
+          <a href="/tags/simplified-chinese/">simplified chinese</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/latex%E4%B8%AD%E5%A6%82%E4%BD%95%E5%86%99%E5%A4%A7%E7%9F%A9%E9%98%B5/">
+            <span class="next-text nav-default">LaTex大矩阵的写法</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>
