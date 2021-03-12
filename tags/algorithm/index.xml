@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithm on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/algorithm/</link>
+    <description>Recent content in algorithm on Ge&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 12 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://rwwg.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>有序数组查找</title>
+      <link>https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E6%90%9C%E7%B4%A2/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E6%90%9C%E7%B4%A2/</guid>
+      <description>有序数组查找,过于简单的二分查找,可是一</description>
+    </item>
+    
+  </channel>
+</rss>
