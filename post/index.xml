@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rwwg.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode 72: Edit Distance</title>
+      <link>https://rwwg.github.io/post/leetcode-72/</link>
+      <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/leetcode-72/</guid>
+      <description>&lt;p&gt;编辑距离&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>leetcode-719: find k-th smallest pair distance</title>

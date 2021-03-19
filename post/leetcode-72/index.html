@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>leetcode-719: find k-th smallest pair distance - Ge&#39;s Blog</title>
+  <title>Leetcode 72: Edit Distance - Ge&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="rwwg" /><meta name="description" content="leetcode-719: find k-th smallest pair distance" />
+<meta name="author" content="rwwg" /><meta name="description" content="编辑距离" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-<link rel="canonical" href="https://rwwg.github.io/post/leetcode-719/" />
+<link rel="canonical" href="https://rwwg.github.io/post/leetcode-72/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,23 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="leetcode-719: find k-th smallest pair distance" />
-<meta property="og:description" content="leetcode-719: find k-th smallest pair distance" />
+<meta property="og:title" content="Leetcode 72: Edit Distance" />
+<meta property="og:description" content="编辑距离" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://rwwg.github.io/post/leetcode-719/" />
-<meta property="article:published_time" content="2021-03-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-03-17T00:00:00+00:00" />
-<meta itemprop="name" content="leetcode-719: find k-th smallest pair distance">
-<meta itemprop="description" content="leetcode-719: find k-th smallest pair distance">
-<meta itemprop="datePublished" content="2021-03-17T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-03-17T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="299">
+<meta property="og:url" content="https://rwwg.github.io/post/leetcode-72/" />
+<meta property="article:published_time" content="2021-03-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-19T00:00:00+00:00" />
+<meta itemprop="name" content="Leetcode 72: Edit Distance">
+<meta itemprop="description" content="编辑距离">
+<meta itemprop="datePublished" content="2021-03-19T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-19T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="228">
 
 
 
-<meta itemprop="keywords" content="leetcode,algorithm,Simplified Chinese,binary search," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="leetcode-719: find k-th smallest pair distance"/>
-<meta name="twitter:description" content="leetcode-719: find k-th smallest pair distance"/>
+<meta itemprop="keywords" content="leetcode,algorithm,dp,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 72: Edit Distance"/>
+<meta name="twitter:description" content="编辑距离"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -124,10 +124,10 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">leetcode-719: find k-th smallest pair distance</h1>
+      <h1 class="post-title">Leetcode 72: Edit Distance</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-03-17 </span>
+        <span class="post-time"> 2021-03-19 </span>
         
         
       </div>
@@ -143,7 +143,7 @@
         <li>
           <ul>
             <li><a href="#问题描述">问题描述</a></li>
-            <li><a href="#思路">思路</a></li>
+            <li><a href="#题解">题解</a></li>
           </ul>
         </li>
       </ul>
@@ -153,15 +153,16 @@
   </div>
 </div>
     <div class="post-content">
-      <p>找出第 k 小的距离对</p>
+      <p>编辑距离</p>
 <h3 id="问题描述">问题描述</h3>
-<p>给定一个整数数组,返回所有数对之间的第 k 个最小距离.一对 (A, B) 的距离被定义为 A 和 B 之间的绝对差值.</p>
-<h3 id="思路">思路</h3>
-<p>由于第k小的距离限制在[0, max(num) - min(num)]之间,所以可以对这个区间进行二分.</p>
-<ol>
-<li>先对数组排序;</li>
-<li>用possible(guess),数出nums中所有距离小于等于guess的数对的个数,如果大于等于k,说明guess选大了,导致更多的数对被选中,在二分法中减少guess的值继续尝试.</li>
-</ol>
+<p>给你两个单词 word1 和 word2,请你计算出将 word1 转换成 word2 所使用的最少操作数.
+你可以对一个单词进行如下三种操作：</p>
+<ul>
+<li>插入一个字符</li>
+<li>删除一个字符</li>
+<li>替换一个字符</li>
+</ul>
+<h3 id="题解">题解</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -181,29 +182,25 @@
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">smallestDistancePair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="k">def</span> <span class="nf">possible</span><span class="p">(</span><span class="n">guess</span><span class="p">):</span>
-            <span class="n">count</span> <span class="o">=</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">for</span> <span class="n">right</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-                <span class="k">while</span> <span class="n">x</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">guess</span><span class="p">:</span>
-                    <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">count</span> <span class="o">+=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span>
-            <span class="k">return</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">k</span>
-        <span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-        <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">:</span>
-            <span class="n">mid</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-            <span class="k">if</span> <span class="n">possible</span><span class="p">(</span><span class="n">mid</span><span class="p">):</span>
-                <span class="n">r</span> <span class="o">=</span> <span class="n">mid</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">l</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">l</span>
+    <span class="k">def</span> <span class="nf">minDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">word2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span>
+        <span class="n">l2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">l1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">l2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">l2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+	<span class="c1"># dp[i][j] 表示word1[:i + 1]与word2[:j + 1]之间的最少操作数</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l1</span><span class="p">):</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l2</span><span class="p">):</span>
+            <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l2</span><span class="p">):</span>
+		<span class="c1"># 转移方程 </span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">word1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">word2</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">l1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">l2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -217,7 +214,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2021-03-17
+        2021-03-19
         
     </span>
   </p>
@@ -231,17 +228,13 @@
       <div class="post-tags">
           <a href="/tags/leetcode/">leetcode</a>
           <a href="/tags/algorithm/">algorithm</a>
+          <a href="/tags/dp/">dp</a>
           <a href="/tags/simplified-chinese/">Simplified Chinese</a>
-          <a href="/tags/binary-search/">binary search</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/leetcode-72/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Leetcode 72: Edit Distance</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/leetcode-233/">
-            <span class="next-text nav-default">Leetcode 233: number of digit one</span>
+        
+        <a class="next" href="/post/leetcode-719/">
+            <span class="next-text nav-default">leetcode-719: find k-th smallest pair distance</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
