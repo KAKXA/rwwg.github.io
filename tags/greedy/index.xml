@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dfs on Ge&#39;s Blog</title>
-    <link>https://rwwg.github.io/tags/dfs/</link>
-    <description>Recent content in dfs on Ge&#39;s Blog</description>
+    <title>greedy on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/greedy/</link>
+    <description>Recent content in greedy on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 21 Mar 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://rwwg.github.io/tags/dfs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://rwwg.github.io/tags/greedy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://rwwg.github.io/post/leetcode-322/</guid>
       <description>&lt;p&gt;零钱兑换&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode-52: N-Queens-II</title>
-      <link>https://rwwg.github.io/post/leetcode-52/</link>
-      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/post/leetcode-52/</guid>
-      <description>&lt;h3 id=&#34;n皇后问题&#34;&gt;N皇后问题&lt;/h3&gt;</description>
     </item>
     
   </channel>
