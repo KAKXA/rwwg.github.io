@@ -6,10 +6,19 @@
     <description>Recent content in Python on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rwwg.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python垃圾回收机制</title>
+      <link>https://rwwg.github.io/post/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <description>&lt;p&gt;Python底层的C实现是怎样处理垃圾的?&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Python的实例方法,类方法与静态方法</title>

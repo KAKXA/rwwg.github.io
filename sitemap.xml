@@ -58,6 +58,20 @@
   </url>
   
   <url>
+    <loc>https://rwwg.github.io/tags/python/</loc>
+    <lastmod>2021-03-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/post/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</loc>
+    <lastmod>2021-03-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://rwwg.github.io/tags/simplified-chinese/</loc>
     <lastmod>2021-03-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -95,13 +109,6 @@
   <url>
     <loc>https://rwwg.github.io/tags/pruning/</loc>
     <lastmod>2021-03-21T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/python/</loc>
-    <lastmod>2021-03-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -403,12 +410,6 @@
   <url>
     <loc>https://rwwg.github.io/tags/cpp/</loc>
     <lastmod>2019-07-13T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/post/untitled-copy/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
