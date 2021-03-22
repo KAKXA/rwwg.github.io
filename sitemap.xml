@@ -16,6 +16,13 @@
   </url>
   
   <url>
+    <loc>https://rwwg.github.io/tags/dp/</loc>
+    <lastmod>2021-03-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://rwwg.github.io/</loc>
     <lastmod>2021-03-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -31,6 +38,13 @@
   
   <url>
     <loc>https://rwwg.github.io/post/leetcode105/</loc>
+    <lastmod>2021-03-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/post/leetcode-739/</loc>
     <lastmod>2021-03-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -95,13 +109,6 @@
   <url>
     <loc>https://rwwg.github.io/post/python-3-methods/</loc>
     <lastmod>2021-03-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/dp/</loc>
-    <lastmod>2021-03-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
