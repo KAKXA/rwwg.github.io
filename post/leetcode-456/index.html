@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal - Ge&#39;s Blog</title>
+  <title>Leetcode 456: 132 Pattern - Ge&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="rwwg" /><meta name="description" content="Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal" />
+<meta name="author" content="rwwg" /><meta name="description" content=" " />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-<link rel="canonical" href="https://rwwg.github.io/post/leetcode105/" />
+<link rel="canonical" href="https://rwwg.github.io/post/leetcode-456/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,23 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal" />
-<meta property="og:description" content="Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal" />
+<meta property="og:title" content="Leetcode 456: 132 Pattern" />
+<meta property="og:description" content=" " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://rwwg.github.io/post/leetcode105/" />
-<meta property="article:published_time" content="2021-03-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-03-22T00:00:00+00:00" />
-<meta itemprop="name" content="Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal">
-<meta itemprop="description" content="Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal">
-<meta itemprop="datePublished" content="2021-03-22T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-03-22T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="308">
+<meta property="og:url" content="https://rwwg.github.io/post/leetcode-456/" />
+<meta property="article:published_time" content="2021-03-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-24T00:00:00+00:00" />
+<meta itemprop="name" content="Leetcode 456: 132 Pattern">
+<meta itemprop="description" content=" ">
+<meta itemprop="datePublished" content="2021-03-24T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-24T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="456">
 
 
 
-<meta itemprop="keywords" content="leetcode,algorithm,Simplified Chinese,binary tree," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal"/>
-<meta name="twitter:description" content="Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal"/>
+<meta itemprop="keywords" content="Simplified Chinese,algorithm,leetcode,stack," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 456: 132 Pattern"/>
+<meta name="twitter:description" content=" "/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -124,10 +124,10 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal</h1>
+      <h1 class="post-title">Leetcode 456: 132 Pattern</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-03-22 </span>
+        <span class="post-time"> 2021-03-24 </span>
         
         
       </div>
@@ -142,7 +142,6 @@
       <ul>
         <li>
           <ul>
-            <li></li>
             <li><a href="#题目">题目</a></li>
             <li><a href="#思路">思路</a></li>
             <li><a href="#代码">代码</a></li>
@@ -155,14 +154,19 @@
   </div>
 </div>
     <div class="post-content">
-      <p>从前序与中序遍历序列构造二叉树</p>
-<h4 id="heading"></h4>
+      <p>132 模式</p>
 <h3 id="题目">题目</h3>
-<p>根据一棵树的前序遍历与中序遍历构造二叉树.</p>
-<p><strong>注意:</strong>
-你可以假设树中没有重复的元素.</p>
+<p>给你一个整数数组 nums ，数组中共有 n 个整数。132 模式的子序列 由三个整数 nums[i]、nums[j] 和 nums[k] 组成，并同时满足：i &lt; j &lt; k 和 nums[i] &lt; nums[k] &lt; nums[j] 。</p>
+<p>如果 nums 中存在 132 模式的子序列 ，返回 true ；否则，返回 false 。</p>
 <h3 id="思路">思路</h3>
-<p>用前序遍历找到当前的根节点,用后序遍历确定左右结点的总结点个数.这样就把一个大的前序,中序数组拆成两个小的前序,中序数组.并且是一一对应的.</p>
+<ul>
+<li>
+<p>从右往左遍历数组,维护一个&quot;2&quot;的候选单调栈(栈顶到栈底依次递增), &ldquo;2&rdquo; 的候选值max_2.</p>
+</li>
+<li>
+<p>当遇到一个数时,检查它是不是大于栈顶元素,如果是,则它可以作为&quot;3&quot;的候选值,此时栈顶元素作为&quot;2&quot;的候选值max_2,不断迭代弹栈直到找到最大的&quot;2&quot;的候选值max_2.如果发现栈中没有元素比当前元素大,则把它放到栈底作为未来可能的&quot;2&quot;的候选值,这是因为它一定大于当前的max_2,所以对于左侧可能的更大的3,它都可以作为比当前 max_2 更好的&quot;2&quot;的候选值.</p>
+</li>
+</ul>
 <h3 id="代码">代码</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -182,36 +186,24 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">buildTree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preorder</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">inorder</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TreeNode</span><span class="p">:</span>
-        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">prel</span><span class="p">,</span> <span class="n">prer</span><span class="p">,</span> <span class="n">inl</span><span class="p">,</span> <span class="n">inr</span><span class="p">):</span>
-            <span class="c1"># 用prel, prer规定前序遍历数组的左右边界</span>
-            <span class="c1"># 用inl, inr规定中序遍历数组的左右边界</span>
-            <span class="c1"># 当prel越过prer,意味着到达空结点了</span>
-            <span class="k">if</span> <span class="n">prel</span> <span class="o">&gt;</span> <span class="n">prer</span><span class="p">:</span>
-                <span class="k">return</span> <span class="bp">None</span>
-            <span class="n">preroot</span> <span class="o">=</span> <span class="n">prel</span>
-            <span class="n">inindex</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="n">preorder</span><span class="p">[</span><span class="n">preroot</span><span class="p">]]</span>
-            <span class="n">root</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">preorder</span><span class="p">[</span><span class="n">preroot</span><span class="p">])</span>
-            <span class="n">leftsize</span> <span class="o">=</span> <span class="n">inindex</span> <span class="o">-</span> <span class="n">inl</span>
-            <span class="n">rightsize</span> <span class="o">=</span> <span class="n">inr</span> <span class="o">-</span> <span class="n">inindex</span>
-            <span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">prel</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">prel</span> <span class="o">+</span> <span class="n">leftsize</span><span class="p">,</span> <span class="n">inl</span><span class="p">,</span> <span class="n">inindex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="n">root</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">prel</span> <span class="o">+</span> <span class="n">leftsize</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">prer</span><span class="p">,</span> <span class="n">inindex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inr</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">root</span>
+    <span class="k">def</span> <span class="nf">find132pattern</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="n">candidate_k</span> <span class="o">=</span> <span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]]</span>
+        <span class="n">max_k</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&#34;-inf&#34;</span><span class="p">)</span>
 
-        <span class="n">m</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-        <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">inorder</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-            <span class="n">m</span><span class="p">[</span><span class="n">inorder</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
-        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_k</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">while</span> <span class="n">candidate_k</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">candidate_k</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">max_k</span> <span class="o">=</span> <span class="n">candidate_k</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">candidate_k</span><span class="o">.</span><span class="n">pop</span>     <span class="p">()</span>
+            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_k</span><span class="p">:</span>
+                <span class="n">candidate_k</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="bp">False</span>
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -225,7 +217,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2021-03-22
+        2021-03-24
         
     </span>
   </p>
@@ -237,19 +229,15 @@
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/leetcode/">leetcode</a>
-          <a href="/tags/algorithm/">algorithm</a>
           <a href="/tags/simplified-chinese/">Simplified Chinese</a>
-          <a href="/tags/binary-tree/">binary tree</a>
+          <a href="/tags/algorithm/">algorithm</a>
+          <a href="/tags/leetcode/">leetcode</a>
+          <a href="/tags/stack/">stack</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/leetcode-456/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Leetcode 456: 132 Pattern</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/leetcode-739/">
-            <span class="next-text nav-default">Leetcode 739: Daily Temperatures</span>
+        
+        <a class="next" href="/post/leetcode105/">
+            <span class="next-text nav-default">Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
