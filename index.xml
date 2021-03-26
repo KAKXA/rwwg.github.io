@@ -6,10 +6,19 @@
     <description>Recent content on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rwwg.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>最小三元组距离</title>
+      <link>https://rwwg.github.io/post/%E6%9C%80%E5%B0%8F%E4%B8%89%E5%85%83%E7%BB%84%E8%B7%9D%E7%A6%BB/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/%E6%9C%80%E5%B0%8F%E4%B8%89%E5%85%83%E7%BB%84%E8%B7%9D%E7%A6%BB/</guid>
+      <description>&lt;p&gt;主要是为了记录一个神奇的公式.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Leetcode 456: 132 Pattern</title>
