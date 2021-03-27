@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Attention机制</title>
+      <link>https://rwwg.github.io/post/attention/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/attention/</guid>
+      <description>&lt;p&gt;本文介绍NLP中的Attention机制.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Seq2Seq</title>
       <link>https://rwwg.github.io/post/seq2seq/</link>
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
