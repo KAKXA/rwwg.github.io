@@ -49,7 +49,7 @@
 <meta itemprop="description" content="Seq2Seq">
 <meta itemprop="datePublished" content="2021-03-27T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-03-27T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="518">
+<meta itemprop="wordCount" content="520">
 
 
 
@@ -174,7 +174,7 @@ $$</p>
 <p>$g$ : 解码器隐藏层的变换</p>
 <p>$s_i$ : 第 $i$ 个时间步的隐藏状态
 $$
-s_i = g(y_i, s_{i - 1}, c)
+s_i = g(y_{i - 1}, s_{i - 1}, c)
 $$</p>
 <h2 id="训练模型">训练模型</h2>
 <p>$ T&rsquo; $ : 输出序列的词汇长度</p>
