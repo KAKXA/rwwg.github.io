@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://rwwg.github.io/tags/machine-learning/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NLP</title>
+      <link>https://rwwg.github.io/tags/nlp/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seq2seq</title>
+      <link>https://rwwg.github.io/tags/seq2seq/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/seq2seq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simplified Chinese</title>
+      <link>https://rwwg.github.io/tags/simplified-chinese/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>algorithm</title>
@@ -17,15 +53,6 @@
       <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Simplified Chinese</title>
-      <link>https://rwwg.github.io/tags/simplified-chinese/</link>
-      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
       <description></description>
     </item>
     
