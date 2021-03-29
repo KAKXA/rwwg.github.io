@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Leetcod 173: Binary Search Tree Iterator - Ge&#39;s Blog</title>
+  <title>有序链表合并 - Ge&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="rwwg" /><meta name="description" content="Binary Search Tree Iterator" />
+<meta name="author" content="rwwg" /><meta name="description" content="有序链表合并" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-<link rel="canonical" href="https://rwwg.github.io/post/leetcode-173/" />
+<link rel="canonical" href="https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,23 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Leetcod 173: Binary Search Tree Iterator" />
-<meta property="og:description" content="Binary Search Tree Iterator" />
+<meta property="og:title" content="有序链表合并" />
+<meta property="og:description" content="有序链表合并" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://rwwg.github.io/post/leetcode-173/" />
-<meta property="article:published_time" content="2021-03-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-03-28T00:00:00+00:00" />
-<meta itemprop="name" content="Leetcod 173: Binary Search Tree Iterator">
-<meta itemprop="description" content="Binary Search Tree Iterator">
-<meta itemprop="datePublished" content="2021-03-28T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-03-28T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="361">
+<meta property="og:url" content="https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/" />
+<meta property="article:published_time" content="2021-03-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-29T00:00:00+00:00" />
+<meta itemprop="name" content="有序链表合并">
+<meta itemprop="description" content="有序链表合并">
+<meta itemprop="datePublished" content="2021-03-29T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-29T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="190">
 
 
 
-<meta itemprop="keywords" content="leetcode,Binary Tree,stack,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Leetcod 173: Binary Search Tree Iterator"/>
-<meta name="twitter:description" content="Binary Search Tree Iterator"/>
+<meta itemprop="keywords" content="algorithm,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="有序链表合并"/>
+<meta name="twitter:description" content="有序链表合并"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -124,10 +124,10 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Leetcod 173: Binary Search Tree Iterator</h1>
+      <h1 class="post-title">有序链表合并</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-03-28 </span>
+        <span class="post-time"> 2021-03-29 </span>
         
         
       </div>
@@ -136,34 +136,13 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#题目">题目</a></li>
-            <li><a href="#思路">思路</a></li>
-            <li><a href="#代码">代码</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
-      <p>二叉搜索树迭代器</p>
-<h3 id="题目">题目</h3>
-<p>实现一个二叉搜索树迭代器类BSTIterator ，表示一个按中序遍历二叉搜索树（BST）的迭代器：</p>
-<pre><code>BSTIterator(TreeNode root) 初始化 BSTIterator 类的一个对象。BST 的根结点 root 会作为构造函数的一部分给出。指针应初始化为一个不存在于 BST 中的数字，且该数字小于 BST 中的任何元素。
-boolean hasNext() 如果向指针右侧遍历存在数字，则返回 true ；否则返回 false 。
-int next()将指针向右移动，然后返回指针处的数字。
-</code></pre>
-<h3 id="思路">思路</h3>
-<p>考虑到中序遍历中,在结束一个叶结点的遍历后,要找到离该叶结点最近且右结点不为空的结点,这样才能进入一个右子树.故使用一个栈来维护<strong>当前结点到根结点的路径上未被使用过的结点</strong>,每当一个结点被<code>next</code>返回,就把它从栈中弹出,并把它的右子树入栈.</p>
-<h3 id="代码">代码</h3>
+      <p>有序链表合并是链表操作的基本功之一,类似的思想也是归并排序的基本组件.</p>
+<p>这是思想很简单但是有些细节要仔细处理的算法,类似二分法.一旦用到必须熟练地写出来.</p>
+<p>代码摘自 <code>Leetcode</code> 的官方题解.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -185,23 +164,23 @@ int next()将指针向右移动，然后返回指针处的数字。
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">BSTIterator</span><span class="p">:</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">mergeTwoLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span>
+    <span class="n">prehead</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cur</span> <span class="o">=</span> <span class="n">root</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">arr</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="n">prehead</span>
+    <span class="k">while</span> <span class="n">l1</span> <span class="ow">and</span> <span class="n">l2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">l1</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;=</span> <span class="n">l2</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+            <span class="n">prev</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">l1</span>
+            <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">prev</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">l2</span>
+            <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">.</span><span class="n">next</span>            
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">prev</span><span class="o">.</span><span class="n">next</span>
 
-    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">cur</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cur</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cur</span><span class="o">.</span><span class="n">left</span>
+    <span class="c1"># 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可</span>
+    <span class="n">prev</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">l1</span> <span class="k">if</span> <span class="n">l1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">l2</span>
 
-        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">arr</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span>
-        <span class="k">return</span> <span class="n">cur</span><span class="o">.</span><span class="n">val</span>
-
-    <span class="k">def</span> <span class="nf">hasNext</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cur</span> <span class="o">!=</span> <span class="bp">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arr</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">prehead</span><span class="o">.</span><span class="n">next</span>
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -215,7 +194,7 @@ int next()将指针向右移动，然后返回指针处的数字。
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2021-03-28
+        2021-03-29
         
     </span>
   </p>
@@ -227,19 +206,13 @@ int next()将指针向右移动，然后返回指针处的数字。
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/leetcode/">leetcode</a>
-          <a href="/tags/binary-tree/">Binary Tree</a>
-          <a href="/tags/stack/">stack</a>
+          <a href="/tags/algorithm/">algorithm</a>
           <a href="/tags/simplified-chinese/">Simplified Chinese</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">有序链表合并</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/transformer/">
-            <span class="next-text nav-default">Transformer</span>
+        
+        <a class="next" href="/post/leetcode-173/">
+            <span class="next-text nav-default">Leetcod 173: Binary Search Tree Iterator</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
