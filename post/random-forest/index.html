@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Random Forests - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="随机森林" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/random-forest/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Random Forests" />
+<meta property="og:description" content="随机森林" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/random-forest/" />
+<meta property="article:published_time" content="2021-03-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-31T00:00:00+00:00" />
+<meta itemprop="name" content="Random Forests">
+<meta itemprop="description" content="随机森林">
+<meta itemprop="datePublished" content="2021-03-31T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-31T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="714">
+
+
+
+<meta itemprop="keywords" content="machine-learning,Simplified Chinese,random-forests," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Random Forests"/>
+<meta name="twitter:description" content="随机森林"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Random Forests</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-03-31 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#树的生成规则">树的生成规则</a></li>
+        <li><a href="#缺失值处理em-算法">缺失值处理(EM 算法)</a></li>
+        <li><a href="#oob">OOB</a></li>
+        <li><a href="#分类效果的影响因素">分类效果的影响因素</a></li>
+        <li><a href="#优点">优点</a></li>
+        <li><a href="#缺点">缺点</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>随机森林的总结</p>
+<h2 id="树的生成规则">树的生成规则</h2>
+<ol>
+<li>如果训练集大小为N，对于每棵树而言，<strong>随机</strong>且有放回地从训练集中的抽取N个训练样本，作为该树的训练集；</li>
+<li>如果每个样本的特征维度为M，指定一个常数m, 其中m&laquo;M，<strong>随机</strong>地从M个特征中选取m个特征子集，每次树进行分裂时，从这m个特征中选择最优的；</li>
+<li>每棵树都尽最大程度的生长，并且没有剪枝过程。</li>
+</ol>
+<h2 id="缺失值处理em-算法">缺失值处理(EM 算法)</h2>
+<ol>
+<li>
+<p>对缺失的属性预测一些估计值</p>
+</li>
+<li>
+<p>建立随机森林</p>
+</li>
+<li>
+<p>计算每两个训练集样本的相似度(公式来源:<a href="https://arxiv.org/pdf/1407.7502.pdf">https://arxiv.org/pdf/1407.7502.pdf</a>)
+$$
+proximity(x_1, x_2) = \frac{1}{M} \sum_{m = 1} ^ {M} \sum_{t \in \widetilde \phi_{L, \theta_m}} 1(x_1, x_2 \in X_t)
+$$
+简单来说,两个样本的相似度描述了在随机森林眼中,两个样本的接近程度,可以用它们在随机森林中被决策的路径的判断</p>
+</li>
+<li>
+<p>通过相似程度,进行加权投票.比如,A缺失属性F的值,而A和样本B很相似,相似度高,则B在属性F上的取值就的本次预测更多的影响.如果没有相似度来加权的话,无论多少次都是用所有样本的众数来处理A在F上的取值.</p>
+</li>
+</ol>
+<h2 id="oob">OOB</h2>
+<p>OOB 是 out-of-bag ,即袋外数据意思.考虑第一步中,假如使用Bootstrap,会有$\frac{1}{3}$ 的样本不出现在本次训练集中,可以用它们作为验证集评估误差.经证明这种评估方式是无偏的.</p>
+<h2 id="分类效果的影响因素">分类效果的影响因素</h2>
+<p>因为Bagging期待的多个分类器应该好而不同,所以:</p>
+<ol>
+<li>树之间相关性越大,错误率越高</li>
+<li>每个分类器准确率越高,错误率越低</li>
+</ol>
+<p>显然,m越大,树之间的相关性越大,每个分类器的准确率越高.因此通过调整m,在相关性和各分类器准确率之间做一个权衡.</p>
+<h2 id="优点">优点</h2>
+<ol>
+<li>能够并行</li>
+<li>对于高维度数据,只需要随机选择特征</li>
+<li>能够检测到特征之间的影响</li>
+<li>对不平衡的数据集,可以平衡误差</li>
+</ol>
+<h2 id="缺点">缺点</h2>
+<ol>
+<li>取值较多的属性会对结果影响过大</li>
+<li>高噪声的数据集下表现不佳</li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-03-31
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/machine-learning/">machine-learning</a>
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          <a href="/tags/random-forests/">random-forests</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/leetcode-207/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Leetcode 207: Course Schedule</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/leetcode-148/">
+            <span class="next-text nav-default">Leetcode 148: Sort List</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

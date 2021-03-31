@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Random Forests</title>
+      <link>https://rwwg.github.io/post/random-forest/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/random-forest/</guid>
+      <description>&lt;p&gt;随机森林的总结&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Leetcode 148: Sort List</title>
       <link>https://rwwg.github.io/post/leetcode-148/</link>
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>

@@ -30,7 +30,28 @@
   </url>
   
   <url>
+    <loc>https://rwwg.github.io/tags/machine-learning/</loc>
+    <lastmod>2021-03-31T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://rwwg.github.io/post/</loc>
+    <lastmod>2021-03-31T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/post/random-forest/</loc>
+    <lastmod>2021-03-31T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/random-forests/</loc>
     <lastmod>2021-03-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -108,13 +129,6 @@
   
   <url>
     <loc>https://rwwg.github.io/post/leetcode-173/</loc>
-    <lastmod>2021-03-28T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/machine-learning/</loc>
     <lastmod>2021-03-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
