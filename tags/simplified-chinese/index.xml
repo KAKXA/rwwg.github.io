@@ -6,10 +6,21 @@
     <description>Recent content in Simplified Chinese on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Droidcam在Linux下的安装与使用</title>
+      <link>https://rwwg.github.io/post/droidcam/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/droidcam/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.dev47apps.com/&#34;&gt;Droidcam&lt;/a&gt; 是一个可以将手机摄像头作为电脑摄像头使用的工具,同时支持局域网和USB ADB调试.&lt;/p&gt;
+&lt;p&gt;电脑自带摄像头无法使用的情况下,可以用这个应用解燃眉之急.&lt;/p&gt;
+&lt;p&gt;这里只提供在Linux(KUbuntu)下的安装以及对于Android手机的连接.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>BERT</title>
