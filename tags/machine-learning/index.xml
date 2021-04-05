@@ -6,10 +6,19 @@
     <description>Recent content in machine learning on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rwwg.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>分类算法评价指标</title>
+      <link>https://rwwg.github.io/post/classification/</link>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/classification/</guid>
+      <description>&lt;p&gt;本文介绍分类算法常用评价指标&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>BERT</title>

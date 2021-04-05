@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Droidcam在Linux下的安装与使用 - Ge&#39;s Blog</title>
+  <title>分类算法评价指标 - Ge&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="rwwg" /><meta name="description" content="Droidcam" />
+<meta name="author" content="rwwg" /><meta name="description" content="分类算法评价指标" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-<link rel="canonical" href="https://rwwg.github.io/post/droidcam/" />
+<link rel="canonical" href="https://rwwg.github.io/post/classification/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,23 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Droidcam在Linux下的安装与使用" />
-<meta property="og:description" content="Droidcam" />
+<meta property="og:title" content="分类算法评价指标" />
+<meta property="og:description" content="分类算法评价指标" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://rwwg.github.io/post/droidcam/" />
-<meta property="article:published_time" content="2021-04-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-04-05T00:00:00+00:00" />
-<meta itemprop="name" content="Droidcam在Linux下的安装与使用">
-<meta itemprop="description" content="Droidcam">
-<meta itemprop="datePublished" content="2021-04-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-04-05T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="480">
+<meta property="og:url" content="https://rwwg.github.io/post/classification/" />
+<meta property="article:published_time" content="2021-04-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-04T00:00:00+00:00" />
+<meta itemprop="name" content="分类算法评价指标">
+<meta itemprop="description" content="分类算法评价指标">
+<meta itemprop="datePublished" content="2021-04-04T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-04-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="755">
 
 
 
-<meta itemprop="keywords" content="Linux,Droidcam,Ubuntu,KUbuntu,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Droidcam在Linux下的安装与使用"/>
-<meta name="twitter:description" content="Droidcam"/>
+<meta itemprop="keywords" content="machine learning,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="分类算法评价指标"/>
+<meta name="twitter:description" content="分类算法评价指标"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -124,10 +124,10 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Droidcam在Linux下的安装与使用</h1>
+      <h1 class="post-title">分类算法评价指标</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-04-05 </span>
+        <span class="post-time"> 2021-04-04 </span>
         
         
       </div>
@@ -136,63 +136,79 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tp-tn-fp-fn">TP TN FP FN</a></li>
+        <li><a href="#准确率">准确率</a></li>
+        <li><a href="#查准查全率">查准,查全率</a></li>
+        <li><a href="#p-r-曲线">P-R 曲线</a></li>
+        <li><a href="#f1-score">F1-Score</a></li>
+        <li><a href="#roc-曲线">ROC 曲线</a></li>
+        <li><a href="#auc">AUC</a></li>
+        <li><a href="#混淆矩阵">混淆矩阵</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
-      <p><a href="https://www.dev47apps.com/">Droidcam</a> 是一个可以将手机摄像头作为电脑摄像头使用的工具,同时支持局域网和USB ADB调试.</p>
-<p>电脑自带摄像头无法使用的情况下,可以用这个应用解燃眉之急.</p>
-<p>这里只提供在Linux(KUbuntu)`下的安装以及对于Android手机的连接.</p>
+      <p>本文介绍分类算法常用评价指标</p>
+<h2 id="tp-tn-fp-fn">TP TN FP FN</h2>
+<ul>
+<li>真正例(True Positive, <strong>TP</strong>):被模型预测为正的正样本;</li>
+<li>假正例(False Positive, <strong>FP</strong>):被模型预测为正的负样本;</li>
+<li>假负例(False Negative, <strong>FN</strong>):被模型预测为负的正样本;</li>
+<li>真负例(True Negative, <strong>TN</strong>):被模型预测为负的负样本;</li>
+</ul>
+<h2 id="准确率">准确率</h2>
+<p>$$
+Acc = \frac{TP + TN}{TP + TN + FP + FN}
+$$</p>
+<h2 id="查准查全率">查准,查全率</h2>
+<p>$$
+Presiction = \frac{TP}{TP + FP}
+$$</p>
+<p>$$
+Recall = \frac{TP}{TP + FN}
+$$</p>
+<h2 id="p-r-曲线">P-R 曲线</h2>
+<p>据学习器的预测结果（一般为一个实值或概率）对测试样本进行排序,将最可能是&quot;正例&quot;的样本排在前面,最不可能是&quot;正例&quot;的排在后面,按此顺序逐个把样本作为&quot;正例&quot;进行预测,每次计算出当前的P值和R值.</p>
+<p>当一个学习器的 P-R 曲线被另一个学习器的 P-R 曲线完全包住,称前者的性能由于后者.如果两条曲线有交叉,则比较平衡点(Break-Event-Point) 即 P=R 时的取值.</p>
+<h2 id="f1-score">F1-Score</h2>
+<p>对于差准率和查全率,我们往往对其中一个有倾向性,于是 F1-Score解决了这个问题,它是P和R的加权调和平均
+$$
+\frac{1}{F_\beta} = \frac{1}{1 + \beta ^ 2}\left(\frac{1}{P} + \frac{\beta ^ 2}{R}\right)
+$$</p>
+<h2 id="roc-曲线">ROC 曲线</h2>
+<p>$$
+TPR = \frac{TP}{TP + FN}
+$$</p>
+<p>$$
+FNR = \frac{FN}{TP + FN}
+$$</p>
+<p>$$
+FPR = \frac{FP}{TN + FP}
+$$</p>
+<p>$$
+TNR = \frac{TN}{TN + FP}
+$$</p>
+<p>ROC曲线的横坐标为 $FPR$, 纵坐标为 $TPR$.</p>
+<p>ROC曲线的优点</p>
 <ol>
-<li>
-<p>运行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">lsmod <span class="p">|</span> grep v4l2loopback_dc
-</code></pre></td></tr></table>
-</div>
-</div><p>如果有输出,进行下一步,否则:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt install v4l2loopback-utils
-</code></pre></td></tr></table>
-</div>
-</div><p>如果你的电脑有 <code>Secure-boot</code> 的设定,那么按照提示,你会设置一个Boot口令,重启电脑,并在Boot界面选择类似于 <code>enroll MOK key</code> 的一项,输入Boot口令.假如你第一次不知道怎么选并直接开机了,可以在terminal中输入</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo update-secureboot-policy --enroll-key
-</code></pre></td></tr></table>
-</div>
-</div><p>再进行一次重启,重复以上步骤.如果不在Boot时输入Boot口令,这个第三方模块就不会加载到内核中(大概,具体的不太了解).</p>
-</li>
-<li>
-<p>到<a href="https://www.dev47apps.com/droidcam/linux/">Droidcam的Linux安装界面</a>,按照步骤安装即可.</p>
-</li>
-<li>
-<p>启动Droidcam,并选择USB(Android).假如出现提示 <code>v4l2loopback not Found</code> 的信息,说明第一步中的步骤没有完成.</p>
-</li>
-<li>
-<p>手机上安装Droidcam.</p>
-</li>
-<li>
-<p>手机选择开发者模式,启用调试.</p>
-</li>
-<li>
-<p>用USB连接手机和电脑,手机上会询问是否运行该IP地址对手机ADB调试,选择同意.</p>
-</li>
-<li>
-<p>在电脑端Droidcam点击Connect.</p>
-</li>
+<li>正负样本的分布发生变化时,ROC 曲线能够保持不变.即实际的数据集中,正例和负例的个数会相差很大,ROC可以很好地消除其对指标结果产生的影响.</li>
+<li>ROC 曲线和 P-R 曲线一样,是不依赖于阈值的评价指标.</li>
 </ol>
+<h2 id="auc">AUC</h2>
+<p>AUC是ROC曲线下的面积,有两种算法</p>
+<ol>
+<li>由于ROC曲线事实上由许多线段组成,所以把面积切分成许多梯形和矩形即可求出AUC.</li>
+<li>随机挑选一个正例和一个负例,分类器预测正例的分值高于负例的分值的概率就是AUC值.这里假设分类器的输出是<strong>为正例的概率</strong>.</li>
+</ol>
+<h2 id="混淆矩阵">混淆矩阵</h2>
+<p>每一列是样本的预测分类,每一行是样本的真实分类.第 i 行第  j 列是原本是类别 i 却被分为类别 j 的样本个数.</p>
     </div>
 
     <div class="post-copyright">
@@ -203,7 +219,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2021-04-05
+        2021-04-04
         
     </span>
   </p>
@@ -215,16 +231,17 @@
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/linux/">Linux</a>
-          <a href="/tags/droidcam/">Droidcam</a>
-          <a href="/tags/ubuntu/">Ubuntu</a>
-          <a href="/tags/kubuntu/">KUbuntu</a>
+          <a href="/tags/machine-learning/">machine learning</a>
           <a href="/tags/simplified-chinese/">Simplified Chinese</a>
           </div>
       <nav class="post-nav">
-        
-        <a class="next" href="/post/classification/">
-            <span class="next-text nav-default">分类算法评价指标</span>
+        <a class="prev" href="/post/droidcam/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Droidcam在Linux下的安装与使用</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/bert/">
+            <span class="next-text nav-default">BERT</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
