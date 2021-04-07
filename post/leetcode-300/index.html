@@ -53,7 +53,7 @@
 
 
 
-<meta itemprop="keywords" content="Simplified Chinese,greedy," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Simplified Chinese,greedy,leetcode," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode 300: Longest Increasing Subsequence"/>
 <meta name="twitter:description" content="最长递增子序列"/>
 
@@ -159,8 +159,11 @@
 <p>用一个变量len记录当前最长的递增子序列长度.</p>
 <p>遍历nums中每个数,假设</p>
 <ol>
-<li>nums[i] &gt; d[len], 意味着产生了更长的递增子序列,并且以nums[i]结尾</li>
+<li>nums[i] &gt; d[len], 意味着产生了更长的递增子序列,并且以nums[i]结尾
+<ol>
 <li>否则,找到d第一个不小于nums[i]的值的位置,并把nums[i]的值填入</li>
+</ol>
+</li>
 </ol>
 <h2 id="代码">代码</h2>
 <div class="highlight"><div class="chroma">
@@ -242,11 +245,12 @@
       <div class="post-tags">
           <a href="/tags/simplified-chinese/">Simplified Chinese</a>
           <a href="/tags/greedy/">greedy</a>
+          <a href="/tags/leetcode/">leetcode</a>
           </div>
       <nav class="post-nav">
         
-        <a class="next" href="/post/droidcam/">
-            <span class="next-text nav-default">Droidcam在Linux下的安装与使用</span>
+        <a class="next" href="/post/leetcode-87/">
+            <span class="next-text nav-default">Leetcode 87: Scramble String</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
