@@ -49,7 +49,7 @@
 <meta itemprop="description" content="知识图谱">
 <meta itemprop="datePublished" content="2021-04-12T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-04-12T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1326">
+<meta itemprop="wordCount" content="1978">
 
 
 
@@ -147,6 +147,8 @@
           </ul>
         </li>
         <li><a href="#知识抽取">知识抽取</a></li>
+        <li><a href="#知识表示">知识表示</a></li>
+        <li><a href="#知识融合">知识融合</a></li>
         <li><a href="#设计原则">设计原则</a></li>
         <li><a href="#上层应用的开发">上层应用的开发</a>
           <ul>
@@ -191,7 +193,7 @@
 <li>
 <p>非结构化数据</p>
 <blockquote>
-<p>往往来自于网络爬取</p>
+<p>往推理往来自于网络爬取</p>
 </blockquote>
 <ul>
 <li>
@@ -199,12 +201,27 @@
 <blockquote>
 <p>得到文本中的<strong>实体</strong>,如&quot;NYC&rdquo;,然后标记为<strong>实体类型</strong> &ldquo;Location&rdquo;.</p>
 </blockquote>
+<ol>
+<li>基于规则与词典的实体抽取</li>
+<li>基于统计机器学习的实体抽取(KNN,CRF)</li>
+<li>面向开放域的实体抽取</li>
+</ol>
 </li>
 <li>
 <p>关系抽取</p>
 <blockquote>
 <p>把<strong>实体间的关系</strong>从文本中提取出来,如</p>
 <p>&ldquo;hotel&quot;和&quot;Time Square&quot;的关系为&quot;near&rdquo;</p>
+</blockquote>
+<ol>
+<li>开放式实体关系抽取</li>
+<li>基于联合推理的实体关系抽取(MLN(Markov Logic Network))</li>
+</ol>
+</li>
+<li>
+<p>属性抽取</p>
+<blockquote>
+<p>主要针对实体而言,通过属性形成对实体的完整刻画</p>
 </blockquote>
 </li>
 <li>
@@ -220,6 +237,103 @@
 </blockquote>
 </li>
 </ul>
+<h2 id="知识表示">知识表示</h2>
+<ol>
+<li>
+<p>距离模型</p>
+<blockquote>
+<p>首先将实体用向量进行表示,然后通过关系矩
+阵将实体投影到与实体向量同一维度的向量空间
+中,最后通过计算投影向量之间的距离来判断实体
+间已存在的关系的置信度。由于距离模型中的关系
+矩阵是两个不同的矩阵,故实体间的协同性较差,
+这也是该模型本身的主要缺陷。</p>
+</blockquote>
+</li>
+<li>
+<p>单层神经网络模型</p>
+<blockquote>
+<p>为了引入非线性,为SPO三元组(h,r,t)定义了以下的评价函数
+$$
+f_r(h,t) = \mu_t^Tg(M_{r,1} l_h + M_{r,2}l_t)
+$$
+其中</p>
+<p>$\mu_t^T$ : 关系r的向量化表示</p>
+<p>$g$ : tanh</p>
+<p>$M_{r,1},M_{r,2}$ : 通过关系r定义的两个矩阵</p>
+</blockquote>
+</li>
+<li>
+<p>双线性模型(隐变量模型)</p>
+<blockquote>
+<p>为三元组(h,r,t)定义了一下评价函数
+$$
+f(h,t) = l_h ^ T M_r l _t
+$$
+其中</p>
+<p>$l_h, l_t$ : 头,尾实体的向量化表示</p>
+<p>$M_r$ : 关系r定义的双线性变换矩阵</p>
+</blockquote>
+</li>
+<li>
+<p>神经张量模型</p>
+<blockquote>
+<p>在不同的维度下把实体联系起来,评价函数为:
+$$
+f_r(h,t) = \mu_t^Tg(l_h ^ T M_r l <em>t + M</em>{r,1} l_h + M_{r,2}l_t + b)
+$$</p>
+</blockquote>
+</li>
+<li>
+<p>矩阵分解模型</p>
+</li>
+<li>
+<p>翻译模型</p>
+<blockquote>
+<p>TransE模型希望满足
+$$
+l_h + l_r = l_t
+$$
+它把关系看成头实体到尾实体的翻译</p>
+</blockquote>
+</li>
+<li>
+<p>复杂关系模型</p>
+<blockquote>
+<p>大部分为TransE模型的变种</p>
+</blockquote>
+</li>
+<li>
+<p>多源信息融合</p>
+</li>
+</ol>
+<h2 id="知识融合">知识融合</h2>
+<ol>
+<li>
+<p>实体对齐</p>
+<blockquote>
+<p>实 体 对 齐 (entity alignment) 也 称 为 实 体 匹 配
+(entity matching)或实体解析(entity resolution),主要
+是用于消除异构数据中实体冲突、指向不明等不一
+致性问题,可以从顶层创建一个大规模的统一知识
+库,从而帮助机器理解多源异质的数据,形成高质
+量的知识。</p>
+</blockquote>
+</li>
+<li>
+<p>知识加工</p>
+<ol>
+<li>本体构建</li>
+<li>质量评估</li>
+</ol>
+</li>
+<li>
+<p>知识更新</p>
+</li>
+<li>
+<p>知识推理</p>
+</li>
+</ol>
 <h2 id="设计原则">设计原则</h2>
 <ol>
 <li>
