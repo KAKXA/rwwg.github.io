@@ -6,15 +6,51 @@
     <description>Recent content in Tags on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>KG</title>
+      <link>https://rwwg.github.io/tags/kg/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/kg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LP</title>
+      <link>https://rwwg.github.io/tags/lp/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/lp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://rwwg.github.io/tags/machine-learning/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NLP</title>
+      <link>https://rwwg.github.io/tags/nlp/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Simplified Chinese</title>
       <link>https://rwwg.github.io/tags/simplified-chinese/</link>
-      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
       <description></description>
@@ -93,29 +129,11 @@
     </item>
     
     <item>
-      <title>machine learning</title>
-      <link>https://rwwg.github.io/tags/machine-learning/</link>
-      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>BERT</title>
       <link>https://rwwg.github.io/tags/bert/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/bert/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NLP</title>
-      <link>https://rwwg.github.io/tags/nlp/</link>
-      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/nlp/</guid>
       <description></description>
     </item>
     

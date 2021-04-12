@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Knowledge Graph - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="知识图谱" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/knowledge-graph/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Knowledge Graph" />
+<meta property="og:description" content="知识图谱" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/knowledge-graph/" />
+<meta property="article:published_time" content="2021-04-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-12T00:00:00+00:00" />
+<meta itemprop="name" content="Knowledge Graph">
+<meta itemprop="description" content="知识图谱">
+<meta itemprop="datePublished" content="2021-04-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-04-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1326">
+
+
+
+<meta itemprop="keywords" content="Machine-Learning,NLP,KG,LP,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Knowledge Graph"/>
+<meta name="twitter:description" content="知识图谱"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Knowledge Graph</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-04-12 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#知识图谱的存储">知识图谱的存储</a>
+          <ul>
+            <li><a href="#rdf">RDF</a></li>
+            <li><a href="#图数据库">图数据库</a></li>
+          </ul>
+        </li>
+        <li><a href="#知识抽取">知识抽取</a></li>
+        <li><a href="#设计原则">设计原则</a></li>
+        <li><a href="#上层应用的开发">上层应用的开发</a>
+          <ul>
+            <li><a href="#基于规则的方法论">基于规则的方法论</a></li>
+            <li><a href="#基于概率的方法论">基于概率的方法论</a></li>
+            <li><a href="#基于动态网络的分析">基于动态网络的分析</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>科普性质的知识图谱介绍</p>
+<p>知识图谱是有一些相互连接的实体和他们的属性构成的,即知识图谱是由一条条知识组成,每条知识表示为一个SPO三元组(Subject-Predicate-Object).</p>
+<h2 id="知识图谱的存储">知识图谱的存储</h2>
+<h3 id="rdf">RDF</h3>
+<p>用RDF(Resource Description Framework)描述这种SPO三元关系.RDF图中有三种类型:</p>
+<ol>
+<li>International Resource Identifiers(IRIs) : 它在整个网络或者图中唯一定义了一个实体/资源</li>
+<li>blank nodes : 不带有IRI和literal的资源(匿名资源)</li>
+<li>literals : 带有数据类型的纯文本,literal不能有指向外部节点的边</li>
+</ol>
+<p>分别对应:</p>
+<ol>
+<li>Subject : IRI或blank node</li>
+<li>Predicate : IRI</li>
+<li>Object : IRI或black node或literal</li>
+</ol>
+<h3 id="图数据库">图数据库</h3>
+<p>最常见的是Neo4j,准分布式的系统比如OrientDB, JanusGraph.图数据库是一种非关系型数据库.</p>
+<h2 id="知识抽取">知识抽取</h2>
+<ol>
+<li>
+<p>结构化数据</p>
+<blockquote>
+<p>往往来自公司中数据库</p>
+</blockquote>
+</li>
+<li>
+<p>非结构化数据</p>
+<blockquote>
+<p>往往来自于网络爬取</p>
+</blockquote>
+<ul>
+<li>
+<p>实体命名识别</p>
+<blockquote>
+<p>得到文本中的<strong>实体</strong>,如&quot;NYC&rdquo;,然后标记为<strong>实体类型</strong> &ldquo;Location&rdquo;.</p>
+</blockquote>
+</li>
+<li>
+<p>关系抽取</p>
+<blockquote>
+<p>把<strong>实体间的关系</strong>从文本中提取出来,如</p>
+<p>&ldquo;hotel&quot;和&quot;Time Square&quot;的关系为&quot;near&rdquo;</p>
+</blockquote>
+</li>
+<li>
+<p>实体统一</p>
+<blockquote>
+<p>有些实体写法不一样,但是指向同一个实体,有些像同义词,如&quot;NYC&quot;和&quot;New York&rdquo;</p>
+</blockquote>
+</li>
+<li>
+<p>指代消解</p>
+<blockquote>
+<p>解决的问题是文本中的代词指代的是哪个实体</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="设计原则">设计原则</h2>
+<ol>
+<li>
+<p>业务原则</p>
+<blockquote>
+<p>一切要从业务逻辑出发，并且通过观察知识图谱的设计也很容易推测其背后业务的逻辑，而且设计时也要想好未来业务可能的变化.</p>
+</blockquote>
+</li>
+<li>
+<p>分析原则</p>
+<blockquote>
+<p>我们不需要把跟关系分析无关的实体放在图谱当中</p>
+</blockquote>
+</li>
+<li>
+<p>效率原则</p>
+<blockquote>
+<p>效率原则让知识图谱尽量轻量化、并决定哪些数据放在知识图谱，哪些数据不需要放在知识图谱.</p>
+</blockquote>
+</li>
+<li>
+<p>冗余原则</p>
+<blockquote>
+<p>有些重复性信息、高频信息可以放到传统数据库当中</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="上层应用的开发">上层应用的开发</h2>
+<p>从知识图谱中挖掘业务需求的信息.</p>
+<h3 id="基于规则的方法论">基于规则的方法论</h3>
+<ol>
+<li>不一致性验证 : 通过一些规则去找出潜在的矛盾点</li>
+<li>基于规则提取特征 : 根据规则从知识图谱中提取一些特征,这些特征一般基于深度的搜索</li>
+<li>基于模式的判断 : 它的核心在于通过一些模式来找到可能存在风险的团体或者子图;我们也可以从知识图谱中找出强连通图,并把它标记出来,做进一步风险分析</li>
+</ol>
+<h3 id="基于概率的方法论">基于概率的方法论</h3>
+<ol>
+<li>
+<p>社区挖掘 : 直观上理解,它在于从图中找出一些社区,社区内的节点之间的关系的密度要明显大于社区之间的关系密度</p>
+</li>
+<li>
+<p>标签传播(LP) : 相似的数据应该具有相同的标签.算法包括两大步骤</p>
+<ul>
+<li>
+<p>构造相似矩阵 :
+构建一个图,图的结点就是数据点,结点和结点之间权重就是相似度.权重的计算方法为:
+$$
+w_{ij} = \exp \left(-\frac{|x_i - x_j| ^ 2}{\alpha ^ 2}\right)
+$$
+其中 $\alpha$ 是超参.</p>
+<p>另一种构造方法是只保留每个节点的k近邻的权重.</p>
+</li>
+<li>
+<p>传播 :</p>
+<ol>
+<li>定义一个转移矩阵
+$$
+P_{ij} = P(i \rightarrow j) = \frac{w_{ij}}{\sum_{k = 1} ^ {n} w_{ik}}
+$$</li>
+</ol>
+<p>​	表示结点 $i$ 的 label 转移到 结点 $j$ 的概率.</p>
+<ol start="2">
+<li>
+<p>定义一个soft label矩阵</p>
+<p>设:</p>
+<p>$N$ : 总样本数</p>
+<p>$L$ : 有标签的样本数</p>
+<p>$U$ : 无标签的样本数</p>
+<p>$C$ : 标签的类数
+$$
+F =
+\left[
+\begin{matrix}
+Y_L \newline
+Y_U
+\end{matrix}
+\right]
+$$
+其中$Y_L(i, j) = 1$ 当且仅当第 $i$ 行对应的样本标签是 $j$.容易知道,$F,Y_L,Y_U$ 分别是 $N\times C, L \times C, U \times C$ 的矩阵.初始化任意的 $Y_U$.</p>
+</li>
+<li>
+<p>迭代以下操作直到收敛:</p>
+<ol>
+<li>执行传播: $F = PF$</li>
+<li>重置$F$ : $F_L = Y_L$</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="基于动态网络的分析">基于动态网络的分析</h3>
+<p>如果图谱的结构是随着时间变化的,这些变化本身也携带业务需要的信息.</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-04-12
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/machine-learning/">Machine-Learning</a>
+          <a href="/tags/nlp/">NLP</a>
+          <a href="/tags/kg/">KG</a>
+          <a href="/tags/lp/">LP</a>
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/leetcode-399/">
+            <span class="next-text nav-default">Leetcode 399: Evaluate Division (并查集模板题)</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
