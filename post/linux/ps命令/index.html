@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Unix/Linux中的ps命令 - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="ps命令" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/linux/ps%E5%91%BD%E4%BB%A4/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Unix/Linux中的ps命令" />
+<meta property="og:description" content="ps命令" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/linux/ps%E5%91%BD%E4%BB%A4/" />
+<meta property="article:published_time" content="2021-03-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-29T00:00:00+00:00" />
+<meta itemprop="name" content="Unix/Linux中的ps命令">
+<meta itemprop="description" content="ps命令">
+<meta itemprop="datePublished" content="2021-03-29T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-29T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="571">
+
+
+
+<meta itemprop="keywords" content="Linux,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Unix/Linux中的ps命令"/>
+<meta name="twitter:description" content="ps命令"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Unix/Linux中的ps命令</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-03-29 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ps--l">ps -l</a></li>
+        <li><a href="#ps-aux--ps--ef">ps aux / ps -ef</a></li>
+        <li><a href="#ps--u">ps -u</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><code>ps</code> 命令总结.</p>
+<h2 id="ps--l">ps -l</h2>
+<p><code>ps -l</code> : 仅观察自己bash的相关程序,不会延伸到bash的父进程</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">范例一:将目前属於您自己这次登陆的 PID 与相关资讯列示出来(只与自己的 bash 有关)
+[root@www ~]# ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S     0 13639 13637  0  75   0 -  1287 wait   pts/1    00:00:00 bash
+4 R     0 13700 13639  0  77   0 -  1101 -      pts/1    00:00:00 ps
+</code></pre></td></tr></table>
+</div>
+</div><p>各列:</p>
+<ol>
+<li><code>F</code> : process flags. 4 表示此程序的权限是 <code>root</code> , 1 表示该子进程只 <code>fork</code> 了而没有 <code>exec</code> .</li>
+<li><code>S</code> : stat. 主要的状态有</li>
+<li><code>R</code> : Running</li>
+<li><code>S</code> : Sleep</li>
+<li><code>D</code> : 不可被唤醒的睡眠状态,可能正在等待IO</li>
+<li><code>T</code> : Stop</li>
+<li><code>Z</code> : Zombie</li>
+<li><code>UID PID PPID</code></li>
+<li><code>C</code> : CPU 使用率</li>
+<li><code>PRI/NI</code> : Priority/Nice. 代表被 CPU 运行的优先顺序,数值越小代表越快被CPU执行.</li>
+<li><code>ADDR/SZ/WCHAN</code> : ADDR 是 kernel function,指出该程序在内存的哪个部分,如果是个 running 的程序,一般就会显示 <code>-</code> , SZ 代表此程序用掉多少内存,WCHAN 表示目前程序是否运行中,同样的, 	若为 - 表示正在运行中.</li>
+<li><code>TTY</code> : 登录者的终端机位置</li>
+<li><code>TIME</code> : 实际花费的<strong>CPU时间</strong></li>
+<li><code>CMD</code> : 触发此程序的命令为何</li>
+</ol>
+<h2 id="ps-aux--ps--ef">ps aux / ps -ef</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">范例二:列出目前所有的正在内存当中的程序:
+[root@www ~]# ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   2064   616 ?        Ss   Mar11   0:01 init [5]
+root         2  0.0  0.0      0     0 ?        S&lt;   Mar11   0:00 [migration/0]
+root         3  0.0  0.0      0     0 ?        SN   Mar11   0:00 [ksoftirqd/0]
+.....(中间省略).....
+root     13639  0.0  0.2   5148  1508 pts/1    Ss   11:44   0:00 -bash
+root     14232  0.0  0.1   4452   876 pts/1    R+   15:52   0:00 ps aux
+root     18593  0.0  0.0   2240   476 ?        Ss   Mar14   0:00 /usr/sbin/atd
+</code></pre></td></tr></table>
+</div>
+</div><p>意义不太显然的栏位分别有:</p>
+<ol>
+<li><code>VSZ</code> : 该 process 使用掉的虚拟内存量</li>
+<li><code>RSS</code> :该 process 占用的固定的内存量</li>
+<li><code>START</code> :该 process 被触发启动的时间</li>
+</ol>
+<h2 id="ps--u">ps -u</h2>
+<p><code>ps -u root</code> : 显示用户 <code>root</code> 的进程用户信息</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-03-29
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/algorithm/leetcode-148/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Leetcode 148: Sort List</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/algorithm/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/">
+            <span class="next-text nav-default">有序链表合并</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

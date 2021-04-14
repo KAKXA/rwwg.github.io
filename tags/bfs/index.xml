@@ -13,10 +13,10 @@
     
     <item>
       <title>Leetcode 207: Course Schedule</title>
-      <link>https://rwwg.github.io/post/leetcode-207/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-207/</link>
       <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-207/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-207/</guid>
       <description>&lt;p&gt;利用拓扑排序解决课程表问题&lt;/p&gt;</description>
     </item>
     

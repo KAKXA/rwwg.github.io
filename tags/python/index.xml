@@ -13,37 +13,37 @@
     
     <item>
       <title>Python垃圾回收机制</title>
-      <link>https://rwwg.github.io/post/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <link>https://rwwg.github.io/post/python/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
       <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <guid>https://rwwg.github.io/post/python/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
       <description>&lt;p&gt;Python底层的C实现是怎样处理垃圾的?&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Python的实例方法,类方法与静态方法</title>
-      <link>https://rwwg.github.io/post/python-3-methods/</link>
+      <link>https://rwwg.github.io/post/python/python-3-methods/</link>
       <pubDate>Sat, 20 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/python-3-methods/</guid>
+      <guid>https://rwwg.github.io/post/python/python-3-methods/</guid>
       <description>&lt;p&gt;在复杂的数据结构中会会用到Python的类方法和静态方法.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>VSCode的Latex插件配置</title>
-      <link>https://rwwg.github.io/post/vscode%E7%9A%84latex%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</link>
+      <link>https://rwwg.github.io/post/toss/vscode%E7%9A%84latex%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/vscode%E7%9A%84latex%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://rwwg.github.io/post/toss/vscode%E7%9A%84latex%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</guid>
       <description>根据你的操作系统,安装texlive 1 sudo</description>
     </item>
     
     <item>
       <title>Python 高阶</title>
-      <link>https://rwwg.github.io/post/python-%E9%AB%98%E9%98%B6/</link>
+      <link>https://rwwg.github.io/post/python/python-%E9%AB%98%E9%98%B6/</link>
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/python-%E9%AB%98%E9%98%B6/</guid>
+      <guid>https://rwwg.github.io/post/python/python-%E9%AB%98%E9%98%B6/</guid>
       <description>Python 运算符与数据类型 // 只取结果的整数部分 文</description>
     </item>
     

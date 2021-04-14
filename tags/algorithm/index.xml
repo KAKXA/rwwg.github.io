@@ -13,146 +13,146 @@
     
     <item>
       <title>有序链表合并</title>
-      <link>https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/</link>
+      <link>https://rwwg.github.io/post/algorithm/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/</link>
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/</guid>
       <description>&lt;p&gt;有序链表合并是链表操作的基本功之一,类似的思想也是归并排序的基本组件.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>最小三元组距离</title>
-      <link>https://rwwg.github.io/post/%E6%9C%80%E5%B0%8F%E4%B8%89%E5%85%83%E7%BB%84%E8%B7%9D%E7%A6%BB/</link>
+      <link>https://rwwg.github.io/post/algorithm/%E6%9C%80%E5%B0%8F%E4%B8%89%E5%85%83%E7%BB%84%E8%B7%9D%E7%A6%BB/</link>
       <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/%E6%9C%80%E5%B0%8F%E4%B8%89%E5%85%83%E7%BB%84%E8%B7%9D%E7%A6%BB/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/%E6%9C%80%E5%B0%8F%E4%B8%89%E5%85%83%E7%BB%84%E8%B7%9D%E7%A6%BB/</guid>
       <description>&lt;p&gt;主要是为了记录一个神奇的公式.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 456: 132 Pattern</title>
-      <link>https://rwwg.github.io/post/leetcode-456/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-456/</link>
       <pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-456/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-456/</guid>
       <description>&lt;p&gt;132 模式&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal</title>
-      <link>https://rwwg.github.io/post/leetcode105/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-105/</link>
       <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode105/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-105/</guid>
       <description>&lt;p&gt;从前序与中序遍历序列构造二叉树&lt;/p&gt;
 &lt;h4 id=&#34;heading&#34;&gt;&lt;/h4&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 739: Daily Temperatures</title>
-      <link>https://rwwg.github.io/post/leetcode-739/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-739/</link>
       <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-739/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-739/</guid>
       <description>&lt;p&gt;每日温度&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 322: Coin Change</title>
-      <link>https://rwwg.github.io/post/leetcode-322/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-322/</link>
       <pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-322/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-322/</guid>
       <description>&lt;p&gt;零钱兑换&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 72: Edit Distance</title>
-      <link>https://rwwg.github.io/post/leetcode-72/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-72/</link>
       <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-72/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-72/</guid>
       <description>&lt;p&gt;编辑距离&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>leetcode-719: find k-th smallest pair distance</title>
-      <link>https://rwwg.github.io/post/leetcode-719/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-719/</link>
       <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-719/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-719/</guid>
       <description>&lt;p&gt;找出第 k 小的距离对&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 233: number of digit one</title>
-      <link>https://rwwg.github.io/post/leetcode-233/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-233/</link>
       <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-233/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-233/</guid>
       <description>&lt;p&gt;数字 1 的个数&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 44: Wildcard Matching</title>
-      <link>https://rwwg.github.io/post/leetcode-44/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-44/</link>
       <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-44/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-44/</guid>
       <description>&lt;p&gt;使用动态规划解决通配符匹配问题&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>leetcode-53: Maximum Subarray</title>
-      <link>https://rwwg.github.io/post/leetcode-53/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-53/</link>
       <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-53/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-53/</guid>
       <description>&lt;h3 id=&#34;最大子序和问题&#34;&gt;最大子序和问题&lt;/h3&gt;</description>
     </item>
     
     <item>
       <title>leetcode-52: N-Queens-II</title>
-      <link>https://rwwg.github.io/post/leetcode-52/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-52/</link>
       <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-52/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-52/</guid>
       <description>&lt;h3 id=&#34;n皇后问题&#34;&gt;N皇后问题&lt;/h3&gt;</description>
     </item>
     
     <item>
       <title>leetcode-85: maximal-rectangle</title>
-      <link>https://rwwg.github.io/post/leetcode-85-maximal-rectangle/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-85-maximal-rectangle/</link>
       <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-85-maximal-rectangle/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-85-maximal-rectangle/</guid>
       <description>当你好不容易想到一个hard题的dp思路</description>
     </item>
     
     <item>
       <title>Manacher算法</title>
-      <link>https://rwwg.github.io/post/manacher/</link>
+      <link>https://rwwg.github.io/post/algorithm/manacher/</link>
       <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/manacher/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/manacher/</guid>
       <description>比较复杂的动态规划: Manacher算法</description>
     </item>
     
     <item>
       <title>康托展开</title>
-      <link>https://rwwg.github.io/post/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</link>
+      <link>https://rwwg.github.io/post/algorithm/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</link>
       <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</guid>
       <description>定义 康托展开(Cantor Expasio</description>
     </item>
     
     <item>
       <title>有序数组查找</title>
-      <link>https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E6%90%9C%E7%B4%A2/</link>
+      <link>https://rwwg.github.io/post/algorithm/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E6%90%9C%E7%B4%A2/</link>
       <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E6%90%9C%E7%B4%A2/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E6%90%9C%E7%B4%A2/</guid>
       <description>有序数组查找,过于简单的二分查找,可是一</description>
     </item>
     

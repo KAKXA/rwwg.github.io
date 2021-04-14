@@ -13,19 +13,19 @@
     
     <item>
       <title>KUbuntu 常见问题与解决方案</title>
-      <link>https://rwwg.github.io/post/kubuntu-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>https://rwwg.github.io/post/linux/kubuntu-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/kubuntu-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://rwwg.github.io/post/linux/kubuntu-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>make fish the default shell 1 chsh -s `which fish` VPN cannot save password change the pattern into all users</description>
     </item>
     
     <item>
       <title>Manjaro KDE常见问题与解决方案</title>
-      <link>https://rwwg.github.io/post/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>https://rwwg.github.io/post/linux/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://rwwg.github.io/post/linux/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>设置主屏幕与关闭笔记本显示屏 1 2 xrandr --output HDMI-1 --mode</description>
     </item>
     

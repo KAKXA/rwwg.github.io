@@ -13,46 +13,46 @@
     
     <item>
       <title>Leetcode 87: Scramble String</title>
-      <link>https://rwwg.github.io/post/leetcode-87/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-87/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-87/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-87/</guid>
       <description>&lt;p&gt;扰乱字符串&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 739: Daily Temperatures</title>
-      <link>https://rwwg.github.io/post/leetcode-739/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-739/</link>
       <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-739/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-739/</guid>
       <description>&lt;p&gt;每日温度&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 72: Edit Distance</title>
-      <link>https://rwwg.github.io/post/leetcode-72/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-72/</link>
       <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-72/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-72/</guid>
       <description>&lt;p&gt;编辑距离&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 44: Wildcard Matching</title>
-      <link>https://rwwg.github.io/post/leetcode-44/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-44/</link>
       <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-44/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-44/</guid>
       <description>&lt;p&gt;使用动态规划解决通配符匹配问题&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>leetcode-85: maximal-rectangle</title>
-      <link>https://rwwg.github.io/post/leetcode-85-maximal-rectangle/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-85-maximal-rectangle/</link>
       <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-85-maximal-rectangle/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-85-maximal-rectangle/</guid>
       <description>当你好不容易想到一个hard题的dp思路</description>
     </item>
     

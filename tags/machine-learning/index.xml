@@ -13,73 +13,73 @@
     
     <item>
       <title>Knowledge Graph</title>
-      <link>https://rwwg.github.io/post/knowledge-graph/</link>
+      <link>https://rwwg.github.io/post/ml/knowledge-graph/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/knowledge-graph/</guid>
+      <guid>https://rwwg.github.io/post/ml/knowledge-graph/</guid>
       <description>&lt;p&gt;科普性质的知识图谱介绍,以及几个基本的算法描述.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>分类算法评价指标</title>
-      <link>https://rwwg.github.io/post/classification/</link>
+      <link>https://rwwg.github.io/post/ml/classification/</link>
       <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/classification/</guid>
+      <guid>https://rwwg.github.io/post/ml/classification/</guid>
       <description>&lt;p&gt;本文介绍分类算法常用评价指标&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>BERT</title>
-      <link>https://rwwg.github.io/post/bert/</link>
+      <link>https://rwwg.github.io/post/ml/bert/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/bert/</guid>
+      <guid>https://rwwg.github.io/post/ml/bert/</guid>
       <description>&lt;p&gt;本文介绍BERT&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Factorization Machine</title>
-      <link>https://rwwg.github.io/post/fm/</link>
+      <link>https://rwwg.github.io/post/ml/fm/</link>
       <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/fm/</guid>
+      <guid>https://rwwg.github.io/post/ml/fm/</guid>
       <description>&lt;p&gt;本文描述 Factorization Machine (因子分解机).&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Random Forests</title>
-      <link>https://rwwg.github.io/post/random-forest/</link>
+      <link>https://rwwg.github.io/post/ml/random-forest/</link>
       <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/random-forest/</guid>
+      <guid>https://rwwg.github.io/post/ml/random-forest/</guid>
       <description>&lt;p&gt;随机森林的总结&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Transformer</title>
-      <link>https://rwwg.github.io/post/transformer/</link>
+      <link>https://rwwg.github.io/post/ml/transformer/</link>
       <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/transformer/</guid>
+      <guid>https://rwwg.github.io/post/ml/transformer/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://arxiv.org/pdf/1706.03762.pdf&#34;&gt;Attention is All You Need.&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Attention机制</title>
-      <link>https://rwwg.github.io/post/attention/</link>
+      <link>https://rwwg.github.io/post/ml/attention/</link>
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/attention/</guid>
+      <guid>https://rwwg.github.io/post/ml/attention/</guid>
       <description>&lt;p&gt;本文介绍NLP中的Attention机制.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Seq2Seq</title>
-      <link>https://rwwg.github.io/post/seq2seq/</link>
+      <link>https://rwwg.github.io/post/ml/seq2seq/</link>
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/seq2seq/</guid>
+      <guid>https://rwwg.github.io/post/ml/seq2seq/</guid>
       <description>&lt;p&gt;本文介绍Seq2Seq.&lt;/p&gt;</description>
     </item>
     

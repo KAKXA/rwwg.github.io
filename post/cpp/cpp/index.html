@@ -1,0 +1,2854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>CPP - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="C&#43;&#43; Primer Plus 读书笔记" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/cpp/cpp/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="CPP" />
+<meta property="og:description" content="C&#43;&#43; Primer Plus 读书笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/cpp/cpp/" />
+<meta property="article:published_time" content="2019-07-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-13T00:00:00+00:00" />
+<meta itemprop="name" content="CPP">
+<meta itemprop="description" content="C&#43;&#43; Primer Plus 读书笔记">
+<meta itemprop="datePublished" content="2019-07-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-07-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="6999">
+
+
+
+<meta itemprop="keywords" content="cpp,reading notes,Simplified Chinese,English," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CPP"/>
+<meta name="twitter:description" content="C&#43;&#43; Primer Plus 读书笔记"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">CPP</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-07-13 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#c">C++</a>
+      <ul>
+        <li><a href="#unit-5-循环和关系表达式">Unit 5 循环和关系表达式</a></li>
+        <li><a href="#unit-6-分支语句逻辑运算符">Unit 6 分支语句，逻辑运算符</a></li>
+        <li><a href="#unit-7-函数">Unit 7 函数</a></li>
+        <li><a href="#unit-8-函数探幽">Unit 8 函数探幽</a></li>
+        <li><a href="#unit-9-内存空间和名称空间">Unit 9 内存空间和名称空间</a></li>
+        <li><a href="#unit-10-对象和类">Unit 10 对象和类</a></li>
+        <li><a href="#unit-11-使用类">Unit 11 使用类</a></li>
+        <li><a href="#unit-12-class--dynamic-memory-allocation">Unit 12 Class &amp; dynamic memory allocation</a></li>
+        <li><a href="#unit-13--class-inherit">Unit 13  Class Inherit</a></li>
+        <li><a href="#unit-14-code-reusing-in-c">Unit 14 code reusing in C++</a></li>
+        <li><a href="#friend-error-and-others">Friend, Error, and Others</a></li>
+        <li><a href="#unit-16-string-class-and-stl">Unit 16 String class and STL</a></li>
+        <li><a href="#unit-17-input-output-and-file">Unit 17 Input, Output and File</a></li>
+        <li><a href="#unit-18-c-new-standard">Unit 18 C++ New standard</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="c">C++</h1>
+<h2 id="unit-5-循环和关系表达式">Unit 5 循环和关系表达式</h2>
+<ul>
+<li>
+<p>表达式+分号=语句。反之不一定成立。因为语句不一定是有值的。</p>
+</li>
+<li>
+<p>每次读一个字符，直到遇到EOF的输入循环：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">while</span><span class="p">(</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">ch</span><span class="p">)){</span>
+    <span class="c1">//do stuff
+</span><span class="c1"></span><span class="p">}</span>
+<span class="c1">//cin.get(ch)的返回对象为cin,cin对象在需要bool值的地方变换成bool值：读取成功返回true
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>cin.get()</code>返回读取的字符，类似<code>getchar()</code>,将字符编码为int值返回,同理<code>cout.put(ch)</code>类似<code>putchar()</code>，但参数类型为char.</p>
+</li>
+</ul>
+<h2 id="unit-6-分支语句逻辑运算符">Unit 6 分支语句，逻辑运算符</h2>
+<ul>
+<li>可以像使用cout一样使用ofstream对象</li>
+<li>switch无法识别枚举量，变量不能输入枚举值，供比较的量可以，但供比较的量会自动提升为变量的类</li>
+</ul>
+<h2 id="unit-7-函数">Unit 7 函数</h2>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">const</span> <span class="kt">int</span> <span class="o">**</span><span class="n">pp2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p1</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+<span class="n">pp2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">p1</span><span class="p">;</span>	<span class="c1">//invalid
+</span><span class="c1"></span><span class="o">*</span><span class="n">pp2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">;</span>	<span class="c1">//valid
+</span><span class="c1"></span><span class="cm">/*之所以第四行不有效，假设其有效
+</span><span class="cm">有*p1 = 10可以改变const数据，因此不能跨两层间接关系赋值，因为跨两层意味着可以用指针修改值
+</span><span class="cm">*/</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="c1">//函数指针数组
+</span><span class="c1"></span><span class="k">const</span> <span class="kt">double</span> <span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">pa</span><span class="p">[</span><span class="mi">3</span><span class="p">])(</span><span class="k">const</span> <span class="kt">double</span> <span class="p">,</span> <span class="kt">int</span> <span class="p">)</span> <span class="o">=</span> <span class="p">{</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">,</span><span class="n">f3</span><span class="p">};</span>
+<span class="c1">//auto可以用于单值初始化，如：
+</span><span class="c1"></span><span class="k">auto</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">f2</span><span class="p">;</span>	<span class="c1">//声明了一个名为p2的函数指针，指向函数f2
+</span><span class="c1">//auto不能用于函数指针数组的初始化
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="unit-8-函数探幽">Unit 8 函数探幽</h2>
+<ul>
+<li>
+<p>必须在声明引用时将其初始化,不能用过赋值来设置引用</p>
+</li>
+<li>
+<p>传递给接受引用的函数的参数必须是变量，但有例外如：</p>
+</li>
+<li>
+<p>仅当参数为<code>const</code>引用时，C++才允许生成临时变量</p>
+<blockquote>
+<p>实际参数类型正确，但不是左值</p>
+<p>实际参数的类型不正确，但可以转换为正确的类型</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">double</span> <span class="nf">example</span><span class="p">(</span><span class="k">const</span> <span class="kt">double</span> <span class="o">&amp;</span><span class="n">ra</span><span class="p">);</span>
+<span class="kt">double</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kt">double</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">d</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">2.3</span><span class="p">};</span>
+<span class="n">example</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>			<span class="c1">//valid,ra is a
+</span><span class="c1"></span><span class="n">example</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>			<span class="c1">//valid,ra is a temporary variable which is a double-typed 3.0
+</span><span class="c1"></span><span class="n">example</span><span class="p">(</span><span class="o">*</span><span class="n">c</span><span class="p">);</span>		<span class="c1">//valid,ra is *c is a
+</span><span class="c1"></span><span class="n">example</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>		<span class="c1">//valid,ra is d[1] is 2.3
+</span><span class="c1"></span><span class="n">example</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mf">10.0</span><span class="p">);</span>	<span class="c1">//valid,ra is a temporary variable which a double-typed 13.0
+</span><span class="c1"></span><span class="n">example</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>		<span class="c1">//valid,ra is a temporary variable which a double-typed 1.0
+</span><span class="c1"></span><span class="n">example</span><span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>		<span class="c1">//invalid,&#34;b+2&#34; isn&#39;t either a double or a left-value
+</span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+<li>
+<p>当函数对参数只是为了传值，将形式参数声明为<code>const</code>引用</p>
+</li>
+<li>
+<p>对于声明为返回值是引用的函数，可以把函数的调用作为左值</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span><span class="o">&amp;</span> <span class="n">example</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="n">example</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>	<span class="c1">//valid
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>声明时添加了<code>const</code>时不能作为左值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">example</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="p">);</span>
+<span class="n">example</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>	<span class="c1">//invalid
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>要为某个参数设置默认值，必须为它右边的所有参数提供默认值</p>
+</li>
+<li>
+<p>如果一个函数只有唯一的原型，调用时若传入不同类型参数，C++尝试使用标准类型转换强行匹配
+但如果有多个原型，它不会与任何一个原型匹配</p>
+</li>
+<li>
+<p>引用和类型本身视为同一个特征标</p>
+</li>
+<li>
+<p>优先级：非模板函数 &gt; 显式具体化 &gt; 常规模板函数</p>
+</li>
+<li>
+<p>具体化和实例化</p>
+<ul>
+<li>
+<p>具体化</p>
+<blockquote>
+<p><code>template &lt;&gt; void Swap&lt;int&gt;(int&amp;,int&amp;);</code></p>
+<p><code>template &lt;&gt; void Swap(int&amp;,int&amp;);</code></p>
+<p>不使用Swap模板来生成函数定义，使用专门为int类型显式地定义的函数类型</p>
+</blockquote>
+</li>
+<li>
+<p>实例化</p>
+<blockquote>
+<p><code>template void Swap&lt;int&gt;(int&amp;,int&amp;);</code></p>
+<p>使用Swap()模板生成一个使用int类型的实例</p>
+<p>显式实例化的一个意义是提供强制转换的凭证：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="n">add</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span><span class="n">T</span> <span class="n">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">4.5</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>			<span class="c1">//error
+</span><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>	<span class="c1">//return double, because convert x into double
+</span><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>		<span class="c1">//return int, because convert y into int
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>身视为同一个特征标</p>
+<p>优先级：非模板函数 &gt; 显式具体化 &gt; 常规模板函数</p>
+<p>具体化和实例化在调用函数时显式实例化：</p>
+</li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++">
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>template &lt; class T &gt;
+T Add(T a,T b){&hellip;}
+int m = 1;
+double a = 2.0;
+double n;
+n = Add<double>(m,a);	//虽然m和a的类型不同，但添加<double>后强制为double实例化</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+- 编译器重载解析
+
+- 步骤
+
+  &gt; 创建候选函数列表
+  &gt;
+  &gt; 创建可行函数列表
+  &gt;
+  &gt; 确定是否有最佳的可行函数
+  &gt;
+  &gt; &gt; 最佳
+  &gt; &gt;
+  &gt; &gt; 完全匹配（常规函数，非const匹配非const与引用参数）
+  &gt; &gt;
+  &gt; &gt; 完全匹配（模板,非const匹配const）
+  &gt; &gt;
+  &gt; &gt; 提升转换
+  &gt; &gt;
+  &gt; &gt; 标准转换（int-&gt;char,long-&gt;double)
+  &gt; &gt;
+  &gt; &gt; 用户定义的转换
+  &gt; &gt;
+  &gt; &gt; 最不佳
+  &gt; &gt;
+  &gt; &gt; （匹配最具体的模板：执行的转换最少的类型）
+
+- ```C++
+decltype(x+y) xpy;	//make xpy the same type as x+y
+xpy = x + y;
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>借助<code>decltype</code>确定声明返回值类型的方法
+<code>auto gt(T1 x,T2 y) -&gt; decltype(x+y);</code></li>
+</ul>
+<h2 id="unit-9-内存空间和名称空间">Unit 9 内存空间和名称空间</h2>
+<ul>
+<li>
+<p>头文件常包含的内容:</p>
+<blockquote>
+<p>函数原型</p>
+<p>#define const 定义的符号常量</p>
+<p>结构声明</p>
+<p>类声明</p>
+<p>模板声明</p>
+<p>内联函数</p>
+</blockquote>
+</li>
+<li>
+<p><code>::</code>符号接在变量名前表示使用这个变量名的全局变量</p>
+</li>
+<li>
+<p>定位new运算符:分配动态内存到指定的位置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span><span class="cpf">&lt;new&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果指定的位置不是常规new分配的堆内存,就不能用delete()释放;</p>
+</li>
+</ul>
+<h2 id="unit-10-对象和类">Unit 10 对象和类</h2>
+<ul>
+<li>
+<p>定义默认构造函数的方式：</p>
+<blockquote>
+<p>给已有构造函数的所有参数提供默认值</p>
+<p>利用函数重载定义另一个构造函数——一个没有参数的构造函数</p>
+</blockquote>
+<p>对对象变量隐式初始化时，不要使用圆括号</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">example</span><span class="p">{}</span>
+<span class="kt">int</span> <span class="n">example</span><span class="o">::</span><span class="n">example</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">){}</span>	<span class="c1">//the arguments set default value
+</span><span class="c1"></span>  
+<span class="n">example</span> <span class="n">a</span><span class="p">;</span>							<span class="c1">//valid,implicit
+</span><span class="c1"></span><span class="n">example</span> <span class="n">a</span> <span class="o">=</span> <span class="n">example</span><span class="p">();</span>				<span class="c1">//valid,explicit
+</span><span class="c1"></span><span class="n">example</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">example</span><span class="p">;</span>			<span class="c1">//valid,implicit
+</span><span class="c1"></span><span class="n">example</span> <span class="nf">a</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>						<span class="c1">//valid,calls constructor
+</span><span class="c1"></span><span class="n">example</span> <span class="nf">a</span><span class="p">();</span>						<span class="c1">//invalid
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">){{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="p">...;</span>	
+    <span class="p">...</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这么写的意义在于:析构函数在内层代码块到达内层右侧大括号时结束，此时还没遇到return语句，故会执行析构函数。否则执行return语句后就不会再有函数被调用了</p>
+</li>
+<li>
+<p>C++列表初始化</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">Example</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#34;apple&#34;</span><span class="p">,</span><span class="s">&#34;red&#34;</span><span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>const成员函数：对不会改变对象的成员函数，应该使用const修饰，否则当声明对象为const时，就无法使用该成员函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">show</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>				<span class="c1">//方法声明
+</span><span class="c1"></span><span class="kt">void</span> <span class="n">Example</span><span class="o">::</span><span class="n">show</span><span class="p">()</span> <span class="k">const</span><span class="p">{...}</span>	<span class="c1">//方法定义
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>this指针指向调用方法的对象</p>
+</li>
+<li>
+<p>在类声明中添加常量的办法：</p>
+<ol>
+<li>
+<p>使用枚举</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">Example</span><span class="p">{</span>
+    <span class="k">enum</span> <span class="p">{</span> <span class="n">MONTH</span> <span class="o">=</span> <span class="mi">12</span> <span class="p">}</span><span class="err">；</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>使用static const:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">Example</span><span class="p">{</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">MONTH</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+<li>
+<p>类作用域内枚举：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">Example</span><span class="p">{</span>
+    <span class="k">enum</span> <span class="k">class</span> <span class="nc">egg</span><span class="p">{</span>
+      <span class="n">Small</span><span class="p">,</span><span class="n">Big</span>
+  <span class="p">};</span>
+  <span class="k">enum</span> <span class="k">class</span> <span class="nc">Tshirt</span><span class="p">{</span>
+      <span class="n">Small</span><span class="p">,</span><span class="n">Big</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+<span class="c1">//声明枚举量时，要用枚举名来限定
+</span><span class="c1"></span><span class="n">egg</span> <span class="n">choice</span> <span class="o">=</span> <span class="n">egg</span><span class="o">::</span><span class="n">Small</span><span class="p">;</span>
+<span class="n">Tshirt</span> <span class="n">tshirt</span> <span class="o">=</span> <span class="n">Tshirt</span><span class="o">::</span><span class="n">Small</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>类作用域内枚举不能不能隐式地转变为int,但可以显式转换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">Example</span><span class="p">{</span>
+    <span class="k">enum</span> <span class="nc">a</span><span class="p">{</span>
+        <span class="n">apple</span><span class="p">,</span><span class="n">banana</span>
+    <span class="p">};</span>
+    <span class="k">enum</span> <span class="k">class</span> <span class="nc">b</span><span class="p">{</span>
+        <span class="n">apple</span><span class="p">,</span><span class="n">banana</span>
+    <span class="p">};</span>
+    <span class="n">fr</span> <span class="o">=</span> <span class="n">apple</span><span class="p">;</span>
+    <span class="n">fr2</span> <span class="o">=</span> <span class="n">b</span><span class="o">::</span><span class="n">apple</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">fruit</span> <span class="o">=</span> <span class="n">fr</span><span class="p">;</span>		<span class="c1">//valid
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">fruit2</span> <span class="o">=</span> <span class="n">fr2</span><span class="p">;</span>	<span class="c1">//invalid
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="unit-11-使用类">Unit 11 使用类</h2>
+<ul>
+<li>
+<p>重载运算符的规定：</p>
+<blockquote>
+<p>重载之后的运算符必须至少有一个操作数是用户定义的类型</p>
+<p>重载后的运算符不能违反原来的句法规则与优先级</p>
+<p>不能创建新运算符</p>
+<p>不能重载的运算符：<code>.</code> <code>.*</code> <code> ::</code> <code>?:</code> <code>typeid</code>  <code>const_cast</code> <code>dynamic_cast</code> <code>reinterpret_cast</code> <code>static cast</code></p>
+<p>除以下运算符只能通过成员函数重载以外，其他既能通过成员函数也能通过非成员函数:<code>=</code> <code>()</code> <code>[]</code> <code>-&gt;</code></p>
+</blockquote>
+</li>
+<li>
+<p>创建友元：原型声明前加上friend
+友元的定义时不要使用类作用于限定符，且不要使用<code>friend</code></p>
+<p>友元的意义之一是为左侧操作数不是类对象的二元运算符提供重载</p>
+</li>
+<li>
+<p>要重载<code>&lt;&lt;</code>操作符，需要创建一个传入<code>ostream</code>对象和类对象参数的友元函数，且返回一个<code>ostream</code>对象</p>
+</li>
+<li>
+<p>描述对象的状态可以使用状态成员，状态成员在头文件的类声明中用<code>enum</code>实现</p>
+</li>
+<li>
+<p>如果类方法通过计算得到一个类对象，考虑这些计算的过程是否可以通过构造函数实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="c1">//假设类Vector(矢量，自定义的类，不是STL中那个)，包含x,y,angel,magnitude(模长)
+</span><span class="c1">//现要通过重载Vector类的+运算符,最佳方案
+</span><span class="c1">//+重载定义为:
+</span><span class="c1"></span><span class="n">Vector</span> <span class="n">Vector</span><span class="o">::</span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="n">Vector</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nf">Vector</span><span class="p">(</span> <span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">b</span><span class="p">.</span><span class="n">y</span> <span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">//然后其实是让构造函数完成对其他两个变量的计算
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>对于有两种含义的运算符如<code>-</code>，要重载两次</p>
+</li>
+<li>
+<p>将基本类型转换为对象类型：</p>
+<blockquote>
+<p>对一个类，可能有多个构造函数，但仅只含有一个参数的构造函数可以用于隐式强制类型转换，且如果此构造函数的声明前加<code>explicit</code>关键字，那就只能用显示类型转换</p>
+</blockquote>
+</li>
+<li>
+<p>将对象类型转换为基本类型：</p>
+<blockquote>
+<p>使用转换函数：</p>
+<ol>
+<li>必须是类方法</li>
+<li>不能有参数</li>
+<li>不能指定返回类型</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">operator</span> <span class="nf">double</span><span class="p">();</span>		<span class="c1">//prototype
+</span></code></pre></td></tr></table>
+</div>
+</div><p>调用的两种方法：</p>
+<ol>
+<li>
+<p>用户显式调用，显式类型转换</p>
+</li>
+<li>
+<p>自动应用类型转换：前提：不存在二义性</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Example</span><span class="p">{</span>
+    <span class="k">operator</span> <span class="nf">double</span><span class="p">();</span>
+    <span class="k">operator</span> <span class="nf">int</span><span class="p">();</span>
+    <span class="k">operator</span> <span class="kt">int</span><span class="o">*</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">Example</span> <span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="kt">long</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>		<span class="c1">//invalid, because both double and int can concert to long
+</span><span class="c1"></span>    <span class="kt">long</span> <span class="o">*</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>	<span class="c1">//valid, only int* can convert to long*
+</span><span class="c1"></span><span class="p">}</span>
+<span class="c1">//To avoid such case, put `explicit` before operator or difine a specific fuction like such prototype:
+</span><span class="c1"></span><span class="k">explicit</span> <span class="k">operator</span> <span class="nf">double</span><span class="p">();</span>
+<span class="kt">double</span> <span class="nf">exampleToDouble</span><span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>在重载加法运算符时：</p>
+<blockquote>
+<p>定义友元：程序简短但运行时间长（每次需要类型转换时都要调用转换函数或只有一个参数的类构造函数，甚至有可能出现二义性）</p>
+<p>重载两次加法运算符（分别利用但参数的重载和友元），将两个参数的类型规定为<code>基本类型</code> <code>对象类型</code> ，两次定义可包括所有情况，之所以还包括<code>对象类型</code> <code>基本类型</code> 这种，是因为基本类型作为参数传递时，自动转换为对象类型是可以的。注意，强制转换变成的对象本身不能作为对象，只能作为对象类型的参数。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="unit-12-class--dynamic-memory-allocation">Unit 12 Class &amp; dynamic memory allocation</h2>
+<ul>
+<li>
+<p>You can&rsquo;t initialize <strong>static variable</strong> in class declaration. Because declaration describe how to allocate memory but doesn&rsquo;t allocate them.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">StringBad</span><span class="o">::</span><span class="n">num_strings</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		<span class="c1">//use ::
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">StringBad</span><span class="p">{</span>
+    <span class="p">...;</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">num_strings</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>				<span class="c1">//valid
+</span><span class="c1"></span>    <span class="k">const</span> <span class="k">enum</span> <span class="nc">b</span><span class="p">{</span><span class="s">&#34;apple&#34;</span><span class="p">,</span><span class="s">&#34;banana&#34;</span><span class="p">};</span>	<span class="c1">//valid
+</span><span class="c1"></span><span class="p">}</span>
+<span class="n">StringBad</span><span class="o">::</span><span class="n">StringBad</span><span class="p">(...){</span>
+    <span class="n">num_strings</span><span class="o">++</span><span class="p">;</span>					<span class="c1">//the usage of num_strings is to accumulate the number of the object
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>When you initialize an object with another object, compile construct a <strong>repudiation</strong> of the object. It is the result of the functions that compile create spontaneously. Their name is special member functions.</p>
+</li>
+<li>
+<p><strong>Default repudiating constructor</strong> and <strong>default reloaded operator</strong> copies non-static members&rsquo; values one by one.</p>
+</li>
+<li>
+<p>If class contains <strong>pointer initialized by new</strong>, it is necessary to define a repudiating constructor.</p>
+</li>
+<li>
+<p>To initialize a null char pointer, we&rsquo;d better use</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="c1">//or
+</span><span class="c1"></span><span class="n">str</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// In C++11, we use `nullptr` to mean null pointer.
+</span><span class="c1"></span><span class="n">str</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>	
+<span class="c1">//instead of
+</span><span class="c1"></span><span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">;</span>
+<span class="n">str</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>because <code>delete [] str;</code>  in  the <strong>destructor</strong> doesn&rsquo;t adapt to the latter.</p>
+<ul>
+<li>
+<p>To reload a <code>[]</code> operator, we should return a <strong>reference</strong> to let users giving value to the returned variable.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">char</span> <span class="o">&amp;</span> <span class="n">String</span><span class="o">::</span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span> <span class="n">i</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>At the same time, you must define another operator of <code>[]</code> to avoid the  <code>const</code> object.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">const</span> <span class="kt">char</span> <span class="o">&amp;</span> <span class="n">String</span><span class="o">::</span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span> <span class="n">i</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Static member function:</p>
+<ul>
+<li>Static member function doesn&rsquo;t related to any object, so it can only use static variables.</li>
+<li>To call a static member function, you should use <code>::</code> whenever.</li>
+</ul>
+</li>
+<li>
+<p>For different types of <code>con.get(char*,int)</code> , when it is given an empty line, it may return false or return a char[] with the first character <code>\0</code> . To satisfy the two cases when defining functions:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">cin</span> <span class="o">||</span> <span class="n">temp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;\0&#39;</span><span class="p">){</span>
+    <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>delete</code> (no matter if it has a <code>[]</code>) can used to free a null pointer. To utilize the property, as a class owns only one destructor, you can convert a <code>delete[]</code> to <code>nullptr</code> so that the destructor <code>delete char;</code> can free a string.</p>
+</li>
+<li>
+<p>The principles to determine a returning type:</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>case</th>
+<th>example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>const OBJECT &amp;</code></td>
+<td>return a parameter that function receives</td>
+<td><code>const int &amp; max(int,int)</code></td>
+</tr>
+<tr>
+<td><code>OBJECT &amp;</code></td>
+<td>reload<code>=</code> and <code>&lt;&lt; with cout</code></td>
+<td><code>String &amp; operator=(String)</code></td>
+</tr>
+<tr>
+<td><code>OBJECT</code></td>
+<td>return local variables</td>
+<td><code>int add(int,int)</code></td>
+</tr>
+<tr>
+<td><code>const OBJECT</code></td>
+<td>to avoid the illegal code like<code>a+b=c</code> passing compiling</td>
+<td><code>const String operator+(String)</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">className</span> <span class="o">*</span> <span class="n">pClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">className</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+<span class="n">className</span> <span class="o">*</span> <span class="n">pClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">className</span><span class="p">;</span>			<span class="c1">//default constructor
+</span><span class="c1"></span><span class="n">className</span> <span class="o">*</span> <span class="n">example</span><span class="p">;</span>
+<span class="n">className</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">example</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">className</span> <span class="o">*</span> <span class="n">pClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">className</span><span class="p">();</span>		<span class="c1">//invalid
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Three cases destructor be allocate:</p>
+<ul>
+<li>The object is dynamic variable, the destructor is called at the end of the code blocks.</li>
+<li>The object is static variable, the destructor is called at the end of the program.</li>
+<li>The object is created by new, you have to <code>delete</code> obviously.</li>
+</ul>
+</li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">String</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="n">String</span><span class="p">(</span><span class="s">&#34;apple&#34;</span><span class="p">);</span>
+<span class="n">p</span><span class="o">-&gt;~</span><span class="n">String</span><span class="p">();</span>		<span class="c1">//call destructor obviously
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>member initializer list</strong>:</p>
+<ul>
+<li>
+<p>To initialize <strong>constant without static</strong> and <strong>reference members</strong> before the object be constructed(<strong>only can be used in constructor</strong>):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Queue</span><span class="p">{</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">qsize</span><span class="p">;</span>
+    <span class="p">...;</span>
+<span class="p">}</span>
+<span class="n">Queue</span><span class="o">::</span><span class="n">Queue</span><span class="p">(</span><span class="kt">int</span> <span class="n">qs</span><span class="p">)</span> <span class="o">:</span> <span class="n">qsize</span><span class="p">(</span><span class="n">qs</span><span class="p">){</span>
+    <span class="p">...;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>C++11 allow to initialize variables in-class.</p>
+</li>
+<li>
+<p>To avoid the unpredictable wrong, state some specific constructor in private area:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Queue</span><span class="p">{</span>
+    <span class="k">private</span><span class="o">:</span>
+      <span class="n">Queue</span><span class="p">(</span><span class="k">const</span> <span class="n">Queue</span> <span class="o">&amp;</span><span class="n">q</span><span class="p">)</span> <span class="o">:</span> <span class="n">qsize</span><span class="p">(</span><span class="mi">0</span><span class="p">){};</span>	<span class="c1">//avoid definition
+</span><span class="c1"></span>      <span class="n">Queue</span> <span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Queue</span> <span class="o">&amp;</span> <span class="n">q</span><span class="p">){</span>
+            <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>					<span class="c1">//avoid evaluation
+</span><span class="c1"></span>        <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="unit-13--class-inherit">Unit 13  Class Inherit</h2>
+<ul>
+<li>
+<p>Unless you calls the default constructor of base class, you must calls the correct base class constructor obviously.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">fruit</span><span class="p">{</span>
+    <span class="p">...;</span>
+<span class="p">}</span>
+<span class="n">fruit</span><span class="o">::</span><span class="n">fruit</span><span class="p">(</span><span class="n">string</span> <span class="n">color</span><span class="p">){</span>
+    <span class="p">...;</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nc">apple</span> <span class="o">:</span> <span class="k">public</span> <span class="n">fruit</span><span class="p">{</span>
+    <span class="p">...;</span>
+<span class="p">}</span>
+<span class="n">apple</span><span class="o">::</span><span class="n">apple</span><span class="p">(</span><span class="n">string</span> <span class="n">color</span><span class="p">,</span><span class="n">string</span> <span class="n">taste</span><span class="p">){</span>		<span class="c1">//calls fruit&#39;s default constructor
+</span><span class="c1"></span>    <span class="p">...;</span>
+<span class="p">}</span>
+<span class="n">apple</span><span class="o">::</span><span class="n">apple</span><span class="p">(</span><span class="n">stirng</span> <span class="n">color</span><span class="p">,</span><span class="n">string</span> <span class="n">taste</span><span class="p">)</span> <span class="o">:</span> <span class="n">apple</span><span class="p">(</span><span class="n">color</span><span class="p">){</span>
+    <span class="p">...;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Pointer and reference of the base class can be used by derived class without obvious conversion.</p>
+</li>
+<li>
+<p>To achieve the Polymorphism of a function, you can:</p>
+<ul>
+<li>declare it in both base class and derived class;</li>
+<li>use virtual function. When you are using virtual function and the object is a pointer or reference , the program will judge which function to call by checking which type is the pointer point to is or which type of the object that the reference refer to is.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">fruit</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">fruit</span><span class="p">;</span>
+<span class="n">apple</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">apple</span><span class="p">;</span>
+<span class="n">fruit</span> <span class="o">&amp;</span><span class="n">zao</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">fruit</span> <span class="o">&amp;</span><span class="n">yoshino</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+<span class="c1">//if not using virtual
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">color</span><span class="p">();</span>	<span class="c1">//use fruit.color()
+</span><span class="c1"></span><span class="n">b</span><span class="p">.</span><span class="n">color</span><span class="p">();</span>	<span class="c1">//use fruit.color()
+</span><span class="c1">//if using virtual
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">color</span><span class="p">();</span>	<span class="c1">//use fruit.color()
+</span><span class="c1"></span><span class="n">b</span><span class="p">.</span><span class="n">color</span><span class="p">();</span> 	<span class="c1">//use apple.color()
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>virtual function:</p>
+<ul>
+<li>
+<p>A virtual function in the base class can make all functions that is of the same name in the derived class virtual.</p>
+</li>
+<li>
+<p>It is necessary to declare the functions, in the base class and will be redefine, virtual.</p>
+</li>
+<li>
+<p>Destructor must be a virtual one unless it is not a base class.</p>
+</li>
+<li>
+<p>Covariance of Return Type:</p>
+<blockquote>
+<p>If redefine the derived functions, ensure that prototype is the same as base ones;</p>
+<p>However, the return type can convert <strong>base class reference</strong> and **pointer to base class ** into <strong>derived class reference</strong> and <strong>pointer to derived class</strong>.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>Pure virtual function:</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">virtual</span> <span class="kt">double</span> <span class="nf">apple</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>At least a function pure virtual to make a class a virtual one.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>We need to define <strong>destructor, repudiator and operator(=)</strong> if the <strong>derived</strong> class&rsquo;s constructor use <strong>new</strong>, while we needn&rsquo;t do that if the <strong>base</strong> constructor use new while derived class not.</p>
+</li>
+<li>
+<p>To define a operator in derived class, we can call obviously the base class operator to manage all the values inherit from the base class in the derived class.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">hasDMA</span> <span class="o">&amp;</span><span class="n">hasDMA</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">hasDMA</span> <span class="o">&amp;</span> <span class="n">hs</span><span class="p">){</span>
+    <span class="n">baseDMA</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">hs</span><span class="p">);</span>	<span class="c1">//it means *this = hs
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>To get values in base class,the friend of derived class can use the base class&rsquo;s friend function <code>operator&lt;&lt;()</code>, and to ensure the base class&rsquo;s friend <code>function operator&lt;&lt;</code> instead of the derived one, we can use <strong>obvious type conversion</strong>:<code>os &lt;&lt; (const baseDMA &amp;) hs;</code></p>
+</li>
+<li>
+<p><code>const</code> at different location:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">const</span> <span class="n">Stock</span> <span class="o">&amp;</span> <span class="n">Stock</span><span class="o">::</span><span class="n">topval</span><span class="p">(</span><span class="k">const</span> <span class="n">Stock</span> <span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span> <span class="k">const</span><span class="p">{</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//first const:avoid return value be modified by others as a left value
+</span><span class="c1">//second const:avoid the modification of parameter
+</span><span class="c1">//third const:stop the function from modifying the object
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Can I give the value of a base object to a derived object?</p>
+<blockquote>
+<p>Only if you declare and define a constructor(base object to derived object)
+Or you define the operator <code>=</code> which is used to convert base object to derived object</p>
+<p>Otherwise, you must <strong>Forced type conversion</strong> while converting base type to derived type.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="unit-14-code-reusing-in-c">Unit 14 code reusing in C++</h2>
+<ul>
+<li>
+<p>Interface and implementation:</p>
+<blockquote>
+<p>While using public inherit, class can inherit all interfaces and implementation of non-virtual function.
+While using composition(containment), class can be implemented, instead, can not inherit interface.</p>
+</blockquote>
+</li>
+<li>
+<p>Containment:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">Student</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">,</span> <span class="k">const</span> <span class="kt">double</span> <span class="n">pd</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">:</span>
+<span class="n">name</span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">score</span><span class="p">(</span><span class="n">pd</span><span class="p">,</span> <span class="n">n</span><span class="p">){}</span>
+<span class="c1">//use data members&#39; names in the initializing list
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Private inheritance:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">//Student is the derived class of string and valarray
+</span><span class="c1">//We has &#34;tyedef std::valarray&lt;double&gt; ArrayDb;&#34;
+</span><span class="c1"></span>  
+<span class="k">class</span> <span class="nc">Student</span> <span class="o">:</span> <span class="k">private</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="k">private</span> <span class="n">std</span><span class="o">::</span><span class="n">valarray</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">{};</span>
+<span class="c1">//It is a multiple inheritance
+</span><span class="c1">//The Student class don&#39;t need any private data now, fot the two base class has provide all the necessary members.
+</span><span class="c1"></span>  
+<span class="c1">//Then we use class name in the initializing list
+</span><span class="c1"></span><span class="n">Student</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">str</span><span class="p">,</span> <span class="k">const</span> <span class="kt">double</span> <span class="o">*</span> <span class="n">pd</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">:</span> 
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">ArrayDb</span><span class="p">(</span><span class="n">pd</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="p">{}</span>
+  
+<span class="c1">//To call the function of base class, use class name and ::
+</span><span class="c1"></span><span class="kt">double</span> <span class="n">Student</span><span class="o">::</span><span class="n">Average</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span> <span class="n">ArrayDb</span><span class="o">::</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="k">return</span> <span class="n">ArrayDb</span><span class="o">::</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">ArrayDb</span><span class="o">::</span><span class="n">size</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="n">conv</span>
+  
+<span class="c1">//Get the object of base class(however, the object has no name)
+</span><span class="c1"></span><span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span> <span class="n">Student</span><span class="o">::</span><span class="n">Name</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span><span class="p">)</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>	<span class="c1">//use obvious type conversion
+</span><span class="c1"></span><span class="p">}</span>
+  
+<span class="c1">//call base class&#39;s friend
+</span><span class="c1"></span><span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span><span class="p">)</span> <span class="n">stu</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>	<span class="c1">//use obvious type conversion
+</span><span class="c1"></span>  
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>To construct a has-a relation, use containment;
+To construct a has-a relation while calling base class&rsquo;s protected members or redefining virtual function, use private inheritance.</p>
+</li>
+<li>
+<p>3 inheritances</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>公有继承</th>
+<th>保护继承</th>
+<th>私有继承</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>公有成员变成</td>
+<td>派生类的公有成员</td>
+<td>派生类的保护成员</td>
+<td>派生类的私有成员</td>
+</tr>
+<tr>
+<td>保护成员变成</td>
+<td>派生类的保护成员</td>
+<td>派生类的保护成员</td>
+<td>派生类的私有成员</td>
+</tr>
+<tr>
+<td>私有成员变成</td>
+<td>只能通过基类接口访问</td>
+<td>只能通过基类接口访问</td>
+<td>只能通过基类接口访问</td>
+</tr>
+<tr>
+<td>能否隐式向上转换</td>
+<td>是</td>
+<td>是（但只能在派生类中）</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>using <code>using</code> to redefine calling permissions:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Student</span> <span class="o">:</span> <span class="k">private</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="k">private</span> <span class="n">std</span><span class="o">::</span><span class="n">valarray</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+      <span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">valarray</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">min</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Virtual base class: You have to obviously declare which constructor of the base class to call unless using the default constructor.</p>
+</li>
+<li>
+<p>Explicit instantiation and explicit specialization of template:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">//implicit instantiation
+</span><span class="c1"></span><span class="n">ArrayTP</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="mi">30</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">pt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayTp</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="mi">30</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="c1">//explicit instantiation 
+</span><span class="c1"></span><span class="k">template</span> <span class="k">class</span> <span class="nc">ArrayTP</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="mi">100</span><span class="o">&gt;</span><span class="p">;</span>	
+<span class="c1">//explicit specialization
+</span><span class="c1"></span><span class="k">template</span> <span class="o">&lt;&gt;</span> <span class="k">class</span> <span class="nc">SortArray</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*&gt;</span><span class="p">{};</span>
+<span class="c1">//partial specialization
+</span><span class="c1"></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T1</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">Pair</span><span class="p">{};</span>	<span class="c1">//class in the &lt;&gt; show what is not to be specialization
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>To differentiate pointer and non-pointer in template class, we can:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">forNonPionter</span><span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="err">* </span><span class="nc">T</span><span class="o">&gt;</span>			<span class="c1">//a kind of partial specialization
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">forPointer</span><span class="p">{};</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>friend in template class;</p>
+<blockquote>
+<p>non-template friend: It can use template parameter normally like:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">report</span><span class="p">(</span><span class="n">HasFriend</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="p">)}{;}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>bound template friend: each template type  owns there own friend:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span> <span class="o">&lt;</span> <span class="k">class</span> <span class="nc">TT</span> <span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">Example</span><span class="p">{</span>
+    <span class="k">private</span><span class="o">:</span>
+    	<span class="n">TT</span> <span class="n">item</span><span class="p">;</span>
+    <span class="k">public</span><span class="o">:</span>
+    	<span class="n">Example</span><span class="p">(</span><span class="k">const</span> <span class="n">TT</span> <span class="o">&amp;</span> <span class="n">i</span><span class="p">)</span> <span class="o">:</span> <span class="n">item</span><span class="p">(</span><span class="n">i</span><span class="p">){}</span>
+    	<span class="k">friend</span> <span class="kt">void</span> <span class="n">counts</span><span class="o">&lt;</span><span class="n">TT</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="c1">//template type is left out for compiler can judge the type for its parameter;
+</span><span class="c1"></span>    <span class="c1">//However, for counts() do not has a parameter, so you must declare the template type in the &lt;&gt;
+</span><span class="c1"></span>    	<span class="k">friend</span> <span class="kt">void</span> <span class="n">report</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">Example</span><span class="o">&lt;</span><span class="n">TT</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">counts</span><span class="p">(){</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Example</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>    
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">report</span><span class="p">(</span><span class="n">T</span> <span class="o">&amp;</span> <span class="n">hf</span><span class="p">){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">hf</span><span class="p">.</span><span class="n">item</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">Example</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">apple</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">Example</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">banana</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+    <span class="n">Example</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">orange</span><span class="p">(</span><span class="mf">1.1</span><span class="p">);</span>
+    <span class="n">report</span><span class="p">(</span><span class="n">apple</span><span class="p">);</span>	<span class="c1">//10
+</span><span class="c1"></span>    <span class="n">report</span><span class="p">(</span><span class="n">banana</span><span class="p">);</span>	<span class="c1">//20
+</span><span class="c1"></span>    <span class="n">report</span><span class="p">(</span><span class="n">orange</span><span class="p">);</span>	<span class="c1">//1.1
+</span><span class="c1"></span>    <span class="n">counts</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>	<span class="c1">//4
+</span><span class="c1"></span>    <span class="n">counts</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>	<span class="c1">//8
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>unbound template friend:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Example</span><span class="p">{</span>
+    <span class="k">private</span><span class="o">:</span>
+    	<span class="n">T</span> <span class="n">item</span><span class="p">;</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span> <span class="k">class</span> <span class="nc">B</span><span class="o">&gt;</span>	<span class="kt">void</span> <span class="n">show2</span><span class="p">(</span><span class="n">A</span> <span class="o">&amp;</span><span class="p">,</span> <span class="n">B</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+<li>
+<p>module alias:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+    <span class="k">using</span> <span class="n">arrtype</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="mi">12</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="friend-error-and-others">Friend, Error, and Others</h2>
+<ul>
+<li>
+<p>To make the function of another class a friend, you should insert a declaration before the latter:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Tv</span><span class="p">;</span>		<span class="c1">//first base class
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">Remote</span><span class="p">{</span>	<span class="c1">//next the class with friend function
+</span><span class="c1"></span>    <span class="kt">void</span> <span class="nf">changeChannel</span><span class="p">(</span><span class="n">Tv</span> <span class="o">&amp;</span><span class="p">);</span>	
+    <span class="c1">//only prototype, cannot use inline here for the parameter &#39;Tv&#39; doesn&#39;t know by compiler
+</span><span class="c1"></span><span class="p">}</span>
+<span class="k">class</span> <span class="nc">Tv</span><span class="p">{</span>
+    <span class="kt">void</span> <span class="k">friend</span> <span class="n">Remote</span><span class="o">::</span><span class="n">changeChannel</span><span class="p">(</span><span class="n">Tv</span> <span class="o">&amp;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="n">Remote</span><span class="o">::</span><span class="n">changeChannel</span><span class="p">(</span><span class="n">Tv</span> <span class="o">&amp;</span><span class="p">){</span>
+   <span class="p">...;</span>
+<span class="p">}</span>
+<span class="c1">//If you want to inline it
+</span><span class="c1"></span><span class="kr">inline</span> <span class="kt">void</span> <span class="n">Remote</span><span class="o">::</span><span class="n">changeChannel</span><span class="p">(</span><span class="n">Tv</span> <span class="o">&amp;</span><span class="p">){</span>
+    <span class="p">...;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>If you declare friend class in a base class, all of the functions in the friend class can change private elements in the base one.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Tv</span><span class="p">{</span>
+    <span class="k">friend</span> <span class="k">class</span> <span class="nc">Remote</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">Remote</span><span class="p">{</span>
+    <span class="p">...;</span>
+<span class="p">};</span>
+<span class="c1">//In this case, you don&#39;t need to declare the friend class before base one.
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>When two class has friend functions each other, declare them twice:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Tv</span><span class="p">{</span>
+    <span class="k">friend</span> <span class="k">class</span> <span class="nc">Remote</span><span class="p">;</span>
+    <span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">buzz</span><span class="p">(</span><span class="n">Remote</span> <span class="o">&amp;</span> <span class="n">r</span><span class="p">);</span>
+    <span class="p">...;</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">Reomte</span><span class="p">{</span>
+    <span class="k">friend</span> <span class="k">class</span> <span class="nc">Tv</span><span class="p">;</span>
+    <span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">Bool</span> <span class="n">volup</span><span class="p">(</span><span class="n">Tv</span> <span class="o">&amp;</span> <span class="n">t</span><span class="p">){}</span>
+<span class="p">};</span>
+<span class="kr">inline</span> <span class="n">coit</span> <span class="n">Tv</span><span class="o">::</span><span class="n">buzz</span><span class="p">(</span><span class="n">Remote</span> <span class="o">&amp;</span> <span class="n">r</span><span class="p">){</span>
+    <span class="p">...;</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>When a function throw an error, it always build a repudiation of the throw, even if the <code>catch()</code>'s parameter is a reference. Using a reference to make the parameter be able to be referred to a derived class.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Problem</span><span class="p">{};</span>
+<span class="kt">void</span> <span class="nf">super</span><span class="p">()</span> <span class="k">throw</span> <span class="p">(</span><span class="n">problem</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">oh_no</span><span class="p">){</span>
+      <span class="n">problem</span> <span class="n">oops</span><span class="p">;</span>
+        <span class="k">throw</span> <span class="n">oops</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="k">try</span><span class="p">{</span>
+        <span class="n">super</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">catch</span><span class="p">(</span><span class="n">problem</span> <span class="o">&amp;</span> <span class="n">p</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>catch block</code> must be ordered reversely with <code>throw</code> order.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">void</span> <span class="nf">duper</span><span class="p">(){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">oh_no</span><span class="p">){</span>
+        <span class="k">throw</span> <span class="n">bad_1</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rats</span><span class="p">){</span>
+        <span class="k">throw</span> <span class="n">bad_2</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">drat</span><span class="p">){</span>
+        <span class="k">throw</span> <span class="n">bad_3</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">try</span><span class="p">{</span>
+    <span class="n">duper</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="n">bad_3</span> <span class="o">&amp;</span><span class="n">be</span><span class="p">){</span>
+    <span class="p">...;</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="n">bad_2</span> <span class="o">&amp;</span><span class="n">be</span><span class="p">){</span>
+    <span class="p">...;</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="n">bad_1</span> <span class="o">&amp;</span><span class="n">be</span><span class="p">){</span>
+    <span class="p">...;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>If you don&rsquo;t know the errors the function will throw, you can use <code>...</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">try</span><span class="p">{</span>
+    <span class="n">duper</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="n">bad_3</span> <span class="o">&amp;</span> <span class="n">be</span><span class="p">){</span>
+    <span class="c1">//statements
+</span><span class="c1"></span><span class="p">}</span>
+<span class="k">catch</span><span class="p">(...){</span>
+    <span class="c1">//statements
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>RTTI(Runtime Type Identification)</code>:</p>
+<ol>
+<li>
+<p><code>dynamic_cast</code>: help confirm whether it is safe to grant a address to a pointer.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">if</span><span class="p">(</span><span class="n">ps</span> <span class="o">==</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Superb</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">pg</span><span class="p">)){</span>
+    <span class="n">ps</span><span class="o">-&gt;</span><span class="n">Say</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>typeid &amp; type_info</code>: check if the two object the same type.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Converting operator:</p>
+<ol>
+<li>
+<p><code>dynamic_cast</code>;</p>
+</li>
+<li>
+<p><code>const_cast</code>: make  two variables with different <code>const</code> and <code>volatile</code> grant and be granted.</p>
+</li>
+<li>
+<p><code> static_cast</code> : For the base class&rsquo;s points to derived class&rsquo;s points, it is valid.</p>
+</li>
+<li>
+<p><code>reinterprete_cast</code>: For some strange convert:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">struct</span> <span class="nc">dat</span><span class="p">{</span>
+    <span class="kt">short</span> <span class="n">a</span><span class="p">;</span>
+    <span class="kt">short</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kt">long</span> <span class="n">value</span> <span class="o">=</span> <span class="mh">0xA224B118</span><span class="p">;</span>
+<span class="n">dat</span> <span class="o">*</span> <span class="n">pd</span>  <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">dat</span> <span class="o">*&gt;</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">hex</span> <span class="o">&lt;&lt;</span> <span class="n">pd</span><span class="o">-&gt;</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// Will show 0xA2
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+</ul>
+<h2 id="unit-16-string-class-and-stl">Unit 16 String class and STL</h2>
+<ul>
+<li>
+<p><code>c_str</code> return a C-style string pointer:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">string</span> <span class="nf">example</span><span class="p">(</span><span class="s">&#34;Main.cpp&#34;</span><span class="p">);</span>
+<span class="n">fout</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">example</span><span class="p">.</span><span class="n">c_str</span><span class="p">(</span><span class="n">example</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Smart pointer:</p>
+<ol>
+<li>
+<p><code>auto_ptr</code>: not recommend;</p>
+</li>
+<li>
+<p><code>shared_ptr</code>: Trace the pointer numbers of a referenced variable to avoid releasing twice on a single variable.</p>
+</li>
+<li>
+<p><code>unique_ptr</code>: Change the ownership of a variable to avoid releasing twice and it is not allowed at most cases of granting except:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">demo</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">s</span><span class="p">){</span>
+    <span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">string</span><span class="o">?</span> <span class="n">temp</span><span class="p">(</span><span class="k">new</span> <span class="n">string</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+    <span class="k">return</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">ps</span><span class="p">;</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="n">demo</span><span class="p">(</span><span class="s">&#34;Uniquely special&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">//Because temporary variable in the &#34;demo&#34; is automatically released, while users has no chances to call for the invalid data. 
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+<li>
+<p>If you want to grant a no-temporary <code>unique_ptr</code> , you should use <code>move()</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">ps1</span><span class="p">,</span><span class="n">ps2</span><span class="p">;</span>
+<span class="n">ps1</span> <span class="o">=</span> <span class="n">demo</span><span class="p">(</span><span class="s">&#34;Uniquely special&#34;</span><span class="p">);</span>
+<span class="n">ps2</span> <span class="o">=</span> <span class="n">move</span><span class="p">(</span><span class="n">ps1</span><span class="p">);</span>
+<span class="n">ps1</span> <span class="o">=</span> <span class="n">demo</span><span class="p">(</span><span class="s">&#34; and more&#34;</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ps2</span> <span class="o">&gt;&gt;</span> <span class="o">*</span> <span class="n">ps1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>If you do not give <code>unique_ptr</code> parameter in reference, the function will refuse to initialize a <code>unique_ptr</code> by no-temporary variable.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">show</span><span class="p">(</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span> <span class="n">pi</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">falseShow</span><span class="p">(</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pi</span><span class="p">);</span>
+  
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">vp</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="n">for_each</span><span class="p">(</span><span class="n">vp</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">cp</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">show</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>To assign a iterator, use <code>auto</code> to reduce the input:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">auto</span> <span class="n">pd</span> <span class="o">=</span> <span class="n">examples</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>3 STL functions:</p>
+<ol>
+<li>
+<p><code>for_each()</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">//Avoid using explicit iterator variable
+</span><span class="c1"></span><span class="n">for_each</span><span class="p">(</span><span class="n">iterator</span> <span class="n">i</span><span class="p">,</span> <span class="n">iterator</span> <span class="n">j</span><span class="p">,</span> <span class="n">function</span> <span class="n">object</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>Random_shuffle()</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">//Sort the elements in the range randomly.
+</span><span class="c1"></span><span class="n">random_shuffle</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>sort()</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="c1">//if a is an object that users define, than you must reload operator&lt;(), otherwise you can&#39;t use this function.
+</span><span class="c1"></span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">confirm</span><span class="p">());</span>
+<span class="c1">//confirm() is a function, while the sort is right, it returns true;
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+<li>
+<p>Input, output iterator can be manipulated that which type of input or output is.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span><span class="cpf">&lt;iterator&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">ostream_iterator</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="o">&gt;</span> <span class="n">out_iter</span><span class="p">(</span><span class="n">cout</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span> <span class="c1">//Type of what is send to cout is int, what you want to output as is char
+</span><span class="c1"></span>    <span class="n">copy</span><span class="p">(</span><span class="n">istream_iterator</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">cin</span><span class="p">),</span>
+         <span class="n">istream_iterator</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">dice</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span> <span class="c1">//The type you read is int, what you&#39;d like to save is char.
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>You don&rsquo;t have to declare the iterators explicitly.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">copy</span><span class="p">(</span><span class="n">dice</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">dice</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">out_iter</span><span class="p">);</span>
+<span class="n">copy</span><span class="p">(</span><span class="n">dice</span><span class="p">.</span><span class="n">rbegin</span><span class="p">(),</span> <span class="n">dice</span><span class="p">.</span><span class="n">rend</span><span class="p">(),</span> <span class="n">out_iter</span><span class="p">);</span>
+<span class="c1">//rbegin() and rend() first minus one and dereference
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>STL container functions:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">//use list as example
+</span><span class="c1"></span><span class="n">iterator</span><span class="o">&lt;</span><span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+<span class="n">T</span> <span class="n">t</span><span class="p">;</span>
+<span class="n">a</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">);</span>	<span class="c1">//put t before p
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">);</span>	<span class="c1">//put n ts before p
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">);</span>	<span class="c1">//put elements between i and j before p
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>			<span class="c1">//delete what p point to
+</span><span class="c1"></span><span class="n">a</span><span class="p">,</span><span class="n">erase</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">);</span>		<span class="c1">//delete whar between p, q
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>			<span class="c1">//is equal to a.erase(a.begin(),a.end());
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Selectable functions:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">a</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>	<span class="c1">//*a.begin()	vector, list, deque
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>	<span class="c1">//*--a.end()	vectir, list, deque
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>	<span class="c1">//a.insert(a.begin(), t)	list, deque
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>	<span class="c1">//a.insert(a.end(),t)	vector, list, deque
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">pop_front</span><span class="p">(</span><span class="n">t</span><span class="p">);</span> <span class="c1">//a.erase(a.begin())	list, deque
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">pop_back</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>	<span class="c1">//a.erase(--a.end)		vector, list, deque
+</span><span class="c1"></span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>	<span class="c1">//*(a.begin() + n)	vector, deque
+</span><span class="c1"></span><span class="n">a</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>	<span class="c1">//*(a.begin() + n)	vector, deque
+</span><span class="c1">//The difference is that if n is out of range the at(n) will throw an error but a[n] not
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>list special functions:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">merge</span><span class="p">(</span><span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">);</span>				<span class="c1">//merge x into the object and clear x, you must make sure the two lists being sorted and the result will be sorted.
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">remove</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">);</span>					<span class="c1">//Remove all elements equaling val in list
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">sort</span><span class="p">();</span>
+<span class="kt">void</span> <span class="nf">splice</span><span class="p">(</span><span class="n">iterator</span> <span class="n">pos</span><span class="p">,</span> <span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;</span><span class="n">x</span><span class="p">);</span>	<span class="c1">//Add list x before pos
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">unique</span><span class="p">();</span>								<span class="c1">//make continuous equaling elements one element
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>splice</code> is different from <code>insert()</code> for the latter add the repudiation to the orientation and the former will clear what is being inserted.</p>
+</li>
+<li>
+<p>Usage of <code>transform()</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;functional&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;iterator&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    <span class="n">plus</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">add</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">p</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">q</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">};</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="o">+</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">q</span><span class="o">+</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">ostream_iterator</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">out</span><span class="p">(</span><span class="n">cout</span><span class="p">,</span><span class="s">&#34; &#34;</span><span class="p">);</span>
+    <span class="n">transform</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">b</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">out</span><span class="p">,</span><span class="n">add</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Predefined function operator in <code>&lt;functional&gt;</code>:</p>
+<table>
+<thead>
+<tr>
+<th>operator</th>
+<th>function operator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>plus</td>
+</tr>
+<tr>
+<td>-</td>
+<td>minus</td>
+</tr>
+<tr>
+<td>*</td>
+<td>multiplies</td>
+</tr>
+<tr>
+<td>/</td>
+<td>divides</td>
+</tr>
+<tr>
+<td>%</td>
+<td>modules</td>
+</tr>
+<tr>
+<td>-</td>
+<td>negate</td>
+</tr>
+<tr>
+<td>==</td>
+<td>equal_to</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>not_equal_to</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>greater</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>less</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>greater_equal</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>less_equal</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>logical_and</td>
+</tr>
+<tr>
+<td>||</td>
+<td>logical_or</td>
+</tr>
+<tr>
+<td>!</td>
+<td>logical_not</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>function adapter: convert one-parameter function to two-parameter or the opposite:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">transform</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">out</span><span class="p">,</span>
+         <span class="n">bind1st</span><span class="p">(</span><span class="n">multiplies</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(),</span> <span class="mf">2.5</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Put all elements in vector into set:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span><span class="cpf">&lt;set&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">ToLower</span><span class="p">(</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">st</span><span class="p">){</span>
+    <span class="n">transform</span><span class="p">(</span><span class="n">st</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">st</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">st</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">tolower</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">st</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//int tolower(int),you can define another toLower to make it char toLower(char)
+</span><span class="c1"></span><span class="n">set</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">wordset</span><span class="p">;</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">words</span><span class="p">;</span>
+<span class="p">...;</span>
+<span class="n">transform</span><span class="p">(</span><span class="n">words</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">words</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+         <span class="n">insert_iterator</span><span class="o">&lt;</span><span class="n">set</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">wordset</span><span class="p">,</span><span class="n">wordset</span><span class="p">.</span><span class="n">begin</span><span class="p">()),</span> <span class="n">ToLower</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Initializer_list:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vi</span><span class="p">{</span><span class="mi">10</span><span class="p">};</span> <span class="c1">// == std::vector&lt;int&gt; vi({10});
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="unit-17-input-output-and-file">Unit 17 Input, Output and File</h2>
+<ul>
+<li>
+<p>No matter where the output is relocated, the standard <code>cerr</code> and <code>clog</code> will be put on the screen.</p>
+</li>
+<li>
+<p>Program will not refresh the flush area until:</p>
+<ol>
+<li>
+<p>It expects a <code>cin</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Enter a word:&#34;</span><span class="p">;</span>
+<span class="n">string</span> <span class="n">word</span><span class="p">;</span>
+<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">word</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>It meets an <code>endl</code> or <code>\n</code>  or <code>flush</code> in the <code>cout</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">//No output
+</span><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Enter a word:&#34;</span><span class="p">;</span>
+<span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//output is &#39;Enter a word:&#39;
+</span><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Enter a word:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">flush</span><span class="p">;</span>
+<span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+<li>
+<p>To control the output width, use function of <code>cout</code> : <code>width</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;#&#34;</span><span class="p">;</span>
+<span class="n">cout</span><span class="p">.</span><span class="n">width</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;#&#34;</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;#</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+<span class="c1">//#       12#24#
+</span><span class="c1">//Because width(int) only affects the next item that is printed;
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>To fill the blanks with expected characters, use <code>fill(int)</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">cout</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="sc">&#39;*&#39;</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;apple&#34;</span><span class="p">;</span>
+<span class="n">cout</span><span class="p">.</span><span class="n">width</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;5&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">//apple******5
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>To control the precision of float and double, use<code>precision()</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">float</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.234</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">1.345</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span><span class="p">.</span><span class="n">precision</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">//1.234
+</span><span class="c1">//1.3
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>cout.setf(ios_base::something)</code>:</p>
+<table>
+<thead>
+<tr>
+<th>常 量</th>
+<th>含 义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ios_base ::boolalpha</td>
+<td>输入和输出bool值，可以为true或false</td>
+</tr>
+<tr>
+<td>ios_base ::showbase</td>
+<td>对于输出，使用C++基数前缀（0，0x）</td>
+</tr>
+<tr>
+<td>ios_base ::showpoint</td>
+<td>显示末尾的小数点</td>
+</tr>
+<tr>
+<td>ios_base ::uppercase</td>
+<td>对于16进制输出，使用大写字母，E表示法</td>
+</tr>
+<tr>
+<td>ios_base ::showpos</td>
+<td>在正数前面加上+</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>To record a configure:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">ios_base</span><span class="o">::</span><span class="n">fmtflags</span> <span class="n">old</span> <span class="o">=</span> <span class="n">cout</span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">ios</span><span class="o">::</span><span class="n">left</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">adjustfield</span><span class="p">);</span>
+<span class="c1">//use
+</span><span class="c1"></span><span class="n">cout</span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">adjustfield</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>In <code>iomanip</code>, C++ has more convenient manipulation of output:<code>setprecision()</code>,<code>setfill</code>,<code>setw</code></p>
+</li>
+<li>
+<p><code>cin.get(char*, int, char)</code> differs <code>cin.getline(char *, int, char)</code> that <code>getline</code> throw the demarcating character.</p>
+</li>
+<li>
+<p>Other <code>istream</code> functions:</p>
+<ol>
+<li><code>read()</code>: differing from <code>get</code> and <code>getline</code> , read will not add a <code>'\0'</code> after the input.</li>
+<li><code>peek()</code>: it can observe the next character in the <code>cin</code>.</li>
+<li><code>gcount()</code>: it can count how many characters are read</li>
+<li><code>putback()</code>: insert a character into <code>cin</code>.</li>
+</ol>
+</li>
+<li>
+<p>Different file module:</p>
+<table>
+<thead>
+<tr>
+<th>常 量</th>
+<th>含 义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ios_base::in</td>
+<td>打开文件，以便读取</td>
+</tr>
+<tr>
+<td>ios_base::out</td>
+<td>打开文件，以便写入</td>
+</tr>
+<tr>
+<td>ios_base::ate</td>
+<td>打开文件，并移到文件尾</td>
+</tr>
+<tr>
+<td>ios_base::app</td>
+<td>追加到文件尾</td>
+</tr>
+<tr>
+<td>ios_base::trunc</td>
+<td>如果文件存在，则截短文件</td>
+</tr>
+<tr>
+<td>ios_base::binary</td>
+<td>二进制文件</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++">
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>ofstream fout(&ldquo;apple.txt&rdquo;, ios_base::out | ios_base::app);  <br>
+```</p>
+<ul>
+<li>
+<p>Saving and reading freely: Find the deviation from the specific location.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">fin</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span>
+<span class="n">fin</span><span class="p">.</span><span class="n">seekg</span><span class="p">(</span><span class="mi">121</span><span class="p">,</span><span class="n">ios_base</span><span class="o">::</span><span class="n">seekdir</span><span class="p">);</span> 
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="unit-18-c-new-standard">Unit 18 C++ New standard</h2>
+<ul>
+<li>
+<p>Use <code>char16_t</code> and <code>char32_t</code> to support the wide character indication.</p>
+</li>
+<li>
+<p>To use initialize, you can avoid tighten the value:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">char</span> <span class="n">c1</span> <span class="o">=</span> <span class="mf">1.57e27</span><span class="p">;</span> 		<span class="c1">//undefined behavior
+</span><span class="c1"></span><span class="kt">char</span> <span class="n">c2</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.57e27</span><span class="p">};</span>	<span class="c1">//not allowed
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>You can get the range of a initializer list by using <code>begin()</code> and <code>end</code>().</p>
+</li>
+<li>
+<p>To simplify the declaration, we use <code>auto</code> and <code>decltype</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="k">decltype</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">)</span> <span class="n">a</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>To simplify the programing of template, use like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">)</span>
+<span class="k">auto</span> <span class="n">apple</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">,</span> <span class="n">U</span> <span class="n">u</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">U</span><span class="p">){</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>A substitute of <code>typedef</code>, the difference  is the new one support partial specialization of object:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">using</span> <span class="n">apple</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>New kind of enumeration restrict the effect domain:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">enum</span> <span class="k">class</span> <span class="nc">apple</span><span class="p">{</span><span class="n">redApple</span><span class="p">,</span><span class="n">yellowApple</span><span class="p">};</span>
+<span class="p">...;</span>
+<span class="k">if</span><span class="p">(</span><span class="n">myApple</span> <span class="o">==</span> <span class="n">apple</span><span class="o">::</span><span class="n">redApple</span><span class="p">){</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Explicit constructor:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Apple</span><span class="p">{</span>
+    <span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+    <span class="k">explicit</span> <span class="nf">Apple</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="n">Apple</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>		<span class="c1">//allowed
+</span><span class="c1"></span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>	<span class="c1">//not allowed
+</span><span class="c1"></span><span class="n">b</span> <span class="o">=</span> <span class="n">Apple</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>	<span class="c1">//allowed
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>cbegin</code>,<code>cend</code>,<code>crend</code>,<code>crbegin</code> is the <code>const</code> type of the traditional iterator</p>
+</li>
+<li>
+<p>Right Value Reference:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">Useless</span> <span class="n">two</span> <span class="o">=</span> <span class="n">one</span><span class="p">;</span>			<span class="c1">//matches Useless::Useless(const Useless &amp;)
+</span><span class="c1"></span><span class="n">Useless</span> <span class="nf">four</span> <span class="p">(</span><span class="n">one</span> <span class="o">+</span> <span class="n">three</span><span class="p">);</span>	<span class="c1">//matches Useless::Useless(Useless &amp;&amp;)
+</span><span class="c1"></span><span class="n">Useless</span> <span class="n">two</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">one</span><span class="p">);</span>	<span class="c1">//You have to define the move-assignment operator to make a left value to convert to a right value
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Default and delete:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Someclass</span><span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+    <span class="n">Somclass</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>	<span class="c1">//Then compiler will use default constructor instead of this one
+</span><span class="c1"></span>    <span class="n">Someclass</span><span class="p">(</span><span class="k">const</span> <span class="n">Someclass</span> <span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>	<span class="c1">//To disable copy constructor
+</span><span class="c1"></span>    <span class="c1">//You can reach the same aim to put the function in the private part
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Delegate and inheriting constructor:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">SomeClass</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">SomeClass</span><span class="p">();</span>
+    <span class="n">SomeClass</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">);</span>
+    <span class="kt">bool</span> <span class="nf">someFunctions</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="n">SomeClass</span><span class="o">::</span><span class="n">SomeClass</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">){</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">SomeClass</span><span class="o">::</span><span class="n">SomeClass</span><span class="p">()</span> <span class="o">:</span> <span class="n">SomeClass</span><span class="p">(</span><span class="mi">0</span><span class="p">){};</span>
+  
+<span class="k">class</span> <span class="nc">littleClass</span> <span class="o">:</span> <span class="k">public</span> <span class="n">SomeClass</span><span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+    <span class="k">using</span> <span class="n">SomeClass</span><span class="o">::</span><span class="n">someFunctions</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="nf">someFunctions</span><span class="p">(){}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>If you want to override a virtual function, put <code>override</code> behind the parameter list. You have to declare a function matching the basic one. At the same time, if you want to prohibit overriding specific virtual functions, use <code>final</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Class</span><span class="p">{</span>
+    <span class="n">Class</span><span class="p">();</span>
+    <span class="k">public</span><span class="o">:</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nc">LittleClass</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Class</span><span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">c</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>	<span class="c1">//not allowed
+</span><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="k">final</span><span class="p">;</span>		<span class="c1">//not allowed
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Lambda</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">a</span><span class="p">](</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span><span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;}</span>
+<span class="k">auto</span> <span class="n">fa</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">a</span><span class="p">](</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span><span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">;}</span>	
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Wrapper:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span><span class="cpf">&lt;functional&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">dub</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+<span class="n">T</span> <span class="nf">square</span><span class="p">(</span><span class="n">F</span><span class="p">);</span>
+<span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">ef1</span> <span class="o">=</span> <span class="n">dub</span><span class="p">;</span>
+<span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">ef2</span> <span class="o">=</span> <span class="n">square</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-07-13
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/cpp/">cpp</a>
+          <a href="/tags/reading-notes/">reading notes</a>
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          <a href="/tags/english/">English</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/art/enggra/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Collins COBUILD English Grammar 读书笔记</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

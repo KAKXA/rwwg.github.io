@@ -13,19 +13,19 @@
     
     <item>
       <title>Leetcode 148: Sort List</title>
-      <link>https://rwwg.github.io/post/leetcode-148/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-148/</link>
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-148/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-148/</guid>
       <description>&lt;p&gt;自底向上的归并排序,有许多细节要处理.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>leetcode-53: Maximum Subarray</title>
-      <link>https://rwwg.github.io/post/leetcode-53/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-53/</link>
       <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-53/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-53/</guid>
       <description>&lt;h3 id=&#34;最大子序和问题&#34;&gt;最大子序和问题&lt;/h3&gt;</description>
     </item>
     

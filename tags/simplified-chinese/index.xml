@@ -13,46 +13,46 @@
     
     <item>
       <title>Knowledge Graph</title>
-      <link>https://rwwg.github.io/post/knowledge-graph/</link>
+      <link>https://rwwg.github.io/post/ml/knowledge-graph/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/knowledge-graph/</guid>
+      <guid>https://rwwg.github.io/post/ml/knowledge-graph/</guid>
       <description>&lt;p&gt;科普性质的知识图谱介绍,以及几个基本的算法描述.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 399: Evaluate Division (并查集模板题)</title>
-      <link>https://rwwg.github.io/post/leetcode-399/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-399/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-399/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-399/</guid>
       <description>&lt;p&gt;并查集模板与典型题.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 300: Longest Increasing Subsequence</title>
-      <link>https://rwwg.github.io/post/leetcode-300/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-300/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-300/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-300/</guid>
       <description>&lt;p&gt;最长递增子序列&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 87: Scramble String</title>
-      <link>https://rwwg.github.io/post/leetcode-87/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-87/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-87/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-87/</guid>
       <description>&lt;p&gt;扰乱字符串&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Droidcam在Linux下的安装与使用</title>
-      <link>https://rwwg.github.io/post/droidcam/</link>
+      <link>https://rwwg.github.io/post/toss/droidcam/</link>
       <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/droidcam/</guid>
+      <guid>https://rwwg.github.io/post/toss/droidcam/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.dev47apps.com/&#34;&gt;Droidcam&lt;/a&gt; 是一个可以将手机摄像头作为电脑摄像头使用的工具,同时支持局域网和USB ADB调试.&lt;/p&gt;
 &lt;p&gt;电脑自带摄像头无法使用的情况下,可以用这个应用解燃眉之急.&lt;/p&gt;
 &lt;p&gt;这里只提供在Linux(KUbuntu)`下的安装以及对于Android手机的连接.&lt;/p&gt;</description>
@@ -60,371 +60,371 @@
     
     <item>
       <title>分类算法评价指标</title>
-      <link>https://rwwg.github.io/post/classification/</link>
+      <link>https://rwwg.github.io/post/ml/classification/</link>
       <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/classification/</guid>
+      <guid>https://rwwg.github.io/post/ml/classification/</guid>
       <description>&lt;p&gt;本文介绍分类算法常用评价指标&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>BERT</title>
-      <link>https://rwwg.github.io/post/bert/</link>
+      <link>https://rwwg.github.io/post/ml/bert/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/bert/</guid>
+      <guid>https://rwwg.github.io/post/ml/bert/</guid>
       <description>&lt;p&gt;本文介绍BERT&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Factorization Machine</title>
-      <link>https://rwwg.github.io/post/fm/</link>
+      <link>https://rwwg.github.io/post/ml/fm/</link>
       <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/fm/</guid>
+      <guid>https://rwwg.github.io/post/ml/fm/</guid>
       <description>&lt;p&gt;本文描述 Factorization Machine (因子分解机).&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 207: Course Schedule</title>
-      <link>https://rwwg.github.io/post/leetcode-207/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-207/</link>
       <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-207/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-207/</guid>
       <description>&lt;p&gt;利用拓扑排序解决课程表问题&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Random Forests</title>
-      <link>https://rwwg.github.io/post/random-forest/</link>
+      <link>https://rwwg.github.io/post/ml/random-forest/</link>
       <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/random-forest/</guid>
+      <guid>https://rwwg.github.io/post/ml/random-forest/</guid>
       <description>&lt;p&gt;随机森林的总结&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 148: Sort List</title>
-      <link>https://rwwg.github.io/post/leetcode-148/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-148/</link>
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-148/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-148/</guid>
       <description>&lt;p&gt;自底向上的归并排序,有许多细节要处理.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Unix/Linux中的ps命令</title>
-      <link>https://rwwg.github.io/post/ps%E5%91%BD%E4%BB%A4/</link>
+      <link>https://rwwg.github.io/post/linux/ps%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/ps%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://rwwg.github.io/post/linux/ps%E5%91%BD%E4%BB%A4/</guid>
       <description>&lt;p&gt;&lt;code&gt;ps&lt;/code&gt; 命令总结.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>有序链表合并</title>
-      <link>https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/</link>
+      <link>https://rwwg.github.io/post/algorithm/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/</link>
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/</guid>
       <description>&lt;p&gt;有序链表合并是链表操作的基本功之一,类似的思想也是归并排序的基本组件.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcod 173: Binary Search Tree Iterator</title>
-      <link>https://rwwg.github.io/post/leetcode-173/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-173/</link>
       <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-173/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-173/</guid>
       <description>&lt;p&gt;二叉搜索树迭代器&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Transformer</title>
-      <link>https://rwwg.github.io/post/transformer/</link>
+      <link>https://rwwg.github.io/post/ml/transformer/</link>
       <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/transformer/</guid>
+      <guid>https://rwwg.github.io/post/ml/transformer/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://arxiv.org/pdf/1706.03762.pdf&#34;&gt;Attention is All You Need.&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Attention机制</title>
-      <link>https://rwwg.github.io/post/attention/</link>
+      <link>https://rwwg.github.io/post/ml/attention/</link>
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/attention/</guid>
+      <guid>https://rwwg.github.io/post/ml/attention/</guid>
       <description>&lt;p&gt;本文介绍NLP中的Attention机制.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Seq2Seq</title>
-      <link>https://rwwg.github.io/post/seq2seq/</link>
+      <link>https://rwwg.github.io/post/ml/seq2seq/</link>
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/seq2seq/</guid>
+      <guid>https://rwwg.github.io/post/ml/seq2seq/</guid>
       <description>&lt;p&gt;本文介绍Seq2Seq.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>最小三元组距离</title>
-      <link>https://rwwg.github.io/post/%E6%9C%80%E5%B0%8F%E4%B8%89%E5%85%83%E7%BB%84%E8%B7%9D%E7%A6%BB/</link>
+      <link>https://rwwg.github.io/post/algorithm/%E6%9C%80%E5%B0%8F%E4%B8%89%E5%85%83%E7%BB%84%E8%B7%9D%E7%A6%BB/</link>
       <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/%E6%9C%80%E5%B0%8F%E4%B8%89%E5%85%83%E7%BB%84%E8%B7%9D%E7%A6%BB/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/%E6%9C%80%E5%B0%8F%E4%B8%89%E5%85%83%E7%BB%84%E8%B7%9D%E7%A6%BB/</guid>
       <description>&lt;p&gt;主要是为了记录一个神奇的公式.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 456: 132 Pattern</title>
-      <link>https://rwwg.github.io/post/leetcode-456/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-456/</link>
       <pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-456/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-456/</guid>
       <description>&lt;p&gt;132 模式&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 105: Construct Binary tree from Preorder and Inorder Traversal</title>
-      <link>https://rwwg.github.io/post/leetcode105/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-105/</link>
       <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode105/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-105/</guid>
       <description>&lt;p&gt;从前序与中序遍历序列构造二叉树&lt;/p&gt;
 &lt;h4 id=&#34;heading&#34;&gt;&lt;/h4&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 739: Daily Temperatures</title>
-      <link>https://rwwg.github.io/post/leetcode-739/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-739/</link>
       <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-739/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-739/</guid>
       <description>&lt;p&gt;每日温度&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Python垃圾回收机制</title>
-      <link>https://rwwg.github.io/post/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <link>https://rwwg.github.io/post/python/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
       <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <guid>https://rwwg.github.io/post/python/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
       <description>&lt;p&gt;Python底层的C实现是怎样处理垃圾的?&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 322: Coin Change</title>
-      <link>https://rwwg.github.io/post/leetcode-322/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-322/</link>
       <pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-322/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-322/</guid>
       <description>&lt;p&gt;零钱兑换&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Python的实例方法,类方法与静态方法</title>
-      <link>https://rwwg.github.io/post/python-3-methods/</link>
+      <link>https://rwwg.github.io/post/python/python-3-methods/</link>
       <pubDate>Sat, 20 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/python-3-methods/</guid>
+      <guid>https://rwwg.github.io/post/python/python-3-methods/</guid>
       <description>&lt;p&gt;在复杂的数据结构中会会用到Python的类方法和静态方法.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 72: Edit Distance</title>
-      <link>https://rwwg.github.io/post/leetcode-72/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-72/</link>
       <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-72/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-72/</guid>
       <description>&lt;p&gt;编辑距离&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>leetcode-719: find k-th smallest pair distance</title>
-      <link>https://rwwg.github.io/post/leetcode-719/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-719/</link>
       <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-719/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-719/</guid>
       <description>&lt;p&gt;找出第 k 小的距离对&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 233: number of digit one</title>
-      <link>https://rwwg.github.io/post/leetcode-233/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-233/</link>
       <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-233/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-233/</guid>
       <description>&lt;p&gt;数字 1 的个数&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Leetcode 44: Wildcard Matching</title>
-      <link>https://rwwg.github.io/post/leetcode-44/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-44/</link>
       <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-44/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-44/</guid>
       <description>&lt;p&gt;使用动态规划解决通配符匹配问题&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>leetcode-53: Maximum Subarray</title>
-      <link>https://rwwg.github.io/post/leetcode-53/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-53/</link>
       <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-53/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-53/</guid>
       <description>&lt;h3 id=&#34;最大子序和问题&#34;&gt;最大子序和问题&lt;/h3&gt;</description>
     </item>
     
     <item>
       <title>leetcode-52: N-Queens-II</title>
-      <link>https://rwwg.github.io/post/leetcode-52/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-52/</link>
       <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-52/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-52/</guid>
       <description>&lt;h3 id=&#34;n皇后问题&#34;&gt;N皇后问题&lt;/h3&gt;</description>
     </item>
     
     <item>
       <title>leetcode-85: maximal-rectangle</title>
-      <link>https://rwwg.github.io/post/leetcode-85-maximal-rectangle/</link>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-85-maximal-rectangle/</link>
       <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/leetcode-85-maximal-rectangle/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-85-maximal-rectangle/</guid>
       <description>当你好不容易想到一个hard题的dp思路</description>
     </item>
     
     <item>
       <title>Manacher算法</title>
-      <link>https://rwwg.github.io/post/manacher/</link>
+      <link>https://rwwg.github.io/post/algorithm/manacher/</link>
       <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/manacher/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/manacher/</guid>
       <description>比较复杂的动态规划: Manacher算法</description>
     </item>
     
     <item>
       <title>康托展开</title>
-      <link>https://rwwg.github.io/post/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</link>
+      <link>https://rwwg.github.io/post/algorithm/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</link>
       <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</guid>
       <description>定义 康托展开(Cantor Expasio</description>
     </item>
     
     <item>
       <title>有序数组查找</title>
-      <link>https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E6%90%9C%E7%B4%A2/</link>
+      <link>https://rwwg.github.io/post/algorithm/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E6%90%9C%E7%B4%A2/</link>
       <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E6%90%9C%E7%B4%A2/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E6%90%9C%E7%B4%A2/</guid>
       <description>有序数组查找,过于简单的二分查找,可是一</description>
     </item>
     
     <item>
       <title>TCP的快重传和快恢复</title>
-      <link>https://rwwg.github.io/post/%E5%BF%AB%E9%87%8D%E4%BC%A0%E4%B8%8E%E5%BF%AB%E6%81%A2%E5%A4%8D/</link>
+      <link>https://rwwg.github.io/post/othercs/%E5%BF%AB%E9%87%8D%E4%BC%A0%E4%B8%8E%E5%BF%AB%E6%81%A2%E5%A4%8D/</link>
       <pubDate>Sat, 06 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/%E5%BF%AB%E9%87%8D%E4%BC%A0%E4%B8%8E%E5%BF%AB%E6%81%A2%E5%A4%8D/</guid>
+      <guid>https://rwwg.github.io/post/othercs/%E5%BF%AB%E9%87%8D%E4%BC%A0%E4%B8%8E%E5%BF%AB%E6%81%A2%E5%A4%8D/</guid>
       <description>假设发送方向接收方发送$M_1$,$M_</description>
     </item>
     
     <item>
       <title>LaTex大矩阵的写法</title>
-      <link>https://rwwg.github.io/post/latex%E4%B8%AD%E5%A6%82%E4%BD%95%E5%86%99%E5%A4%A7%E7%9F%A9%E9%98%B5/</link>
+      <link>https://rwwg.github.io/post/toss/latex%E4%B8%AD%E5%A6%82%E4%BD%95%E5%86%99%E5%A4%A7%E7%9F%A9%E9%98%B5/</link>
       <pubDate>Sun, 15 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/latex%E4%B8%AD%E5%A6%82%E4%BD%95%E5%86%99%E5%A4%A7%E7%9F%A9%E9%98%B5/</guid>
+      <guid>https://rwwg.github.io/post/toss/latex%E4%B8%AD%E5%A6%82%E4%BD%95%E5%86%99%E5%A4%A7%E7%9F%A9%E9%98%B5/</guid>
       <description>解决方案 矩阵如果太大会引发错误,这是因为</description>
     </item>
     
     <item>
       <title>KUbuntu 常见问题与解决方案</title>
-      <link>https://rwwg.github.io/post/kubuntu-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>https://rwwg.github.io/post/linux/kubuntu-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/kubuntu-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://rwwg.github.io/post/linux/kubuntu-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>make fish the default shell 1 chsh -s `which fish` VPN cannot save password change the pattern into all users</description>
     </item>
     
     <item>
       <title>Linux下如何禁用Caps Lock</title>
-      <link>https://rwwg.github.io/post/linux%E4%B8%8B%E5%A6%82%E4%BD%95%E7%A6%81%E7%94%A8caps-lock/</link>
+      <link>https://rwwg.github.io/post/linux/linux%E4%B8%8B%E5%A6%82%E4%BD%95%E7%A6%81%E7%94%A8caps-lock/</link>
       <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/linux%E4%B8%8B%E5%A6%82%E4%BD%95%E7%A6%81%E7%94%A8caps-lock/</guid>
+      <guid>https://rwwg.github.io/post/linux/linux%E4%B8%8B%E5%A6%82%E4%BD%95%E7%A6%81%E7%94%A8caps-lock/</guid>
       <description>在命令行输入 1 setxkbmap -option caps:none</description>
     </item>
     
     <item>
       <title>VSCode的Latex插件配置</title>
-      <link>https://rwwg.github.io/post/vscode%E7%9A%84latex%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</link>
+      <link>https://rwwg.github.io/post/toss/vscode%E7%9A%84latex%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/vscode%E7%9A%84latex%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://rwwg.github.io/post/toss/vscode%E7%9A%84latex%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</guid>
       <description>根据你的操作系统,安装texlive 1 sudo</description>
     </item>
     
     <item>
       <title>Manjaro KDE常见问题与解决方案</title>
-      <link>https://rwwg.github.io/post/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>https://rwwg.github.io/post/linux/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://rwwg.github.io/post/linux/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>设置主屏幕与关闭笔记本显示屏 1 2 xrandr --output HDMI-1 --mode</description>
     </item>
     
     <item>
       <title>Windows 10 下架设Git服务</title>
-      <link>https://rwwg.github.io/post/windows-10-%E4%B8%8B%E6%9E%B6%E8%AE%BEgit%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://rwwg.github.io/post/toss/windows-10-%E4%B8%8B%E6%9E%B6%E8%AE%BEgit%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/windows-10-%E4%B8%8B%E6%9E%B6%E8%AE%BEgit%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://rwwg.github.io/post/toss/windows-10-%E4%B8%8B%E6%9E%B6%E8%AE%BEgit%E6%9C%8D%E5%8A%A1/</guid>
       <description>架设git远程仓库 git --bare init初始化一个</description>
     </item>
     
     <item>
       <title>Ubuntu Gnome 常见问题与解决方案</title>
-      <link>https://rwwg.github.io/post/%E5%9C%A8ubuntu-gnome%E4%B8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://rwwg.github.io/post/linux/%E5%9C%A8ubuntu-gnome%E4%B8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/%E5%9C%A8ubuntu-gnome%E4%B8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://rwwg.github.io/post/linux/%E5%9C%A8ubuntu-gnome%E4%B8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>修改/home下各文件夹的用途 sudo vim ~/.config/user-dirs.dirs 修改</description>
     </item>
     
     <item>
       <title>Python 高阶</title>
-      <link>https://rwwg.github.io/post/python-%E9%AB%98%E9%98%B6/</link>
+      <link>https://rwwg.github.io/post/python/python-%E9%AB%98%E9%98%B6/</link>
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/python-%E9%AB%98%E9%98%B6/</guid>
+      <guid>https://rwwg.github.io/post/python/python-%E9%AB%98%E9%98%B6/</guid>
       <description>Python 运算符与数据类型 // 只取结果的整数部分 文</description>
     </item>
     
     <item>
       <title>学习之道 读书笔记</title>
-      <link>https://rwwg.github.io/post/%E5%AD%A6%E4%B9%A0%E4%B9%8B%E9%81%93-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://rwwg.github.io/post/art/%E5%AD%A6%E4%B9%A0%E4%B9%8B%E9%81%93-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/%E5%AD%A6%E4%B9%A0%E4%B9%8B%E9%81%93-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://rwwg.github.io/post/art/%E5%AD%A6%E4%B9%A0%E4%B9%8B%E9%81%93-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>学习之道 2 放松点 我们的大脑有两种截然不同</description>
     </item>
     
     <item>
       <title>Collins COBUILD English Grammar 读书笔记</title>
-      <link>https://rwwg.github.io/post/enggra/</link>
+      <link>https://rwwg.github.io/post/art/enggra/</link>
       <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/enggra/</guid>
+      <guid>https://rwwg.github.io/post/art/enggra/</guid>
       <description>Referring to people and things: nouns, pronouns, and determiners English Chinese Grammar I got some scissors. 我拿到了</description>
     </item>
     
     <item>
       <title>CPP</title>
-      <link>https://rwwg.github.io/post/cpp/</link>
+      <link>https://rwwg.github.io/post/cpp/cpp/</link>
       <pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/cpp/</guid>
+      <guid>https://rwwg.github.io/post/cpp/cpp/</guid>
       <description>C++ Unit 5 循环和关系表达式 表达式+分号=语句</description>
     </item>
     

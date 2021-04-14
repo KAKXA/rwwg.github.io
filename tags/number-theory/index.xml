@@ -13,10 +13,10 @@
     
     <item>
       <title>How to factor a big integer?</title>
-      <link>https://rwwg.github.io/post/factoring-an-integer-trial-division-and-quadratic-sieve/</link>
+      <link>https://rwwg.github.io/post/algorithm/factoring-an-integer-trial-division-and-quadratic-sieve/</link>
       <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/post/factoring-an-integer-trial-division-and-quadratic-sieve/</guid>
+      <guid>https://rwwg.github.io/post/algorithm/factoring-an-integer-trial-division-and-quadratic-sieve/</guid>
       <description>1. Abstract   This essay is to explain the factoring of an integer 18393075391668469672027802484408130559.
   The result and time:</description>
     </item>

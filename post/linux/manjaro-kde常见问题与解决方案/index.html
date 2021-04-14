@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Manjaro KDE常见问题与解决方案 - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="Manjaro KDE下遇到的问题" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/linux/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Manjaro KDE常见问题与解决方案" />
+<meta property="og:description" content="Manjaro KDE下遇到的问题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/linux/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" />
+<meta property="article:published_time" content="2020-08-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-07T00:00:00+00:00" />
+<meta itemprop="name" content="Manjaro KDE常见问题与解决方案">
+<meta itemprop="description" content="Manjaro KDE下遇到的问题">
+<meta itemprop="datePublished" content="2020-08-07T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2575">
+
+
+
+<meta itemprop="keywords" content="Linux,KDE,Manjaro,simplified chinese," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Manjaro KDE常见问题与解决方案"/>
+<meta name="twitter:description" content="Manjaro KDE下遇到的问题"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Manjaro KDE常见问题与解决方案</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-07 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#设置主屏幕与关闭笔记本显示屏">设置主屏幕与关闭笔记本显示屏</a></li>
+            <li><a href="#firefox修改默认缩放比">Firefox修改默认缩放比</a></li>
+            <li><a href="#manjaro解决安装完系统后无法联网的问题">Manjaro解决安装完系统后无法联网的问题</a></li>
+            <li><a href="#只有dock栏没有小窗口的linux系统中创建每次点击tim快捷键就能进入tim的快捷键脚本">只有dock栏没有小窗口的linux系统中,创建每次点击TIM快捷键就能进入TIM的快捷键脚本</a></li>
+            <li><a href="#kde功能性和美化插件">KDE功能性和美化插件</a></li>
+            <li><a href="#代理">代理</a></li>
+          </ul>
+        </li>
+        <li><a href="#安装ibus-rime">安装ibus-rime</a></li>
+        <li><a href="#配置显卡切换">配置显卡切换</a></li>
+        <li><a href="#etcdefaultgrub">/etc/default/grub</a></li>
+        <li><a href="#安装qq">安装qq</a></li>
+        <li><a href="#在fish下进入virtualenv">在fish下进入virtualenv</a></li>
+        <li><a href="#安装keras-tensorflow">安装keras tensorflow</a></li>
+        <li><a href="#jupyterlab插件">jupyterlab插件</a></li>
+        <li><a href="#安装tim">安装TIM</a></li>
+        <li><a href="#如何添加多个不同的ssh公钥私钥对">如何添加多个不同的ssh公钥私钥对</a></li>
+        <li><a href="#jupyterlab出现socket错误时">jupyterlab出现socket错误时</a></li>
+        <li><a href="#如果服务器没有配置tlsssl证书使用ssh端口转发实现加密通讯">如果服务器没有配置TLS/SSL证书,使用SSH端口转发实现加密通讯</a></li>
+        <li><a href="#去掉manjaro应用的标题栏">去掉Manjaro应用的标题栏</a></li>
+        <li><a href="#kbibtex">KBibtex</a></li>
+        <li><a href="#关闭manjaro-kde-top-bar">关闭Manjaro KDE Top Bar</a></li>
+        <li><a href="#解决texmacs没有图标的问题">解决Texmacs没有图标的问题</a></li>
+        <li><a href="#firefox尺寸的问题">firefox尺寸的问题</a></li>
+        <li><a href="#修改默认应用程序">修改默认应用程序</a></li>
+        <li><a href="#指定tor出口节点ip">指定tor出口节点IP</a></li>
+        <li><a href="#关闭ipv6支持">关闭ipv6支持</a></li>
+        <li><a href="#使用ifconfig能看到的两个inet6">使用ifconfig能看到的两个inet6</a></li>
+        <li><a href="#sage-终端调为亮色调">sage 终端调为亮色调</a></li>
+        <li><a href="#为vscode的sage文件提供python语法高亮">为VSCode的sage文件提供python语法高亮</a></li>
+        <li><a href="#iptables">iptables</a></li>
+        <li><a href="#修改输错口令次数和惩罚时间">修改输错口令次数和惩罚时间</a></li>
+        <li><a href="#thunderbird无法用pop3同步gmail">thunderbird无法用pop3同步gmail</a></li>
+        <li><a href="#vscode的vim插件">VScode的vim插件</a></li>
+        <li><a href="#撤回git的一次commit">撤回git的一次commit</a></li>
+        <li><a href="#c-中的神秘错误">C++ 中的神秘错误:</a></li>
+        <li><a href="#自动连接vpn">自动连接VPN</a></li>
+        <li><a href="#latex-beamer-引用">Latex Beamer 引用</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h3 id="设置主屏幕与关闭笔记本显示屏">设置主屏幕与关闭笔记本显示屏</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">xrandr --output HDMI-1 --mode 2560x1440 --rate 59.95 --auto --primary
+xrandr --output eDP-1 --off
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="firefox修改默认缩放比">Firefox修改默认缩放比</h3>
+<p><code>about:config</code></p>
+<p><code> layout.css.devPixelsPerPx</code></p>
+<h3 id="manjaro解决安装完系统后无法联网的问题">Manjaro解决安装完系统后无法联网的问题</h3>
+<p><code>lspci -v</code></p>
+<p>观察r8169显卡是否处于使用状态,如果不处于则</p>
+<p><code>modprobe r8169</code></p>
+<p>最后</p>
+<p><code>sudo systemctl enable NetworkManager</code></p>
+<p>重启</p>
+<h3 id="只有dock栏没有小窗口的linux系统中创建每次点击tim快捷键就能进入tim的快捷键脚本">只有dock栏没有小窗口的linux系统中,创建每次点击TIM快捷键就能进入TIM的快捷键脚本</h3>
+<ol>
+<li>
+<p>在<code>/usr/share/applications/deepin.com.qq.office.desktop</code>中,查看Exec的位置为<code>/opt/deepinwine/apps/Deepin-TIM/run.sh</code></p>
+</li>
+<li>
+<p>在<code>/opt/deepinwine/apps/Deepin-TIM/new_run.sh</code>编辑</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
+</span><span class="cp"></span><span class="nv">timpid</span><span class="o">=</span><span class="sb">`</span>pgrep TIM.exe<span class="sb">`</span>
+<span class="k">while</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$timpid</span><span class="s2">&#34;</span> <span class="o">]</span>
+<span class="k">do</span>
+     <span class="nb">kill</span> <span class="nv">$timpid</span>
+     <span class="nv">timpid</span><span class="o">=</span><span class="sb">`</span>pgrep TIM.exe<span class="sb">`</span>
+<span class="k">done</span>
+/opt/deepinwine/apps/Deepin-TIM/run.sh
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="kde功能性和美化插件">KDE功能性和美化插件</h3>
+</li>
+<li>
+<p>netspeed widget:实时上行下行流量</p>
+</li>
+<li>
+<p>weather station:实时天气(数据来源为wetter.com)</p>
+</li>
+<li>
+<p>fokus: 可自定义时间的番茄钟</p>
+</li>
+<li>
+<p>todolist:纯文本的待办事项,可常驻右下角</p>
+</li>
+<li>
+<p>avalon menu:简洁的开始菜单</p>
+</li>
+<li>
+<p>event calendar:集成多种功能的日历</p>
+</li>
+<li>
+<p>设置中的Appearance可以调整界面外观</p>
+</li>
+</ol>
+<h3 id="代理">代理</h3>
+<ol>
+<li>lantern可从AUR得到.lantern开机启动,不作为系统代理,代理全部流量.</li>
+<li>lantern HTTP(S)代理为127.0.0.1:43435,SOCKS代理为127.0.0.1:37957.</li>
+<li>将从AUR得到的tor用SOCKS代理.</li>
+<li>先用<code>firefox -ProfileManager</code>命令新建一个firefox用户&quot;proxy&rdquo;,然后用<code>firefox -p proxy</code>打开新的浏览器,并为其分配http(s)和socks代理,然后将以上命令写入desktop文件,选择一个漂亮的图标.</li>
+</ol>
+<h2 id="安装ibus-rime">安装ibus-rime</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S ibus ibus-rime
+</code></pre></td></tr></table>
+</div>
+</div><p>打开<code>~/.xprofile</code>,添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -d -x
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="配置显卡切换">配置显卡切换</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S optimus-manager
+yay install optimus-manager-qt
+sudo systemctl disable bumblebeed.service
+</code></pre></td></tr></table>
+</div>
+</div><p>将<code>/etc/X11/xorg.conf.d/</code>和<code>/etc/X11/</code>下与显卡相关的选项全部加上<code>.bak</code>后缀;
+将<code>/etc/sddm.conf</code>中的<code>DisplayCommand</code>和<code>DisplayStopCommand</code>行前加<code>#</code>;
+为<code>optimus-manager-qt</code>配置<code>autostart</code>;
+重启.</p>
+<h2 id="etcdefaultgrub">/etc/default/grub</h2>
+<ul>
+<li>GRUB_TIMEOUT=-1</li>
+<li>注释掉 GRUB_TIMEOUT_STYLE</li>
+</ul>
+<h2 id="安装qq">安装qq</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gnome-settings-daemon
+</code></pre></td></tr></table>
+</div>
+</div><p>在AUR找到deepin.com.qq.im,安装之</p>
+<h2 id="在fish下进入virtualenv">在fish下进入virtualenv</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">source /venv/bin/activate.fish
+</code></pre></td></tr></table>
+</div>
+</div><p>退出virtualenv</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">deactivate
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="安装keras-tensorflow">安装keras tensorflow</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo pacman -S python-tensorflow-cuda
+sudo pacman -S tensorboard
+pip install keras
+</code></pre></td></tr></table>
+</div>
+</div><p>靠,这就是Arch Linux</p>
+<p>///下面的步骤仅作应急参考</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd 有venv的目录
+source /venv/bin/activate.fish
+pip install keras tensorflow
+# 无需加载tensorflow-gpu,对于最新版本的tensorflow,已经把CPU和GPU版本打包在一起了
+</code></pre></td></tr></table>
+</div>
+</div><p>根据界面https://www.tensorflow.org/install/gpu 中的提示,tensorflow&gt;=2.1.0目前只支持CUDA10.1,而要下载对应CUDA10.1的cudnn</p>
+<p><a href="https://archive.archlinux.org/packages/c/cuda/">https://archive.archlinux.org/packages/c/cuda/</a> 这里有各个版本的CUDA,比如下载cuda-10.1.243-2-x86_64.pkg.tar.xz
+<a href="https://developer.nvidia.com/rdp/cudnn-archive#a-collapse802-101">https://developer.nvidia.com/rdp/cudnn-archive#a-collapse802-101</a> 这里有各个版本的cuDNN</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo pacman -U cuda-10.1.243-2-x86_64.pkg.tar.xz
+sudo p
+</code></pre></td></tr></table>
+</div>
+</div><p>安装downgrade</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo pacman -S downgrade
+downgrade cuda
+</code></pre></td></tr></table>
+</div>
+</div><p>为防止之后cuda更新时升级,编辑/etc/pacman.conf
+取消IgnorePkg前的注释,并在等号后添加cuda</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">IgnorePkg = cuda
+</code></pre></td></tr></table>
+</div>
+</div><p>///上面的步骤仅作应急参考</p>
+<h2 id="jupyterlab插件">jupyterlab插件</h2>
+<ul>
+<li>jupyterlab-vim</li>
+</ul>
+<h2 id="安装tim">安装TIM</h2>
+<p>在<code>/etc/pacman.conf</code>中添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[archlinuxcn]
+Server = https://repo.archlinuxcn.org/$arch
+</code></pre></td></tr></table>
+</div>
+</div><p>然后</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo pacman -S archlinuxcn-keyring
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="如何添加多个不同的ssh公钥私钥对">如何添加多个不同的ssh公钥私钥对</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh-keygen -f ~/.ssh/id_rsa_somthing
+bash
+eval &#34;$(ssh-agent -s)&#34;
+ssh-add ~/.ssh/id_rsa_something
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="jupyterlab出现socket错误时">jupyterlab出现socket错误时</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@iZuf6egep77cshqz9ccxysZ aaa]# jupyter lab
+Traceback (most recent call last):
+  File &#34;/usr/local/bin/jupyter-lab&#34;, line 11, in &lt;module&gt;
+    sys.exit(main())
+  File &#34;/usr/local/lib/python3.6/site-packages/jupyter_core/application.py&#34;, line 270, in launch_instance
+    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
+  File &#34;/usr/local/lib/python3.6/site-packages/traitlets/config/application.py&#34;, line 663, in launch_instance
+    app.initialize(argv)
+  File &#34;&lt;decorator-gen-7&gt;&#34;, line 2, in initialize
+  File &#34;/usr/local/lib/python3.6/site-packages/traitlets/config/application.py&#34;, line 87, in catch_config_error
+    return method(app, *args, **kwargs)
+  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 2037, in initialize
+    self.init_webapp()
+  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 1711, in init_webapp
+    success = self._bind_http_server()
+  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 1718, in _bind_http_server
+    return self._bind_http_server_unix() if self.sock else self._bind_http_server_tcp()
+  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 1744, in _bind_http_server_tcp
+    self.http_server.listen(port, self.ip)
+  File &#34;/usr/local/lib64/python3.6/site-packages/tornado/tcpserver.py&#34;, line 151, in listen
+    sockets = bind_sockets(port, address=address)
+  File &#34;/usr/local/lib64/python3.6/site-packages/tornado/netutil.py&#34;, line 174, in bind_sockets
+    sock.bind(sockaddr)
+OSError: [Errno 99] Cannot assign requested address
+</code></pre></td></tr></table>
+</div>
+</div><p>解决方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">jupyter lab --ip=127.0.0.1
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="如果服务器没有配置tlsssl证书使用ssh端口转发实现加密通讯">如果服务器没有配置TLS/SSL证书,使用SSH端口转发实现加密通讯</h2>
+<h2 id="去掉manjaro应用的标题栏">去掉Manjaro应用的标题栏</h2>
+<p>右键或者<code>Alt &lt;F3&gt;</code>, More actions, Configure Window Manager, Window Decorations, No Borders</p>
+<h2 id="kbibtex">KBibtex</h2>
+<p>KDE下很好的文献管理软件</p>
+<h2 id="关闭manjaro-kde-top-bar">关闭Manjaro KDE Top Bar</h2>
+<p>System Settings -&gt; Application Style -&gt; Window Decorations
+Click one of the themes context menu icon
+Window Specific Overrides -&gt; Add
+Click &ldquo;Hide window title bar&rdquo;
+Use .* for the regular expression to match all windows</p>
+<h2 id="解决texmacs没有图标的问题">解决Texmacs没有图标的问题</h2>
+<p>图标在/usr/share/Texmacs/misc/images/下</p>
+<h2 id="firefox尺寸的问题">firefox尺寸的问题</h2>
+<ol>
+<li>about:config</li>
+<li>layout.css.devPixelsPerPx</li>
+</ol>
+<h2 id="修改默认应用程序">修改默认应用程序</h2>
+<ol>
+<li>在想要打开的文件处右键,其它应用</li>
+<li>选择想要的应用,勾选最下方的default</li>
+</ol>
+<h2 id="指定tor出口节点ip">指定tor出口节点IP</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vim Browser/TorBrowser/Data/Tor/torrc 
+</code></pre></td></tr></table>
+</div>
+</div><p>添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ExitNodes {hk}    //指定的出口节点
+ExcludeNodes {cn} //去除的出口节点
+StrictExitNodes 1
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="关闭ipv6支持">关闭ipv6支持</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">nmcli connection edit wlo1
+set ipv6.method ignore
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="使用ifconfig能看到的两个inet6">使用ifconfig能看到的两个inet6</h2>
+<p>scopeid<link> 只在局域网内有用的ipv6
+scopeid<global> 全球唯一分配的ipv6</p>
+<h2 id="sage-终端调为亮色调">sage 终端调为亮色调</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vim ~/.sage/init.sage
+%colors Linux
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="为vscode的sage文件提供python语法高亮">为VSCode的sage文件提供python语法高亮</h2>
+<ul>
+<li>点击Settings</li>
+<li>搜索Settings</li>
+<li>搜索files.associations</li>
+</ul>
+<h2 id="iptables">iptables</h2>
+<ul>
+<li>
+<p>恢复iptables默认设置:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 默认策略设置为ACCEPT，否则后续操作会导致连接断开，无法再次连接</span>
+sudo iptables -P INPUT ACCEPT
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -P OUTPUT ACCEPT
+sudo iptables -t nat -P PREROUTING ACCEPT
+sudo iptables -t nat -P POSTROUTING ACCEPT
+sudo iptables -t nat -P OUTPUT ACCEPT
+<span class="c1">## 清空所有规则</span>
+sudo iptables -F
+sudo iptables -t nat -F
+<span class="c1">## 删除所有非系统默认的链</span>
+sudo iptables -X
+sudo iptables -t nat -X
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>开启端口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo iptables -I INPUT -p udp --dport 1714:1764 -j ACCEPT
+sudo iptables -I INPUT -p tcp --dport <span class="m">22</span> -j ACCEPT
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="修改输错口令次数和惩罚时间">修改输错口令次数和惩罚时间</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo vim /etc/security/faillock.conf
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="thunderbird无法用pop3同步gmail">thunderbird无法用pop3同步gmail</h2>
+<p><a href="https://myaccount.google.com/lesssecureapps">https://myaccount.google.com/lesssecureapps</a></p>
+<h2 id="vscode的vim插件">VScode的vim插件</h2>
+<ol>
+<li>匹配\n会失败,要打开Vim进行匹配.</li>
+<li>替换换行符的前面用\n,后面用\r,如<code>:%s/\n\n/\r/g</code></li>
+</ol>
+<h2 id="撤回git的一次commit">撤回git的一次commit</h2>
+<p><code>git reset --soft HEAD^</code></p>
+<h2 id="c-中的神秘错误">C++ 中的神秘错误:</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#define uint unsigned
+</span></code></pre></td></tr></table>
+</div>
+</div><p>报错duplicate &lsquo;unsigned&rsquo;,这是因为&lt;types.h&gt;中定义了<code>uint</code>.</p>
+<p>##OneDrive-abraunegg</p>
+<ul>
+<li>
+<p>文档:https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md</p>
+</li>
+<li>
+<p>开启服务的方式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">systemctl --user <span class="nb">enable</span> onedrive.service
+systemctl --user start onedrive.service
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="自动连接vpn">自动连接VPN</h2>
+<ul>
+<li>Connections-你的wifi-General Configuration-Automatically connect to VPN</li>
+</ul>
+<h2 id="latex-beamer-引用">Latex Beamer 引用</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-latex" data-lang="latex"><span class="c">%%% end of your presentation slides
+</span><span class="c"></span><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}</span>[allowframebreaks]<span class="nb">{</span>References<span class="nb">}</span>
+    <span class="c">%\bibliographystyle{plain}
+</span><span class="c"></span>    <span class="k">\bibliographystyle</span><span class="nb">{</span>amsalpha<span class="nb">}</span>
+    <span class="c">%\bibliography{mybeamer} also works
+</span><span class="c"></span>    <span class="k">\bibliography</span><span class="nb">{</span>./mybeamer.bib<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>编译顺序:</p>
+<blockquote>
+<ol>
+<li><code>pdflatex mybeamer.tex</code></li>
+<li><code>bibtex mybeamer</code></li>
+<li><code>pdflatex mybeamer.tex</code></li>
+<li><code>pdflatex mybeamer.tex</code></li>
+</ol>
+</blockquote>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-08-07
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/kde/">KDE</a>
+          <a href="/tags/manjaro/">Manjaro</a>
+          <a href="/tags/simplified-chinese/">simplified chinese</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/toss/vscode%E7%9A%84latex%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">VSCode的Latex插件配置</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/toss/windows-10-%E4%B8%8B%E6%9E%B6%E8%AE%BEgit%E6%9C%8D%E5%8A%A1/">
+            <span class="next-text nav-default">Windows 10 下架设Git服务</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
