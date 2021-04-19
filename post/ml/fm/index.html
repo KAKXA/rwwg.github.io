@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/ml/fm/" />
@@ -42,17 +42,14 @@
 <meta property="og:title" content="Factorization Machine" />
 <meta property="og:description" content="因子分解机" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://rwwg.github.io/post/ml/fm/" />
-<meta property="article:published_time" content="2021-04-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-04-01T00:00:00+00:00" />
+<meta property="og:url" content="https://rwwg.github.io/post/ml/fm/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-04-01T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-04-01T00:00:00&#43;00:00" />
+
 <meta itemprop="name" content="Factorization Machine">
-<meta itemprop="description" content="因子分解机">
-<meta itemprop="datePublished" content="2021-04-01T00:00:00&#43;00:00" />
+<meta itemprop="description" content="因子分解机"><meta itemprop="datePublished" content="2021-04-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-04-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="436">
-
-
-
+<meta itemprop="wordCount" content="435">
 <meta itemprop="keywords" content="machine-learning,Simplified Chinese,FM," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Factorization Machine"/>
 <meta name="twitter:description" content="因子分解机"/>
@@ -142,7 +139,7 @@
     <div class="post-content">
       <p>本文描述 Factorization Machine (因子分解机).</p>
 <p>$x$ : 长度为 $n$ 的向量,表示一个样本n种特征</p>
-<p>$y$ : $1$ 或者 $0$ , 表示如&quot;用户是否点击&rdquo;.</p>
+<p>$y$ : $1$ 或者 $0$ , 表示如&quot;用户是否点击&quot;.</p>
 <p>讨论二阶的模型,即只认为最多两个特征之间有关联:
 $$
 y = w_0 + \sum_{i = 1} ^ n w_ix_i + \sum_{i = 1}^{n - 1}\sum_{j = i + 1}^{n}w_{ij}x_ix_j
@@ -156,12 +153,12 @@ $$
 其中 $Q$ 是 正交矩阵,$\Lambda$ 是由 $W$ 特征值组成的对角矩阵</p>
 <p>由于 $W$ 的特征值都非负,不妨
 $$
-\Lambda = \Lambda ' ^ T \cdot \Lambda&rsquo;
+\Lambda = \Lambda ' ^ T \cdot \Lambda'
 $$
 其中 $\Lambda'$ 每行对角线上的元素是 $\Lambda$ 对应位置的正平方根</p>
 <p>故
 $$
-W = Q ^ T \Lambda ' ^ T \Lambda&rsquo; Q = (\Lambda&rsquo; Q) ^ T (\Lambda&rsquo;Q)
+W = Q ^ T \Lambda ' ^ T \Lambda' Q = (\Lambda' Q) ^ T (\Lambda&rsquo;Q)
 $$
 即 $W$ 可以写成一个实矩阵和其转置的乘积.</p>
 <p>令
@@ -267,7 +264,7 @@ $$
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

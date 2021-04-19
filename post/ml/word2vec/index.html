@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Word2Vec,FastText,GloVe - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="Word2Vec,FastText,GloVe知识点概述" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/ml/word2vec/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Word2Vec,FastText,GloVe" />
+<meta property="og:description" content="Word2Vec,FastText,GloVe知识点概述" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/ml/word2vec/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-04-16T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-04-16T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="Word2Vec,FastText,GloVe">
+<meta itemprop="description" content="Word2Vec,FastText,GloVe知识点概述"><meta itemprop="datePublished" content="2021-04-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-04-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="869">
+<meta itemprop="keywords" content="Simplified Chinese,NLP,machine-learning,Word2Vec,FastText,GloVe," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Word2Vec,FastText,GloVe"/>
+<meta name="twitter:description" content="Word2Vec,FastText,GloVe知识点概述"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Word2Vec,FastText,GloVe</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-04-16 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#word2vec">Word2Vec</a>
+          <ul>
+            <li><a href="#离散表示">离散表示</a></li>
+            <li><a href="#cbow">CBOW</a></li>
+            <li><a href="#skip-gram">Skip-gram</a></li>
+          </ul>
+        </li>
+        <li><a href="#fasttext">FastText</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>本文介绍了三种经典的词嵌入算法,Word2Vec,FastText,GloVe</p>
+<h2 id="word2vec">Word2Vec</h2>
+<h3 id="离散表示">离散表示</h3>
+<ol>
+<li>
+<p>one-hot, 每种词在一个向量中占据某个下标的位置.对于语料中的每个词,都只把其向量中对应词的下标处置0,否则置1</p>
+</li>
+<li>
+<p>词袋模型, 以一个句子或者文件作为单位,统计该袋子里各个词汇的出现次数.等价于对于袋子中所有词按照one-hot编码求和</p>
+</li>
+<li>
+<p>TF-IDF</p>
+<ol>
+<li>$TF_w = \frac{某类中词条w出现的次数}{该类中总词数}$</li>
+<li>$IDF_w = \log \frac{语料库中文档总数}{包含词条w的文档总数+1}$</li>
+</ol>
+<p>TF-IDF = $TF \times IDF$</p>
+</li>
+<li>
+<p>n-gram, 按照大小为n的滑动窗口得到n长的词组,以它们建立字典进行one-hot编码</p>
+</li>
+</ol>
+<h3 id="cbow">CBOW</h3>
+<ol>
+<li>获得中间词两边的上下文</li>
+<li>将上下文词的one-hot编码输入神经网络</li>
+<li>经过隐层</li>
+<li>经过激活函数,计算出每个单词的生成概率</li>
+</ol>
+<h3 id="skip-gram">Skip-gram</h3>
+<ol>
+<li>获得当前词的one-hot向量,输入神经网络</li>
+<li>经过隐层</li>
+<li>经过激活函数,预测上下文词汇的生成概率
+<ol>
+<li>层次Softmax,利用Huffman编码编码<strong>输出层的字典</strong>.</li>
+<li>负例采样.考虑到输出层除了正确单词以外的错误单词过于多,所以只采样其中的一部分,减少输出层向量的长度.</li>
+</ol>
+</li>
+</ol>
+<h2 id="fasttext">FastText</h2>
+<ol>
+<li>用字符级别的n-gram来表示单词，如同BERT中的分词</li>
+<li>将n-gram表示后的所有单词（部分只是单词的一部分）进行词嵌入</li>
+<li>将所有词向量输入到隐层，自然，输出是所有词向量的某种叠加</li>
+<li>进入softmax，输出进入Huffman树，输出是本文档的类标和类标的概率</li>
+</ol>
+<p>GloVe</p>
+<ol>
+<li>
+<p>构造共现矩阵：用一个固定大小的滑动窗口，得到同时在窗口中的单词对，GloVe中，距离越远的两个单词所占总计数的权重越小</p>
+</li>
+<li>
+<p>构造词向量和共现矩阵之间的近似关系
+$$
+w_i ^ T \tilde w <em>j + b_i + \tilde b_j = log(X</em>{i, j})
+$$</p>
+</li>
+<li>
+<p>构造损失函数
+$$
+J = \sum_{i, j = 1} ^ V f(X_{i,j})(w_i ^ T w _j + b_i + b_j - log(X_{i, j})) ^ 2
+$$
+其中$f(X_{i,j})$是权重函数.</p>
+</li>
+<li>
+<p>训练模型.GloVe虽然不需要人工标注label,但是它还是有label的,即$log(X_{i,j})$,公式中的$w_i,\tilde w_j$就是需要学习的参数.尽管对于每个$i$,$w_i$和$\tilde w_i$是等价的,但是对于参数初始化的值不一样,会使得两个值不一样,我们取它们的和作为最终的词向量.</p>
+</li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-04-16
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          <a href="/tags/nlp/">NLP</a>
+          <a href="/tags/machine-learning/">machine-learning</a>
+          <a href="/tags/word2vecfasttextglove/">Word2Vec,FastText,GloVe</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/ml/lstm/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">LSTM知识点概述</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/ml/knowledge-graph/">
+            <span class="next-text nav-default">Knowledge Graph</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

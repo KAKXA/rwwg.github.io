@@ -6,11 +6,7 @@
     <description>Recent content in pruning on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 21 Mar 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://rwwg.github.io/tags/pruning/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 21 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/pruning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leetcode 322: Coin Change</title>
       <link>https://rwwg.github.io/post/algorithm/leetcode-322/</link>

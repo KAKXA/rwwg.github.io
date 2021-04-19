@@ -6,11 +6,7 @@
     <description>Recent content in Gnome on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 11 Apr 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://rwwg.github.io/tags/gnome/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 11 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/gnome/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu Gnome 常见问题与解决方案</title>
       <link>https://rwwg.github.io/post/linux/%E5%9C%A8ubuntu-gnome%E4%B8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>

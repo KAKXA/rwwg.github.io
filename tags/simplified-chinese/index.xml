@@ -6,10 +6,33 @@
     <description>Recent content in Simplified Chinese on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GRU知识点概述</title>
+      <link>https://rwwg.github.io/post/ml/gru/</link>
+      <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/ml/gru/</guid>
+      <description>&lt;p&gt;GRU是对于RNN的一种改进,它缓解了RNN梯度消失的问题.&lt;/p&gt;</description>
+    </item>
     
-	<atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LSTM知识点概述</title>
+      <link>https://rwwg.github.io/post/ml/lstm/</link>
+      <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/ml/lstm/</guid>
+      <description>&lt;p&gt;LSTM是对于RNN的一种改进,它缓解了RNN梯度消失的问题.&lt;/p&gt;</description>
+    </item>
     
+    <item>
+      <title>Word2Vec,FastText,GloVe</title>
+      <link>https://rwwg.github.io/post/ml/word2vec/</link>
+      <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/ml/word2vec/</guid>
+      <description>&lt;p&gt;本文介绍了三种经典的词嵌入算法,Word2Vec,FastText,GloVe&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Knowledge Graph</title>

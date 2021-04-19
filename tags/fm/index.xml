@@ -6,11 +6,7 @@
     <description>Recent content in FM on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Apr 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://rwwg.github.io/tags/fm/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 01 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/fm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Factorization Machine</title>
       <link>https://rwwg.github.io/post/ml/fm/</link>
