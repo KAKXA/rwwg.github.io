@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 16 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>algorithm</title>
+      <link>https://rwwg.github.io/tags/algorithm/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simplified Chinese</title>
+      <link>https://rwwg.github.io/tags/simplified-chinese/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trie</title>
+      <link>https://rwwg.github.io/tags/trie/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/trie/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>GRU</title>
       <link>https://rwwg.github.io/tags/gru/</link>
@@ -40,15 +67,6 @@
       <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/nlp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Simplified Chinese</title>
-      <link>https://rwwg.github.io/tags/simplified-chinese/</link>
-      <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
       <description></description>
     </item>
     
@@ -193,15 +211,6 @@
       <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/topological-sorting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithm</title>
-      <link>https://rwwg.github.io/tags/algorithm/</link>
-      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/algorithm/</guid>
       <description></description>
     </item>
     

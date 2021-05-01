@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>GRU知识点概述 - Ge&#39;s Blog</title>
+  <title>Trie的Python实现 - Ge&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="rwwg" /><meta name="description" content="GRU知识点概述" />
+<meta name="author" content="rwwg" /><meta name="description" content="Trie的Python实现" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.82.0 with theme even" />
 
 
-<link rel="canonical" href="https://rwwg.github.io/post/ml/gru/" />
+<link rel="canonical" href="https://rwwg.github.io/post/algorithm/trie/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="GRU知识点概述" />
-<meta property="og:description" content="GRU知识点概述" />
+<meta property="og:title" content="Trie的Python实现" />
+<meta property="og:description" content="Trie的Python实现" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://rwwg.github.io/post/ml/gru/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-04-16T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-04-16T00:00:00&#43;00:00" />
+<meta property="og:url" content="https://rwwg.github.io/post/algorithm/trie/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-01T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-01T00:00:00&#43;00:00" />
 
-<meta itemprop="name" content="GRU知识点概述">
-<meta itemprop="description" content="GRU知识点概述"><meta itemprop="datePublished" content="2021-04-16T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-04-16T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="324">
-<meta itemprop="keywords" content="Simplified Chinese,NLP,machine-learning,GRU," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="GRU知识点概述"/>
-<meta name="twitter:description" content="GRU知识点概述"/>
+<meta itemprop="name" content="Trie的Python实现">
+<meta itemprop="description" content="Trie的Python实现"><meta itemprop="datePublished" content="2021-05-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="178">
+<meta itemprop="keywords" content="trie,algorithm,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Trie的Python实现"/>
+<meta name="twitter:description" content="Trie的Python实现"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -121,10 +121,10 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">GRU知识点概述</h1>
+      <h1 class="post-title">Trie的Python实现</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-04-16 </span>
+        <span class="post-time"> 2021-05-01 </span>
         
         
       </div>
@@ -133,42 +133,65 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#重置门r_t更新门z_t">重置门$R_t$,更新门$Z_t$</a></li>
-        <li><a href="#候选隐藏状态tilde-h">候选隐藏状态$\tilde H$</a></li>
-        <li><a href="#隐藏状态">隐藏状态</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
-      <p>GRU是对于RNN的一种改进,它缓解了RNN梯度消失的问题.</p>
-<h2 id="重置门r_t更新门z_t">重置门$R_t$,更新门$Z_t$</h2>
-<p>输入: 当前时间步输入$X_t$,上一时间步隐藏状态$H_{t - 1}$</p>
-<p>输出由sigmoid全连接层计算得到</p>
-<p>$\sigma$ : sigmoid函数</p>
-<p>$W, b$ : 全连接层的参数
-$$
-R_t = \sigma (X_t W_{xr} + H_{t - 1} W_{hr} + b_r)
-$$</p>
-<p>$$
-Z_t = \sigma (X_t W+{xz}) + H_{t - 1} W_{hz} + b_z)
-$$</p>
-<h2 id="候选隐藏状态tilde-h">候选隐藏状态$\tilde H$</h2>
-<ol>
-<li>计算$H_{t - 1} \odot R_t$,其中$\odot$是按元素乘法.如果结果接近0,意味着之前的隐藏状态被基本丢弃,反之则保留</li>
-<li>上一步的结果与$X_t$连结,通过含tanh的全连接层算出候选隐层状态,值域[-1,1]</li>
-</ol>
-<h2 id="隐藏状态">隐藏状态</h2>
-<p>$$
-H_t = H_{t - 1} \odot Z_t + \tilde H_t \odot (1 - Z_t)
-$$</p>
-<p>由这个式子可以看出,重置门用于捕捉短期的依赖关系,更新门用于捕捉长期的依赖关系.</p>
+      <p>由于在面试中连个前缀树都写不出来,含泪写下此篇.</p>
+<p>将一个字符串列表转成一个前缀树,然后查询一个字符串是否在</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 将strs这个字符串列表转为前缀树</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">strs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">strs</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">trie</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">i</span><span class="p">,{})</span>
+        <span class="c1"># 用None表示结束标志</span>
+        <span class="n">d</span><span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="c1"># 检查前缀树中有没有s这个字符串</span>
+<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">trie</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">None</span> <span class="ow">in</span> <span class="n">d</span>
+
+<span class="c1"># 用法</span>
+<span class="n">strs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1234&#39;</span><span class="p">,</span><span class="s1">&#39;1235&#39;</span><span class="p">,</span><span class="s1">&#39;1345&#39;</span><span class="p">,</span><span class="s1">&#39;1111&#39;</span><span class="p">,</span><span class="s1">&#39;2345&#39;</span><span class="p">,</span><span class="s1">&#39;1222&#39;</span><span class="p">,</span><span class="s1">&#39;2223&#39;</span><span class="p">]</span>
+<span class="n">trie</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">f</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">strs</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="s1">&#39;2223&#39;</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -179,7 +202,7 @@ $$</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2021-04-16
+        2021-05-01
         
     </span>
   </p>
@@ -191,19 +214,14 @@ $$</p>
 </div>
 <footer class="post-footer">
       <div class="post-tags">
+          <a href="/tags/trie/">trie</a>
+          <a href="/tags/algorithm/">algorithm</a>
           <a href="/tags/simplified-chinese/">Simplified Chinese</a>
-          <a href="/tags/nlp/">NLP</a>
-          <a href="/tags/machine-learning/">machine-learning</a>
-          <a href="/tags/gru/">GRU</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/algorithm/trie/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Trie的Python实现</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/ml/lstm/">
-            <span class="next-text nav-default">LSTM知识点概述</span>
+        
+        <a class="next" href="/post/ml/gru/">
+            <span class="next-text nav-default">GRU知识点概述</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
