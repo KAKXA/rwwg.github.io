@@ -6,7 +6,25 @@
     <description>Recent content on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Metadata-HTML中的元数据</title>
+      <link>https://rwwg.github.io/post/front_end/html_head_metadata/</link>
+      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/front_end/html_head_metadata/</guid>
+      <description>&lt;p&gt;整理自MDN Web Docs 的 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML&#34;&gt;Metadata-HTML&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>开始学习 HTML</title>
+      <link>https://rwwg.github.io/post/front_end/html_getting_started/</link>
+      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/front_end/html_getting_started/</guid>
+      <description>&lt;p&gt;整理自MDN Web Docs 的 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Getting_started&#34;&gt;Getting started&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Django 官方文档1,2,3部分学习笔记</title>
       <link>https://rwwg.github.io/post/python/django/django_1to3/</link>
