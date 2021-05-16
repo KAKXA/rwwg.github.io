@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>HTML 文档与网站架构</title>
+      <link>https://rwwg.github.io/post/front_end/html_document_and_website_structure/</link>
+      <pubDate>Sun, 16 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/front_end/html_document_and_website_structure/</guid>
+      <description>&lt;p&gt;整理自MDN Web Docs 的 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure&#34;&gt;Document and Website Structure&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>HTML高阶文字排版</title>
       <link>https://rwwg.github.io/post/front_end/html_advanced_text_formatting/</link>
       <pubDate>Sun, 16 May 2021 00:00:00 +0000</pubDate>
