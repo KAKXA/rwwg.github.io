@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>HTML高阶文字排版</title>
+      <link>https://rwwg.github.io/post/front_end/html_advanced_text_formatting/</link>
+      <pubDate>Sun, 16 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/front_end/html_advanced_text_formatting/</guid>
+      <description>&lt;p&gt;整理自MDN Web Docs 的 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting&#34;&gt;Advanced Text Formatting&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>HTML 文字处理基础</title>
       <link>https://rwwg.github.io/post/front_end/html_text_fundamentals/</link>
       <pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate>
