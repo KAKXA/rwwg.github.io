@@ -3,41 +3,48 @@
   
   <url>
     <loc>https://rwwg.github.io/</loc>
-    <lastmod>2021-05-14T00:00:00+00:00</lastmod>
+    <lastmod>2021-05-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://rwwg.github.io/tags/html/</loc>
-    <lastmod>2021-05-14T00:00:00+00:00</lastmod>
+    <lastmod>2021-05-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://rwwg.github.io/post/front_end/html_text_fundamentals/</loc>
-    <lastmod>2021-05-14T00:00:00+00:00</lastmod>
+    <loc>https://rwwg.github.io/post/front_end/html_creating_hyperlinks/</loc>
+    <lastmod>2021-05-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://rwwg.github.io/post/</loc>
-    <lastmod>2021-05-14T00:00:00+00:00</lastmod>
+    <lastmod>2021-05-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://rwwg.github.io/tags/simplified-chinese/</loc>
-    <lastmod>2021-05-14T00:00:00+00:00</lastmod>
+    <lastmod>2021-05-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://rwwg.github.io/tags/</loc>
+    <lastmod>2021-05-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/post/front_end/html_text_fundamentals/</loc>
     <lastmod>2021-05-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
