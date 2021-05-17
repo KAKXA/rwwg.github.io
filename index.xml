@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>HTML 表格</title>
+      <link>https://rwwg.github.io/post/front_end/html_tables/</link>
+      <pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/front_end/html_tables/</guid>
+      <description>&lt;p&gt;整理自MDN Web Docs 的 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Tables/Basics&#34;&gt;Table Basics&lt;/a&gt; 与 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Tables/Advanced&#34;&gt;Table Advanced&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>HTML 建立超链接</title>
       <link>https://rwwg.github.io/post/front_end/html_creating_hyperlinks/</link>
       <pubDate>Sun, 16 May 2021 00:00:00 +0000</pubDate>
