@@ -6,7 +6,16 @@
     <description>Recent content in HTML on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 17 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTML 表单</title>
+      <link>https://rwwg.github.io/post/front_end/html_forms/</link>
+      <pubDate>Tue, 18 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/front_end/html_forms/</guid>
+      <description>&lt;p&gt;整理自MDN Web Docs 的 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Learn/Forms/Your_first_form&#34;&gt;Your first form&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>HTML 表格</title>
       <link>https://rwwg.github.io/post/front_end/html_tables/</link>
