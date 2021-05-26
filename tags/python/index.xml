@@ -6,7 +6,16 @@
     <description>Recent content in python on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 17 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Django 官方文档第5部分</title>
+      <link>https://rwwg.github.io/post/python/django/django_5/</link>
+      <pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/python/django/django_5/</guid>
+      <description>&lt;p&gt;笔记总结自 &lt;a href=&#34;https://docs.djangoproject.com/zh-hans/3.2/intro/tutorial05/&#34;&gt;第五部分&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Django 官方文档第4部分</title>
       <link>https://rwwg.github.io/post/python/django/django_4/</link>
