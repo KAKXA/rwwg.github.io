@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>My=SQL 4: Schema与数据类型优化 - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="高性能MYSQL第四章" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/mysql/mysql_4/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="My=SQL 4: Schema与数据类型优化" />
+<meta property="og:description" content="高性能MYSQL第四章" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/mysql/mysql_4/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-25T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-25T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="My=SQL 4: Schema与数据类型优化">
+<meta itemprop="description" content="高性能MYSQL第四章"><meta itemprop="datePublished" content="2021-05-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3047">
+<meta itemprop="keywords" content="Simplified Chinese,MySQL," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="My=SQL 4: Schema与数据类型优化"/>
+<meta name="twitter:description" content="高性能MYSQL第四章"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">My=SQL 4: Schema与数据类型优化</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-05-25 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#选择优化的数据类型">选择优化的数据类型</a>
+      <ul>
+        <li><a href="#整数类型">整数类型</a></li>
+        <li><a href="#实数类型">实数类型</a></li>
+        <li><a href="#字符串类型">字符串类型</a></li>
+        <li><a href="#日期和时间类型">日期和时间类型</a></li>
+        <li><a href="#位数据类型">位数据类型</a></li>
+        <li><a href="#选择-标识符identifier">选择 标识符(identifier)</a></li>
+        <li><a href="#特殊类型数据">特殊类型数据</a></li>
+      </ul>
+    </li>
+    <li><a href="#mysql-schema-设计中的陷阱">MySQL schema 设计中的陷阱</a></li>
+    <li><a href="#范式和反范式">范式和反范式</a>
+      <ul>
+        <li><a href="#范式的优点和缺点">范式的优点和缺点</a>
+          <ul>
+            <li><a href="#优点">优点</a></li>
+            <li><a href="#缺点">缺点</a></li>
+          </ul>
+        </li>
+        <li><a href="#反范式的优点和缺点">反范式的优点和缺点</a></li>
+        <li><a href="#混用范式化和反范式化">混用范式化和反范式化</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="选择优化的数据类型">选择优化的数据类型</h1>
+<ol>
+<li>
+<p>更小的通常更好</p>
+<blockquote>
+<p>可以正确存储数据的最小数据类型</p>
+</blockquote>
+</li>
+<li>
+<p>更简单更好</p>
+<blockquote>
+<p>使用整型而不是字符</p>
+<p>是应该使用MySQL内建的类型而不是字符串来存储日期和时间</p>
+<p>应该用整型存储IP地址</p>
+</blockquote>
+</li>
+<li>
+<p>避免NULL</p>
+<blockquote>
+<p>如果一列不需要保存为NULL的值,那么最好指定列为NOT NULL</p>
+<p>包含可为NULL的列,对MySQL更难优化</p>
+<p>如果计划在列上建索引,尽量避免设计成可为NULL的列</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="整数类型">整数类型</h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYINT</td>
+<td>8</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>16</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>24</td>
+</tr>
+<tr>
+<td>INT</td>
+<td>32</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>64</td>
+</tr>
+</tbody>
+</table>
+<h2 id="实数类型">实数类型</h2>
+<ul>
+<li>DECIMAL</li>
+<li>FLOAT</li>
+<li>DOUBLE</li>
+</ul>
+<blockquote>
+<p>DECIMAL可以存储比BIGINT还要大的数.为了克服DECIMAL精确计算代价高,以及浮点数计算精度有缺失的问题,可以考虑用其它方法,尽可能把数据存在BIGINT中</p>
+</blockquote>
+<h2 id="字符串类型">字符串类型</h2>
+<ul>
+<li>VACHAR</li>
+</ul>
+<blockquote>
+<p>VARCHAR类型用于存储可变长字符串</p>
+<p>VARCHAR需要使用1或2个额外字节记录字符串的长度</p>
+<p>VARCHAR节省了存储空间,对性能有帮助.但是在UPDATE可能使行变得比原来更长,就需要额外的工作</p>
+<ul>
+<li>MyISAM将行拆成不同的片段</li>
+<li>InnoDB需要分裂页来使行可以放进页内</li>
+</ul>
+<p>以下情况使用VARCHAR是合适的</p>
+<ul>
+<li>字符串列的最大长度比平均长度大很多</li>
+<li>列的更新很少</li>
+<li>使用UTF-8这样的字符集,每个字符都使用不同的字节数进行存储</li>
+</ul>
+</blockquote>
+<ul>
+<li>CHAR</li>
+</ul>
+<blockquote>
+<p>在存储CHAR时,MySQL会删除所有的末尾空格</p>
+</blockquote>
+<ul>
+<li>VARBINARY</li>
+</ul>
+<blockquote>
+<p>它和BINARY存储的是二进制字节码</p>
+</blockquote>
+<ul>
+<li>BINARY</li>
+</ul>
+<blockquote>
+<p>MySQL用\0填充BINARY而不是空格,在检索时也不会去掉填充值</p>
+</blockquote>
+<ul>
+<li>BLOB和TEXT类型</li>
+</ul>
+<blockquote>
+<p>都是为了存储很大的数据而设计的字符串数据类型</p>
+<p>BLOB为二进制,TEXT为字符串</p>
+<p>当BLOB和TEXT值太大时,InnoDB会在行内存储一个指针,然后再外部存储区域存储实际的值</p>
+<p>MySQL对BLOB,TEXT排序时,支队梅格列最前max_sort_length字节而不是整个字符串做排序</p>
+<p>对于Memory引擎,它不支持BLOB和TEXT类型,所以,如果查询使用了BLOB或TEXT列并且需要使用隐式临时表,将不得不使用MyISAM磁盘临时表.这样的开销非常严重</p>
+<p>解决方案:</p>
+<ul>
+<li>
+<p>避免使用BLOB和TEXT类型;</p>
+</li>
+<li>
+<p>使用SUBSTRING将劣质转换为字符串,这样就可以使用<strong>内存临时表</strong>了.这种做法要确保截取的子字符串足够短,不会使零食表的大小超出<code>max_heap_table_size</code>或<code>tmp_table_size</code>,超出以后MySQL会将其转换为MyISAM<strong>磁盘临时表</strong></p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>使用枚举代替字符串类型</li>
+</ul>
+<blockquote>
+<p>枚举类型实际存储为整数而不是字符串</p>
+<p>尽量避免用数字作为ENUM枚举常量</p>
+<p>枚举字段是按照内部存储的整数而不是定义的字符串进行排序的</p>
+<p>如果不是必须和VARCHAR列关联,那么把某一列转成ENUM就是一个好主意</p>
+<p>ENUM可以缩小主键的大小,如果是InnoDB表,表上有其它索引,那么减小逐渐大小会使非逐渐索引页变得更小</p>
+</blockquote>
+<h2 id="日期和时间类型">日期和时间类型</h2>
+<ul>
+<li>DATETIME</li>
+</ul>
+<blockquote>
+<p>能够保存1001到9999年,精度为秒</p>
+<p>它把日期和时间封装到<code>YYYYMMDDHHMMSS</code>的整数中,与时区无关</p>
+<p>使用八个字节的存储空间</p>
+<p>提供的值和时区有关</p>
+</blockquote>
+<ul>
+<li>TIMESTAMP</li>
+</ul>
+<blockquote>
+<p>保存了1970年1月1日午夜(格林尼治时间)以来的描述</p>
+<p>使用4个字节,所以只能表示从1970年到2038年</p>
+<p>提供的值与时区无关,但是显示时和时区有关,即标准化成DATETIME作为输出</p>
+<p>如果插入时没有指定第一个TIMESTAMP列的值,则设置这个列为当前时间</p>
+<p>再插入一行记录时,MySQL默认也会更新第一个TIMESTAMP列的值</p>
+<p>TIMESTAMP默认为 NOT NULL</p>
+</blockquote>
+<h2 id="位数据类型">位数据类型</h2>
+<ul>
+<li>BIT</li>
+</ul>
+<blockquote>
+<p>BIT列的最大长度时64个字段</p>
+<p>MySQL把BIT当作字符串类型</p>
+<p>应尽量避免这种类型,如果想用一个bit存储一个true/false值,可以创建一个可以为空的CHAR(0)列,该列可以保存控制或者长度为零的字符串,两种情况分别代表false和true</p>
+</blockquote>
+<ul>
+<li>SET</li>
+</ul>
+<blockquote>
+<p>如果需要保存很多true/false值,可以考虑合并这些刘到一个SET数据类型</p>
+<p>缺点时改变列的定义的代价较高</p>
+<p>一种替代方式是使用一个整数包装一系列的位,优点是可以不使用ALTER TABLE改变字段代表的枚举值;缺点是查询语句难写且难以理解</p>
+</blockquote>
+<h2 id="选择-标识符identifier">选择 标识符(identifier)</h2>
+<ul>
+<li>整数类型</li>
+</ul>
+<blockquote>
+<p>通常是最好的选择,可以使用AUTO_INCREMENT</p>
+</blockquote>
+<ul>
+<li>ENUM和SET,字符串</li>
+</ul>
+<blockquote>
+<p>通常避免</p>
+</blockquote>
+<h2 id="特殊类型数据">特殊类型数据</h2>
+<ul>
+<li>应该用32位无符号整数存储IP地址.一种明了的表示方法是VARCHAR(15),但不推荐</li>
+</ul>
+<blockquote>
+<p>MySQL提供INET_ATON()和INET_NTOA()函数以便在以上两种表示之间转换</p>
+</blockquote>
+<h1 id="mysql-schema-设计中的陷阱">MySQL schema 设计中的陷阱</h1>
+<ul>
+<li>太多的列</li>
+</ul>
+<blockquote>
+<p>MySQL的存储引擎API工作时需要在服务器层和存储引擎层之间通过行缓冲格式拷贝数据,然后在服务器层将缓冲内容解码成各个列。从行缓冲中将编码过的列转换成行数据结构的操作代价是非常高的。MyISAM的定长行结构实际上与服务器层的行结构正好匹配,所以不需要转换。然而,MyISAM的变长行结构和InnoDB的行结构则总是需要转换。转换的代价依赖于列的数量。当我们研究一个CPU占用非常高的案例时,发现客户使用了非常宽的表(数千个字段),然而只有一小部分列会实际用到,这时转换的代价就非常高。如果计划使用数千个字段,必须意识到服务器的性能运行特征会有一些不同.</p>
+</blockquote>
+<ul>
+<li>太多的关联</li>
+</ul>
+<blockquote>
+<p>实体-属性-值(EAV)设计模式是一个糟糕的设计模式.如果希望查询执行得快速而且并发好,单个查询最好在12个表以内做关联</p>
+</blockquote>
+<ul>
+<li>全能的枚举</li>
+</ul>
+<blockquote>
+<p>在某些情况下,需要在枚举列表中添加一个新的项目时就要做一次ALTER TABLE操作.</p>
+</blockquote>
+<ul>
+<li>变相的枚举</li>
+</ul>
+<blockquote>
+<p>比如,如果&quot;真&quot;和&quot;假&quot;不会同时出现,那么应该用ENUM代替SET</p>
+</blockquote>
+<ul>
+<li>非此发明的NULL</li>
+</ul>
+<blockquote>
+<p>处理NULL确实不容易,但有时候会比它的替代方案更好.</p>
+<p>常见的用0000-00-00 00:00:00来替代DATETIME中的NULL就不太好</p>
+<p>MySQL会在索引中存储NULL值,二Oracle则不会</p>
+</blockquote>
+<h1 id="范式和反范式">范式和反范式</h1>
+<p>一个糟糕的表:</p>
+<table>
+<thead>
+<tr>
+<th>EMPLOYEE</th>
+<th>DEPARTMENT</th>
+<th>HEAD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jones</td>
+<td>Accounting</td>
+<td>Jones</td>
+</tr>
+<tr>
+<td>Smith</td>
+<td>Engineering</td>
+<td>Smith</td>
+</tr>
+<tr>
+<td>Brown</td>
+<td>Accounting</td>
+<td>Jones</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>Engineering</td>
+<td>Smith</td>
+</tr>
+</tbody>
+</table>
+<p>为了符合第二范式</p>
+<ul>
+<li>雇员表</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>EMPLOYEE_NAME</th>
+<th>DEPARTMENT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jones</td>
+<td>Accounting</td>
+</tr>
+<tr>
+<td>Smith</td>
+<td>Engineering</td>
+</tr>
+<tr>
+<td>Brown</td>
+<td>Accounting</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>Engineering</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>部门表</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>DEPARTMENT</th>
+<th>HEAD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accounting</td>
+<td>Jones</td>
+</tr>
+<tr>
+<td>Engineering</td>
+<td>Smith</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>这个例子中用Last Name作为主键,但是从实践看,无论如何都不应该这么用,这不能保证唯一性,而且用一个很长的字符串作为逐渐是很糟糕的主意</p>
+</blockquote>
+<h2 id="范式的优点和缺点">范式的优点和缺点</h2>
+<h3 id="优点">优点</h3>
+<ul>
+<li>范式化的更新操作通常比反范式要快</li>
+<li>只有很少甚至没有重复数据,所以只要修改更好的数据</li>
+<li>范式化的表通常更小,执行更快</li>
+<li>很少多余的数据意味着检索列表时更少需要DISTINCT或者GROUP BY语句</li>
+</ul>
+<h3 id="缺点">缺点</h3>
+<ul>
+<li>通常需要关联,这不但代价昂贵,也可能使一些索引策略无效</li>
+</ul>
+<h2 id="反范式的优点和缺点">反范式的优点和缺点</h2>
+<ul>
+<li>如果不需要关联表,则对大部分查询最差的情况是全表扫描</li>
+</ul>
+<blockquote>
+<p>当数据比内存大时这可能比关联要快得多,因为这样避免了随机I/O</p>
+</blockquote>
+<ul>
+<li>单独的表也能使用更有效的索引策略</li>
+</ul>
+<blockquote>
+<p>假设有一个网站,允许用户发送消息,并且一些用户是付费用户.现在想查看付费用户最近的10条信息</p>
+<p>如果范式化的结构并且索引发送日期字段published,这个查询是这样:</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="n">message_text</span><span class="p">,</span> <span class="n">user_name</span>
+<span class="k">FROM</span> <span class="n">message</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="k">user</span> <span class="k">ON</span> <span class="n">message</span><span class="p">.</span><span class="n">user_id</span><span class="o">=</span><span class="k">user</span><span class="p">.</span><span class="n">id</span>
+<span class="k">WHERE</span> <span class="k">user</span><span class="p">.</span><span class="n">account_type</span><span class="o">=</span><span class="s1">&#39;premium&#39;</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">message</span><span class="p">.</span><span class="n">published</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>要更有效地执行这个查询,MySQL需要扫描message表的published字段的索引.对于每一行找到的数据,将需要到<strong>user</strong>表里检查这个用户是不是付费用户</p>
+<p>如果只有一小部分用户是付费账户,那么这个效率非常低下</p>
+</blockquote>
+<blockquote>
+<p>主要问题是关联,使得需要在一个索引中又排序又过滤.如果采用反范式化组织数据,将两张表的字段合并以下,并且增加一个索引(account_type, publish),就可以不通过关联写出这个查询</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="n">message_text</span><span class="p">,</span> <span class="n">user_name</span>
+<span class="k">FROM</span> <span class="n">user_messages</span>
+<span class="k">WHERE</span> <span class="n">account_type</span><span class="o">=</span><span class="s1">&#39;premium&#39;</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">published</span> <span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="混用范式化和反范式化">混用范式化和反范式化</h2>
+<ul>
+<li>最常见的反范式化数据的方法是复制或者缓存,在不同的表中存储相同的特定列</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-05-25
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          <a href="/tags/mysql/">MySQL</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/python/django/django_5/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Django 官方文档第5部分</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/front_end/html_forms/">
+            <span class="next-text nav-default">HTML 表单</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
