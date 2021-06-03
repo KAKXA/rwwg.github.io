@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 26 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bkui</title>
+      <link>https://rwwg.github.io/tags/bkui/</link>
+      <pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/bkui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simplified Chinese</title>
+      <link>https://rwwg.github.io/tags/simplified-chinese/</link>
+      <pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>https://rwwg.github.io/tags/windows/</link>
+      <pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/windows/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>django</title>
       <link>https://rwwg.github.io/tags/django/</link>
@@ -22,15 +49,6 @@
       <pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Simplified Chinese</title>
-      <link>https://rwwg.github.io/tags/simplified-chinese/</link>
-      <pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
       <description></description>
     </item>
     
@@ -382,15 +400,6 @@
       <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/ssh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Windows</title>
-      <link>https://rwwg.github.io/tags/windows/</link>
-      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/windows/</guid>
       <description></description>
     </item>
     
