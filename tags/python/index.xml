@@ -13,7 +13,7 @@
       <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/post/python/black_and_isort/</guid>
-      <description>&lt;p&gt;z介绍Black和Isort这两个用于格式化Python代码的工具的安装和使用.&lt;/p&gt;
+      <description>&lt;p&gt;介绍Black和Isort这两个用于格式化Python代码的工具的安装和使用.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Black&lt;/em&gt; is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, &lt;em&gt;Black&lt;/em&gt; gives you speed, determinism, and freedom from &lt;code&gt;pycodestyle&lt;/code&gt; nagging about formatting. You will save time and mental energy for more important matters.&lt;/p&gt;
 &lt;/blockquote&gt;
