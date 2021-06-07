@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>isort on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/isort/</link>
+    <description>Recent content in isort on Ge&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 07 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/isort/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Black与Isort: Python代码的格式化工具</title>
+      <link>https://rwwg.github.io/post/python/black_and_isort/</link>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/python/black_and_isort/</guid>
+      <description>&lt;p&gt;z介绍Black和Isort这两个用于格式化Python代码的工具的安装和使用.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Black&lt;/em&gt; is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, &lt;em&gt;Black&lt;/em&gt; gives you speed, determinism, and freedom from &lt;code&gt;pycodestyle&lt;/code&gt; nagging about formatting. You will save time and mental energy for more important matters.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;isort is a Python utility / library to sort imports alphabetically, and automatically separated into sections and by type. It provides a command line utility, Python library and &lt;a href=&#34;https://github.com/pycqa/isort/wiki/isort-Plugins&#34;&gt;plugins for various editors&lt;/a&gt; to quickly sort all your imports. It requires Python 3.6+ to run but supports formatting Python 2 code too.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

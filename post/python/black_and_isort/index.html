@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Windows10 下 BKUI 安装以后运行时无法加载的解决方案 - Ge&#39;s Blog</title>
+  <title>Black与Isort: Python代码的格式化工具 - Ge&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="rwwg" /><meta name="description" content="Windows10 下 BKUI 安装以后运行时无法加载的解决方案" />
+<meta name="author" content="rwwg" /><meta name="description" content="Black与Isort: Python代码的格式化工具" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.82.0 with theme even" />
 
 
-<link rel="canonical" href="https://rwwg.github.io/post/windows-confusion/bkui-forbidden/" />
+<link rel="canonical" href="https://rwwg.github.io/post/python/black_and_isort/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Windows10 下 BKUI 安装以后运行时无法加载的解决方案" />
-<meta property="og:description" content="Windows10 下 BKUI 安装以后运行时无法加载的解决方案" />
+<meta property="og:title" content="Black与Isort: Python代码的格式化工具" />
+<meta property="og:description" content="Black与Isort: Python代码的格式化工具" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://rwwg.github.io/post/windows-confusion/bkui-forbidden/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-06-03T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-06-03T00:00:00&#43;00:00" />
+<meta property="og:url" content="https://rwwg.github.io/post/python/black_and_isort/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-07T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-06-07T00:00:00&#43;00:00" />
 
-<meta itemprop="name" content="Windows10 下 BKUI 安装以后运行时无法加载的解决方案">
-<meta itemprop="description" content="Windows10 下 BKUI 安装以后运行时无法加载的解决方案"><meta itemprop="datePublished" content="2021-06-03T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-06-03T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="57">
-<meta itemprop="keywords" content="bkui,windows,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Windows10 下 BKUI 安装以后运行时无法加载的解决方案"/>
-<meta name="twitter:description" content="Windows10 下 BKUI 安装以后运行时无法加载的解决方案"/>
+<meta itemprop="name" content="Black与Isort: Python代码的格式化工具">
+<meta itemprop="description" content="Black与Isort: Python代码的格式化工具"><meta itemprop="datePublished" content="2021-06-07T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-06-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="326">
+<meta itemprop="keywords" content="python,black,isort,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Black与Isort: Python代码的格式化工具"/>
+<meta name="twitter:description" content="Black与Isort: Python代码的格式化工具"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -121,10 +121,10 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Windows10 下 BKUI 安装以后运行时无法加载的解决方案</h1>
+      <h1 class="post-title">Black与Isort: Python代码的格式化工具</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-06-03 </span>
+        <span class="post-time"> 2021-06-07 </span>
         
         
       </div>
@@ -135,32 +135,94 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#解决方案">解决方案</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#在vscode上的配置">在VSCode上的配置</a></li>
+    <li><a href="#一次性格式化整个项目所有的python文件">一次性格式化整个项目所有的<code>python</code>文件</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>在命令行中执行<code>bkui</code>后,出现像这样的报错</p>
+      <p>z介绍Black和Isort这两个用于格式化Python代码的工具的安装和使用.</p>
+<blockquote>
+<p><em>Black</em> is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, <em>Black</em> gives you speed, determinism, and freedom from <code>pycodestyle</code> nagging about formatting. You will save time and mental energy for more important matters.</p>
+</blockquote>
+<blockquote>
+<p>isort is a Python utility / library to sort imports alphabetically, and automatically separated into sections and by type. It provides a command line utility, Python library and <a href="https://github.com/pycqa/isort/wiki/isort-Plugins">plugins for various editors</a> to quickly sort all your imports. It requires Python 3.6+ to run but supports formatting Python 2 code too.</p>
+</blockquote>
+<h1 id="安装">安装</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">bkui: 无法加载文件 C:\Users\XXX\AppData\Roaming\npm\bkui.ps
+<pre class="chroma"><code class="language-shell" data-lang="shell">pip3 install black
+pip3 install isort
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="解决方案">解决方案</h1>
-<ol>
-<li>用管理员模式打开<code>powershell</code></li>
-<li>输入</li>
-</ol>
+</div><h1 id="在vscode上的配置">在VSCode上的配置</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="err">//</span> <span class="err">settings.json</span>
+<span class="p">{</span>
+
+    <span class="nt">&#34;editor.formatOnSave&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&#34;python.formatting.provider&#34;</span><span class="p">:</span> <span class="s2">&#34;black&#34;</span><span class="p">,</span>
+    <span class="err">//</span> <span class="err">插件有个问题是,如果文件时由autoSave自动保存的,那么就不能格式化</span>
+    <span class="err">//</span> <span class="err">自动保存后又手动保存一遍也不行</span>
+    <span class="err">//</span><span class="nt">&#34;files.autoSave&#34;</span><span class="p">:</span> <span class="s2">&#34;afterDelay&#34;</span><span class="p">,</span>
+    <span class="err">//</span><span class="nt">&#34;python.sortImports.args&#34;</span><span class="p">:</span> <span class="p">[</span>
+    	<span class="err">//</span> <span class="err">参数可以在这里添加</span>
+        <span class="err">//</span><span class="s2">&#34;--recursive&#34;</span><span class="p">,</span>
+        <span class="err">//</span> <span class="err">如果打算自定义isort的配置文件</span><span class="p">,</span><span class="err">可以加上下面这行</span>
+    	<span class="err">//</span> <span class="s2">&#34;--sp {your_cfg_path.cfg}
+</span><span class="s2">    //],
+</span><span class="s2">    &#34;</span><span class="err">python.formatting.blackArgs</span><span class="s2">&#34;: [
+</span><span class="s2">        &#34;</span><span class="err">--line-length=</span><span class="mi">99</span><span class="s2">&#34;
+</span><span class="s2">    ],
+</span><span class="s2">    &#34;</span><span class="p">[</span><span class="err">python</span><span class="p">]</span><span class="s2">&#34;: {
+</span><span class="s2">        &#34;</span><span class="err">editor.codeActionsOnSave</span><span class="s2">&#34;: {
+</span><span class="s2">            &#34;</span><span class="err">source.organizeImports&#34;:</span> <span class="kc">true</span>
+        <span class="err">}</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="一次性格式化整个项目所有的python文件">一次性格式化整个项目所有的<code>python</code>文件</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">set-ExecutionPolicy RemoteSigned
+<pre class="chroma"><code class="language-shell" data-lang="shell">black .
+isort -rc .
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -174,7 +236,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2021-06-03
+        2021-06-07
         
     </span>
   </p>
@@ -186,18 +248,15 @@
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/bkui/">bkui</a>
-          <a href="/tags/windows/">windows</a>
+          <a href="/tags/python/">python</a>
+          <a href="/tags/black/">black</a>
+          <a href="/tags/isort/">isort</a>
           <a href="/tags/simplified-chinese/">Simplified Chinese</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/python/black_and_isort/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Black与Isort: Python代码的格式化工具</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/python/django/django_5/">
-            <span class="next-text nav-default">Django 官方文档第5部分</span>
+        
+        <a class="next" href="/post/windows-confusion/bkui-forbidden/">
+            <span class="next-text nav-default">Windows10 下 BKUI 安装以后运行时无法加载的解决方案</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
