@@ -6,7 +6,16 @@
     <description>Recent content in Simplified Chinese on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL 5: 创建高性能地索引</title>
+      <link>https://rwwg.github.io/post/mysql/mysql_5/</link>
+      <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/mysql/mysql_5/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Black与Isort: Python代码的格式化工具</title>
       <link>https://rwwg.github.io/post/python/black_and_isort/</link>
