@@ -49,7 +49,7 @@
 <meta itemprop="name" content="MySQL 4: Schema与数据类型优化">
 <meta itemprop="description" content="高性能MYSQL第四章"><meta itemprop="datePublished" content="2021-05-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-05-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="3049">
+<meta itemprop="wordCount" content="4015">
 <meta itemprop="keywords" content="Simplified Chinese,MySQL," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL 4: Schema与数据类型优化"/>
 <meta name="twitter:description" content="高性能MYSQL第四章"/>
@@ -156,7 +156,20 @@
           </ul>
         </li>
         <li><a href="#反范式的优点和缺点">反范式的优点和缺点</a></li>
-        <li><a href="#混用范式化和反范式化">混用范式化和反范式化</a></li>
+        <li><a href="#混用范式化和反范式化">混用范式化和反范式化</a>
+          <ul>
+            <li><a href="#范式的优点和缺点-1">范式的优点和缺点</a></li>
+            <li><a href="#反范式的优点和缺点-1">反范式的优点和缺点</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#缓存表和汇总表">缓存表和汇总表</a>
+      <ul>
+        <li><a href="#物化视图">物化视图</a></li>
+        <li><a href="#计数器表">计数器表</a></li>
+        <li><a href="#加快alter-table操作的速度">加快ALTER TABLE操作的速度</a></li>
+        <li><a href="#快速创建myisam索引">快速创建MyISAM索引</a></li>
       </ul>
     </li>
   </ul>
@@ -539,11 +552,138 @@
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="混用范式化和反范式化">混用范式化和反范式化</h2>
+<h3 id="范式的优点和缺点-1">范式的优点和缺点</h3>
+<h4 id="优点-1">优点</h4>
 <ul>
-<li>最常见的反范式化数据的方法是复制或者缓存,在不同的表中存储相同的特定列</li>
+<li>更新操作更快</li>
+<li>之后很少或者部分重复数据,只需要修改更少的数据</li>
+<li>范式化的表通常更小,可以更好地放在内存里,所以执行操作会更快</li>
+<li>很少有多余的数据意味着检索列表数据时更少需要DISTINCT或者GROUP BY语句</li>
 </ul>
-<p>'</p>
-<p>'</p>
+<h4 id="缺点-1">缺点</h4>
+<ul>
+<li>通常需要关联;关联过多可能使索引无效.</li>
+</ul>
+<h3 id="反范式的优点和缺点-1">反范式的优点和缺点</h3>
+<h4 id="优点-2">优点</h4>
+<ul>
+<li>反范式化的schema因为所有数据都在一张表中,可以很好地避免关联</li>
+<li>最差的情况是全表扫描;当数据比内存大时这可能比关联要快得多,因为这样避免了随机I/O.</li>
+<li>单独的表也能使用更有效的索引策略</li>
+</ul>
+<h1 id="缓存表和汇总表">缓存表和汇总表</h1>
+<ul>
+<li>缓存表
+<ul>
+<li>一个技巧是对缓存表使用不同的存储引擎,如主表用InnoDB,只包含主表中部分列.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>存储那些可以比较简单地从schema其他表获取数据的表</p>
+</blockquote>
+<ul>
+<li>汇总表
+<ul>
+<li>不严格技术或通过小范围查询填满间隙的严格计数</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>使用GROUP BY语句聚合数据的表</p>
+</blockquote>
+<h2 id="物化视图">物化视图</h2>
+<ul>
+<li>Flexviews
+<ul>
+<li>变更数据抓取,可以读取服务器的二进制日志并解析相关行的变更</li>
+<li>一系列可以帮助创建和管理视图的定义的存储过程</li>
+<li>一些可以应用变更到数据库中的物化视图的工具</li>
+</ul>
+</li>
+</ul>
+<h2 id="计数器表">计数器表</h2>
+<ul>
+<li>创建一张独立的表存储计数器通常是个好注意,这样可以使计数器小且快.还能避免查询缓存失败,</li>
+<li>如果一个计数器只有一个值,那么对于任何想用更新这一行的事务来说,这条记录上都有一个全局的互斥锁.一个解决办法是</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="c1">-- 计数器
+</span><span class="c1"></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">hit_counter</span> <span class="p">(</span>
+ <span class="n">slot</span> <span class="kt">tinyint</span> <span class="k">unsigned</span> <span class="k">not</span> <span class="no">null</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
+ <span class="n">cnt</span> <span class="kt">int</span> <span class="k">unsigned</span> <span class="k">not</span> <span class="no">null</span>
+<span class="p">)</span> <span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
+
+<span class="c1">-- 给计数器增加一百行
+</span><span class="c1">-- 选择一个随机的槽进行更新
+</span><span class="c1"></span><span class="k">UPDATE</span> <span class="n">hit_counter</span> <span class="kt">SET</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">WHERE</span> <span class="n">slot</span> <span class="o">=</span> <span class="nf">RAND</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="c1">-- 要获得统计结果,需要使用下面这样的聚合查询
+</span><span class="c1"></span><span class="k">SELECT</span> <span class="nf">SUM</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">hit_counter</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="加快alter-table操作的速度">加快ALTER TABLE操作的速度</h2>
+<ul>
+<li>
+<p>MySQL 5.1以及更新版本包含一些类型的&quot;在线&quot;操作的支持,这些功能不需要在整个操作过程中锁表</p>
+</li>
+<li>
+<p>最近版本的InnoDB也支持通过排序来建索引</p>
+</li>
+<li>
+<p>为了避免ALTER TABLE操作导致MySQL服务中断</p>
+<ul>
+<li>在一台不提供服务的机器上执行ALTER TABLE操作</li>
+<li>&ldquo;影子拷贝&rdquo;</li>
+</ul>
+<blockquote>
+<p>影子拷贝的技巧是用要求的表结构创建一张和
+源表无关的新表,然后通过重命名和删表操作交换两张表</p>
+</blockquote>
+<ul>
+<li>不是所有的ALTER TABLE操作都会引起表重建,如有下面两种方法可以改变或者删除一个列的默认值,一种很快,一种则很慢</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="c1">-- 会创建一张新表
+</span><span class="c1"></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">sakila</span><span class="p">.</span><span class="n">film</span>
+<span class="n">MODIFY</span> <span class="k">COLUMN</span> <span class="n">rental_duration</span> <span class="kt">TINYINT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">NOT</span> <span class="no">NULL</span> <span class="k">DEFAULT</span> <span class="mi">5</span><span class="p">;</span>
+  
+<span class="c1">-- 原地改变.frm文件
+</span><span class="c1"></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">sakila</span><span class="p">.</span><span class="n">film</span>
+<span class="k">ALTER</span> <span class="k">COLUMN</span> <span class="n">rental_duration</span> <span class="kt">SET</span> <span class="k">DEFAULT</span> <span class="mi">5</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="快速创建myisam索引">快速创建MyISAM索引</h2>
+<ul>
+<li>为了高效地载入数据到MyISAM表中,有一个常用的技巧是先禁用缩影,载入数据,然后重新启用索引</li>
+</ul>
     </div>
 
     <div class="post-copyright">
