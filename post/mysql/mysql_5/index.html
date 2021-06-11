@@ -49,7 +49,7 @@
 <meta itemprop="name" content="MySQL 5: 创建高性能地索引">
 <meta itemprop="description" content="MySQL 5: 创建高性能地索引"><meta itemprop="datePublished" content="2021-06-09T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-06-09T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="583">
+<meta itemprop="wordCount" content="1872">
 <meta itemprop="keywords" content="MySQL,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL 5: 创建高性能地索引"/>
 <meta name="twitter:description" content="MySQL 5: 创建高性能地索引"/>
@@ -151,6 +151,23 @@
           </ul>
         </li>
         <li><a href="#空间数据索引r-tree">空间数据索引(R-Tree)</a></li>
+        <li><a href="#全文索引">全文索引</a></li>
+      </ul>
+    </li>
+    <li><a href="#索引的优点">索引的优点</a></li>
+    <li><a href="#高性能的索引策略">高性能的索引策略</a>
+      <ul>
+        <li><a href="#独立的列">独立的列</a></li>
+        <li><a href="#前缀索引和索引选择性">前缀索引和索引选择性</a></li>
+        <li><a href="#多列索引">多列索引</a></li>
+        <li><a href="#选择合适的索引列顺序">选择合适的索引列顺序</a></li>
+        <li><a href="#聚簇索引">聚簇索引</a>
+          <ul>
+            <li><a href="#优点">优点</a></li>
+            <li><a href="#缺点">缺点</a></li>
+            <li><a href="#在innodb表中按主键顺序插入行">在InnoDB表中按主键顺序插入行</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -232,6 +249,115 @@
 <h3 id="创建自定义哈希索引">创建自定义哈希索引</h3>
 <p>在B-Tree基础上创建一个伪哈希索引.这和真正的哈希索引不是一回事,因为还是使用B-Tree进行查找,但是它使用哈希值而不是键本身进行索引查找.需要做的就是在查询的WHERE子句中手动指定使用哈希函数.</p>
 <h2 id="空间数据索引r-tree">空间数据索引(R-Tree)</h2>
+<ul>
+<li>
+<p>MyISAM表支持空间索引,可以用作地理数据存储</p>
+</li>
+<li>
+<p>空间索引会从所有维度来索引数据</p>
+</li>
+</ul>
+<h2 id="全文索引">全文索引</h2>
+<ul>
+<li>它查找的值是文本中的关键词,而不是直接比较索引中的值</li>
+</ul>
+<h1 id="索引的优点">索引的优点</h1>
+<ol>
+<li>大大减少了服务器需要扫描的数据量</li>
+<li>帮助服务器避免排序和临时表</li>
+<li>可以将随机I/O变为顺序I/O</li>
+</ol>
+<h1 id="高性能的索引策略">高性能的索引策略</h1>
+<h2 id="独立的列">独立的列</h2>
+<ul>
+<li>索引列不能是表达式的一部分,也不能是函数的参数,如</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="c1">-- 这一句无法使用actor_id列的索引
+</span><span class="c1"></span><span class="k">SELECT</span> <span class="n">actor_id</span> <span class="k">FROM</span> <span class="n">sakila</span><span class="p">.</span><span class="n">actor</span> <span class="k">WHERE</span> <span class="n">actor_id</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="c1">-- 这一句可以使用actor_id列的索引
+</span><span class="c1"></span><span class="k">SELECT</span> <span class="n">actor_id</span> <span class="k">FROM</span> <span class="n">sakila</span><span class="p">.</span><span class="n">actor</span> <span class="k">WHERE</span> <span class="n">actor_id</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="c1">-- 这一句不能使用索引
+</span><span class="c1"></span><span class="k">SELECT</span> <span class="p">...</span> <span class="k">WHERE</span> <span class="nf">TO_DAYS</span><span class="p">(</span><span class="k">CURRENT_DATE</span><span class="p">)</span> <span class="o">-</span> <span class="nf">TO_DAYS</span><span class="p">(</span><span class="n">date_col</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="前缀索引和索引选择性">前缀索引和索引选择性</h2>
+<ul>
+<li>通常可以索引开始的部分字符,这样可以大大节约索引空间,从而提高索引效率.但这样会降低索引的<strong>选择性</strong></li>
+</ul>
+<blockquote>
+<p>选择性: 不重复的索引值和数据表的记录总数的比值.</p>
+</blockquote>
+<ul>
+<li>创建前缀索引</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">sakila</span><span class="p">.</span><span class="n">city_demo</span> <span class="k">ADD</span> <span class="k">KEY</span> <span class="p">(</span><span class="nf">city</span><span class="p">(</span><span class="mi">7</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>前缀索引无法用作ORDER BY和GROUP BY,也无法使用前缀索引做覆盖扫描</li>
+</ul>
+<h2 id="多列索引">多列索引</h2>
+<ul>
+<li>在多个列上建立独立的单列索引大部分情况下并不能提高MySQL的查询性能</li>
+<li>MySQL 5.0引入了一种叫做&quot;索引合并&quot;的策略,<strong>一定程度上</strong>可以使用表上的多个单列索引来定位指定的行.</li>
+</ul>
+<h2 id="选择合适的索引列顺序">选择合适的索引列顺序</h2>
+<ul>
+<li>按照经验,将选择性高的索引放在前面;但则某些场景,随机IO和排序的影响会更加重要;同样,性能不只是依赖于所有索引列的选择性,也和查询条件的具体值有关,也就是和值的分布有关</li>
+<li>不要假设平均情况下的性能也能代表特殊情况的性能,特殊情况可能摧毁掉整个应用的性能.</li>
+</ul>
+<h2 id="聚簇索引">聚簇索引</h2>
+<ul>
+<li>表示数据行和相邻的键值紧凑地存储在一起</li>
+<li>一个表只能有一个聚簇索引</li>
+<li>聚簇索引中,叶子页包含了行地全部数据,但是结点页只包含了索引列</li>
+<li>没有任何一个MySQL内建地存储引擎支持&quot;选择哪个索引作为聚类索引&quot;.InnoDB将通过主键聚集数据.如果没有定义主键,InnoDB会选择一个唯一地非空索引代替.如果没有这样的索引,InnoDB会隐式定义一个主键来作为聚簇索引.</li>
+</ul>
+<h3 id="优点">优点</h3>
+<ol>
+<li>可以把相关数据保存在一起,减少磁盘I/O</li>
+<li>数据访问更快.从聚簇索引中获取数据通常比在非聚簇索引中查找更快</li>
+<li>使用覆盖索引扫描的查询可以直接使用页结点中的主键值</li>
+</ol>
+<h3 id="缺点">缺点</h3>
+<ol>
+<li>如果数据全部都放在内存中,则访问的顺序就没那么重要了</li>
+<li>插入速度严重依赖于插入顺序</li>
+<li>更新聚簇索引列的代价很高 ,因为会强制InnoDB将每个被更新的行移动到新的位置</li>
+<li>插入新行,或者主键被更新导致需要移动行的时候,可能面临&quot;页分裂&quot;的问题</li>
+<li>聚簇索引可能导致全表扫描变慢</li>
+<li>二级索引可能比想象的要更大</li>
+<li>二级索引访问需要两次索引查找</li>
+</ol>
+<blockquote>
+<p>二级索引: 二级索引树的叶子节点存储的是主键而不是数据。也就是说，在找到索引后，得到对应的主键，再回到一级索引中找主键对应的数据记录。</p>
+</blockquote>
+<p><img src="/MySQL/index.png" alt=""></p>
+<h3 id="在innodb表中按主键顺序插入行">在InnoDB表中按主键顺序插入行</h3>
+<ul>
+<li>如果正在使用的InnoDB表没有什么数据需要聚集,可以定义有关代理键作为主键.最简单的方法是使用AUTO_INCREMENT自增列</li>
+<li>最好避免随机的聚簇索引,如UUID,它使得聚簇索引的插入变得完全随机,这是最坏的情况,使得数据没有任何聚集特性</li>
+<li>使用InnoDB时应该尽可能地按主键顺序插入数据,并且尽可能地使用单调增加地聚簇键的值来插入新行</li>
+</ul>
     </div>
 
     <div class="post-copyright">
