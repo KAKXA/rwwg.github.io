@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>MySQL 5: 创建高性能地索引 - Ge&#39;s Blog</title>
+  <title>MySQL 5: 创建高性能的索引 - Ge&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="rwwg" /><meta name="description" content="MySQL 5: 创建高性能地索引" />
+<meta name="author" content="rwwg" /><meta name="description" content="MySQL 5: 创建高性能的索引" />
 
 
 
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="MySQL 5: 创建高性能地索引" />
-<meta property="og:description" content="MySQL 5: 创建高性能地索引" />
+<meta property="og:title" content="MySQL 5: 创建高性能的索引" />
+<meta property="og:description" content="MySQL 5: 创建高性能的索引" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/mysql/mysql_5/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-06-09T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2021-06-09T00:00:00&#43;00:00" />
 
-<meta itemprop="name" content="MySQL 5: 创建高性能地索引">
-<meta itemprop="description" content="MySQL 5: 创建高性能地索引"><meta itemprop="datePublished" content="2021-06-09T00:00:00&#43;00:00" />
+<meta itemprop="name" content="MySQL 5: 创建高性能的索引">
+<meta itemprop="description" content="MySQL 5: 创建高性能的索引"><meta itemprop="datePublished" content="2021-06-09T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-06-09T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1872">
+<meta itemprop="wordCount" content="3937">
 <meta itemprop="keywords" content="MySQL,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="MySQL 5: 创建高性能地索引"/>
-<meta name="twitter:description" content="MySQL 5: 创建高性能地索引"/>
+<meta name="twitter:title" content="MySQL 5: 创建高性能的索引"/>
+<meta name="twitter:description" content="MySQL 5: 创建高性能的索引"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -121,7 +121,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">MySQL 5: 创建高性能地索引</h1>
+      <h1 class="post-title">MySQL 5: 创建高性能的索引</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2021-06-09 </span>
@@ -166,6 +166,26 @@
             <li><a href="#优点">优点</a></li>
             <li><a href="#缺点">缺点</a></li>
             <li><a href="#在innodb表中按主键顺序插入行">在InnoDB表中按主键顺序插入行</a></li>
+          </ul>
+        </li>
+        <li><a href="#覆盖索引">覆盖索引</a></li>
+        <li><a href="#使用索引扫描来做排序">使用索引扫描来做排序</a></li>
+        <li><a href="#压缩索引">压缩索引</a></li>
+        <li><a href="#冗余和重复索引">冗余和重复索引</a></li>
+        <li><a href="#未使用的索引">未使用的索引</a></li>
+        <li><a href="#索引和锁">索引和锁</a></li>
+      </ul>
+    </li>
+    <li><a href="#维护索引和表">维护索引和表</a>
+      <ul>
+        <li><a href="#找到并修复损坏的表">找到并修复损坏的表</a></li>
+        <li><a href="#更新索引统计信息">更新索引统计信息</a></li>
+        <li><a href="#减少索引和数据的碎片">减少索引和数据的碎片</a>
+          <ul>
+            <li><a href="#行碎片row-fragmentation">行碎片(Row fragmentation)</a></li>
+            <li><a href="#行间碎片intra-row-fragmentation">行间碎片(Intra-row fragmentation)</a></li>
+            <li><a href="#剩余空间碎片free-space-fragmentation">剩余空间碎片(Free space fragmentation)</a></li>
+            <li><a href="#解决方法">解决方法</a></li>
           </ul>
         </li>
       </ul>
@@ -358,6 +378,141 @@
 <li>最好避免随机的聚簇索引,如UUID,它使得聚簇索引的插入变得完全随机,这是最坏的情况,使得数据没有任何聚集特性</li>
 <li>使用InnoDB时应该尽可能地按主键顺序插入数据,并且尽可能地使用单调增加地聚簇键的值来插入新行</li>
 </ul>
+<h2 id="覆盖索引">覆盖索引</h2>
+<ul>
+<li>一个索引包含所有需要查询的字段的值</li>
+<li>优势
+<ul>
+<li>索引条目远小于数据行大小,所以如果只需要读取索引,那MySQL就会极大地减少数据访问量</li>
+<li>因为索引是按照列值顺序存储地,所以对于I/O密集型地范围查询会比随机从磁盘读取每一行数据的I/O要少得多</li>
+<li>一些存储引擎如MyISAM在内存中只缓存索引,数据则依赖于操作系统来缓存,因此访问一次数据需要一次系统调用</li>
+<li>由于InnoDB地聚簇索引,覆盖索引对InnoDB表特别有用,InnoDB的二级索引在叶子结点中保存了行的主键值,所以如果二级主键能够覆盖查询,则可以避免对主键索引的二次查询</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用索引扫描来做排序">使用索引扫描来做排序</h2>
+<ul>
+<li>如果EXPLAIN出来的type列的值为&quot;index&quot;,则说明MySQl使用了索引扫描来做排序</li>
+<li>只有当索引的列顺序和ORDER BY子句的顺序完全一致,并且所有列的排序方向(倒序或正
+序)都一样时,MySQL才能够使用索引来对结果做排序.如果查询需要关联多张表,则只有当ORDER BY子句引用的字段全部为第一个表时,才能使用索引做排序.ORDER BY子句和查找型查询的限制是一样的;需要满足索引的最左前缀的要求;否咋MySQL都需要执行排序操作,二无法利用索引排序</li>
+<li>有一种情况下ORDER BY子句可以不满足索引的最左前缀的要求,就是前导列为常量的时候.如果WHERE子句或者JOIN子句中对这些列指定了常量,就可以&quot;弥补&quot;索引的不足</li>
+</ul>
+<h2 id="压缩索引">压缩索引</h2>
+<ul>
+<li>MyISAM使用前缀压缩来减少索引的大小,从而让更多的索引可以放入内存中,这在某些情况下能极大地提高性能.默认只压缩字符串,但通过参数设置也可以对整数做压缩.例如,索引块中的第一个值是“perform”,第二个值是“performance”,那么第二个值的前缀压缩后存储的
+是类似“7,ance”这样的形式</li>
+</ul>
+<h2 id="冗余和重复索引">冗余和重复索引</h2>
+<ul>
+<li>重复索引是指在相同的列上按照相同的顺序创建的相同类型的索引.应该避免这样创建重复索引,发现以后也应该立即移除</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">test</span> <span class="p">(</span>
+<span class="n">ID</span> <span class="kt">INT</span> <span class="k">NOT</span> <span class="no">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+<span class="n">A</span>
+ <span class="kt">INT</span> <span class="k">NOT</span> <span class="no">NULL</span><span class="p">,</span>
+<span class="n">B</span>
+ <span class="kt">INT</span> <span class="k">NOT</span> <span class="no">NULL</span><span class="p">,</span>
+<span class="k">UNIQUE</span><span class="p">(</span><span class="n">ID</span><span class="p">),</span>
+<span class="k">INDEX</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span>
+<span class="p">)</span> <span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
+<span class="c1">-- ID是一个主键,加上唯一限制,再加上索引.但事实上MySQL地唯一限制和主键限制都是通过索引实现的,因此,上面的写法实际上再相同的列上创建了三个重复的索引
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>余索引和重复索引有一些不同。如果创建了索引(A,B),再创建索引(A)就是冗余索引,因为这只是前一个索引的前缀索引.因此索引(A,B)也可以当作索引(A)来使用
+(这种冗余只是对B-Tree索引来说的).但是如果再创建索引(B,A),则不是冗余索引,索引(B)也不是,因为B不是索引(A,B)的最左前缀列</li>
+<li>大多数情况下都不需要冗余索引,应该尽量扩展已有的索引而不是创建新索引.但也有时候出于性能方面的考虑需要冗余索引</li>
+</ul>
+<h2 id="未使用的索引">未使用的索引</h2>
+<ul>
+<li>这样的索引完全是累赘,建议考虑删除</li>
+</ul>
+<h2 id="索引和锁">索引和锁</h2>
+<ul>
+<li>
+<p>对于性能的好处</p>
+<ul>
+<li>索引可以让查询锁定更少的行</li>
+<li>如果你的查询从不访问那些不需要的行,那么就会锁定更少的行</li>
+</ul>
+</li>
+<li>
+<p>InnoDB只有在访问行的时候才会对其加锁,而索引能够减少InnoDB访问的行数,从而减少锁的数量</p>
+</li>
+</ul>
+<h1 id="维护索引和表">维护索引和表</h1>
+<h2 id="找到并修复损坏的表">找到并修复损坏的表</h2>
+<ul>
+<li>允许<code>CHECK TABLE</code>来检查是否发生了表损坏.CHECK TABLE通常能够找出大多数的表和索引的错误</li>
+<li>可以使用<code>REPAIR TABLE</code>来修复损坏的表,但同样不是所有的存储引擎都支持该命令.如果存储引擎不支持,也可通过一个不做任何操作的ALTER操作来重建表.例如修改表的存储引擎为当前的引擎.下面是一个针对InnoDB表的例子</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">innodb_tbl</span> <span class="kp">ENGINE</span><span class="o">=</span><span class="n">INNODB</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>如果InnoDB引擎的表出现了损坏,那么一定是发生了严重的错误,需要立刻调查一下原因.InnoDB一般不会出现损坏.InnoDB的设计保证了它并不容易被损坏。如果发生损坏,一般要么是数据库的硬件问题例如内存或者磁盘问题(有可能),要么是由于数据库管理员的错误例如在MySQL外部操作了数据文件(有可能),抑或是InnoDB本身的缺陷(不太可能)</li>
+</ul>
+<h2 id="更新索引统计信息">更新索引统计信息</h2>
+<ul>
+<li>MySQL的查询优化器会通过两个API来了解存储引擎的索引值的分布信息,以决定如何使用索引
+<ul>
+<li><code>records_in_range()</code>: 通过向存储引擎传入两个边界值获取在这个范围大概有多少条记录</li>
+<li><code>info()</code>: 返回各种类型的数据,包括索引的基数(每个键值有多少条记录)</li>
+</ul>
+</li>
+</ul>
+<h2 id="减少索引和数据的碎片">减少索引和数据的碎片</h2>
+<ul>
+<li>B-Tree索引可能会碎片化,这会降低查询的效率.碎片化的索引可能会以很差或者无序的方式存储在磁盘上</li>
+</ul>
+<h3 id="行碎片row-fragmentation">行碎片(Row fragmentation)</h3>
+<ul>
+<li>数据行被存储为多个地方的多个片段中</li>
+</ul>
+<h3 id="行间碎片intra-row-fragmentation">行间碎片(Intra-row fragmentation)</h3>
+<ul>
+<li>逻辑上顺序的页,或者行在磁盘上不是顺序存储的</li>
+<li>行间碎片对诸如全
+表扫描和聚簇索引扫描之类的操作有很大的影响,因为这些操作原本能够从磁盘上顺序存储的数据中获益</li>
+</ul>
+<h3 id="剩余空间碎片free-space-fragmentation">剩余空间碎片(Free space fragmentation)</h3>
+<ul>
+<li>数据页中有大量的空余空间</li>
+<li>这会导致服务器读取大量不需要的数据,从而造成浪费</li>
+</ul>
+<h3 id="解决方法">解决方法</h3>
+<ul>
+<li>执行<code>OPTIMIZE TABLE</code>或者导出再都如的方式来重新整理数据</li>
+<li>对于不支持<code>OPTIMIZE TABLE</code>的存储引擎,可以通过一个不做任何操作的<code>ALTER TABLE</code>操作来重建表.只需要将表的存储引擎修改为当前的引擎即可:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span> <span class="kp">ENGINE</span><span class="o">=&lt;</span><span class="kp">engine</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
