@@ -49,7 +49,7 @@
 <meta itemprop="name" content="MySQL 6: 查询性能优化">
 <meta itemprop="description" content="MySQL 高性能第六章: 查询性能优化"><meta itemprop="datePublished" content="2021-06-20T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-06-20T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="893">
+<meta itemprop="wordCount" content="1506">
 <meta itemprop="keywords" content="MySQL,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL 6: 查询性能优化"/>
 <meta name="twitter:description" content="MySQL 高性能第六章: 查询性能优化"/>
@@ -145,6 +145,13 @@
             <li><a href="#扫描的行数和访问类型">扫描的行数和访问类型</a></li>
           </ul>
         </li>
+      </ul>
+    </li>
+    <li><a href="#重构查询的方式">重构查询的方式</a>
+      <ul>
+        <li><a href="#一个复杂查询还是多个简单查询">一个复杂查询还是多个简单查询、</a></li>
+        <li><a href="#切分查询">切分查询</a></li>
+        <li><a href="#分解关系查询">分解关系查询</a></li>
       </ul>
     </li>
   </ul>
@@ -246,8 +253,95 @@
 <li>从数据表中返回数据,然后过滤不满足条件的记录.这在MySQL服务器层完成,MySQL需要先从数据表读出记录然后过滤</li>
 </ul>
 </li>
-<li></li>
 </ul>
+<h1 id="重构查询的方式">重构查询的方式</h1>
+<h2 id="一个复杂查询还是多个简单查询">一个复杂查询还是多个简单查询、</h2>
+<blockquote>
+<p>设计查询的时候一个需要考虑的重要问题是,是否需要将一个复杂的查询分成多个简单的查询。在传
+统实现中,总是强调需要数据库层完成尽可能多的工作,这样做的逻辑在于以前总是认为网络通信、查询
+解析和优化是一件代价很高的事情。
+但是这样的想法对于MySQL并不适用,MySQL从设计上让连接和断开连接都很轻量级,在返回一个
+小的查询结果方面很高效。现代的网络速度比以前要快很多,无论是带宽还是延迟。</p>
+</blockquote>
+<h2 id="切分查询">切分查询</h2>
+<ul>
+<li>将大查询切分成小查询</li>
+<li>定期地清除大量数据时,如果用一个大的语句一次性完成的话,
+则可能需要一次锁住很多数据、占满整个事务日志、耗尽系统资源、阻塞很多小的但重要的查询。将一个
+大的DELETE语句切分成多个较小的查询可以尽可能小地影响MySQL性能,同时还可以减少MySQL复制
+的延迟</li>
+</ul>
+<p>如下面两个查询中,后者更好</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">messages</span> <span class="k">WHERE</span> <span class="n">created</span> <span class="o">&lt;</span> <span class="nf">DATE_SUB</span><span class="p">(</span><span class="nf">NOW</span><span class="p">(),</span><span class="k">INTERVAL</span> <span class="mi">3</span> <span class="n">MONTH</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="n">rows_affected</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">do</span> <span class="err">{</span>
+	<span class="n">rows_affected</span> <span class="o">=</span> <span class="nf">do_query</span><span class="p">(</span>
+<span class="s2">&#34;DELETE FROM messages WHERE created &lt; DATE_SUB(NOW(),INTERVAL 3 MONTH)
+</span><span class="s2">	LIMIT 10000&#34;</span><span class="p">)</span>
+<span class="err">}</span> <span class="k">while</span> <span class="n">rows_affected</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="分解关系查询">分解关系查询</h2>
+<ul>
+<li>可以对每一个表进行一次单表查询,然后将结果在应用程序中进行关联</li>
+<li>如这个查询</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tag</span>
+ <span class="k">JOIN</span> <span class="n">tag_post</span> <span class="k">ON</span> <span class="n">tag_post</span><span class="p">.</span><span class="n">tag_id</span><span class="o">=</span><span class="n">tag</span><span class="p">.</span><span class="n">id</span>
+ <span class="k">JOIN</span> <span class="n">post</span> <span class="k">ON</span> <span class="n">tag_post</span><span class="p">.</span><span class="n">post_id</span><span class="o">=</span><span class="n">post</span><span class="p">.</span><span class="n">id</span>
+ <span class="k">WHERE</span> <span class="n">tag</span><span class="p">.</span><span class="n">tag</span><span class="o">=</span><span class="s1">&#39;mysql&#39;</span><span class="p">;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>可分解成下面三个查询</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tag_post</span> <span class="k">WHERE</span> <span class="n">tag_id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tag_post</span> <span class="k">WHERE</span> <span class="n">tag_id</span><span class="o">=</span><span class="mi">1234</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">post</span> <span class="k">WHERE</span> <span class="n">post</span><span class="p">.</span><span class="n">id</span>  <span class="k">in</span> <span class="p">(</span><span class="mi">123</span><span class="p">,</span><span class="mi">456</span><span class="p">,</span><span class="mi">567</span><span class="p">,</span><span class="mi">9098</span><span class="p">,</span><span class="mi">8904</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>优势</p>
+<ol>
+<li>缓存效率更好</li>
+<li>查询分解后,减少锁的竞争</li>
+<li>在应用层做关联,可以更容易对数据库进行拆分,更容易做到高性能和可扩展</li>
+<li>可以减少冗余记录的查询</li>
+<li>查询本身效率也可能会有所提升(如使用IN()代替关联查询可以按照ID顺序,比随机关联更高效)</li>
+</ol>
     </div>
 
     <div class="post-copyright">
