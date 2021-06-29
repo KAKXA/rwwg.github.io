@@ -6,11 +6,11 @@
     <description>Recent content in Simplified Chinese on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MySQL 6: 查询性能优化</title>
       <link>https://rwwg.github.io/post/mysql/mysql_6/</link>
-      <pubDate>Sun, 20 Jun 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/post/mysql/mysql_6/</guid>
       <description>&lt;p&gt;查询优化,索引优化,库表结构优化需要齐头并进,一个不落.&lt;/p&gt;</description>
