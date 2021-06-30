@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Morris on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/morris/</link>
+    <description>Recent content in Morris on Ge&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 29 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/morris/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Morris 中序遍历</title>
+      <link>https://rwwg.github.io/post/algorithm/morris-%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/morris-%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <description>&lt;p&gt;本文介绍&lt;code&gt;Morris&lt;/code&gt;遍历: 一种只需 $O(1)$ 额外空间即可完成二叉树遍历的算法.有效利用叶结点的空指针是这个算法神奇所在.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

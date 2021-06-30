@@ -2,8 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://rwwg.github.io/tags/algorithm/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/binary-tree/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://rwwg.github.io/</loc>
-    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/morris/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/post/algorithm/morris-%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/post/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/simplified-chinese/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17,27 +66,6 @@
   
   <url>
     <loc>https://rwwg.github.io/post/mysql/mysql_6/</loc>
-    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/post/</loc>
-    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/simplified-chinese/</loc>
-    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/</loc>
     <lastmod>2021-06-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -193,13 +221,6 @@
   <url>
     <loc>https://rwwg.github.io/post/python/django/django_1to3/</loc>
     <lastmod>2021-05-02T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/algorithm/</loc>
-    <lastmod>2021-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -473,13 +494,6 @@
   <url>
     <loc>https://rwwg.github.io/post/algorithm/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6/</loc>
     <lastmod>2021-03-29T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/binary-tree/</loc>
-    <lastmod>2021-03-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
