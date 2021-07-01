@@ -628,5 +628,14 @@
       <description>C++ Unit 5 循环和关系表达式 表达式+分号=语句</description>
     </item>
     
+    <item>
+      <title>MySQL 7: MySQL高级特性</title>
+      <link>https://rwwg.github.io/post/mysql/mysql_7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/mysql/mysql_7/</guid>
+      <description>&lt;p&gt;MySQL从5.0和5.1版本开始引入了很多高级特性,例如分区,触发器等&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>
