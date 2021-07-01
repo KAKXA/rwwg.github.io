@@ -6,7 +6,16 @@
     <description>Recent content in MySQL on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL 7: MySQL高级特性</title>
+      <link>https://rwwg.github.io/post/mysql/mysql_7/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/mysql/mysql_7/</guid>
+      <description>&lt;p&gt;MySQL从5.0和5.1版本开始引入了很多高级特性,例如分区,触发器等&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>MySQL 6: 查询性能优化</title>
       <link>https://rwwg.github.io/post/mysql/mysql_6/</link>
@@ -32,15 +41,6 @@
       
       <guid>https://rwwg.github.io/post/mysql/mysql_4/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>MySQL 7: MySQL高级特性</title>
-      <link>https://rwwg.github.io/post/mysql/mysql_7/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/post/mysql/mysql_7/</guid>
-      <description>&lt;p&gt;MySQL从5.0和5.1版本开始引入了很多高级特性,例如分区,触发器等&lt;/p&gt;</description>
     </item>
     
   </channel>

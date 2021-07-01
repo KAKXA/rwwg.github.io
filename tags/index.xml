@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 29 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL</title>
+      <link>https://rwwg.github.io/tags/mysql/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simplified Chinese</title>
+      <link>https://rwwg.github.io/tags/simplified-chinese/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>algorithm</title>
       <link>https://rwwg.github.io/tags/algorithm/</link>
@@ -31,24 +49,6 @@
       <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/morris/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Simplified Chinese</title>
-      <link>https://rwwg.github.io/tags/simplified-chinese/</link>
-      <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MySQL</title>
-      <link>https://rwwg.github.io/tags/mysql/</link>
-      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/mysql/</guid>
       <description></description>
     </item>
     
