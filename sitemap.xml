@@ -3,27 +3,55 @@
   
   <url>
     <loc>https://rwwg.github.io/tags/database/</loc>
-    <lastmod>2021-07-24T00:00:00+00:00</lastmod>
+    <lastmod>2021-08-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://rwwg.github.io/tags/ddia/</loc>
-    <lastmod>2021-07-24T00:00:00+00:00</lastmod>
+    <lastmod>2021-08-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://rwwg.github.io/post/ddia/ddia_2/</loc>
-    <lastmod>2021-07-24T00:00:00+00:00</lastmod>
+    <loc>https://rwwg.github.io/post/ddia/ddia_3/</loc>
+    <lastmod>2021-08-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://rwwg.github.io/</loc>
+    <lastmod>2021-08-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/post/</loc>
+    <lastmod>2021-08-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/simplified-chinese/</loc>
+    <lastmod>2021-08-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/</loc>
+    <lastmod>2021-08-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/post/ddia/ddia_2/</loc>
     <lastmod>2021-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -37,28 +65,7 @@
   </url>
   
   <url>
-    <loc>https://rwwg.github.io/post/</loc>
-    <lastmod>2021-07-24T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/simplified-chinese/</loc>
-    <lastmod>2021-07-24T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://rwwg.github.io/tags/sql/</loc>
-    <lastmod>2021-07-24T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/</loc>
     <lastmod>2021-07-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -6,7 +6,19 @@
     <description>Recent content on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 24 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DDIA:3.存储与检索</title>
+      <link>https://rwwg.github.io/post/ddia/ddia_3/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/ddia/ddia_3/</guid>
+      <description>&lt;p&gt;存储系统中一个重要的权衡&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;精心选择的索引加快了读查询的速度，但是每个索引都会拖慢写入速度。因为这个原因，数据库默认并不会索引所有的内容，而需要你（程序员或DBA）通过对应用查询模式的了解来手动选择索引&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
     <item>
       <title>DDIA:2.数据模型与查询语言</title>
       <link>https://rwwg.github.io/post/ddia/ddia_2/</link>
