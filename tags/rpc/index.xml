@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rpc on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/rpc/</link>
+    <description>Recent content in rpc on Ge&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 30 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/rpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DDIA:4.编码与演化</title>
+      <link>https://rwwg.github.io/post/ddia/ddia_4/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/ddia/ddia_4/</guid>
+      <description>&lt;p&gt;本章中将介绍几种编码数据的格式，包括 JSON，XML，Protocol Buffers，Thrift和Avro。尤其将关注这些格式如何应对模式变化，以及它们如何对新旧代码数据需要共存的系统提供支持。然后将讨论如何使用这些格式进行数据存储和通信：在Web服务中，&lt;strong&gt;表述性状态传递（REST）&lt;strong&gt;和&lt;/strong&gt;远程过程调用（RPC）&lt;/strong&gt;，以及&lt;strong&gt;消息传递系统&lt;/strong&gt;（如Actor和消息队列）&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

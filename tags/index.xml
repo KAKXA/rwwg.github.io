@@ -6,31 +6,67 @@
     <description>Recent content in Tags on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>database</title>
-      <link>https://rwwg.github.io/tags/database/</link>
-      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      <title>coding</title>
+      <link>https://rwwg.github.io/tags/coding/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rwwg.github.io/tags/database/</guid>
+      <guid>https://rwwg.github.io/tags/coding/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DDIA</title>
       <link>https://rwwg.github.io/tags/ddia/</link>
-      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/ddia/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>json</title>
+      <link>https://rwwg.github.io/tags/json/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/json/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rest</title>
+      <link>https://rwwg.github.io/tags/rest/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/rest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rpc</title>
+      <link>https://rwwg.github.io/tags/rpc/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/rpc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Simplified Chinese</title>
       <link>https://rwwg.github.io/tags/simplified-chinese/</link>
-      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>database</title>
+      <link>https://rwwg.github.io/tags/database/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/database/</guid>
       <description></description>
     </item>
     
