@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>有限状态机 - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="有限状态机" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/algorithm/fsm/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="有限状态机" />
+<meta property="og:description" content="有限状态机" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/algorithm/fsm/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-03T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-09-03T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="有限状态机">
+<meta itemprop="description" content="有限状态机"><meta itemprop="datePublished" content="2021-09-03T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-09-03T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="971">
+<meta itemprop="keywords" content="Simplified Chinese,FSM,algorithm,leetcode," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="有限状态机"/>
+<meta name="twitter:description" content="有限状态机"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">有限状态机</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-09-03 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#fsm的概念">FSM的概念</a></li>
+    <li><a href="#fsm的三特点">FSM的三特点</a></li>
+    <li><a href="#fsm的四要素">FSM的四要素</a></li>
+    <li><a href="#fsm状态转换图">FSM状态转换图</a></li>
+    <li><a href="#fsm模板题">FSM模板题</a>
+      <ul>
+        <li><a href="#题目-1">题目 1</a>
+          <ul>
+            <li><a href="#8-字符串转换整数-atoihttpsleetcode-cncomproblemsstring-to-integer-atoi-少壮不努力老大atoi">[<a href="https://leetcode-cn.com/problems/string-to-integer-atoi/">8] 字符串转换整数 (atoi)</a> (少壮不努力,老大atoi)</a></li>
+            <li><a href="#题解">题解</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>FSM(有限状态机),在算法题中,适合处理复杂的输入字符串等情况.</p>
+<h1 id="fsm的概念">FSM的概念</h1>
+<blockquote>
+<p>有限个状态以及在这些状态之间的转移和动作行为的数学模型</p>
+</blockquote>
+<h1 id="fsm的三特点">FSM的三特点</h1>
+<ol>
+<li>一个时刻,只有一个状态</li>
+<li>某种条件下,会从一种状态转变到另一种状态</li>
+<li>状态有限</li>
+</ol>
+<h1 id="fsm的四要素">FSM的四要素</h1>
+<ol>
+<li>currentState: 当前状态</li>
+<li>nextState: 下一个状态</li>
+<li>transition(currentState, action): 当前状态和下个状态的关系</li>
+<li>action: state变动的event</li>
+</ol>
+<h1 id="fsm状态转换图">FSM状态转换图</h1>
+<ul>
+<li>使用状态转换图描述FSM</li>
+<li>状态转换图中的节点对应不同的状态对象</li>
+<li>每个状态对象通过一个输入字符转换到另一个状态上,或者保持原状态不变</li>
+</ul>
+<h1 id="fsm模板题">FSM模板题</h1>
+<h2 id="题目-1">题目 1</h2>
+<h3 id="8-字符串转换整数-atoihttpsleetcode-cncomproblemsstring-to-integer-atoi-少壮不努力老大atoi">[<a href="https://leetcode-cn.com/problems/string-to-integer-atoi/">8] 字符串转换整数 (atoi)</a> (少壮不努力,老大atoi)</h3>
+<p>请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。</p>
+<p>函数 myAtoi(string s) 的算法如下：</p>
+<pre><code>读入字符串并丢弃无用的前导空格
+检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。
+读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。
+将前面步骤读入的这些数字转换为整数（即，&quot;123&quot; -&gt; 123， &quot;0032&quot; -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。
+如果整数数超过 32 位有符号整数范围 [−231,  231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。
+返回整数作为最终结果。
+</code></pre>
+<p>注意：</p>
+<pre><code>本题中的空白字符只包括空格字符 ' ' 。
+除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。
+</code></pre>
+<h3 id="题解">题解</h3>
+<ol>
+<li>列出状态变化表</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>' '</th>
+<th>+/-</th>
+<th>number</th>
+<th>in_number</th>
+<th>other</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start</td>
+<td>start</td>
+<td>signed</td>
+<td>in_number</td>
+<td>end</td>
+</tr>
+<tr>
+<td>signed</td>
+<td>end</td>
+<td>end</td>
+<td>in_number</td>
+<td>end</td>
+</tr>
+<tr>
+<td>in_number</td>
+<td>end</td>
+<td>end</td>
+<td>in_number</td>
+<td>end</td>
+</tr>
+<tr>
+<td>end</td>
+<td>end</td>
+<td>end</td>
+<td>end</td>
+<td>end</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>代码</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">FSM</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">state</span> <span class="o">=</span> <span class="s">&#34;start&#34;</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">long</span> <span class="n">res</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">[]&gt;</span> <span class="n">transitions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="kd">public</span> <span class="nf">FSM</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;start&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;start&#34;</span><span class="o">,</span> <span class="s">&#34;sign&#34;</span><span class="o">,</span> <span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
+        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;sign&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
+        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
+        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">get_col</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 通过字符获取其属于数组中哪一列的情况
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39; &#39;</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;+&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">1</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">c</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">2</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">3</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">get</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 根据字符c进行状态变化
+</span><span class="c1"></span>        <span class="n">state</span> <span class="o">=</span> <span class="n">transitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">state</span><span class="o">)[</span><span class="n">get_col</span><span class="o">(</span><span class="n">c</span><span class="o">)];</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">state</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;number&#34;</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="n">10</span> <span class="o">+</span> <span class="n">c</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="o">;</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">sign</span> <span class="o">==</span> <span class="n">1</span> <span class="o">?</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">,</span> <span class="n">res</span><span class="o">)</span> <span class="o">:</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(-(</span><span class="kt">long</span><span class="o">)</span><span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">state</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;sign&#34;</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;+&#39;</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sign</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">sign</span> <span class="o">=</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">myAtoi</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">FSM</span> <span class="n">fsm</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FSM</span><span class="o">();</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">:</span> <span class="n">str</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">fsm</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="n">fsm</span><span class="o">.</span><span class="na">sign</span> <span class="o">*</span> <span class="n">fsm</span><span class="o">.</span><span class="na">res</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>其它模板题绝赞收集中</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-09-03
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          <a href="/tags/fsm/">FSM</a>
+          <a href="/tags/algorithm/">algorithm</a>
+          <a href="/tags/leetcode/">leetcode</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/ddia/ddia_4/">
+            <span class="next-text nav-default">DDIA:4.编码与演化</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

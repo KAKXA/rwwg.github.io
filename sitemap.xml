@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://rwwg.github.io/tags/algorithm/</loc>
+    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/fsm/</loc>
+    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/</loc>
+    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/leetcode/</loc>
+    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/post/</loc>
+    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/simplified-chinese/</loc>
+    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/</loc>
+    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/post/algorithm/fsm/</loc>
+    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://rwwg.github.io/tags/coding/</loc>
     <lastmod>2021-08-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -23,21 +79,7 @@
   </url>
   
   <url>
-    <loc>https://rwwg.github.io/</loc>
-    <lastmod>2021-08-30T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://rwwg.github.io/tags/json/</loc>
-    <lastmod>2021-08-30T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/post/</loc>
     <lastmod>2021-08-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -52,20 +94,6 @@
   
   <url>
     <loc>https://rwwg.github.io/tags/rpc/</loc>
-    <lastmod>2021-08-30T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/simplified-chinese/</loc>
-    <lastmod>2021-08-30T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/</loc>
     <lastmod>2021-08-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -116,13 +144,6 @@
   <url>
     <loc>https://rwwg.github.io/post/mysql/mysql_7/</loc>
     <lastmod>2021-07-01T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/algorithm/</loc>
-    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -423,13 +444,6 @@
   
   <url>
     <loc>https://rwwg.github.io/tags/greedy/</loc>
-    <lastmod>2021-04-07T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://rwwg.github.io/tags/leetcode/</loc>
     <lastmod>2021-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
