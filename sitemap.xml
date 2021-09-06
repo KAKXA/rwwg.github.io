@@ -58,14 +58,28 @@
   </url>
   
   <url>
-    <loc>https://rwwg.github.io/tags/coding/</loc>
-    <lastmod>2021-08-30T00:00:00+00:00</lastmod>
+    <loc>https://rwwg.github.io/tags/ddia/</loc>
+    <lastmod>2021-08-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://rwwg.github.io/tags/ddia/</loc>
+    <loc>https://rwwg.github.io/post/ddia/ddia_5/</loc>
+    <lastmod>2021-08-31T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/replication/</loc>
+    <lastmod>2021-08-31T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/tags/coding/</loc>
     <lastmod>2021-08-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

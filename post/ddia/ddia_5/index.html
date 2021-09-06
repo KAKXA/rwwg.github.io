@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>DDIA:5.复制 - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="DDIA:5.复制" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/ddia/ddia_5/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="DDIA:5.复制" />
+<meta property="og:description" content="DDIA:5.复制" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/ddia/ddia_5/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-31T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-08-31T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="DDIA:5.复制">
+<meta itemprop="description" content="DDIA:5.复制"><meta itemprop="datePublished" content="2021-08-31T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-08-31T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="5596">
+<meta itemprop="keywords" content="Simplified Chinese,ddia,replication," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DDIA:5.复制"/>
+<meta name="twitter:description" content="DDIA:5.复制"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">DDIA:5.复制</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-08-31 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#领导者与追随者">领导者与追随者</a>
+      <ul>
+        <li><a href="#同步复制与异步复制">同步复制与异步复制</a></li>
+        <li><a href="#设置新从库">设置新从库</a></li>
+        <li><a href="#处理节点宕机">处理节点宕机</a>
+          <ul>
+            <li><a href="#从库失效-追赶恢复">从库失效: 追赶恢复</a></li>
+            <li><a href="#主库失效-故障切换">主库失效: 故障切换</a></li>
+          </ul>
+        </li>
+        <li><a href="#复制日志的实现">复制日志的实现</a>
+          <ul>
+            <li><a href="#基于语句的复制">基于语句的复制</a></li>
+            <li><a href="#传输预写式日志-wal">传输预写式日志 (WAL)</a></li>
+            <li><a href="#逻辑日志复制">逻辑日志复制</a></li>
+            <li><a href="#基于触发器的复制">基于触发器的复制</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#复制延迟问题">复制延迟问题</a>
+      <ul>
+        <li><a href="#解决方法">解决方法</a>
+          <ul>
+            <li><a href="#读己之写">读己之写</a></li>
+            <li><a href="#单调读">单调读</a></li>
+            <li><a href="#一致前缀读">一致前缀读</a></li>
+            <li><a href="#复制延迟的解决方案">复制延迟的解决方案</a></li>
+          </ul>
+        </li>
+        <li><a href="#多主复制">多主复制</a>
+          <ul>
+            <li><a href="#需要面对的问题">需要面对的问题</a></li>
+            <li><a href="#适用场景">适用场景</a></li>
+            <li><a href="#处理写入冲突">处理写入冲突</a></li>
+            <li><a href="#多主复制拓扑">多主复制拓扑</a></li>
+          </ul>
+        </li>
+        <li><a href="#无主复制">无主复制</a>
+          <ul>
+            <li><a href="#当节点故障时写入数据库">当节点故障时写入数据库</a></li>
+            <li><a href="#检查并发写入">检查并发写入</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>复制意味着在通过网络连接的多台机器上保留相同数据的副本</p>
+<h1 id="领导者与追随者">领导者与追随者</h1>
+<ul>
+<li>主从复制(基于领导者的复制)
+<ul>
+<li>本之一被指定为 <strong>领导者（leader）</strong>，也称为 <strong>主库（master|primary）</strong> 。当客户端要向数据库写入时，它必须将请求发送给<strong>领导者</strong>，领导者会将新数据写入其本地存储</li>
+<li>其他副本被称为<strong>追随者（followers）</strong>，亦称为<strong>只读副本（read replicas）</strong>，<strong>从库（slaves）</strong>，<strong>备库（ secondaries）</strong>，<strong>热备（hot-standby）</strong>[^i]。每当领导者将新数据写入本地存储时，它也会将数据变更发送给所有的追随者，称之为<strong>复制日志（replication log）<strong>记录或</strong>变更流（change stream）</strong>。每个跟随者从领导者拉取日志，并相应更新其本地数据库副本，方法是按照领导者处理的相同顺序应用所有写入</li>
+<li>当客户想要从数据库中读取数据时，它可以向领导者或追随者查询。 但只有领导者才能接受写操作（从客户端的角度来看从库都是只读的)</li>
+</ul>
+</li>
+</ul>
+<h2 id="同步复制与异步复制">同步复制与异步复制</h2>
+<p><img src="/DDIA/master-slave.png" alt=""></p>
+<ul>
+<li>
+<p>图中,Leader到Follower1的复制过程是同步的,到Follower2的过程是异步的.从Follower2处理消息前存在一个显著的延迟</p>
+</li>
+<li>
+<p>同步复制</p>
+<ul>
+<li>优点: 库保证有与主库一致的最新数据副本。如果主库突然失效，我们可以确信这些数据仍然能在从库上上找到</li>
+<li>缺点: 如果同步从库没有响应（比如它已经崩溃，或者出现网络故障，或其它任何原因），主库就无法处理写入操作。主库必须阻止所有写入，并等待同步副本再次可用</li>
+</ul>
+</li>
+<li>
+<p>异步复制</p>
+<ul>
+<li>优点: 即使所有的从库都落后了，主库也可以继续处理写入</li>
+<li>缺点: 如果主库失效且不可恢复，则任何尚未复制给从库的写入都会丢失。 这意味着即使已经向客户端确认成功，写入也不能保证 **持久</li>
+</ul>
+</li>
+<li>
+<p>半同步</p>
+<ul>
+<li><strong>一个</strong>跟随者是同步的，而其他的则是异步的。如果同步从库变得不可用或缓慢，则使一个异步从库同步</li>
+</ul>
+</li>
+<li>
+<p>关于复制的研究</p>
+<ul>
+<li><strong>链式复制</strong>是同步复制的一种变体,它可以解决主库主库故障时丢失数据的问题</li>
+</ul>
+</li>
+</ul>
+<h2 id="设置新从库">设置新从库</h2>
+<p>拉起新的从库的步骤</p>
+<ol>
+<li>获取主库某时刻的快照</li>
+<li>将快照复制到新的从库节点</li>
+<li>从库连接到主库,拉取快照之后数据变更(需要精确定位快照在主库日志中的位置,PostgreSQL将其称为日志序列号(LSN),MySQL将其称为二进制日志坐标)</li>
+</ol>
+<h2 id="处理节点宕机">处理节点宕机</h2>
+<h3 id="从库失效-追赶恢复">从库失效: 追赶恢复</h3>
+<p>从库的日志中记录了发生故障之前的最后一个事务,因此从库可以连接到主库,并请求在从库断开连接时发生的所有数据变更</p>
+<h3 id="主库失效-故障切换">主库失效: 故障切换</h3>
+<ul>
+<li>
+<p>故障切换</p>
+<blockquote>
+<p>一个从库需要被提升为新的主库，需要重新配置客户端，以将它们的写操作发送给新的主库，其他从库需要开始拉取来自新主库的数据变更</p>
+</blockquote>
+</li>
+<li>
+<p>自动故障切换的步骤</p>
+<ul>
+<li>确认主库失效: 使用<strong>超时</strong>来检测节点是否挂了</li>
+<li>选择一个新的主库: 主库的最佳人选通常是拥有旧主库最新数据副本的从库.让所有节点统一一个新的领导者,是一个共识问题</li>
+<li>重写配置系统
+<ul>
+<li>客户端要将写请求发送给新主库</li>
+<li>确保老领导认可新领导</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>故障切换会遇到的麻烦</p>
+<ul>
+<li>如果使用异步复制,新主库没有接到老主库宕机前最后的写入操作,选出新主库后,老主库重写加入集群,新主库在此期间可能会收到冲突的写入.最简单的方法是丢弃老主库未复制的写入,这很可能打破客户对于数据持久性的期望</li>
+<li>如果数据库需要和其它外部存储相协调,那么丢弃写入内容是极其危险的操作.如: 新库的主键递增ID落后于老库,这些主键也再Redis中使用,主键宠用使得MySQL和Redis中数据产生不一致</li>
+<li>可能会出现两个节点都认为自己是主库的情况,若没有冲突解决机制,数据就可能丢失或村坏</li>
+<li>被宣告死亡之前的正确超时时间的设置问题</li>
+</ul>
+</li>
+</ul>
+<h2 id="复制日志的实现">复制日志的实现</h2>
+<h3 id="基于语句的复制">基于语句的复制</h3>
+<ul>
+<li>缺陷
+<ul>
+<li>任何调用非确定性函数的语句,可能会在每个副本生成不同的值</li>
+<li>如果语句使用了自增列,或者依赖使用现有数据,则必须在每个副本上按照完全相同的顺序执行它们.而有多个并发的事务时,这可能成为一个限制</li>
+<li>有副作用的语句(触发器,存储过程,用户定义的函数)可能在每个副本上产生不同的副作用</li>
+</ul>
+</li>
+</ul>
+<h3 id="传输预写式日志-wal">传输预写式日志 (WAL)</h3>
+<ul>
+<li>回顾<a href="/post/DDIA/DDIA_3.md">SSTables和LSM树与B树</a>,它们的日志分别是
+<ul>
+<li>SSTables: 日志是主要的存储位置,日志段在后台压缩,并进行垃圾回收</li>
+<li>B树: 每次修改会先写入预写式日志</li>
+</ul>
+</li>
+<li>因此,对于任何一种情况,日志都包含所有数据库写入的仅追加字节序列,可以使用完全相同的日志在另一个节点上构建副本.也就是说,主库除了将日志写入磁盘,还可以通过网络发送给其从库</li>
+<li>缺陷
+<ul>
+<li>日志记录的数据非常底层,使得复制与存储引擎紧密耦合,如果数据库变换存储格式,通常不可能在主库和从库上运行不同版本的数据库软件</li>
+</ul>
+</li>
+</ul>
+<h3 id="逻辑日志复制">逻辑日志复制</h3>
+<ul>
+<li>逻辑日志</li>
+</ul>
+<blockquote>
+<p>复制和存储引擎使用不同的日志格式,主要可以使复制日志从存储引擎内部分离出来,这种复制日志称为逻辑日志,以将其与存储引擎的数据表示区分开来</p>
+</blockquote>
+<p>以<strong>行的粒信息</strong>来唯一标识更新的行,以及所有列的新值</p>
+<p>修改多行的事务会生成多个这样的日志记录,后面跟着一条记录,指出事务已经提交,MySQL的二进制日志使用这种方法.</p>
+<ul>
+<li>
+<p>优点</p>
+<ul>
+<li>
+<p>由于逻辑日志与存储引擎内部分离，因此可以更容易地保持向后兼容，从而使领导者和跟随者能够运行不同版本的数据库软件甚至不同的存储引擎</p>
+</li>
+<li>
+<p>对于外部应用程序来说，逻辑日志格式也更容易解析。如果要将数据库的内容发送到外部系统，这一点很有用，例如<strong>数据变更捕获</strong></p>
+<blockquote>
+<p>数据变更捕获: 复制到数据仓库进行离线分析，或建立自定义索引和缓存</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="基于触发器的复制">基于触发器的复制</h3>
+<ul>
+<li>触发器</li>
+</ul>
+<blockquote>
+<p>触发器允许注册在数据库系统中发生数据更改（写入事务）时自动执行的自定义应用程序代码。触发器有机会将更改记录到一个单独的表中，使用外部程序读取这个表，再加上任何业务逻辑处理，会后将数据变更复制到另一个系统去</p>
+</blockquote>
+<p>其灵活性也带来了更高的开销</p>
+<h1 id="复制延迟问题">复制延迟问题</h1>
+<ul>
+<li>
+<p>最终一致性</p>
+<blockquote>
+<p>当应用程序从异步从库读取时,如果从库落后,它可能看到过时的信息,这会导致数据库中出现不一致.但是,如果停止写入数据库并等待一段时间，从库最终会赶上并与主库保持一致,这就是最终一致性</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="解决方法">解决方法</h2>
+<h3 id="读己之写">读己之写</h3>
+<blockquote>
+<p>如果用户在写入后马上就查看数据，则新数据可能尚未到达副本。对用户而言，看起来好像是刚提交的数据丢失了，用户会不高兴，可以理解</p>
+</blockquote>
+<ul>
+<li>
+<p>读己之写一致性</p>
+<ul>
+<li>
+<p>读用户<strong>可能已经修改过</strong>的内容时，都从主库读</p>
+<ul>
+<li>社交网络上的用户个人资料信息通常只能由用户本人编辑，而不能由其他人编辑。因此一个简单的规则是：从主库读取用户自己的档案，在从库读取其他用户的档案</li>
+<li>可以跟踪上次更新的时间，在上次更新后的一分钟内，从主库读</li>
+<li>监控从库的复制延迟，防止对任意比主库滞后超过一分钟的从库发出查询</li>
+</ul>
+</li>
+<li>
+<p>客户端可以记住最近一次写入的时间戳，系统需要确保从库为该用户提供任何查询时，该时间戳前的变更都已经传播到了本从库中。如果当前从库不够新，则可以从另一个从库读，或者等待从库追赶上来</p>
+<blockquote>
+<p>时间戳:可以是<strong>逻辑时间戳(日志序列号)</strong>,可以是<strong>实际系统始终</strong></p>
+</blockquote>
+</li>
+<li>
+<p>如果您的副本分布在多个数据中心（出于可用性目的与用户尽量在地理上接近），则会增加复杂性。任何需要由领导者提供服务的请求都必须路由到包含主库的数据中心</p>
+</li>
+</ul>
+</li>
+<li>
+<p>另一种复杂的情况是：如果同一个用户从多个设备请求服务，例如桌面浏览器和移动APP。这种情况下可能就需要提供跨设备的写后读一致性</p>
+<ul>
+<li>记住用户上次更新时间戳的方法变得更加困难，因为一台设备上运行的程序不知道另一台设备上发生了什么。元数据需要一个中心存储</li>
+<li>如果副本分布在不同的数据中心，很难保证来自不同设备的连接会路由到同一数据中心</li>
+</ul>
+</li>
+</ul>
+<h3 id="单调读">单调读</h3>
+<ul>
+<li>
+<p>时光倒流</p>
+<blockquote>
+<p>先从延迟小的从库查询,然后从延迟较大的从库查询.用户就会发现原先有的内容消失了</p>
+</blockquote>
+</li>
+<li>
+<p>单调读</p>
+<blockquote>
+<p>保证时光倒流异常不会发生</p>
+<p>比 <strong>强一致性（strong consistency）</strong> 更弱，但比 <strong>最终一致性（eventual consistency）</strong> 更强的保证</p>
+<p>先前读取到较新的数据，后续读取不会得到更旧的数据</p>
+</blockquote>
+<ul>
+<li>实现单调读取的一种方式是确保每个用户总是从同一个副本进行读取(不同用户则可以从不同的副本读取)</li>
+</ul>
+</li>
+</ul>
+<h3 id="一致前缀读">一致前缀读</h3>
+<ul>
+<li>
+<p>一致前缀读</p>
+<blockquote>
+<p>如果一系列写入按某个顺序发生，那么任何人读取这些写入时，也会看见它们以同样的顺序出现</p>
+</blockquote>
+</li>
+<li>
+<p>解决方法</p>
+<ul>
+<li>确保任何因果相关的写入都写入相同的分区</li>
+<li>显式跟踪因果依赖关系的算法,将在<a href="#%22%E6%AD%A4%E5%89%8D%E5%8F%91%E7%94%9F%22%E7%9A%84%E5%85%B3%E7%B3%BB%E5%92%8C%E5%B9%B6%E5%8F%91">“此前发生”的关系和并发</a>一节中返回这个主体</li>
+</ul>
+</li>
+</ul>
+<h3 id="复制延迟的解决方案">复制延迟的解决方案</h3>
+<ul>
+<li>事务</li>
+</ul>
+<h2 id="多主复制">多主复制</h2>
+<blockquote>
+<p>允许多个节点接受写入</p>
+</blockquote>
+<ul>
+<li>多活复制</li>
+</ul>
+<blockquote>
+<p>处理写入的每个节点都必须将该数据更改转发给所有其他节点</p>
+<p>每个领导者同时扮演其他领导者的追随者</p>
+</blockquote>
+<h3 id="需要面对的问题">需要面对的问题</h3>
+<ol>
+<li>
+<p>性能</p>
+<blockquote>
+<p>多活配置中,每个数据中心可以独立于其它数据中心继续运行</p>
+</blockquote>
+</li>
+<li>
+<p>容忍数据中心停机</p>
+<blockquote>
+<p>单主配置中,如果主库所在的数据中心发生故障，故障切换可以使另一个数据中心里的追随者成为领导者</p>
+<p>多活配置中，每个数据中心可以独立于其他数据中心继续运行，并且当发生故障的数据中心归队时，复制会自动赶上</p>
+</blockquote>
+</li>
+<li>
+<p>容忍网络问题</p>
+<blockquote>
+<p>数据中心之间的通信通常穿过公共互联网,不如本地网络可靠</p>
+</blockquote>
+</li>
+<li>
+<p>尽管多主复制有这些有时,但也有一个很大的缺点,两个不同的数据中心可能会同时修改相同的数据,写冲突是必须解决的</p>
+</li>
+</ol>
+<h3 id="适用场景">适用场景</h3>
+<h4 id="需要离线操作的客户端">需要离线操作的客户端</h4>
+<p>每个设备都是一个“数据中心”，而它们之间的网络连接是极度不可靠的</p>
+<p>每个设备都有一个充当领导者的本地数据库（它接受写请求），并且在所有设备上的日历副本之间同步时，存在异步的多主复制过程</p>
+<h4 id="协同编辑">协同编辑</h4>
+<p>如果要保证不会发生编辑冲突，则应用程序必须先取得文档的锁定，然后用户才能对其进行编辑</p>
+<h3 id="处理写入冲突">处理写入冲突</h3>
+<h4 id="避免冲突">避免冲突</h4>
+<ul>
+<li>保证特定记录的所有写入都通过同一个领导者,冲突就不会发生
+<ul>
+<li>保证任何用户的请求始终路由到同一数据中心</li>
+</ul>
+</li>
+</ul>
+<h4 id="收敛至一致的状态">收敛至一致的状态</h4>
+<ul>
+<li>LLW(最后写入胜利)
+<ul>
+<li>时间戳</li>
+<li>唯一的ID</li>
+</ul>
+</li>
+<li>以某种方式将这些值合并在一起</li>
+<li>用课保留所有信息的显式数据结构来记录冲突</li>
+</ul>
+<h4 id="自定义冲突处理逻辑">自定义冲突处理逻辑</h4>
+<ul>
+<li>写时执行</li>
+<li>读时执行</li>
+</ul>
+<h5 id="自动冲突解决算法">自动冲突解决算法</h5>
+<ul>
+<li>无冲突复制数据类型</li>
+<li>可合并的持久数据结构</li>
+<li>可执行的转换</li>
+</ul>
+<h3 id="多主复制拓扑">多主复制拓扑</h3>
+<p>有两个不同的领导者时,不同的拓扑时有可能的</p>
+<ul>
+<li>
+<p>环形拓扑</p>
+<ul>
+<li>如果有一个节点发生故障,则可能终端其它节点之间的复制信息流</li>
+</ul>
+</li>
+<li>
+<p>星形拓扑</p>
+<ul>
+<li>如果有一个节点发生故障,则可能终端其它节点之间的复制信息流</li>
+</ul>
+</li>
+<li>
+<p>全部到全部</p>
+<ul>
+<li>一些网络链接可能比其他网络链接更快（例如，由于网络拥塞），结果是一些复制消息可能“超过”其他复制消息</li>
+</ul>
+<p><img src="/DDIA/multi-leader.png" alt=""></p>
+<p><strong>使用多主程序复制时，可能会在某些副本中写入错误的顺序</strong></p>
+<p>要正确排序这些事件,可以实用一种称为版本向量的技术</p>
+</li>
+</ul>
+<h2 id="无主复制">无主复制</h2>
+<ul>
+<li>客户端发送每个写入到几个节点，并从多个节点并行读取，以检测和纠正具有陈旧数据的节点</li>
+</ul>
+<h3 id="当节点故障时写入数据库">当节点故障时写入数据库</h3>
+<blockquote>
+<p>不可用的节点重新联机，客户端开始读取它。节点关闭时发生的任何写入都从该节点丢失。因此，如果您从该节点读取数据，则可能会将陈旧（过时）值视为响应</p>
+</blockquote>
+<h4 id="读修复和反熵">读修复和反熵</h4>
+<h5 id="读修复">读修复</h5>
+<blockquote>
+<p>客户端并行读取多个节点时,可以检测到任何陈旧的响应</p>
+<p>例如，在图中，用户2345获得了来自副本3的版本6值和来自副本1和2的版本7值。客户端发现副本3具有陈旧值，并将新值写回到该副本。这种方法适用于读频繁的值</p>
+<p><img src="/DDIA/no-leader.png" alt=""></p>
+</blockquote>
+<h5 id="反熵过程">反熵过程</h5>
+<blockquote>
+<p>一些数据存储具有后台进程，该进程不断查找副本之间的数据差异，并将任何缺少的数据从一个副本复制到另一个副本。与基于领导者的复制中的复制日志不同，此反熵过程不会以任何特定的顺序复制写入，并且在复制数据之前可能会有显著的延迟</p>
+</blockquote>
+<h4 id="读取的法定人数">读取的法定人数</h4>
+<ul>
+<li>$n$个副本</li>
+<li>每个写入必须由$w$个节点确认才能被认为是成功的</li>
+<li>客户端必须至少为每个读取查询$r$个节点</li>
+</ul>
+<p>在以上三个条件约束下,只有$w+r&gt;n$才能保证在读取时能够获取最新的值</p>
+<blockquote>
+<p>遵顼这些条件的$w$和$r$称为法定人数的读和写</p>
+</blockquote>
+<h4 id="监控陈旧度">监控陈旧度</h4>
+<blockquote>
+<p>在无领导者复制的系统中，没有固定的写入顺序，这使得监控变得更加困难。而且，如果数据库只使用读修复（没有反熵过程），那么对于一个值可能会有多大的限制是没有限制的 - 如果一个值很少被读取，那么由一个陈旧副本返回的值可能是古老的</p>
+</blockquote>
+<h4 id="宽松的法定人数与提示移交">宽松的法定人数与提示移交</h4>
+<ul>
+<li>宽松的法定人数</li>
+</ul>
+<blockquote>
+<p>在一个大型的集群中（节点数量明显多于n个），网络中断期间客户端可能仍能连接到一些数据库节点，但又不足以组成一个特定值的法定人数时,接受写入，然后将它们写入一些可达的节点，但不在这些值通常所存在的n个节点上</p>
+</blockquote>
+<ul>
+<li>提示提交</li>
+</ul>
+<blockquote>
+<p>一旦网络中断得到解决，代表另一个节点临时接受的一个节点的任何写入都被发送到适当的“主”节点</p>
+</blockquote>
+<h3 id="检查并发写入">检查并发写入</h3>
+<blockquote>
+<p>如果每个节点只要接收到来自客户端的写入请求就简单地覆盖了某个键的值，那么节点就会永久地不一致</p>
+</blockquote>
+<h4 id="最后写入胜利丢弃并发写入">最后写入胜利（丢弃并发写入）</h4>
+<blockquote>
+<p>实现最终融合的一种方法是声明每个副本只需要存储最 <strong>“最近”</strong> 的值</p>
+</blockquote>
+<h4 id="此前发生的关系和并发">“此前发生”的关系和并发</h4>
+<ul>
+<li>
+<p>因果依赖</p>
+<blockquote>
+<p>如果B的操作建立在A的操作上,所以B的操作必须后来发生(如使用递增的值来记录)</p>
+</blockquote>
+</li>
+<li>
+<p>如果没有因果依赖,就是并发的</p>
+<blockquote>
+<p>如果两个操作都意识不到对方的存在，就称这两个操作<strong>并发</strong></p>
+</blockquote>
+</li>
+<li>
+<p>因此，只要有两个操作A和B，就有三种可能性：A在B之前发生，或者B在A之前发生，或者A和B并发.所以我们需要一个用于判断两个操作是否时并发的算法</p>
+</li>
+</ul>
+<h4 id="捕获此前发生关系">捕获此前发生关系</h4>
+<ul>
+<li>服务器为每个键保留一个版本号，每次写入键时都增加版本号，并将新版本号与写入的值一起存储。</li>
+<li>当客户端读取键时，服务器将返回所有未覆盖的值以及最新的版本号。客户端在写入前必须读取。</li>
+<li>客户端写入键时，必须包含之前读取的版本号，并且必须将之前读取的所有值合并在一起。 （针对写入请求的响应可以像读取请求一样，返回所有当前值，这使得我们可以像购物车示例那样将多个写入串联起来。）</li>
+<li>当服务器接收到具有特定版本号的写入时，它可以覆盖该版本号或更低版本的所有值（因为它知道它们已经被合并到新的值中），但是它必须用更高的版本号来保存所有值（因为这些值与随后的写入是并发的）。</li>
+</ul>
+<p>所以算法的核心原理是</p>
+<blockquote>
+<p>当一个写入包含前一次读取的版本号时，它会告诉我们的写入是基于之前的哪一种状态。如果在不包含版本号的情况下进行写操作，则与所有其他写操作并发，因此它不会覆盖任何内容 —— 只会在随后的读取中作为其中一个值返回</p>
+</blockquote>
+<h4 id="合并同时写入的值">合并同时写入的值</h4>
+<p>集合求并集</p>
+<h4 id="版本向量">版本向量</h4>
+<ul>
+<li>除了对每个键使用版本号之外，还需要在<strong>每个副本</strong>中使用版本号。每个副本在处理写入时增加自己的版本号，并且跟踪从其他副本中看到的版本号。这个信息指出了要覆盖哪些值，以及保留哪些值作为兄弟</li>
+</ul>
+<blockquote>
+<p>所有副本的版本号集合称为**版本向量</p>
+</blockquote>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-08-31
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          <a href="/tags/ddia/">ddia</a>
+          <a href="/tags/replication/">replication</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/algorithm/fsm/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">有限状态机</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/ddia/ddia_4/">
+            <span class="next-text nav-default">DDIA:4.编码与演化</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
