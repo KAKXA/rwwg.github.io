@@ -6,7 +6,16 @@
     <description>Recent content on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 03 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL安装以及切换到WSL2</title>
+      <link>https://rwwg.github.io/post/linux/wsl2/</link>
+      <pubDate>Mon, 06 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/linux/wsl2/</guid>
+      <description>&lt;p&gt;WSL,Windows中的Linux子系统&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>有限状态机</title>
       <link>https://rwwg.github.io/post/algorithm/fsm/</link>
