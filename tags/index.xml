@@ -6,11 +6,29 @@
     <description>Recent content in Tags on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>algorithm</title>
+      <link>https://rwwg.github.io/tags/algorithm/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>prefix sum</title>
+      <link>https://rwwg.github.io/tags/prefix-sum/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/prefix-sum/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Simplified Chinese</title>
       <link>https://rwwg.github.io/tags/simplified-chinese/</link>
-      <pubDate>Mon, 06 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
       <description></description>
@@ -22,15 +40,6 @@
       <pubDate>Mon, 06 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/wsl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithm</title>
-      <link>https://rwwg.github.io/tags/algorithm/</link>
-      <pubDate>Fri, 03 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/algorithm/</guid>
       <description></description>
     </item>
     

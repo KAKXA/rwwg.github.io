@@ -6,7 +6,16 @@
     <description>Recent content in Simplified Chinese on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>二维前缀和</title>
+      <link>https://rwwg.github.io/post/algorithm/2-dim-prefix-sum/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/2-dim-prefix-sum/</guid>
+      <description>&lt;p&gt;二维前缀和用于对于表格型数据结构的查询预处理，以达到线性的查找时间&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>WSL安装以及切换到WSL2</title>
       <link>https://rwwg.github.io/post/linux/wsl2/</link>
