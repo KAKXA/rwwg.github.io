@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>graph theory on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/graph-theory/</link>
+    <description>Recent content in graph theory on Ge&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 22 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/graph-theory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SPFA算法</title>
+      <link>https://rwwg.github.io/post/algorithm/spfa/</link>
+      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/spfa/</guid>
+      <description>&lt;p&gt;SPFA是一个单源最短路径算法,它是Bellman-Ford算法的一种队列实现.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
