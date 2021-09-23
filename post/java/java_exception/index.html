@@ -232,10 +232,18 @@ Error: (不是指定的类型： 1).
 </div><p>可以看到,在循环的第二次时,虽然进入<code>catch</code>,<code>catch</code>中的<code>return</code>没有立即触发,相反,程序顺利执行了<code>finally</code>,而其后的代码却没有执行,这就是<code>finally</code>中代码与捕获块以后的代码之间的区别.<code>finally</code>执行完后,<code>return</code>才触发.</p>
 <h2 id="finally不会执行的情况">finally不会执行的情况</h2>
 <ol>
-<li><code>try</code>或者<code>catch</code>中调用<code>System.exit</code>函数</li>
-<li><code>try</code>或者<code>catch</code>中调用<code>Runtime.getRuntime().halt</code>函数</li>
-<li>守护线程:当守护进程刚执行到<code>finally</code>代码块,没有任何非守护进程存在,那么<code>JVM</code>不会等待<code>finally</code>代码块执行完成,而是直接退出</li>
-<li><code>try</code>或者<code>catch</code>中无限循环</li>
+<li>
+<p><code>try</code>或者<code>catch</code>中调用<code>System.exit</code>函数</p>
+</li>
+<li>
+<p><code>try</code>或者<code>catch</code>中调用<code>Runtime.getRuntime().halt</code>函数</p>
+</li>
+<li>
+<p>守护线程:当守护进程刚执行到<code>finally</code>代码块,没有任何非守护进程存在,那么<code>JVM</code>不会等待<code>finally</code>代码块执行完成,而是直接退出</p>
+</li>
+<li>
+<p><code>try</code>或者<code>catch</code>中无限循环</p>
+</li>
 </ol>
     </div>
 
@@ -268,8 +276,8 @@ Error: (不是指定的类型： 1).
             <span class="prev-text nav-default">Java8中ArrayList在一条语句中完成初始化的4种方法</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/algorithm/spfa/">
-            <span class="next-text nav-default">SPFA算法</span>
+        <a class="next" href="/post/algorithm/topological_sorting/">
+            <span class="next-text nav-default">拓扑排序</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
