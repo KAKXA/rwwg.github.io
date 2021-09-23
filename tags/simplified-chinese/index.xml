@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>Java的异常捕获</title>
+      <link>https://rwwg.github.io/post/java/java_exception/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/java/java_exception/</guid>
+      <description>&lt;p&gt;最基本的异常捕获的代码写法以及&lt;code&gt;finally&lt;/code&gt;的处理逻辑&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>SPFA算法</title>
       <link>https://rwwg.github.io/post/algorithm/spfa/</link>
       <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
