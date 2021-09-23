@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/java/</link>
+    <description>Recent content in java on Ge&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java8中ArrayList在一条语句中完成初始化的4种方法</title>
+      <link>https://rwwg.github.io/post/java/arraylist_init/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/java/arraylist_init/</guid>
+      <description>&lt;p&gt;ArrayList的初始化是经常会遇到的情形,这里总结了4种快速在初始化时赋值的方法&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

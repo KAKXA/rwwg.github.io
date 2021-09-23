@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java8中ArrayList在一条语句中完成初始化的4种方法</title>
+      <link>https://rwwg.github.io/post/java/arraylist_init/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/java/arraylist_init/</guid>
+      <description>&lt;p&gt;ArrayList的初始化是经常会遇到的情形,这里总结了4种快速在初始化时赋值的方法&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>SPFA算法</title>
       <link>https://rwwg.github.io/post/algorithm/spfa/</link>
