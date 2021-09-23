@@ -8,6 +8,24 @@
     <language>en</language>
     <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>algorithm</title>
+      <link>https://rwwg.github.io/tags/algorithm/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>difference</title>
+      <link>https://rwwg.github.io/tags/difference/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/difference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>dijkstra</title>
       <link>https://rwwg.github.io/tags/dijkstra/</link>
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
@@ -76,15 +94,6 @@
       <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/spfa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithm</title>
-      <link>https://rwwg.github.io/tags/algorithm/</link>
-      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/algorithm/</guid>
       <description></description>
     </item>
     
