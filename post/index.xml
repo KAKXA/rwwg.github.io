@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>Java内部类</title>
+      <link>https://rwwg.github.io/post/java/java_nested_classes/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/java/java_nested_classes/</guid>
+      <description>&lt;p&gt;在Java中,可以将一个类定义在另一个类里面或者一个方法里面,这样的类称为内部类.包括&lt;strong&gt;成员内部类,局部内部类,匿名内部类,静态内部类&lt;/strong&gt;.整理自&lt;a href=&#34;https://www.runoob.com/w3cnote/java-inner-class-intro.html&#34;&gt;菜鸟教程&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Java的异常捕获</title>
       <link>https://rwwg.github.io/post/java/java_exception/</link>
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>

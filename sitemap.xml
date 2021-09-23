@@ -51,6 +51,13 @@
   </url>
   
   <url>
+    <loc>https://rwwg.github.io/post/java/java_nested_classes/</loc>
+    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://rwwg.github.io/post/java/java_exception/</loc>
     <lastmod>2021-09-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
