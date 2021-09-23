@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sssp on Ge&#39;s Blog</title>
-    <link>https://rwwg.github.io/tags/sssp/</link>
-    <description>Recent content in sssp on Ge&#39;s Blog</description>
+    <title>dijkstra on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/dijkstra/</link>
+    <description>Recent content in dijkstra on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/sssp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/dijkstra/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dijkstra算法: 负权处理与堆优化</title>
       <link>https://rwwg.github.io/post/algorithm/dijkstra_negative/</link>
@@ -14,15 +14,6 @@
       
       <guid>https://rwwg.github.io/post/algorithm/dijkstra_negative/</guid>
       <description>&lt;p&gt;Dijkstra算法是处理单源最短路径最快的方法,但存在的问题是无法稳定给出带负权边的图的正确解,以及有时会在速度上不如&lt;a href=&#34;https://rwwg.github.io/post/algorithm/spfa/&#34;&gt;SPFA&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>SPFA算法</title>
-      <link>https://rwwg.github.io/post/algorithm/spfa/</link>
-      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/post/algorithm/spfa/</guid>
-      <description>&lt;p&gt;SPFA是一个单源最短路径算法,它是Bellman-Ford算法的一种队列实现.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -8,6 +8,24 @@
     <language>en</language>
     <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>dijkstra</title>
+      <link>https://rwwg.github.io/tags/dijkstra/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/dijkstra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graph</title>
+      <link>https://rwwg.github.io/tags/graph/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/graph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>java</title>
       <link>https://rwwg.github.io/tags/java/</link>
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
@@ -26,6 +44,15 @@
     </item>
     
     <item>
+      <title>sssp</title>
+      <link>https://rwwg.github.io/tags/sssp/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/sssp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>graph theory</title>
       <link>https://rwwg.github.io/tags/graph-theory/</link>
       <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
@@ -40,15 +67,6 @@
       <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/spfa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SSSP</title>
-      <link>https://rwwg.github.io/tags/sssp/</link>
-      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/sssp/</guid>
       <description></description>
     </item>
     

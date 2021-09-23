@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Dijkstra算法: 负权处理与堆优化 - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="Dijkstra算法: 负权处理与堆优化" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/algorithm/dijkstra_negative/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Dijkstra算法: 负权处理与堆优化" />
+<meta property="og:description" content="Dijkstra算法: 负权处理与堆优化" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/algorithm/dijkstra_negative/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-23T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-09-23T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="Dijkstra算法: 负权处理与堆优化">
+<meta itemprop="description" content="Dijkstra算法: 负权处理与堆优化"><meta itemprop="datePublished" content="2021-09-23T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-09-23T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1303">
+<meta itemprop="keywords" content="Simplified Chinese,dijkstra,graph,sssp," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dijkstra算法: 负权处理与堆优化"/>
+<meta name="twitter:description" content="Dijkstra算法: 负权处理与堆优化"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Dijkstra算法: 负权处理与堆优化</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-09-23 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#基本思想">基本思想</a></li>
+        <li><a href="#负权处理">负权处理</a></li>
+        <li><a href="#堆优化">堆优化</a></li>
+        <li><a href="#和spfa队列优化的bf的本质区别自己总结的不一定对">和SPFA(队列优化的BF)的本质区别(自己总结的,不一定对)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Dijkstra算法是处理单源最短路径最快的方法,但存在的问题是无法稳定给出带负权边的图的正确解,以及有时会在速度上不如<a href="https://rwwg.github.io/post/algorithm/spfa/">SPFA</a></p>
+<h2 id="基本思想">基本思想</h2>
+<p>Dijkstra的基本思想为: 维护两个集合,访问过的<code>U</code>与没访问过的<code>V</code>,从后者中的<strong>与U直接相连的节点</strong>中每次挑出<strong>距离源src</strong>的最近的节点<code>v</code>放入<code>U</code>,将该距离作为该节点的最终结果.然后根据此结果更新<code>V</code>中与<code>v</code>直接相连的节点.</p>
+<h2 id="负权处理">负权处理</h2>
+<ul>
+<li>
+<p>允许重入队的意思是:<strong>允许重入队的意思是，对于已经出队的节点，如果它的距离标号还能被更新，那么还要进行更新，再次入队</strong>.这不是和优先队列优化的 Bellman-Ford一样了吗?</p>
+<blockquote>
+<p>**SPFA 的各种优化本质上就是让队列更接近优先队列。**但是考虑到队列版的 SPFA （或者说 BFM 算法）稳定地优于 Bellman-Ford，而优先队列版的 SPFA 在正权图上可以达到堆优化 Dijkstra 的性能，带负权边的图上却可能退化到指数级；所以只要参考优先队列版 SPFA （其实应该叫 priority-queue based Bellman-Ford）的卡法，就能相应地卡 SPFA 的各种魔改版。引用自:<a href="https://www.zhihu.com/question/21620069/answer/24518138">zhihu</a>.</p>
+</blockquote>
+</li>
+</ul>
+<p>也就是说,在面对带负权的图时,不需要考虑<code>dijkstra</code>,因为队列优化的BF稳定优于BF,而优先队列优化的BF(也就是所谓可以处理负权的Dijkstra)却可能退化到指数级.对于不参加竞赛,只是为了应付笔试面试的同学来说,可以不用学习优先队列优化的BF,直接学习堆优化的Dijkstra就可以了(个人观点).</p>
+<h2 id="堆优化">堆优化</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Edge</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">end</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">weight</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Edge</span><span class="o">(</span><span class="kt">int</span> <span class="n">end</span><span class="o">,</span> <span class="kt">int</span> <span class="n">weight</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">end</span> <span class="o">=</span> <span class="n">end</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">weight</span> <span class="o">=</span> <span class="n">weight</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Pair</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">dist</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">vertex</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Pair</span><span class="o">(</span><span class="kt">int</span> <span class="n">dist</span><span class="o">,</span> <span class="kt">int</span> <span class="n">vertex</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">dist</span> <span class="o">=</span> <span class="n">dist</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">vertex</span> <span class="o">=</span> <span class="n">vertex</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">dijkstra</span><span class="o">(</span><span class="kt">int</span> <span class="n">src</span><span class="o">,</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;&gt;</span> <span class="n">graph</span><span class="o">,</span> <span class="kt">int</span> <span class="n">irreachable_tag</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">dist</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">dist</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">irreachable_tag</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">dist</span><span class="o">[</span><span class="n">src</span><span class="o">]</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+
+        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+
+        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;</span> <span class="n">pq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;(</span><span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Pair</span> <span class="n">pair</span><span class="o">,</span> <span class="n">Pair</span> <span class="n">t1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">pair</span><span class="o">.</span><span class="na">dist</span> <span class="o">-</span> <span class="n">t1</span><span class="o">.</span><span class="na">dist</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+        <span class="c1">// 只将src节点加入优先队列
+</span><span class="c1"></span>        <span class="n">pq</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Pair</span><span class="o">(</span><span class="n">0</span><span class="o">,</span> <span class="n">src</span><span class="o">));</span>
+
+        <span class="k">while</span> <span class="o">(!</span><span class="n">pq</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">Pair</span> <span class="n">u</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+            <span class="c1">// 出过队列的点(也就是已经确定了dist的点)就不用再加入了
+</span><span class="c1"></span>            <span class="c1">// 因为dijkstra在只处理正权值图时不会存在重复放入点的现象
+</span><span class="c1"></span>            <span class="c1">// 那么为什么一定需要这句呢?再跑一遍不是也没关系吗?
+</span><span class="c1"></span>            <span class="c1">// 错,看后面的逻辑,一个节点完全可能入队两次.而优先出队的那个一定是
+</span><span class="c1"></span>            <span class="c1">// 最短路径,后出队的节点不一定最短,也就会误导和它相连的终节点
+</span><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">u</span><span class="o">.</span><span class="na">vertex</span><span class="o">])</span> <span class="o">{</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="c1">// 很关键,是在出队时修改visited而不是在入队时
+</span><span class="c1"></span>            <span class="c1">// 依然是因为dijkstra中,出队意味着确定下到该节点的最短路径了!
+</span><span class="c1"></span>            <span class="n">visited</span><span class="o">[</span><span class="n">u</span><span class="o">.</span><span class="na">vertex</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+            <span class="c1">// 遍历以u为起点的所有边
+</span><span class="c1"></span>            <span class="k">for</span><span class="o">(</span><span class="n">Edge</span> <span class="n">v_edge</span><span class="o">:</span> <span class="n">graph</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">u</span><span class="o">.</span><span class="na">vertex</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// 要保证中终点没有出过队列,而且可以松弛,该点再进队列
+</span><span class="c1"></span>                <span class="c1">// 进队列的意思是它发生了更新,所以要对后续节点更新
+</span><span class="c1"></span>                <span class="c1">// 由于dist[u.vertex]一开始都是INF,所以迟早都会进队列,除非不可达
+</span><span class="c1"></span>                <span class="k">if</span> <span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">v_edge</span><span class="o">.</span><span class="na">end</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">dist</span><span class="o">[</span><span class="n">u</span><span class="o">.</span><span class="na">vertex</span><span class="o">]</span> <span class="o">+</span> <span class="n">v_edge</span><span class="o">.</span><span class="na">weight</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="o">[</span><span class="n">v_edge</span><span class="o">.</span><span class="na">end</span><span class="o">])</span> <span class="o">{</span>
+                    <span class="n">dist</span><span class="o">[</span><span class="n">v_edge</span><span class="o">.</span><span class="na">end</span><span class="o">]</span> <span class="o">=</span> <span class="n">dist</span><span class="o">[</span><span class="n">u</span><span class="o">.</span><span class="na">vertex</span><span class="o">]</span> <span class="o">+</span> <span class="n">v_edge</span><span class="o">.</span><span class="na">weight</span><span class="o">;</span>
+                    <span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="n">Pair</span><span class="o">(</span><span class="n">dist</span><span class="o">[</span><span class="n">v_edge</span><span class="o">.</span><span class="na">end</span><span class="o">],</span> <span class="n">v_edge</span><span class="o">.</span><span class="na">end</span><span class="o">));</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">dist</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 测试用图
+</span><span class="c1"></span>        <span class="n">Test</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Test</span><span class="o">();</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Edge</span><span class="o">&gt;&gt;</span> <span class="n">graph</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">graph</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">Edge</span><span class="o">(</span><span class="n">2</span><span class="o">,</span> <span class="n">2</span><span class="o">),</span> <span class="k">new</span> <span class="n">Edge</span><span class="o">(</span><span class="n">4</span><span class="o">,</span> <span class="n">1</span><span class="o">)));</span>
+        <span class="n">graph</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">Edge</span><span class="o">(</span><span class="n">0</span><span class="o">,</span> <span class="n">1</span><span class="o">),</span> <span class="k">new</span> <span class="n">Edge</span><span class="o">(</span><span class="n">3</span><span class="o">,</span> <span class="n">4</span><span class="o">)));</span>
+        <span class="n">graph</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">Edge</span><span class="o">(</span><span class="n">3</span><span class="o">,</span> <span class="n">3</span><span class="o">)));</span>
+        <span class="n">graph</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">Edge</span><span class="o">(</span><span class="n">4</span><span class="o">,</span> <span class="n">1</span><span class="o">)));</span>
+        <span class="n">graph</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">Edge</span><span class="o">(</span><span class="n">1</span><span class="o">,</span> <span class="n">1</span><span class="o">)));</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">res</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">dijkstra</span><span class="o">(</span><span class="n">0</span><span class="o">,</span> <span class="n">graph</span><span class="o">,</span> <span class="n">0x3f3f3f3f</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">:</span> <span class="n">res</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="和spfa队列优化的bf的本质区别自己总结的不一定对">和SPFA(队列优化的BF)的本质区别(自己总结的,不一定对)</h2>
+<ul>
+<li>SPFA为了保证负权值能影响到之前已经出队过的点,允许多次进队,所以不需要优先队列来维护以保证弹出节点的<strong>距离源的最近性</strong>.</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-09-23
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          <a href="/tags/dijkstra/">dijkstra</a>
+          <a href="/tags/graph/">graph</a>
+          <a href="/tags/sssp/">sssp</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/java/arraylist_init/">
+            <span class="next-text nav-default">Java8中ArrayList在一条语句中完成初始化的4种方法</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -8,6 +8,15 @@
     <language>en</language>
     <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Dijkstra算法: 负权处理与堆优化</title>
+      <link>https://rwwg.github.io/post/algorithm/dijkstra_negative/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/dijkstra_negative/</guid>
+      <description>&lt;p&gt;Dijkstra算法是处理单源最短路径最快的方法,但存在的问题是无法稳定给出带负权边的图的正确解,以及有时会在速度上不如&lt;a href=&#34;https://rwwg.github.io/post/algorithm/spfa/&#34;&gt;SPFA&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Java8中ArrayList在一条语句中完成初始化的4种方法</title>
       <link>https://rwwg.github.io/post/java/arraylist_init/</link>
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
