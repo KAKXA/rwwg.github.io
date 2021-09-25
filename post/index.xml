@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>乐观锁,CAS算法与悲观锁</title>
+      <link>https://rwwg.github.io/post/java/opt_pes_lock/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/java/opt_pes_lock/</guid>
+      <description>&lt;p&gt;根据具体场景对于操作的认识不同,我们选用乐观锁或者悲观锁.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>正则表达式与Java中的应用</title>
       <link>https://rwwg.github.io/post/java/regex/</link>
       <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>

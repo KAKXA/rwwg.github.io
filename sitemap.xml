@@ -72,7 +72,21 @@
   </url>
   
   <url>
+    <loc>https://rwwg.github.io/tags/cas/</loc>
+    <lastmod>2021-09-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://rwwg.github.io/tags/regex/</loc>
+    <lastmod>2021-09-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rwwg.github.io/post/java/opt_pes_lock/</loc>
     <lastmod>2021-09-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

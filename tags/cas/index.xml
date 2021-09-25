@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CAS on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/cas/</link>
+    <description>Recent content in CAS on Ge&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 24 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/cas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>乐观锁,CAS算法与悲观锁</title>
+      <link>https://rwwg.github.io/post/java/opt_pes_lock/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/java/opt_pes_lock/</guid>
+      <description>&lt;p&gt;根据具体场景对于操作的认识不同,我们选用乐观锁或者悲观锁.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
