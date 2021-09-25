@@ -8,6 +8,15 @@
     <language>en</language>
     <lastBuildDate>Sat, 25 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Java8中把int[] 转为List&lt;Integer&gt;</title>
+      <link>https://rwwg.github.io/post/java/int_array_to_integer_list/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/java/int_array_to_integer_list/</guid>
+      <description>&lt;p&gt;int[]转List&amp;lt;Integer&amp;gt;的正确打开方式&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Leetcode 15 三数之和</title>
       <link>https://rwwg.github.io/post/algorithm/leetcode-15/</link>
       <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
