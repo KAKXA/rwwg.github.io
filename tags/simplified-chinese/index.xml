@@ -8,6 +8,15 @@
     <language>en</language>
     <lastBuildDate>Sat, 25 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Leetcode 15 三数之和</title>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-15/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-15/</guid>
+      <description>&lt;p&gt;这题展现了先固定再二分的思想&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>利用Map的put方法返回值实现的小trick</title>
       <link>https://rwwg.github.io/unpost/map_put_trick/</link>
       <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
