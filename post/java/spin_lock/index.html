@@ -49,7 +49,7 @@
 <meta itemprop="name" content="自旋锁">
 <meta itemprop="description" content="自旋锁"><meta itemprop="datePublished" content="2021-09-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-09-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="848">
+<meta itemprop="wordCount" content="845">
 <meta itemprop="keywords" content="lock,java,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="自旋锁"/>
 <meta name="twitter:description" content="自旋锁"/>
@@ -159,7 +159,7 @@
       <p>T-spin!</p>
 <h2 id="什么是自旋锁">什么是自旋锁</h2>
 <ul>
-<li>与互斥锁不同,当需要互斥访问时,自旋锁不需要将得不到资源的线程阻塞其阿里,而是会等待,间隔一段时间后尝试获取,</li>
+<li>与互斥锁不同,当需要互斥访问时,自旋锁不需要将得不到资源的线程阻塞,而是会等待,间隔一段时间后尝试获取,</li>
 </ul>
 <h2 id="存在的问题">存在的问题</h2>
 <p>如果长时间上自旋锁,会非常耗费性能,它阻止了其他线程的运行和调度.线程持有锁的时间越长,则持有该锁的线程将被OS调度程序中断的风险越大.如果发生中断情况,那么其他线程将保持旋转状态,而持有该锁的线程并不打算释放锁.</p>
