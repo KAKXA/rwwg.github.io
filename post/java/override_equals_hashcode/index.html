@@ -49,7 +49,7 @@
 <meta itemprop="name" content="重写equals和hashcode方法的原则与代码">
 <meta itemprop="description" content="重写equlas和hashcode方法的原则与代码"><meta itemprop="datePublished" content="2021-09-27T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-09-27T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="852">
+<meta itemprop="wordCount" content="868">
 <meta itemprop="keywords" content="Simplified Chinese,java," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="重写equals和hashcode方法的原则与代码"/>
 <meta name="twitter:description" content="重写equlas和hashcode方法的原则与代码"/>
@@ -145,7 +145,7 @@
   </div>
 </div>
     <div class="post-content">
-      <p>这里以<code>IDEA</code>自动生成的<code>cequlas</code>重写代码为例,讲述正确的写法</p>
+      <p>这里以<code>IDEA</code>自动生成的<code>equals</code>与<code>hashcode</code>重写代码为例,讲述正确的写法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -206,6 +206,7 @@
 </ol>
 </li>
 </ol>
+<p>以上原则摘自<a href="https://www.java67.com/2013/04/example-of-overriding-equals-hashcode-compareTo-java-method.html">这里</a></p>
 <h2 id="为什么instanceof会破坏equals的对称性">为什么<code>instanceof</code>会破坏<code>equals</code>的对称性</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

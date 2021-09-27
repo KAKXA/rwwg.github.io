@@ -13,7 +13,7 @@
       <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/post/java/override_equals_hashcode/</guid>
-      <description>&lt;p&gt;这里以&lt;code&gt;IDEA&lt;/code&gt;自动生成的&lt;code&gt;cequlas&lt;/code&gt;重写代码为例,讲述正确的写法&lt;/p&gt;</description>
+      <description>&lt;p&gt;这里以&lt;code&gt;IDEA&lt;/code&gt;自动生成的&lt;code&gt;equals&lt;/code&gt;与&lt;code&gt;hashcode&lt;/code&gt;重写代码为例,讲述正确的写法&lt;/p&gt;</description>
     </item>
     
     <item>
