@@ -17,15 +17,6 @@
     </item>
     
     <item>
-      <title>利用Map的put方法返回值实现的小trick</title>
-      <link>https://rwwg.github.io/unpost/map_put_trick/</link>
-      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/unpost/map_put_trick/</guid>
-      <description>&lt;p&gt;简单题也有巧妙的做法?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>自旋锁</title>
       <link>https://rwwg.github.io/post/java/spin_lock/</link>
       <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
