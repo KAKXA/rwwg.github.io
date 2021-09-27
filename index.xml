@@ -8,6 +8,15 @@
     <language>en</language>
     <lastBuildDate>Mon, 27 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Comparable与Comparator的使用时机</title>
+      <link>https://rwwg.github.io/post/java/comparator_comparable/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/java/comparator_comparable/</guid>
+      <description>&lt;p&gt;&lt;code&gt;Comparator&lt;/code&gt;接口&lt;code&gt;compare&lt;/code&gt;,&lt;code&gt;Comparable&lt;/code&gt;接口&lt;code&gt;compareTo&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>重写equals和hashcode方法的原则与代码</title>
       <link>https://rwwg.github.io/post/java/override_equals_hashcode/</link>
       <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
