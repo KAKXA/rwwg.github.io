@@ -6,7 +6,16 @@
     <description>Recent content in java on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用Map的put方法返回值实现的小trick</title>
+      <link>https://rwwg.github.io/post/algorithm/map_put_trick/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/map_put_trick/</guid>
+      <description>&lt;p&gt;简单题也有巧妙的做法?&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Java8中把int[] 转为List&lt;Integer&gt;</title>
       <link>https://rwwg.github.io/post/java/int_array_to_integer_list/</link>
