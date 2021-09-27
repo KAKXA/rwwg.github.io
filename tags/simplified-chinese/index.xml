@@ -6,7 +6,16 @@
     <description>Recent content in Simplified Chinese on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>重写equals和hashcode方法的原则与代码</title>
+      <link>https://rwwg.github.io/post/java/override_equals_hashcode/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/java/override_equals_hashcode/</guid>
+      <description>&lt;p&gt;这里以&lt;code&gt;IDEA&lt;/code&gt;自动生成的&lt;code&gt;cequlas&lt;/code&gt;重写代码为例,讲述正确的写法&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>利用Map的put方法返回值实现的小trick</title>
       <link>https://rwwg.github.io/post/algorithm/map_put_trick/</link>
