@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>LCP 47. 入场安检 - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="力扣杯2021年秋赛-团队赛第4题" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/algorithm/lcp_47/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="LCP 47. 入场安检" />
+<meta property="og:description" content="力扣杯2021年秋赛-团队赛第4题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/algorithm/lcp_47/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-27T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-09-27T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="LCP 47. 入场安检">
+<meta itemprop="description" content="力扣杯2021年秋赛-团队赛第4题"><meta itemprop="datePublished" content="2021-09-27T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-09-27T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1383">
+<meta itemprop="keywords" content="Simplified Chinese,leetcode,dp," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LCP 47. 入场安检"/>
+<meta name="twitter:description" content="力扣杯2021年秋赛-团队赛第4题"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">LCP 47. 入场安检</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-09-27 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#如何做">如何做</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>这是力扣杯2021年秋赛-团队赛第4题,记录一下.DP的细节非常重要,要尽可能避免复杂的初始状态,让DP的迭代过程尽可能地处理,而不是人为把初始状态过了一步的状态算出来,然后DP却少一轮迭代.这个算一步后状态的过程难以考虑到所有情况,尤其是迭代轮数只有1轮甚至0轮,dp数组大小为1的corner case,极其容易出错</p>
+<p><a href="https://leetcode-cn.com/problems/oPs9Bm/">LCP 47. 入场安检</a></p>
+<p>「力扣挑战赛」 的入场仪式马上就要开始了，由于安保工作的需要，设置了可容纳人数总和为 M 的 N 个安检室，capacities[i] 记录第 i 个安检室可容纳人数。安检室拥有两种类型：</p>
+<pre><code>先进先出：在安检室中的所有观众中，最早进入安检室的观众最先离开
+后进先出：在安检室中的所有观众中，最晚进入安检室的观众最先离开
+</code></pre>
+<p><img src="https://pic.leetcode-cn.com/1628843202-cdFPSt-c24754f1a5ff56989340ba5004dc5eda.gif" alt=""></p>
+<p>恰好 M+1 位入场的观众（编号从 0 开始）需要排队依次入场安检， 入场安检的规则如下：</p>
+<pre><code>观众需要先进入编号 0 的安检室
+当观众将进入编号 i 的安检室时（0 &lt;= i &lt; N)，
+    若安检室未到达可容纳人数上限，该观众可直接进入；
+    若安检室已到达可容纳人数上限，在该观众进入安检室之前需根据当前安检室类型选择一位观众离开后才能进入；
+当观众离开编号 i 的安检室时 （0 &lt;= i &lt; N-1)，将进入编号 i+1 的安检室接受安检。
+</code></pre>
+<p>若可以任意设定每个安检室的类型，请问有多少种设定安检室类型的方案可以使得编号 k 的观众第一个通过最后一个安检室入场。</p>
+<p>注意：</p>
+<pre><code>观众不可主动离开安检室，只有当安检室容纳人数达到上限，且又有新观众需要进入时，才可根据安检室的类型选择一位观众离开；
+由于方案数可能过大，请将答案对 1000000007 取模后返回。
+</code></pre>
+<h2 id="如何做">如何做</h2>
+<p>先看看比赛时我的错误解法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">securityCheck</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">capacities</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">MOD</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">1e9</span> <span class="o">+</span> <span class="n">7</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">capacities</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">k</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
+        <span class="n">dp</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">capacities</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">1</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">dp</span><span class="o">[</span><span class="n">capacities</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">0</span><span class="o">;</span> <span class="o">--</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// for(int i = n - 1; i &gt;= 0; --i) {
+</span><span class="c1"></span>            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span><span class="o">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">0</span><span class="o">;</span> <span class="o">--</span><span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="n">capacities</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">t</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">dp</span><span class="o">[</span><span class="n">t</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">dp</span><span class="o">[</span><span class="n">t</span><span class="o">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">k</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>再看正解</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">securityCheck</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">capacities</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">MOD</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">1e9</span> <span class="o">+</span> <span class="n">7</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">capacities</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">k</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
+        <span class="n">dp</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+        <span class="c1">// if (capacities[n - 1] - 1 &lt;= k) {
+</span><span class="c1"></span>        <span class="c1">//     dp[capacities[n - 1] - 1] = 1;
+</span><span class="c1"></span>        <span class="c1">// }
+</span><span class="c1"></span>
+        <span class="c1">// for(int i = n - 2; i &gt;= 0; --i) {
+</span><span class="c1"></span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">0</span><span class="o">;</span> <span class="o">--</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span><span class="o">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">0</span><span class="o">;</span> <span class="o">--</span><span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="n">capacities</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">t</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">dp</span><span class="o">[</span><span class="n">t</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">dp</span><span class="o">[</span><span class="n">t</span><span class="o">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">k</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>聪明的你能发现错误解的corner case吗?</p>
+<blockquote>
+<p>想一想</p>
+<p>想一想</p>
+<p>想一想</p>
+<p>想一想</p>
+<p>想一想</p>
+<p>想一想</p>
+<p>想一想</p>
+<p>想一想</p>
+<p>想一想</p>
+</blockquote>
+<p>corner case就是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span><span class="o">[]</span> <span class="n">capacities</span> <span class="o">=</span> <span class="o">{...,</span><span class="n">1</span><span class="o">};</span>
+<span class="c1">// 最后一个安检室容量为1的情况
+</span></code></pre></td></tr></table>
+</div>
+</div><p>分析一下,只有一个容量为1的安检室,那么无论时先进先出还是后进先出,第0个人一定是第一个结束安检的,故答案是2</p>
+<p>那我们的错解是怎么错的呢?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">        <span class="n">dp</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+        <span class="c1">// dp[0]在上面被赋上了1,又被下面重新赋上了1
+</span><span class="c1"></span>        <span class="c1">// 但我们最初的意图本来是,前面的表示队列要求的前面人数,后面的表示栈要求的前面人数
+</span><span class="c1"></span>        <span class="c1">// 我天真地假定这两个1一定在不同的位置
+</span><span class="c1"></span>        <span class="c1">// 但是当容量为1时,两种情况恰好同时出现在了0这个位置
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">capacities</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">1</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">dp</span><span class="o">[</span><span class="n">capacities</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 正是我进行了一步不必要的赋值操作,使得迭代轮数少了一次
+</span><span class="c1"></span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">0</span><span class="o">;</span> <span class="o">--</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// for(int i = n - 1; i &gt;= 0; --i) {
+</span><span class="c1"></span>            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span><span class="o">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">0</span><span class="o">;</span> <span class="o">--</span><span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="n">capacities</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">t</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">dp</span><span class="o">[</span><span class="n">t</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">dp</span><span class="o">[</span><span class="n">t</span><span class="o">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>那么,正确解是什么思想呢?那就是把最终安检室再模拟出了一个安检室,强制要求到最后一个安检室是,前面只能有0个人:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">        <span class="n">dp</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这样,就能完整迭代<code>n</code>轮,没有边界条件能让算法失败.</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-09-27
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          <a href="/tags/leetcode/">leetcode</a>
+          <a href="/tags/dp/">dp</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/java/comparator_comparable/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Comparable与Comparator的使用时机</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/java/override_equals_hashcode/">
+            <span class="next-text nav-default">重写equals和hashcode方法的原则与代码</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

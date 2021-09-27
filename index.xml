@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>LCP 47. 入场安检</title>
+      <link>https://rwwg.github.io/post/algorithm/lcp_47/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/lcp_47/</guid>
+      <description>&lt;p&gt;这是力扣杯2021年秋赛-团队赛第4题,记录一下.DP的细节非常重要,要尽可能避免复杂的初始状态,让DP的迭代过程尽可能地处理,而不是人为把初始状态过了一步的状态算出来,然后DP却少一轮迭代.这个算一步后状态的过程难以考虑到所有情况,尤其是迭代轮数只有1轮甚至0轮,dp数组大小为1的corner case,极其容易出错&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>重写equals和hashcode方法的原则与代码</title>
       <link>https://rwwg.github.io/post/java/override_equals_hashcode/</link>
       <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
