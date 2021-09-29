@@ -8,15 +8,6 @@
     <language>en</language>
     <lastBuildDate>Wed, 29 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>430. 扁平化多级双向链表</title>
-      <link>https://rwwg.github.io/post/algorithm/leetcode-430/</link>
-      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/post/algorithm/leetcode-430/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Leetcode 42. 接雨水</title>
       <link>https://rwwg.github.io/post/algorithm/leetcode-42/</link>
       <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
@@ -26,12 +17,30 @@
     </item>
     
     <item>
+      <title>Leetcode 430. 扁平化多级双向链表</title>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-430/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-430/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Trie的Java实现</title>
       <link>https://rwwg.github.io/post/algorithm/trie_java/</link>
       <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/post/algorithm/trie_java/</guid>
       <description>&lt;p&gt;早该实现实现了&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>面试题 17.14. 最小K个数</title>
+      <link>https://rwwg.github.io/post/algorithm/lcci-17_14/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/lcci-17_14/</guid>
+      <description>&lt;p&gt;快选快排,早该写写了&lt;/p&gt;</description>
     </item>
     
     <item>

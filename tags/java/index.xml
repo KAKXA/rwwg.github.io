@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>面试题 17.14. 最小K个数</title>
+      <link>https://rwwg.github.io/post/algorithm/lcci-17_14/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/lcci-17_14/</guid>
+      <description>&lt;p&gt;快选快排,早该写写了&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Comparable与Comparator的使用时机</title>
       <link>https://rwwg.github.io/post/java/comparator_comparable/</link>
       <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>

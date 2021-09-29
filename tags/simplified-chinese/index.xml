@@ -8,21 +8,21 @@
     <language>en</language>
     <lastBuildDate>Wed, 29 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/simplified-chinese/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>430. 扁平化多级双向链表</title>
-      <link>https://rwwg.github.io/post/algorithm/leetcode-430/</link>
-      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/post/algorithm/leetcode-430/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Leetcode 42. 接雨水</title>
       <link>https://rwwg.github.io/post/algorithm/leetcode-42/</link>
       <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/post/algorithm/leetcode-42/</guid>
       <description>&lt;p&gt;我常因为自己做过此题感受过单调栈的地狱难度并看过题解但仍不会此题而莫名焦虑&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 430. 扁平化多级双向链表</title>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-430/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-430/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -41,6 +41,15 @@
       
       <guid>https://rwwg.github.io/post/algorithm/unionfind_java/</guid>
       <description>&lt;p&gt;比起网上流传最广的也是最快的用数组维护的模板,我使用了&lt;code&gt;HashMap&lt;/code&gt;维护,会慢一些,但是实现了对泛型的支持&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>面试题 17.14. 最小K个数</title>
+      <link>https://rwwg.github.io/post/algorithm/lcci-17_14/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/lcci-17_14/</guid>
+      <description>&lt;p&gt;快选快排,早该写写了&lt;/p&gt;</description>
     </item>
     
     <item>
