@@ -8,6 +8,15 @@
     <language>en</language>
     <lastBuildDate>Wed, 29 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>430. 扁平化多级双向链表</title>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-430/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-430/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Leetcode 42. 接雨水</title>
       <link>https://rwwg.github.io/post/algorithm/leetcode-42/</link>
       <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
