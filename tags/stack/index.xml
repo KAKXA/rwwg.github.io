@@ -6,7 +6,16 @@
     <description>Recent content in stack on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/stack/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/stack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 42. 接雨水</title>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-42/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-42/</guid>
+      <description>&lt;p&gt;我常因为自己做过此题感受过单调栈的地狱难度并看过题解但仍不会此题而莫名焦虑&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Leetcod 173: Binary Search Tree Iterator</title>
       <link>https://rwwg.github.io/post/algorithm/leetcode-173/</link>
