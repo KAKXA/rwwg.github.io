@@ -49,7 +49,7 @@
 <meta itemprop="name" content="差分数组与树上差分">
 <meta itemprop="description" content="差分数组与树上差分"><meta itemprop="datePublished" content="2021-09-23T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-09-23T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="472">
+<meta itemprop="wordCount" content="555">
 <meta itemprop="keywords" content="Simplified Chinese,difference,algorithm," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="差分数组与树上差分"/>
 <meta name="twitter:description" content="差分数组与树上差分"/>
@@ -139,7 +139,8 @@
       <ul>
         <li><a href="#差分数组">差分数组</a>
           <ul>
-            <li><a href="#模板题">模板题</a></li>
+            <li><a href="#模板题1">模板题1</a></li>
+            <li><a href="#模板题2">模板题2</a></li>
           </ul>
         </li>
         <li><a href="#树上差分">树上差分</a></li>
@@ -155,7 +156,7 @@
 <ul>
 <li>用于处理含有一维离散点和区操作的题目</li>
 </ul>
-<h3 id="模板题">模板题</h3>
+<h3 id="模板题1">模板题1</h3>
 <p>现有一无限长的直线，每次操作给出$[L,R]$对某线段进行覆盖，在$M$次操作后求任意整数<code>target</code>点被覆盖的次数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -273,6 +274,44 @@
             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">re</span><span class="o">);</span>
             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">);</span>
         <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="模板题2">模板题2</h3>
+<p><a href="https://leetcode-cn.com/problems/corporate-flight-bookings/">1109. 航班预订统计</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">corpFlightBookings</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">bookings</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">booking</span> <span class="o">:</span> <span class="n">bookings</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">nums</span><span class="o">[</span><span class="n">booking</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">+=</span> <span class="n">booking</span><span class="o">[</span><span class="n">2</span><span class="o">];</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">booking</span><span class="o">[</span><span class="n">1</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">booking</span><span class="o">[</span><span class="n">1</span><span class="o">]]</span> <span class="o">-=</span> <span class="n">booking</span><span class="o">[</span><span class="n">2</span><span class="o">];</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">1</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">nums</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
