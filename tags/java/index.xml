@@ -6,7 +6,16 @@
     <description>Recent content in java on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的Java并查集模板</title>
+      <link>https://rwwg.github.io/post/algorithm/unionfind_java/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/unionfind_java/</guid>
+      <description>&lt;p&gt;比起网上流传最广的也是最快的用数组维护的模板,我使用了&lt;code&gt;HashMap&lt;/code&gt;维护,会慢一些,但是实现了对泛型的支持&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Comparable与Comparator的使用时机</title>
       <link>https://rwwg.github.io/post/java/comparator_comparable/</link>
