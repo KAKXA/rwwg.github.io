@@ -6,7 +6,43 @@
     <description>Recent content in Posts on Ge&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CAS重试为啥不用等待随机时间?</title>
+      <link>https://rwwg.github.io/post/othercs/cas%E9%87%8D%E8%AF%95%E4%B8%BA%E5%95%A5%E4%B8%8D%E7%94%A8%E7%AD%89%E5%BE%85%E9%9A%8F%E6%9C%BA%E6%97%B6%E9%97%B4/</link>
+      <pubDate>Fri, 13 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/othercs/cas%E9%87%8D%E8%AF%95%E4%B8%BA%E5%95%A5%E4%B8%8D%E7%94%A8%E7%AD%89%E5%BE%85%E9%9A%8F%E6%9C%BA%E6%97%B6%E9%97%B4/</guid>
+      <description>&lt;p&gt;很难想象我提出这个问题的脑回路&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 1994 好子集的数目</title>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-1994/</link>
+      <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-1994/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MapReduce</title>
+      <link>https://rwwg.github.io/post/systemdesign/mapreduce/</link>
+      <pubDate>Mon, 21 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/systemdesign/mapreduce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Leetcode 1542 找出最长的超赞子字符串</title>
+      <link>https://rwwg.github.io/post/algorithm/leetcode-1542/</link>
+      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/algorithm/leetcode-1542/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Leetcode 42. 接雨水</title>
       <link>https://rwwg.github.io/post/algorithm/leetcode-42/</link>
@@ -144,15 +180,6 @@
       
       <guid>https://rwwg.github.io/post/java/opt_pes_lock/</guid>
       <description>&lt;p&gt;根据具体场景对于操作的认识不同,我们选用乐观锁或者悲观锁.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>正则表达式与Java中的应用</title>
-      <link>https://rwwg.github.io/post/java/regex/</link>
-      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/post/java/regex/</guid>
-      <description>&lt;p&gt;正则表达式主要用于复杂字符串处理.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -922,6 +949,15 @@
       
       <guid>https://rwwg.github.io/post/cpp/cpp/</guid>
       <description>C++ Unit 5 循环和关系表达式 表达式+分号=语句</description>
+    </item>
+    
+    <item>
+      <title>正则表达式与Java中的应用</title>
+      <link>https://rwwg.github.io/post/java/regex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/java/regex/</guid>
+      <description>&lt;p&gt;正则表达式主要用于复杂字符串处理.&lt;/p&gt;</description>
     </item>
     
   </channel>

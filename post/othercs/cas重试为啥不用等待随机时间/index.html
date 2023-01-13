@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>CAS重试为啥不用等待随机时间? - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="这也叫问题?" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/othercs/cas%E9%87%8D%E8%AF%95%E4%B8%BA%E5%95%A5%E4%B8%8D%E7%94%A8%E7%AD%89%E5%BE%85%E9%9A%8F%E6%9C%BA%E6%97%B6%E9%97%B4/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="CAS重试为啥不用等待随机时间?" />
+<meta property="og:description" content="这也叫问题?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/othercs/cas%E9%87%8D%E8%AF%95%E4%B8%BA%E5%95%A5%E4%B8%8D%E7%94%A8%E7%AD%89%E5%BE%85%E9%9A%8F%E6%9C%BA%E6%97%B6%E9%97%B4/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-01-13T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2023-01-13T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="CAS重试为啥不用等待随机时间?">
+<meta itemprop="description" content="这也叫问题?"><meta itemprop="datePublished" content="2023-01-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2023-01-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1477">
+<meta itemprop="keywords" content="Simplified Chinese,CAS," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CAS重试为啥不用等待随机时间?"/>
+<meta name="twitter:description" content="这也叫问题?"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">CAS重试为啥不用等待随机时间?</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-01-13 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cas是什么">CAS是什么</a></li>
+        <li><a href="#为什么不用等待随机时间">为什么不用等待随机时间</a></li>
+        <li><a href="#cas的本质">CAS的本质</a></li>
+        <li><a href="#和csmacd碰撞的区别">和CSMA/CD碰撞的区别</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>很难想象我提出这个问题的脑回路</p>
+<h2 id="cas是什么">CAS是什么</h2>
+<p>是一种<strong>原子操作</strong></p>
+<ul>
+<li>操作数
+<ul>
+<li>V: 需要读写的内存位置</li>
+<li>A: 进行比较的预期原值</li>
+<li>B: 拟写入的新值</li>
+</ul>
+</li>
+<li>步骤
+<ul>
+<li>如果V处的值与预期原值A相匹配,处理器自动将该位置更新为新值B.返回V处的值</li>
+<li>如果不匹配，根据V处的值更新预期原值A</li>
+</ul>
+</li>
+<li>意义
+<ul>
+<li>告诉了这个位置现在的值,让操作者自行判断有没有更新成功,要不要手动重新尝试</li>
+</ul>
+</li>
+</ul>
+<h2 id="为什么不用等待随机时间">为什么不用等待随机时间</h2>
+<p>通过CAS失败后重试的这个场景,可以很快联想到数据链路层的CSMA/CD协议.CSMA/CD在遇到总线上有数据碰撞的情况,会运行<strong>截断二进制指数退避算法</strong>,即不是等待信道空闲后立即发送数据,而是退避一个随机的时间,以减少发生碰撞的概率.</p>
+<p>直观上看,发生碰撞好像和CAS的比较返回false很类似,所以下意识地认为CAS也需要一个等待随机时间后重传的机制,以减少发生compare这一步失败的情况.很可惜,这种直觉是<strong>错误的</strong>.</p>
+<h2 id="cas的本质">CAS的本质</h2>
+<p>要搞明白为什么不需要等待随机时间,我们需要理解CAS的本质.都知道CAS保证了同步性,那么什么是同步性?</p>
+<p>假设有N个线程同时用CAS的方式写一个变量,如果不使用CAS,会发生什么情况呢?</p>
+<ul>
+<li>
+<p>如果所有写操作都是<strong>不依赖于变量原值的写</strong>,那么CAS可有可无</p>
+</li>
+<li>
+<p>如果写操作的值<strong>是在service层中</strong>通过<strong>变量原值</strong>算出来的,那么CAS就有它的存在意义了,考虑转账场景</p>
+<ul>
+<li>
+<p>有两个并发的线程,分别是A给C转50元,B给C转50元.假设C账户中原本有0元</p>
+</li>
+<li>
+<p>没有CAS的情况下</p>
+<ul>
+<li>假设A,B都读到C账户中有0元</li>
+<li>A的线程执行稍快些,先把C的账户钱数修改为0+50元</li>
+<li>B的线程执行的稍慢些,把C的账户钱数修改为0+50=50元</li>
+</ul>
+<p>很明显,有50元凭空消失了</p>
+</li>
+<li>
+<p>有CAS的情况下,这时调用的是<code>AtomicInteger</code>的<code>addAndGet(int delta)</code>方法</p>
+<ul>
+<li>A,B对于C账户先是处于一无所知的状态,假定认为C账户中有1元</li>
+<li>A线程执行稍快些,CAS的compare操作读到C账户中是0元,与预期值1元不符,将预期值修改为0;进入下一次循环</li>
+<li>B线程执行稍慢些,和A的步骤一样,把预期值修改为0元</li>
+<li>A执行稍快些,CAS的compare操作读到C账户中是0元,与预期值相同,将预期值用set操作改为0+50(注意set操作是原子性的(用native方法实现),中间步骤不可被打断)</li>
+<li>B执行稍慢些,读到C账户中是50元,与预期值0不同,将预期值改为50,进入下一次循环</li>
+<li>B线程读到C账户中50元,与预期值相同,将预期值用set操作改为50+50=100</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="和csmacd碰撞的区别">和CSMA/CD碰撞的区别</h2>
+<p>我们将“步骤”中的两种情况，第一种定义为“单个线程CAS成功”，第二种定义为“单个线程CAS失败”。</p>
+<p>现在可以定义“使用CAS完成有效写入”了：$N$个进程CAS并发写一处$V$时，发生一次“单个线程CAS成功”；为了方便，我们将每个进程的CAS步骤的最坏时间定为 t ms。</p>
+<p>下面我们将证明两次“使用CAS完成有效写入的最大时间间隔”是线性相关于线程总数$N$的;</p>
+<p>$N + 1\times t$秒内，至少一个进程完成了两次CAS是不言自明的,不妨设是线程P在第$i$, $j$次完成的。若$s \in {1,&hellip;,j - 1}$没有发生“单个线程CAS成功”，则由于P在第$i$次更新的预期值A和第$j$次读取V得到的值相符,第j次一定发生了“单个线程CAS成功”。</p>
+<p>因此，我们证明了任何$N + 1 \times t$ ms内一定发生一次“单个线程CAS成功”。所以“使用CAS完成有效写入的最大时间间隔”是$N + 1 \times t$ ms。</p>
+<p>再来看CSMA/CD,每次碰撞最坏情况下没有一个帧能发送成功,如果没有随机等待时间,都立刻重发,然后又碰撞,最坏的完成传输的时间是无穷.</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-01-13
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          <a href="/tags/cas/">CAS</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/algorithm/leetcode-1994/">
+            <span class="next-text nav-default">Leetcode 1994 好子集的数目</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

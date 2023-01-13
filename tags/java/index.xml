@@ -102,15 +102,6 @@
     </item>
     
     <item>
-      <title>正则表达式与Java中的应用</title>
-      <link>https://rwwg.github.io/post/java/regex/</link>
-      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/post/java/regex/</guid>
-      <description>&lt;p&gt;正则表达式主要用于复杂字符串处理.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Java8中ArrayList在一条语句中完成初始化的4种方法</title>
       <link>https://rwwg.github.io/post/java/arraylist_init/</link>
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>

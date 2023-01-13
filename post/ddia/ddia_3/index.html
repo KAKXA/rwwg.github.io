@@ -49,7 +49,7 @@
 <meta itemprop="name" content="DDIA:3.存储与检索">
 <meta itemprop="description" content="DDIA:3.存储与检索"><meta itemprop="datePublished" content="2021-08-03T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-08-03T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="4566">
+<meta itemprop="wordCount" content="4572">
 <meta itemprop="keywords" content="Simplified Chinese,DDIA,database," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="DDIA:3.存储与检索"/>
 <meta name="twitter:description" content="DDIA:3.存储与检索"/>
@@ -278,7 +278,7 @@
 <ol>
 <li>写入时,将其添加到内存中的平衡树数据结构,称为内存表</li>
 <li>当内存表大于某个阈值时,将其作为SSTable写入磁盘</li>
-<li>为了提供读取请求,查找的顺序是:内存表-&gt;最近的磁盘段-&gt;下一个较旧的段</li>
+<li><strong>为了提供读取请求,查找的顺序是:内存表-&gt;最近的磁盘段-&gt;下一个较旧的段</strong></li>
 <li>在后台运行合并和压缩过程以<strong>组合段文件</strong>,<strong>丢弃覆盖或删除的值</strong>.</li>
 </ol>
 <ul>
@@ -294,11 +294,8 @@
 </ul>
 <h3 id="性能优化">性能优化</h3>
 <ul>
-<li>
-<p>为了优化查找数据库中不存在的键的处理速度,存储引擎使用Bloom过滤器</p>
-</li>
-<li>
-<p>为了确定SSTables被压缩和合并的顺序和时间,有以下两种策略</p>
+<li>为了优化查找数据库中不存在的键的处理速度,存储引擎使用Bloom过滤器</li>
+<li>为了确定SSTables被压缩和合并的顺序和时间,有以下两种策略
 <ul>
 <li>size-tiered
 <ul>
@@ -312,6 +309,7 @@
 </li>
 </ul>
 </li>
+<li>LSM树: <a href="https://zhuanlan.zhihu.com/p/415799237">https://zhuanlan.zhihu.com/p/415799237</a></li>
 </ul>
 <h1 id="b-tree就地更新学派">B-Tree(就地更新学派)</h1>
 <ul>
@@ -616,7 +614,7 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
   </span>
 </div>
 

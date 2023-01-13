@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>MapReduce - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="MapReduce" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/systemdesign/mapreduce/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="MapReduce" />
+<meta property="og:description" content="MapReduce" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/systemdesign/mapreduce/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-21T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-02-21T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="MapReduce">
+<meta itemprop="description" content="MapReduce"><meta itemprop="datePublished" content="2022-02-21T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-02-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1062">
+<meta itemprop="keywords" content="Simplified Chinese,system design,map reduce," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MapReduce"/>
+<meta name="twitter:description" content="MapReduce"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">MapReduce</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-02-21 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#步骤">步骤</a>
+          <ul>
+            <li><a href="#map步骤">Map步骤</a></li>
+            <li><a href="#聚合处理">聚合处理</a></li>
+            <li><a href="#reduce步骤">Reduce步骤</a></li>
+          </ul>
+        </li>
+        <li><a href="#举例">举例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>当用户发起对一个数据库的查询请求时,怎么样提升响应的速度呢?假设磁盘的IO足够大,我们应该让多个查询指令并行,最后用小到可以忽略的串行步骤来将结果算出来,那么,怎么用一个抽象模型把这些步骤概括出来呢?这就要用到MapReduce了.</p>
+<h2 id="步骤">步骤</h2>
+<p>参考了https://blog.csdn.net/u010801439/article/details/71104794</p>
+<p><a href="https://blog.csdn.net/u010801439/article/details/71104794">https://blog.csdn.net/u010801439/article/details/71104794</a></p>
+<h3 id="map步骤">Map步骤</h3>
+<h4 id="抽象为键值对的形式">抽象为键值对的形式</h4>
+<p>这一步不一定需要在磁盘上实际写入,但是要有这么一个概念,把磁盘上的数据抽象为键值对的形式.在MapReduce中,键值对是最小的单位</p>
+<h4 id="切片">切片</h4>
+<ul>
+<li>因为要并行,所以要给磁盘(数据库)进行分块.如何分块呢?你可以用到像blockS	ize这样的参数来决定一个分块的大小.</li>
+<li>需要注意的是,无论一个文件有多么小,都不要将它和其它文件组成一个block,而是将其作为一个独立的block存在</li>
+<li>除了blockSize以外,还可以用到splitSlop这样的参数,来保证如果一个文件的大小S满足$blockSize &lt; S \leq blockSize \times splitSlop$时,只要将其分为一个大小为S的块即可,不用分成两个.</li>
+</ul>
+<h4 id="map函数处理">map函数处理</h4>
+<p>map函数对切片分别做处理,以键值作为输入,将<strong>一系列</strong>新的键值对作为中间结果输出到本地</p>
+<h3 id="聚合处理">聚合处理</h3>
+<p>每个map函数的输出聚合起来,将键相同的数据分发给reduce函数处理</p>
+<h3 id="reduce步骤">Reduce步骤</h3>
+<p>reduce函数以键和对应的值的集合作为输入,经过reduce函数的处理后,产生了另外一系列键值对作为最终输出</p>
+<h2 id="举例">举例</h2>
+<p>(取自:https://blog.csdn.net/u010801439/article/details/71104794)</p>
+<p>有一篮苹果，一些是红苹果，一些是青苹果，每个苹果有一个唯一编号，要解决的问题是统计该篮苹果的数目、红苹果(深色)的个数和青苹果(浅色)的个数。</p>
+<p><img src="https://img-blog.csdn.net/20170502224831447?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDgwMTQzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img">
+A的map函数的输入的格式为键值对appleId-count,表示appleId为11的苹果个数为1，经过map函数的累和，即将所有appleId的count相加，输出为新的键值对AppleCount-6，此时B也进行同样的操作，由于A和B的map函数输出的键值对的键相同，都为“AppIeCount&quot;，所以MapReduce框架会将其都分发到C作为reduce函数的输入，并在reduce函数中完成对键相同的值的累和，并输出最后结果AppleCount-12。如果用表达式表示，即为:</p>
+<p><strong>(appleId, count}一&gt;(AppleCount，List<count>}一&gt;{AppleCount，count}</strong></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-02-21
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          <a href="/tags/system-design/">system design</a>
+          <a href="/tags/map-reduce/">map reduce</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/algorithm/leetcode-1994/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Leetcode 1994 好子集的数目</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/algorithm/leetcode-1542/">
+            <span class="next-text nav-default">Leetcode 1542 找出最长的超赞子字符串</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

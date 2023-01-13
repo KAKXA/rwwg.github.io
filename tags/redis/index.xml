@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redis on Ge&#39;s Blog</title>
+    <link>https://rwwg.github.io/tags/redis/</link>
+    <description>Recent content in redis on Ge&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 06 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis5设计与源码分析 第二章 简单动态字符串</title>
+      <link>https://rwwg.github.io/unpost/redis5_source_1/</link>
+      <pubDate>Sat, 06 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/unpost/redis5_source_1/</guid>
+      <description>&lt;p&gt;简单动态字符串(SDS)是Redis的基本数据结构之一,用于存储字符串和整型数据&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
