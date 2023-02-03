@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>操作系统 - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="操作系统" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/othercs/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="操作系统" />
+<meta property="og:description" content="操作系统" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/othercs/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-01T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-03-01T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="操作系统">
+<meta itemprop="description" content="操作系统"><meta itemprop="datePublished" content="2022-03-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-03-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2904">
+<meta itemprop="keywords" content="Simplified Chinese," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="操作系统"/>
+<meta name="twitter:description" content="操作系统"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">操作系统</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-03-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#操作系统基本理论">操作系统基本理论</a></li>
+        <li><a href="#陷入内核">陷入内核</a></li>
+        <li><a href="#如何避免僵尸进程">如何避免僵尸进程</a></li>
+        <li><a href="#进程">进程</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="操作系统基本理论">操作系统基本理论</h2>
+<ul>
+<li>
+<p>操作系统的基本特征</p>
+<ul>
+<li>并发(同时运行多个程序);并行(同时运行多个指令)</li>
+<li>共享</li>
+<li>虚拟(时分复用: 每个进程轮流占用处理器)(空分复用: 虚拟内存.每个进程有各自的地址空间)</li>
+<li>异步,不是一次性执行完毕,而是以不可知的速度推进</li>
+</ul>
+</li>
+<li>
+<p>系统调用</p>
+<ul>
+<li>进程在用户态需要使用内核态的功能,就需要进行系统调用,陷入内核</li>
+</ul>
+</li>
+<li>
+<p>宏内核微内核</p>
+<ul>
+<li>宏内核: 操作系统整体为内核</li>
+<li>微内核:  划分成小的,定义良好的模块,只有微内核在内核态,其它模块运行在用户态</li>
+</ul>
+</li>
+<li>
+<p>中断分类</p>
+<ul>
+<li>外中断(IO完成中断,时钟中断,控制台中断)</li>
+<li>异常(CPU执行指令的内部事件引起)</li>
+<li>陷入(用户程序中使用系统调用)</li>
+</ul>
+</li>
+<li>
+<p>线程,进程区别</p>
+<ul>
+<li>进程是资源分配的基本单位;线程不拥有资源但可以访问隶属于进程的资源</li>
+<li>线程是调度的基本单位</li>
+<li>进程开销创建撤销,切换开销更大</li>
+<li>线程剋有通过直接读写同一进程中的数据进行通信</li>
+</ul>
+</li>
+<li>
+<p>生产者-消费者问题</p>
+<ul>
+<li>要先测试信号量,再对缓冲区加锁.否则:
+<ul>
+<li>先加锁后,再把信号量减到0,生产者就休眠了,而消费者无法进入临界区,也就不能增加信号量的值.所以信号量永远为0,锁永远不被释放,消费者永远等待</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>管程</p>
+<ul>
+<li>让信号量控制更容易被客户端代码调用,不容易出错</li>
+<li>一时刻只能由一个进程使用管程</li>
+</ul>
+</li>
+<li>
+<p>协程: Python中有实现,Java中也有但并不多见(Quasar)</p>
+<ul>
+<li>在用户态完成对一个线程的复用,即当两个任务想要同时执行,不需要开两个线程,而是在线程的基础之上通过分时复用的方式运行多个协程,需要改变的是寄存器的数据和协程栈,比起线程切换代价小的多</li>
+<li>不过实际上协程只有在等待IO的时候才能重复利用线程.如果某个线程中的协程调用了阻塞IO,将会导致线程切换发生,所以需要异步IO来配合线程</li>
+</ul>
+</li>
+<li>
+<p>信号量与管程的区别</p>
+<ul>
+<li>信号量可以并发,取决于s的初始值</li>
+<li>P操作在操作之前不知道是否会被阻塞,管程的wait操作一定会阻塞</li>
+<li>管程隐蔽了同步的细节,更易于用户维护;而信号量PV操作大量分散到代码的各处,不易维护容易造成死锁</li>
+</ul>
+</li>
+<li>
+<p>负载均衡常用算法</p>
+<ul>
+<li>轮询</li>
+<li>加权轮询</li>
+<li>IP Hash</li>
+<li>URL Hash</li>
+<li>最小连接数</li>
+</ul>
+</li>
+<li>
+<p>进程间通信</p>
+<ul>
+<li>管道(pipe)(匿名管道)
+<ul>
+<li><strong>内核</strong>中开辟一块缓冲区,由一个读端,一个写端</li>
+<li>两个进程通过一个管道只能实现单向通信</li>
+<li>只能适用于具有亲缘关系的进程间通信</li>
+</ul>
+</li>
+<li>命名管道(FIFO)
+<ul>
+<li>以文件的形式存储于文件系统中</li>
+<li>只要可以访问该路路径,无需存在情缘关系,就能通信</li>
+</ul>
+</li>
+<li>消息队列</li>
+<li>信号量</li>
+<li>共享内存
+<ul>
+<li>允许两个不相关的进程访问同一个逻辑内存</li>
+<li>原理
+<ul>
+<li>Linux中,每个进程都有属于自己的进程控制块(PCB)和地址空间(Addr Space),并且都有一个与之对应的页表,负责将虚拟地址与物理地址进行映射,通过内存管理单元(MMU)进行管理.</li>
+<li>两个不同的虚拟地址通过页表映射到物理空间的同一区域,指向的这块区域即共享内存</li>
+</ul>
+</li>
+<li>对于一个共享内存,实现采用的是引用计数的原理.脱离时计数器减一,挂接成功时计数器加一</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>线程同步</p>
+<ul>
+<li>
+<p>互斥锁与信号量的作用与区别</p>
+<ul>
+<li>
+<p>信号量不一定是锁定某一个资源,而是流程上的概念;信号量用于线程/进程的同步(在互斥的基础上,实现访问者对资源的有序访问)</p>
+</li>
+<li>
+<p>互斥量是锁住某一资源的概念;互斥量用于线程的互斥</p>
+</li>
+<li>
+<p>信号量可以由任何线程释放;互斥量只能由持有它的线程释放</p>
+</li>
+<li>
+<p>信号量可能导致优先级反转,互斥量可通过<strong>优先级继承</strong>的方法解决优先级反转问题</p>
+<blockquote>
+<p>优先级继承: 提高占有某种共享资源的低优先级线程的优先级,<strong>使之与所有等待该资源释放的线程中优先级最高的那个优先级相等</strong>,从而避免被任何中间优先级的线程抢占.当释放时,优先级回到初始值</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>临界区</p>
+<ul>
+<li>仅允许一个线程访问的共享资源.多个线程必须互斥地对它们进行访问</li>
+<li>实现方法
+<ul>
+<li>调度器上锁,线程不会被其它线程抢占</li>
+<li>互斥锁</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>死锁</p>
+<ul>
+<li>四个条件
+<ul>
+<li>互斥(资源要么给一个进程,要么可用)</li>
+<li>占有和等待(有并申请新的)</li>
+<li>不可抢占(只能显式释放)</li>
+<li>环路等待</li>
+</ul>
+</li>
+<li>处理方法
+<ul>
+<li>鸵鸟</li>
+<li>死锁检测与死锁恢复
+<ul>
+<li>每种类型一个资源的死锁检测
+<ul>
+<li>检测是否成环</li>
+</ul>
+</li>
+<li>每种类型多个资源的死锁检测
+<ul>
+<li>算法结束时,没有被标记的进程都是死锁进程</li>
+</ul>
+</li>
+<li>死锁恢复
+<ul>
+<li>抢占恢复</li>
+<li>回滚恢复</li>
+<li>杀死进程恢复</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>死锁预防
+<ul>
+<li>破坏互斥</li>
+<li>破坏占有与等待(开始前请求需要的全部资源)</li>
+<li>破坏不可抢占</li>
+<li>破坏环路(给资源编号,进程只能按标号顺序来请求)</li>
+</ul>
+</li>
+<li>死锁避免
+<ul>
+<li>银行家算法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>虚拟内存</p>
+<ul>
+<li>基本概念
+<ul>
+<li>操作系统将内存抽象成地址空间,每个程序的地址空间被分割成多个快,每一块称为一页.</li>
+<li>有的页被映射到物理内存,但不需要映射到连续的物理内存.</li>
+<li>有的页可能根本不用映射到物理内存,这使得有限内存运行大程序成为可能</li>
+</ul>
+</li>
+<li>分页系统地址映射
+<ul>
+<li>MMU管理地址空间和物理内存的切换,其中的页表存储着页和页框的映射</li>
+<li>虚拟地址组成: 页面号-偏移量
+<ul>
+<li>通过页面号查页表得到表项,表项内容中有一位表示是否再内存中,如果再,则可以得到页对应的页框地址市去掉那一位的表项内容+偏移量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>页面置换算法
+<ul>
+<li>最佳: 理想的但不可能实现</li>
+<li>LRU: 最近最久未使用</li>
+<li>FIFO: 先进先出</li>
+<li>第二次机会</li>
+<li>时钟</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>分段</p>
+<ul>
+<li>核心思想是,一个进程的会存在多个表,它们共有一个虚拟地址空间,但它们是动态增长的,如(Symbol table, source text, call stack),如果一直增长,可能会覆盖掉高地址的内存</li>
+<li>解决办法: 分段,每个表一个独立的地址空间</li>
+</ul>
+</li>
+<li>
+<p>段页式</p>
+<ul>
+<li>地址空间分成多个拥有独立地址空间的段,每个段上的地址空间划分成大小相同的页</li>
+<li>访存时,有三个步骤
+<ul>
+<li>第一次访问段表，得到页表起始地址；</li>
+<li>第二次访问页表，得到物理页号；</li>
+<li>第三次将物理页号与页内位移组合，得到物理地址。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>分段和分页的比较</p>
+<ul>
+<li>对程序员的透明性：分页透明，但是分段需要程序员显式划分每个段。</li>
+<li>地址空间的维度：分页是一维地址空间，分段是二维(进程名,进程的第几个段)的。</li>
+<li>大小是否可以改变：页的大小不可变，段的大小可以动态改变。</li>
+<li>出现的原因：分页主要用于实现虚拟内存，从而获得更大的地址空间；分段主要是为了使程序和数据可以被划分为逻辑上独立的地址空间并且有助于共享和保护。</li>
+</ul>
+</li>
+<li>
+<p>动态链接</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/cdb5cfcb5056">https://www.jianshu.com/p/cdb5cfcb5056</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="陷入内核">陷入内核</h2>
+<ul>
+<li>系统调用的本质是一种异常,当调用一个系统时会触发CPU异常,CPU进入异常处理阶段(任何打断当前正在执行程序的过程,都叫做异常)</li>
+<li>异常处理完成后,可能有三种情况
+<ul>
+<li>处理程序将控制返回给当前指令</li>
+<li>处理程序将控制返回给下一条指令</li>
+<li>终止程序</li>
+</ul>
+</li>
+<li>四类异常
+<ul>
+<li>中断 来自IO设备的信号</li>
+<li>陷阱 有意的异常</li>
+<li>故障 潜在可恢复的错误</li>
+<li>终止 不可恢复的错误</li>
+</ul>
+</li>
+</ul>
+<h2 id="如何避免僵尸进程">如何避免僵尸进程</h2>
+<ul>
+<li>父进程调用wait和waitpid等待子进程结束</li>
+<li>如果父进程很忙,可以用signal函数位SIGCHLD安装handler.子线程结束后,父进程会收到该信号,可以在handler中调用wait回收</li>
+<li>如果父进程不关心子进程什么时候结束,可以用signal(SIGCHLD,SIG_IGN)通知内核,表示对子进程的结束不感兴趣,那么子进程结束后,内核会回收,不再给父进程发送信号</li>
+<li>fork两次,父进程fork一个子进程,然后继续工作.子进程fork若干个孙进程后推出,自然孙进程会被init结果.这样,不需要手动管理大量的孙进程,只有子进程的回收需要自己做</li>
+</ul>
+<h2 id="进程">进程</h2>
+<ul>
+<li>进程五种基本状态
+<ul>
+<li>创建状态: 系统已为其分配了PCB(进程描述符),但进程所需资源尚未非陪,进程还未进入主存</li>
+<li>就绪状态: 进程已分配到除CPU以外的所有必要资源,等待获得CPU</li>
+<li>执行状态: 进程已获得CPU,程序正在执行</li>
+<li>阻塞状态: 正在执行的进程由于某事件而暂时无法继续执行</li>
+<li>终止状态: 进程到达自然结束点或者因以外被终结,将进入终止状态</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-03-01
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/othercs/cas%E9%87%8D%E8%AF%95%E4%B8%BA%E5%95%A5%E4%B8%8D%E7%94%A8%E7%AD%89%E5%BE%85%E9%9A%8F%E6%9C%BA%E6%97%B6%E9%97%B4/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">CAS重试为啥不用等待随机时间?</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/algorithm/leetcode-1994/">
+            <span class="next-text nav-default">Leetcode 1994 好子集的数目</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
