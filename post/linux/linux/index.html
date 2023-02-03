@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux八股文 - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/linux/linux/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Linux八股文" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/linux/linux/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-25T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-09-25T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="Linux八股文">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-09-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-09-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2004">
+<meta itemprop="keywords" content="Simplified Chinese," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux八股文"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Linux八股文</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-09-25 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#分区">分区</a></li>
+    <li><a href="#文件系统">文件系统</a>
+      <ul>
+        <li><a href="#零拷贝">零拷贝</a></li>
+        <li><a href="#命令们">命令们</a>
+          <ul>
+            <li><a href="#kill">kill</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="分区">分区</h1>
+<ul>
+<li>MBR
+<ul>
+<li>第一个扇区
+<ul>
+<li>开机记录,分区表(64byte)</li>
+<li>最多存储4个分区(3个主分区+1扩展分区)</li>
+<li>通过扩展分区分出的更多分区称为逻辑分区</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>GPT
+<ul>
+<li>扇区是磁盘的最小存储单位.GPT在定义扇区上使用逻辑区块地址(LBA),默认大小为512bytes</li>
+<li>GPT没有扩展分区的概念,都是主分区,每个LBA可以分4个分区.</li>
+<li>记录分区信息的LBA共33个.第一个记录的是分区表本身的位置,大小,备份分区的位置,CRC32.因此从LBA2~LBA33是直接用于分区的LBA.因此总共可以分128个分区</li>
+</ul>
+</li>
+</ul>
+<h1 id="文件系统">文件系统</h1>
+<p>对分区进行格式化是为了在分区上简历文件系统</p>
+<ul>
+<li>
+<p>组成</p>
+<ul>
+<li>inode: 一个文件占用一个inode,记录文件的属性,记录此文件的内容所在的block编号</li>
+<li>block: 记录文件的内容,文件太大时,会占用多个block</li>
+<li>superblock: 整体信息(inode和block的总量,使用量,剩余量)</li>
+<li>block bitmap: 记录block是否被使用的位图</li>
+</ul>
+</li>
+<li>
+<p>文件读取</p>
+<ul>
+<li>Ext2
+<ul>
+<li>先在inode查找文件所在的所有block,然后提取</li>
+</ul>
+</li>
+<li>FAT文件系统
+<ul>
+<li>没有inode,每个block中存储下一个block的编号</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>磁盘碎片</p>
+<ul>
+<li>block过于分散,磁头移动距离过大</li>
+</ul>
+</li>
+<li>
+<p>block</p>
+<ul>
+<li>block分1K,2K,4K三种</li>
+<li>一个block只能被一个文件使用,这涉及到根据存储需求选用不同block的问题</li>
+</ul>
+</li>
+<li>
+<p>inode</p>
+<ul>
+<li>
+<p>权限</p>
+</li>
+<li>
+<p>拥有者与群组</p>
+</li>
+<li>
+<p>容量</p>
+</li>
+<li>
+<p>各种时间</p>
+</li>
+<li>
+<p>flag,如SetUID</p>
+</li>
+<li>
+<p>pointer</p>
+<ul>
+<li>因为文件往往用很多block,所以有间接,双间接,三简介引用</li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/36335e16eb28652bb66ca46edba6040f1bcfcabce0b3fbcdf1d18111ffc52b28/68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f696e6f64655f776974685f7369676e6174757265732e6a7067" alt=""></p>
+</li>
+<li>
+<p>注意到inode不存储文件名,文件名记录在目录中.所以新增/删除文件这些操作与目录的写权限有关</p>
+</li>
+<li>
+<p>目录的inode</p>
+<ul>
+<li>一个inode</li>
+<li>至少一个block
+<ul>
+<li>目录下所有文件的inode编号以及文件名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>日志</p>
+<ul>
+<li>可以用日志修复文件系统</li>
+</ul>
+</li>
+<li>
+<p>进程状态</p>
+<ul>
+<li>R: Run</li>
+<li>D: 不可中断阻塞(IO阻塞)</li>
+<li>S: 可中断阻塞(等待某个事件完成)</li>
+<li>Z: Zombie(已经终止但未被父进程获取信息)</li>
+<li>T: Teminated</li>
+</ul>
+</li>
+<li>
+<p>SIGCHLD</p>
+<ul>
+<li>当子一个子进程改变状态时
+<ul>
+<li>父进程得到SIGCHLD信号(包括子进程信息(ID,状态,使用CPU时间))</li>
+<li>waitpid()或者wait()调用会返回</li>
+</ul>
+</li>
+<li>子进程退出时,进程描述符不会立即释放</li>
+</ul>
+</li>
+<li>
+<p>wait()</p>
+<ul>
+<li>父进程调用wait()会一直阻塞,直到收到一个SIGCHLD</li>
+</ul>
+</li>
+<li>
+<p>waitpid()</p>
+<ul>
+<li>可以通过指定pid表示只关心某个子进程的SIGCHLD信号</li>
+<li>可以通过传入WNOHANG使得调用变成非阻塞的</li>
+</ul>
+</li>
+<li>
+<p>孤儿进程</p>
+<ul>
+<li>一个父进程退出,而多个子进程还在运行,它们成为孤儿进程,进而被init进程(pid=1)收养</li>
+</ul>
+</li>
+<li>
+<p>僵尸进程</p>
+<ul>
+<li>如果子进程退出,父进程没有通过wait()或waitpid()获得子进程信息,那么<strong>子进程的进程描述符依然保存在系统中</strong>,成为僵尸进程</li>
+<li>解决办法:杀死父进程</li>
+</ul>
+</li>
+<li>
+<p>协程: Python中有实现,Java中也有但并不多见(Quasar)</p>
+<ul>
+<li>在用户态完成对一个线程的复用,即当两个任务想要同时执行,不需要开两个线程,而是在线程的基础之上通过分时复用的方式运行多个协程,需要改变的是寄存器的数据和协程栈,比起线程切换代价小的多</li>
+<li>不过实际上协程只有在等待IO的时候才能重复利用线程.如果某个线程中的协程调用了阻塞IO,将会导致线程切换发生,所以需要异步IO来配合线程</li>
+</ul>
+</li>
+<li>
+<p>信号量与管程的区别</p>
+<ul>
+<li>信号量可以并发,取决于s的初始值</li>
+<li>P操作在操作之前不知道是否会被阻塞,管程的wait操作一定会阻塞</li>
+<li>管程隐蔽了同步的细节,更易于用户维护;而信号量PV操作大量分散到代码的各处,不易维护容易造成死锁</li>
+</ul>
+</li>
+<li>
+<p>Linux线程的内存布局</p>
+<ul>
+<li>
+<p>Windows线程的概念与Linux的区别</p>
+<blockquote>
+<p>假如一个进程包含了N个进程</p>
+<p>for Windows: 存在一个进程描述符,依次轮流指向N个线程</p>
+<p>for Linux: 有N个进程(Linux不明确区分线程和进程),即有N个task_struct数据结构,只是这些数据结构的某些资源项是共享的</p>
+</blockquote>
+</li>
+<li>
+<p>资源共享</p>
+<ul>
+<li>共享一个进程的资源,包括
+<ul>
+<li>内存地址空间</li>
+<li>进程基础信息</li>
+<li>大部分数据</li>
+<li>打开的文件</li>
+<li>信号处理</li>
+<li>当前工作目录</li>
+<li>用户和用户组属性</li>
+</ul>
+</li>
+<li>线程独自拥有的
+<ul>
+<li>线程ID</li>
+<li>一系列的寄存器</li>
+<li>栈的局部变量和返回地址</li>
+<li>错误码errno</li>
+<li>信号掩码</li>
+<li>优先级</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="零拷贝">零拷贝</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/88789697">https://zhuanlan.zhihu.com/p/88789697</a></p>
+<ul>
+<li>
+<p>定义</p>
+<ul>
+<li>
+<p>应用程序用zero-copy来请求kernel直接把磁盘的数据传输给socket,而不是:</p>
+<ul>
+<li>先把磁盘数据复制到内核</li>
+<li>再复制到用户空间</li>
+<li>再复制到socket缓存中</li>
+<li>再复制到网卡设备中</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">read</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">tmp_buf</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+<span class="n">write</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span> <span class="n">tmp_buf</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>mmap()</p>
+<ul>
+<li>
+<p>少了一次操作系统内核到应用程序存储空间的缓冲</p>
+</li>
+<li>
+<p>步骤</p>
+<ul>
+<li>
+<p>磁盘中的数据先通过DMA(direct memory access 直接存储访问,一种<strong>无需CPU的参与就可以让外设和系统内存之间进行双向数据传输的硬件机制</strong>)被复制到操作系统内核缓冲区中;应用程序和操作系统共享这个缓冲区</p>
+</li>
+<li>
+<p>应用程序调用write()后,数据从内核缓冲区复制到socket相关的缓冲区</p>
+</li>
+<li>
+<p>内核的socket缓冲区通过DMA复制到网卡(协议缓存)中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">tmp_buf</span> <span class="o">=</span> <span class="n">mmap</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+<span class="n">write</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span> <span class="n">tmp_buf</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>潜在问题</p>
+<ul>
+<li>待补全</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>sendfile</p>
+<ul>
+<li>待补全</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="命令们">命令们</h2>
+<h3 id="kill">kill</h3>
+<p>kill后加的常见参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#  彻底杀死进程</span>
+<span class="c1"># 9表示SIGKILL, 本信号不能被阻塞,处理和忽略</span>
+<span class="c1"># 如果管理员发现某个进程终止不了,可尝试发送这个信号</span>
+<span class="nb">kill</span> -9 pid
+<span class="c1"># 如果不加参数,默认是kill -15,即SIGTERM(通常用于要求程序自己正常退出)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-09-25
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/algorithm/rotate_image/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Leetcode 48: 旋转图像 (旋转转翻转思想)</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/java/spin_lock/">
+            <span class="next-text nav-default">自旋锁</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
