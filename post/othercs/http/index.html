@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>HTTP基本知识 - Ge&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rwwg" /><meta name="description" content="HTTP基本知识" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://rwwg.github.io/post/othercs/http/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="HTTP基本知识" />
+<meta property="og:description" content="HTTP基本知识" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rwwg.github.io/post/othercs/http/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-03-13T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-13T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="HTTP基本知识">
+<meta itemprop="description" content="HTTP基本知识"><meta itemprop="datePublished" content="2021-03-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2128">
+<meta itemprop="keywords" content="Simplified Chinese,http," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTTP基本知识"/>
+<meta name="twitter:description" content="HTTP基本知识"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Ge&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Ge&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">HTTP基本知识</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-03-13 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#http的演进">HTTP的演进</a></li>
+        <li><a href="#跨域">跨域</a></li>
+        <li><a href="#https-客户端如何请求服务端开始ssl握手的">HTTPS: 客户端如何请求服务端开始SSL握手的?</a></li>
+        <li><a href="#http的长连接和websocket的长连接">HTTP的长连接和WebSocket的长连接</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <ul>
+<li>
+<p>请求和响应报文</p>
+<ul>
+<li>
+<p>请求报文</p>
+<ul>
+<li>method,URL,版本
+<ul>
+<li>GET 获取资源</li>
+<li>HEAD 相当于不返回Body的GET</li>
+<li>POST 传输实体主体</li>
+<li>CONNECT 要求在与代理服务器通信时建立隧道</li>
+</ul>
+</li>
+<li>请求首部</li>
+<li>一个空行</li>
+<li>Body</li>
+</ul>
+</li>
+<li>
+<p>响应报文</p>
+<ul>
+<li>
+<p>版本,状态码,描述</p>
+<ul>
+<li>1XX 接受的请求正在处理</li>
+<li>2XX 正常处理完毕</li>
+<li>3XX 重定向</li>
+<li>4XX 客户端错误状态码</li>
+<li>5XX 服务器错误状态码</li>
+</ul>
+</li>
+<li>
+<p>首部</p>
+</li>
+<li>
+<p>空行</p>
+</li>
+<li>
+<p>Body</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>连接管理</p>
+<ul>
+<li>长连接,短链接</li>
+<li>流水线</li>
+</ul>
+</li>
+<li>
+<p>Cookie</p>
+<ul>
+<li>HTTP协议是无状态的,主要是为了让HTTP协议尽可能简单,使它能够处理大量事务</li>
+</ul>
+</li>
+<li>
+<p>Session</p>
+<ul>
+<li>
+<p>和Cookie的区别是,Cookie是这样 的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Set-Cookie: username_cookie=happy
+Set-Cookie: userid_cookie=123
+</code></pre></td></tr></table>
+</div>
+</div><p>Session</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Set-Cookie: session=ace8930cf8f3a...
+</code></pre></td></tr></table>
+</div>
+</div><p>本地存上面这个键值对,然后访问时把session传给服务端,服务端拿到以后,把session当作key到Redis里取到对应的用户信息</p>
+</li>
+</ul>
+</li>
+<li>
+<p>缓存</p>
+<ul>
+<li>让代理服务器进行缓存</li>
+<li>让客户端浏览器进行缓存</li>
+<li>Cache-Control: http/1.1用Cache-Control首部字段来控制缓存
+<ul>
+<li>禁止缓存</li>
+<li>强制确认缓存(使用前缓存服务器需要先想源服务器验证资源有效性)</li>
+<li>私有(浏览器中)/公共(代理服务器中)</li>
+<li>缓存过期</li>
+<li>缓存验证(能投过一个ETag对资源唯一标识)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>虚拟主机</p>
+<ul>
+<li>一台服务器拥有多个域名</li>
+<li>逻辑上可以看成多个服务器</li>
+</ul>
+</li>
+<li>
+<p>通信数据转发</p>
+<ul>
+<li>代理
+<ul>
+<li>缓存,负载均衡,网络访问控制,访问日志记录</li>
+<li>正向,反向</li>
+</ul>
+</li>
+<li>网关
+<ul>
+<li>将HTTP转成其它协议进行通信</li>
+</ul>
+</li>
+<li>隧道
+<ul>
+<li>使用SSL等加密手段,在S,C之间建立安全的通信线路</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="http的演进">HTTP的演进</h2>
+<ul>
+<li>
+<p>HTTP1.0</p>
+<ul>
+<li>无状态</li>
+<li>每次请求都需要建立一个TCP连接,处理完成后立即断开TCP连接,</li>
+<li>它存在的问题
+<ul>
+<li>无法复用连接(TCP的连接释放过程比较费事)</li>
+<li>队头阻塞
+<ul>
+<li>由于规定下一个请求必须在前一个请求响应之前才能发送,假设前一个请求一直不到达,那么下一个请求就不发送,后面的请求就阻塞了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>HTTP1.1</p>
+<ul>
+<li>
+<p>长连接: 通过设置Keep-Alive字段保持HTTP连接不断开</p>
+<ul>
+<li>和TCP keepalive的区别
+<ul>
+<li>HTTP keepalive是用于复用http连接,来避免每个资源都要创建一个HTTP连接,然后关闭</li>
+<li>TCP keepalive 侧重于保持客户端和服务端的连接,会发心跳包给另一方,如果收到的不是ACK,而是发RST或响应超时就释放当前连接.防止因为其它原因没有四次挥手时,一方断开,另一方却不知道,一直维护者一个socket的描述符</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>pipelining(流水线)</p>
+<ul>
+<li>客户端可以一次性发出多个请求(而不是1.0种必须等到上一个请求已经响应了再发送),但是服务端依然需要以先后顺序响应.比如,客户端先后请求html和css文件,响应时,即使css先就绪也不能先发出</li>
+<li>事实上,浏览器可以打开多个TCP的会话,实现真并行</li>
+</ul>
+</li>
+<li>
+<p>缓存处理</p>
+<ul>
+<li>强缓存,协商缓存,启发式缓存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>HTTP2.0</p>
+<ul>
+<li>1.x的缺陷
+<ul>
+<li>需要多个连接才能实现并发和缩短延迟</li>
+<li>不会压缩请求和响应首部</li>
+<li>不支持有效的资源优先级</li>
+</ul>
+</li>
+<li>HTTP2.0
+<ul>
+<li>二进制分帧(报文分为Headers frame和Data frame) (这个分层帧相当于再应用层和传输层之间)
+<ul>
+<li>通信过程中,只有一个TCP连接存在,承载任意数量的Stream</li>
+<li><strong>帧是最小的通信单位</strong></li>
+</ul>
+</li>
+<li>多路复用(连接共享)&ndash;真并行
+<ul>
+<li>能够再一个TCP上进行任意数量的HTTP请求</li>
+<li>流是已建立连接上的双向字节流</li>
+<li>消息是与逻辑消息对应的完整的一系列数据帧</li>
+<li>帧是HTTP2.0通信的最小单位,每个帧包含头部,至少也会标识当前所属的流</li>
+<li>pipeline中,虽然client可以一次性发出多个请求,但是在这些请求全部都得到恢复之前,会有<strong>队头阻塞</strong>的现象,相比之下多路复用中客户端发送的请求和服务端给出的响应的顺序不受限制</li>
+</ul>
+</li>
+<li>服务端推送
+<ul>
+<li>一次性把相关的资源传给客户端</li>
+</ul>
+</li>
+<li>首部压缩
+<ul>
+<li>要求S,C同时维护和更新一个之前见过的首部字段表</li>
+<li>Huffman压缩</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>HTTP3.0</p>
+<ul>
+<li>
+<p>加入了一个基于UDP的QUIC协议,并使用在了HTTP/3上</p>
+<ul>
+<li>
+<p>0-RTT: 缓存当前会话的上下文,下次恢复时,只要将之前的缓存传递给服务器,验证通过,就可以进行传输了</p>
+</li>
+<li>
+<p>多路复用</p>
+<ul>
+<li>QUIC基于UDP,一个连接上的多个stream之间没有任何依赖</li>
+</ul>
+</li>
+<li>
+<p>移动端表现</p>
+<ul>
+<li>TCP通过IP识别,而QUIC通过ID识别</li>
+</ul>
+</li>
+<li>
+<p>除了个别报文,QUIC的packet头都经过认证,body都经过加密</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>SSL握手协议</p>
+<ol>
+<li>client hello: 客户端发起会话</li>
+<li>server hello: 服务器产生第一次应答</li>
+<li>certificate: 服务端向客户端发送自己的证书,(如果用RSA,就再发一个公钥;如果用DH,就下一步再发)</li>
+<li>server key exchange: EC(椭圆曲线)diffie-hellan , 服务端发送自己</li>
+<li>server hello done 一个空的指令 表示结束</li>
+<li>client key exchange 4中获得服务端的公钥,根据DH生成一个新的密钥对.客户端把自己的公钥传给服务端</li>
+<li>change cipher spec(客户端): 客户端的一个提示,表示主密钥已经生成了!可以开始对称密码了</li>
+<li>encrypted handshake message(客户端) 从上一步开始,信息全是加密的了</li>
+<li>Change cipher Spec: 服务端也生成主密钥</li>
+<li>encrypted handshake message(服务端)</li>
+</ol>
+</li>
+</ul>
+<h2 id="跨域">跨域</h2>
+<ul>
+<li>解决方法
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/66484450">https://zhuanlan.zhihu.com/p/66484450</a></li>
+<li>JSONP实现跨域</li>
+<li>修改服务端实现跨域</li>
+</ul>
+</li>
+</ul>
+<h2 id="https-客户端如何请求服务端开始ssl握手的">HTTPS: 客户端如何请求服务端开始SSL握手的?</h2>
+<h2 id="http的长连接和websocket的长连接">HTTP的长连接和WebSocket的长连接</h2>
+<ul>
+<li>HTTP的长连接
+<ul>
+<li>保证在一次TCP连接中可以完成多个HTTP请求</li>
+<li>但是对每个请求仍要单独发header</li>
+<li>keep-alive不会永久保持连接,他有一个保持时间,可以在不同的服务器软件中设定这个时间</li>
+<li>双方没有建立真正的连接会话,服务端可以在任何一次请求完成后关闭</li>
+</ul>
+</li>
+<li>WebSocket的长连接
+<ul>
+<li>是一个全双工的连接,可由服务器主动发起</li>
+<li>长连接第一次TCP链路建立后,后续数据可以双方都进行发送,不需要发送请求头</li>
+<li>是真正的双工的长连接,两边都必须要维持住连接的状态</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rwwg</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-03-13
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/simplified-chinese/">Simplified Chinese</a>
+          <a href="/tags/http/">http</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/algorithm/leetcode-85-maximal-rectangle/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">leetcode-85: maximal-rectangle</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/algorithm/manacher/">
+            <span class="next-text nav-default">Manacher算法</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/rwwg/" class="iconfont icon-github" title="github"></a>
+  <a href="https://rwwg.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>rwwg</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

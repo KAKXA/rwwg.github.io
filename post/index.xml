@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>权限模型</title>
+      <link>https://rwwg.github.io/post/othercs/%E6%9D%83%E9%99%90%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/othercs/%E6%9D%83%E9%99%90%E6%A8%A1%E5%9E%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Linux基础知识</title>
       <link>https://rwwg.github.io/post/linux/linux/</link>
       <pubDate>Sat, 05 Mar 2022 00:00:00 +0000</pubDate>
@@ -831,6 +840,15 @@
       
       <guid>https://rwwg.github.io/post/algorithm/leetcode-85-maximal-rectangle/</guid>
       <description>当你好不容易想到一个hard题的dp思路</description>
+    </item>
+    
+    <item>
+      <title>HTTP基本知识</title>
+      <link>https://rwwg.github.io/post/othercs/http/</link>
+      <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/post/othercs/http/</guid>
+      <description>请求和响应报文 请求报文 method,UR</description>
     </item>
     
     <item>
