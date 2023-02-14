@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/algorithm/leetcode-148/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="排序链表" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/algorithm/leetcode-148/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-03-29T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-03-29T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-03-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-29T00:00:00+00:00" />
 <meta itemprop="name" content="Leetcode 148: Sort List">
-<meta itemprop="description" content="排序链表"><meta itemprop="datePublished" content="2021-03-29T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-03-29T00:00:00&#43;00:00" />
+<meta itemprop="description" content="排序链表"><meta itemprop="datePublished" content="2021-03-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-03-29T00:00:00+00:00" />
 <meta itemprop="wordCount" content="354">
 <meta itemprop="keywords" content="leetcode,divide and conquer,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode 148: Sort List"/>
@@ -148,7 +147,7 @@
       <p>自底向上的归并排序,有许多细节要处理.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -198,55 +197,55 @@
 </span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">sortList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ListNode</span><span class="p">:</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">head</span>
-        <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">intv</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="c1"># 得到链表的长度</span>
-        <span class="k">while</span> <span class="n">h</span><span class="p">:</span>
-            <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">next</span>
-            <span class="n">length</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">res</span><span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">res</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
-        <span class="k">while</span> <span class="n">intv</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">:</span>
-            <span class="n">pre</span> <span class="o">=</span> <span class="n">res</span>
-            <span class="n">h</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">next</span>
-            <span class="k">while</span> <span class="n">h</span><span class="p">:</span>
-                <span class="c1"># 第一个链表的头部</span>
-                <span class="n">h1</span> <span class="o">=</span> <span class="n">h</span>
-                <span class="n">i</span> <span class="o">=</span> <span class="n">intv</span>
-                <span class="k">while</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">h</span><span class="p">:</span>
-                    <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">next</span>
-                    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
-                <span class="c1"># 这说明还没遍历到intv个结点,就停止了</span>
-                <span class="k">if</span> <span class="n">i</span><span class="p">:</span>
-                    <span class="k">break</span>
-                <span class="c1"># 第二个链表的头部</span>
-                <span class="n">h2</span> <span class="o">=</span> <span class="n">h</span>
-                <span class="n">i</span> <span class="o">=</span> <span class="n">intv</span>
-                <span class="k">while</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">h</span><span class="p">:</span>
-                    <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">next</span>
-                    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
-                <span class="c1"># 此时,h已经移到了第二个待合并链表的后面一个节点</span>
-                    
-                <span class="c1"># 两个待合并链表的长度c1,c2</span>
-                <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">intv</span><span class="p">,</span> <span class="n">intv</span> <span class="o">-</span> <span class="n">i</span>
-                <span class="k">while</span> <span class="n">c1</span> <span class="ow">and</span> <span class="n">c2</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">h1</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">h2</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
-                        <span class="n">pre</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">h1</span><span class="p">,</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">h1</span><span class="p">,</span> <span class="n">h1</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">c1</span> <span class="o">-</span> <span class="mi">1</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">pre</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">h2</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">h2</span><span class="p">,</span> <span class="n">h2</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">c2</span> <span class="o">-</span> <span class="mi">1</span>
-                    <span class="n">pre</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="n">next</span>
-                <span class="c1"># 最终至少有一个非空的链表,让pre指向它</span>
-                <span class="n">pre</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">h1</span> <span class="k">if</span> <span class="n">c1</span> <span class="k">else</span> <span class="n">h2</span>
-                <span class="k">while</span> <span class="n">c1</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">c2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="n">pre</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">c1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c2</span> <span class="o">-</span> <span class="mi">1</span>
-                <span class="c1"># 让合并后的前两个链表的尾部指向下一次合并的第一个链表的头部</span>
-                <span class="n">pre</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">h</span>
-            <span class="n">intv</span> <span class="o">&lt;&lt;=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">next</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">sortList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ListNode</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">h</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">intv</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 得到链表的长度</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">h</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="n">length</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">res</span><span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">res</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">intv</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pre</span> <span class="o">=</span> <span class="n">res</span>
+</span></span><span class="line"><span class="cl">            <span class="n">h</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">h</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 第一个链表的头部</span>
+</span></span><span class="line"><span class="cl">                <span class="n">h1</span> <span class="o">=</span> <span class="n">h</span>
+</span></span><span class="line"><span class="cl">                <span class="n">i</span> <span class="o">=</span> <span class="n">intv</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">h</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 这说明还没遍历到intv个结点,就停止了</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">i</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 第二个链表的头部</span>
+</span></span><span class="line"><span class="cl">                <span class="n">h2</span> <span class="o">=</span> <span class="n">h</span>
+</span></span><span class="line"><span class="cl">                <span class="n">i</span> <span class="o">=</span> <span class="n">intv</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">h</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 此时,h已经移到了第二个待合并链表的后面一个节点</span>
+</span></span><span class="line"><span class="cl">                    
+</span></span><span class="line"><span class="cl">                <span class="c1"># 两个待合并链表的长度c1,c2</span>
+</span></span><span class="line"><span class="cl">                <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">intv</span><span class="p">,</span> <span class="n">intv</span> <span class="o">-</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="n">c1</span> <span class="ow">and</span> <span class="n">c2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">h1</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">h2</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">pre</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">h1</span><span class="p">,</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">h1</span><span class="p">,</span> <span class="n">h1</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">c1</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">pre</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">h2</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">h2</span><span class="p">,</span> <span class="n">h2</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">c2</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">pre</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 最终至少有一个非空的链表,让pre指向它</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">h1</span> <span class="k">if</span> <span class="n">c1</span> <span class="k">else</span> <span class="n">h2</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="n">c1</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">c2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">pre</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">c1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c2</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 让合并后的前两个链表的尾部指向下一次合并的第一个链表的头部</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">h</span>
+</span></span><span class="line"><span class="cl">            <span class="n">intv</span> <span class="o">&lt;&lt;=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">next</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -337,7 +336,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

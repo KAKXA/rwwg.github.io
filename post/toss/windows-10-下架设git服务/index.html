@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/toss/windows-10-%E4%B8%8B%E6%9E%B6%E8%AE%BEgit%E6%9C%8D%E5%8A%A1/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="当你想把家用PC当作Git服务器来备份大文件..." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/toss/windows-10-%E4%B8%8B%E6%9E%B6%E8%AE%BEgit%E6%9C%8D%E5%8A%A1/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-07-15T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-07-15T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2020-07-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-15T00:00:00+00:00" />
 <meta itemprop="name" content="Windows 10 下架设Git服务">
-<meta itemprop="description" content="当你想把家用PC当作Git服务器来备份大文件..."><meta itemprop="datePublished" content="2020-07-15T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-07-15T00:00:00&#43;00:00" />
+<meta itemprop="description" content="当你想把家用PC当作Git服务器来备份大文件..."><meta itemprop="datePublished" content="2020-07-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-15T00:00:00+00:00" />
 <meta itemprop="wordCount" content="552">
 <meta itemprop="keywords" content="Windows,Git,SSH,simplified chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Windows 10 下架设Git服务"/>
@@ -163,13 +162,13 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[receive]
-    denyCurrentBranch = ignore
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[receive]
+</span></span><span class="line"><span class="cl">    denyCurrentBranch = ignore
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="windows10下如何将openssh用作git的默认shell">Windows10下,如何将<code>openssh</code>用作<code>git</code>的默认<code>shell</code></h2>
 <ul>
@@ -180,13 +179,13 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Match Group administrators
-    AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Match Group administrators
+</span></span><span class="line"><span class="cl">    AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>找到git客户端的bash目录,默认在<code>C:/Program Files/Git/bin/bash.exe</code></li>
@@ -292,7 +291,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

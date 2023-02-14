@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/mysql/mysql_7/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="MySQL 7: MySQL高级特性" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/mysql/mysql_7/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-07-01T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-07-01T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-07-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-01T00:00:00+00:00" />
 <meta itemprop="name" content="MySQL 7: MySQL高级特性">
-<meta itemprop="description" content="MySQL 7: MySQL高级特性"><meta itemprop="datePublished" content="2021-07-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-07-01T00:00:00&#43;00:00" />
+<meta itemprop="description" content="MySQL 7: MySQL高级特性"><meta itemprop="datePublished" content="2021-07-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-07-01T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1542">
 <meta itemprop="keywords" content="Simplified Chinese,mysql," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL 7: MySQL高级特性"/>
@@ -226,7 +225,7 @@
 <h2 id="分区表类型">分区表类型</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -237,16 +236,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="c1">-- 将每一年的销售额存放在不同的分区里
-</span><span class="c1"></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">sales</span> <span class="p">(</span>
-<span class="n">order_date</span> <span class="kt">DATETIME</span> <span class="k">NOT</span> <span class="no">NULL</span><span class="p">,</span>
-<span class="c1">-- Other columns omitted
-</span><span class="c1"></span><span class="p">)</span> <span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="n">PARTITION</span> <span class="k">BY</span> <span class="nf">RANGE</span><span class="p">(</span><span class="kt">YEAR</span><span class="p">(</span><span class="n">order_date</span><span class="p">))</span> <span class="p">(</span>
-<span class="n">PARTITION</span> <span class="n">p_2010</span> <span class="k">VALUES</span> <span class="n">LESS</span> <span class="nf">THAN</span> <span class="p">(</span><span class="mi">2010</span><span class="p">),</span>
-<span class="n">PARTITION</span> <span class="n">p_2011</span> <span class="k">VALUES</span> <span class="n">LESS</span> <span class="nf">THAN</span> <span class="p">(</span><span class="mi">2011</span><span class="p">),</span>
-<span class="n">PARTITION</span> <span class="n">p_2012</span> <span class="k">VALUES</span> <span class="n">LESS</span> <span class="nf">THAN</span> <span class="p">(</span><span class="mi">2012</span><span class="p">),</span>
-<span class="n">PARTITION</span> <span class="n">p_catchall</span> <span class="k">VALUES</span> <span class="n">LESS</span> <span class="n">THAN</span> <span class="n">MAXVALUE</span> <span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1">-- 将每一年的销售额存放在不同的分区里
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="nf">sales</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">order_date</span><span class="w"> </span><span class="kt">DATETIME</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- Other columns omitted
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span><span class="w"> </span><span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nf">RANGE</span><span class="p">(</span><span class="kt">YEAR</span><span class="p">(</span><span class="n">order_date</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p_2010</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="n">LESS</span><span class="w"> </span><span class="nf">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">2010</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p_2011</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="n">LESS</span><span class="w"> </span><span class="nf">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">2011</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p_2012</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="n">LESS</span><span class="w"> </span><span class="nf">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">2012</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PARTITION</span><span class="w"> </span><span class="n">p_catchall</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="n">LESS</span><span class="w"> </span><span class="n">THAN</span><span class="w"> </span><span class="n">MAXVALUE</span><span class="w"> </span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -291,41 +290,41 @@
 <p>使用EXPLAIN PARTITION可以观察优化器是否执行了分区过滤</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">EXPLAIN</span> <span class="n">PARTITIONS</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">sales</span> <span class="err">\</span><span class="n">G</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">EXPLAIN</span><span class="w"> </span><span class="n">PARTITIONS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="w"> </span><span class="err">\</span><span class="n">G</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>加上时间限制条件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">EXPLAIN</span> <span class="n">PARTITIONS</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">sales_by_day</span> <span class="k">WHERE</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="s1">&#39;2011-01-01&#39;</span><span class="err">\</span><span class="n">G</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">EXPLAIN</span><span class="w"> </span><span class="n">PARTITIONS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales_by_day</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">&#39;2011-01-01&#39;</span><span class="err">\</span><span class="n">G</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>下面查询的WHERE条件理论上可以过滤分区,但实际上不行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">EXPLAIN</span> <span class="n">PARTITIONS</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">sales_by_day</span> <span class="k">WHERE</span> <span class="kt">YEAR</span><span class="p">(</span><span class="n">day</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2010</span><span class="err">\</span><span class="n">G</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">EXPLAIN</span><span class="w"> </span><span class="n">PARTITIONS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales_by_day</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="kt">YEAR</span><span class="p">(</span><span class="n">day</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2010</span><span class="err">\</span><span class="n">G</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>MySQL只能在使用分区函数的列本身进行比较时才能过滤分区,而不能根据表达式的值去过滤分
 区,即使这个表达式就是分区函数也不行。这就和查询中使用独立的列才能使用索引的道理是一样的,所以只需要把上面的查询等价地改写为如下形式即可</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">EXPLAIN</span> <span class="n">PARTITIONS</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">sales_by_day</span>
-<span class="k">WHERE</span> <span class="n">day</span> <span class="k">BETWEEN</span> <span class="s1">&#39;2010-01-01&#39;</span> <span class="k">AND</span> <span class="s1">&#39;2010-12-31&#39;</span><span class="err">\</span><span class="n">G</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">EXPLAIN</span><span class="w"> </span><span class="n">PARTITIONS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales_by_day</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;2010-01-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;2010-12-31&#39;</span><span class="err">\</span><span class="n">G</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -417,7 +416,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

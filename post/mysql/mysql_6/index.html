@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/mysql/mysql_6/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,13 +43,12 @@
 <meta property="og:description" content="MySQL 高性能第六章: 查询性能优化" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/mysql/mysql_6/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-06-28T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-06-28T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-06-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-28T00:00:00+00:00" />
 <meta itemprop="name" content="MySQL 6: 查询性能优化">
-<meta itemprop="description" content="MySQL 高性能第六章: 查询性能优化"><meta itemprop="datePublished" content="2021-06-28T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-06-28T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="6077">
+<meta itemprop="description" content="MySQL 高性能第六章: 查询性能优化"><meta itemprop="datePublished" content="2021-06-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-06-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6073">
 <meta itemprop="keywords" content="MySQL,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL 6: 查询性能优化"/>
 <meta name="twitter:description" content="MySQL 高性能第六章: 查询性能优化"/>
@@ -227,28 +226,26 @@
 <p>多表关联时返回全部列,如,想要查询所有再电影Academy Dinosaur中出现的演员,千万不要按下面的写法编写查询</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">sakila</span><span class="p">.</span><span class="n">actor</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sakila</span><span class="p">.</span><span class="n">film_actor</span> <span class="k">USING</span><span class="p">(</span><span class="n">actor_id</span><span class="p">)</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sakila</span><span class="p">.</span><span class="n">film</span> <span class="k">USING</span><span class="p">(</span><span class="n">film_id</span><span class="p">)</span>
-<span class="k">WHERE</span> <span class="n">sakila</span><span class="p">.</span><span class="n">film</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Academy Dinosaur&#39;</span><span class="p">;</span>
-  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">actor</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">film_actor</span><span class="w"> </span><span class="k">USING</span><span class="p">(</span><span class="n">actor_id</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">film</span><span class="w"> </span><span class="k">USING</span><span class="p">(</span><span class="n">film_id</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">film</span><span class="p">.</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Academy Dinosaur&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这将返回三个表的全部数据列</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="n">sakila</span><span class="p">.</span><span class="n">actor</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="n">sakila</span><span class="p">.</span><span class="n">actor</span><span class="p">...;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">actor</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">actor</span><span class="p">...;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -323,31 +320,29 @@
 <p>如下面两个查询中,后者更好</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">messages</span> <span class="k">WHERE</span> <span class="n">created</span> <span class="o">&lt;</span> <span class="nf">DATE_SUB</span><span class="p">(</span><span class="nf">NOW</span><span class="p">(),</span><span class="k">INTERVAL</span> <span class="mi">3</span> <span class="n">MONTH</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nf">DATE_SUB</span><span class="p">(</span><span class="nf">NOW</span><span class="p">(),</span><span class="k">INTERVAL</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">MONTH</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="n">rows_affected</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">do</span> <span class="err">{</span>
-	<span class="n">rows_affected</span> <span class="o">=</span> <span class="nf">do_query</span><span class="p">(</span>
-<span class="s2">&#34;DELETE FROM messages WHERE created &lt; DATE_SUB(NOW(),INTERVAL 3 MONTH)
-</span><span class="s2">	LIMIT 10000&#34;</span><span class="p">)</span>
-<span class="err">}</span> <span class="k">while</span> <span class="n">rows_affected</span> <span class="o">&gt;</span> <span class="mi">0</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">rows_affected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">do</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">rows_affected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">do_query</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s2">&#34;DELETE FROM messages WHERE created &lt; DATE_SUB(NOW(),INTERVAL 3 MONTH)
+</span></span></span><span class="line"><span class="cl"><span class="s2">	LIMIT 10000&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">rows_affected</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="分解关系查询">分解关系查询</h2>
 <ul>
@@ -356,32 +351,30 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tag</span>
- <span class="k">JOIN</span> <span class="n">tag_post</span> <span class="k">ON</span> <span class="n">tag_post</span><span class="p">.</span><span class="n">tag_id</span><span class="o">=</span><span class="n">tag</span><span class="p">.</span><span class="n">id</span>
- <span class="k">JOIN</span> <span class="n">post</span> <span class="k">ON</span> <span class="n">tag_post</span><span class="p">.</span><span class="n">post_id</span><span class="o">=</span><span class="n">post</span><span class="p">.</span><span class="n">id</span>
- <span class="k">WHERE</span> <span class="n">tag</span><span class="p">.</span><span class="n">tag</span><span class="o">=</span><span class="s1">&#39;mysql&#39;</span><span class="p">;</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tag</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">tag_post</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tag_post</span><span class="p">.</span><span class="n">tag_id</span><span class="o">=</span><span class="n">tag</span><span class="p">.</span><span class="n">id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tag_post</span><span class="p">.</span><span class="n">post_id</span><span class="o">=</span><span class="n">post</span><span class="p">.</span><span class="n">id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">tag</span><span class="p">.</span><span class="n">tag</span><span class="o">=</span><span class="s1">&#39;mysql&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>可分解成下面三个查询</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tag_post</span> <span class="k">WHERE</span> <span class="n">tag_id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tag_post</span> <span class="k">WHERE</span> <span class="n">tag_id</span><span class="o">=</span><span class="mi">1234</span><span class="p">;</span>
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">post</span> <span class="k">WHERE</span> <span class="n">post</span><span class="p">.</span><span class="n">id</span>  <span class="k">in</span> <span class="p">(</span><span class="mi">123</span><span class="p">,</span><span class="mi">456</span><span class="p">,</span><span class="mi">567</span><span class="p">,</span><span class="mi">9098</span><span class="p">,</span><span class="mi">8904</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tag_post</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">tag_id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tag_post</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">tag_id</span><span class="o">=</span><span class="mi">1234</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">post</span><span class="p">.</span><span class="n">id</span><span class="w">  </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">123</span><span class="p">,</span><span class="mi">456</span><span class="p">,</span><span class="mi">567</span><span class="p">,</span><span class="mi">9098</span><span class="p">,</span><span class="mi">8904</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>优势</p>
 <ol>
@@ -409,7 +402,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -417,24 +410,22 @@
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$link</span>
- <span class="o">=</span> <span class="nx">mysql_connect</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;p4ssword&#39;</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nx">mysql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM HUGE_TABLE&#39;</span><span class="p">,</span> <span class="nv">$link</span><span class="p">);</span>
-<span class="k">while</span> <span class="p">(</span> <span class="nv">$row</span> <span class="o">=</span> <span class="nx">mysql_fetch_array</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// Do something with result
-</span><span class="c1"></span><span class="p">}</span>
-<span class="cp">?&gt;</span><span class="err">}
-</span><span class="err">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$link</span>
+</span></span><span class="line"><span class="cl"> <span class="o">=</span> <span class="nx">mysql_connect</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;p4ssword&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$result</span> <span class="o">=</span> <span class="nx">mysql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM HUGE_TABLE&#39;</span><span class="p">,</span> <span class="nv">$link</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span> <span class="nv">$row</span> <span class="o">=</span> <span class="nx">mysql_fetch_array</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Do something with result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err">}
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个查询在调用<code>mysql_query()</code>时,<code>PHP</code>已经将整个结果集缓存到内存中.下面的<code>while</code>循环只是从这个缓存中逐行取出数据.相反,如果使用<code>mysql_unbuffered_query()</code>代替<code>mysql_query()</code>,<code>PHP</code>则不会缓存结果.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -444,15 +435,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$link</span>
- <span class="o">=</span> <span class="nx">mysql_connect</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;p4ssword&#39;</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nx">mysql_unbuffered_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM HUGE_TABLE&#39;</span><span class="p">,</span> <span class="nv">$link</span><span class="p">);</span>
-<span class="k">while</span> <span class="p">(</span> <span class="nv">$row</span> <span class="o">=</span> <span class="nx">mysql_fetch_array</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// Do something with result
-</span><span class="c1"></span><span class="p">}</span>
-<span class="cp">?&gt;</span><span class="err">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$link</span>
+</span></span><span class="line"><span class="cl"> <span class="o">=</span> <span class="nx">mysql_connect</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;p4ssword&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$result</span> <span class="o">=</span> <span class="nx">mysql_unbuffered_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM HUGE_TABLE&#39;</span><span class="p">,</span> <span class="nv">$link</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span> <span class="nv">$row</span> <span class="o">=</span> <span class="nx">mysql_fetch_array</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Do something with result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="查询状态">查询状态</h3>
 <ul>
@@ -460,11 +451,11 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SHOW</span> <span class="n">FULL</span> <span class="n">PROCESSLIST</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">FULL</span><span class="w"> </span><span class="n">PROCESSLIST</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="/MySQL/status.png" alt=""></p>
 <p>上图中的<code>Command</code>列就表示当前的状态,一个查询的生命周期中,状态会变化很多次</p>
@@ -587,17 +578,17 @@ MySQL正在将一个内存临时表放到磁盘上</p>
 <p>等值传播</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="n">film</span><span class="p">.</span><span class="n">film_id</span>
-<span class="k">FROM</span> <span class="n">sakila</span><span class="p">.</span><span class="n">film</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sakila</span><span class="p">.</span><span class="n">film_actor</span> <span class="k">USING</span><span class="p">(</span><span class="n">film_id</span><span class="p">)</span>
-<span class="k">WHERE</span> <span class="n">film</span><span class="p">.</span><span class="n">film_id</span> <span class="o">&gt;</span> <span class="mi">500</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">film</span><span class="p">.</span><span class="n">film_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">film</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">film_actor</span><span class="w"> </span><span class="k">USING</span><span class="p">(</span><span class="n">film_id</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">film</span><span class="p">.</span><span class="n">film_id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">500</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>因为这里使用了film_id字段进行等值关联,MySQL知道这里的WHERE子句不仅适用于film表,而且对于film_actor表同样适用</p>
 </li>
@@ -730,11 +721,11 @@ MySQL正在将一个内存临时表放到磁盘上</p>
 <p>如,利用MyISAM在COUNT(*)全表非常快这个特性,我们快速查找所有ID大于5的城市</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="nf">COUNT</span> <span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">world</span><span class="p">.</span><span class="n">City</span> <span class="k">WHERE</span> <span class="n">ID</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="nf">COUNT</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">world</span><span class="p">.</span><span class="n">City</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">ID</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>将条件反转一下,先查找ID小于等于5的城市数,然后用总城市数一减就能得到同样的结果,却可以将扫描的行数减少到5行以内</p>
 <h4 id="使用近似值">使用近似值</h4>
@@ -838,7 +829,7 @@ MySQL正在将一个内存临时表放到磁盘上</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

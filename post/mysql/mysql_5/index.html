@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/mysql/mysql_5/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="MySQL 5: 创建高性能的索引" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/mysql/mysql_5/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-06-09T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-06-09T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-06-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-09T00:00:00+00:00" />
 <meta itemprop="name" content="MySQL 5: 创建高性能的索引">
-<meta itemprop="description" content="MySQL 5: 创建高性能的索引"><meta itemprop="datePublished" content="2021-06-09T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-06-09T00:00:00&#43;00:00" />
+<meta itemprop="description" content="MySQL 5: 创建高性能的索引"><meta itemprop="datePublished" content="2021-06-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-06-09T00:00:00+00:00" />
 <meta itemprop="wordCount" content="3940">
 <meta itemprop="keywords" content="MySQL,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL 5: 创建高性能的索引"/>
@@ -253,11 +252,11 @@
 <p>如果查询中某个列的查询范围,则其右边的所有列都无法使用索引优化查找,例如</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">WHERE</span> <span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Smith&#39;</span> <span class="k">AND</span> <span class="n">frst_name</span> <span class="k">LIKE</span> <span class="s1">&#39;J%&#39;</span> <span class="k">AND</span> <span class="n">dob</span><span class="o">=</span><span class="s1">&#39;1976-12-23&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">WHERE</span><span class="w"> </span><span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Smith&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">frst_name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;J%&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">dob</span><span class="o">=</span><span class="s1">&#39;1976-12-23&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个查询只能使用索引的前两列,因为这里LIKE是一个范围条件</p>
 </li>
@@ -302,7 +301,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -312,15 +311,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="c1">-- 这一句无法使用actor_id列的索引
-</span><span class="c1"></span><span class="k">SELECT</span> <span class="n">actor_id</span> <span class="k">FROM</span> <span class="n">sakila</span><span class="p">.</span><span class="n">actor</span> <span class="k">WHERE</span> <span class="n">actor_id</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-
-<span class="c1">-- 这一句可以使用actor_id列的索引
-</span><span class="c1"></span><span class="k">SELECT</span> <span class="n">actor_id</span> <span class="k">FROM</span> <span class="n">sakila</span><span class="p">.</span><span class="n">actor</span> <span class="k">WHERE</span> <span class="n">actor_id</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-
-<span class="c1">-- 这一句不能使用索引
-</span><span class="c1"></span><span class="k">SELECT</span> <span class="p">...</span> <span class="k">WHERE</span> <span class="nf">TO_DAYS</span><span class="p">(</span><span class="k">CURRENT_DATE</span><span class="p">)</span> <span class="o">-</span> <span class="nf">TO_DAYS</span><span class="p">(</span><span class="n">date_col</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1">-- 这一句无法使用actor_id列的索引
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">actor_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">actor</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">actor_id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 这一句可以使用actor_id列的索引
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">actor_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">actor</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">actor_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 这一句不能使用索引
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="nf">TO_DAYS</span><span class="p">(</span><span class="k">CURRENT_DATE</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">TO_DAYS</span><span class="p">(</span><span class="n">date_col</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="前缀索引和索引选择性">前缀索引和索引选择性</h2>
 <ul>
@@ -334,11 +333,11 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">sakila</span><span class="p">.</span><span class="n">city_demo</span> <span class="k">ADD</span> <span class="k">KEY</span> <span class="p">(</span><span class="nf">city</span><span class="p">(</span><span class="mi">7</span><span class="p">));</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">city_demo</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="nf">city</span><span class="p">(</span><span class="mi">7</span><span class="p">));</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>前缀索引无法用作ORDER BY和GROUP BY,也无法使用前缀索引做覆盖扫描</li>
@@ -416,7 +415,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -428,17 +427,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">test</span> <span class="p">(</span>
-<span class="n">ID</span> <span class="kt">INT</span> <span class="k">NOT</span> <span class="no">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
-<span class="n">A</span>
- <span class="kt">INT</span> <span class="k">NOT</span> <span class="no">NULL</span><span class="p">,</span>
-<span class="n">B</span>
- <span class="kt">INT</span> <span class="k">NOT</span> <span class="no">NULL</span><span class="p">,</span>
-<span class="k">UNIQUE</span><span class="p">(</span><span class="n">ID</span><span class="p">),</span>
-<span class="k">INDEX</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span>
-<span class="p">)</span> <span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
-<span class="c1">-- ID是一个主键,加上唯一限制,再加上索引.但事实上MySQL地唯一限制和主键限制都是通过索引实现的,因此,上面的写法实际上再相同的列上创建了三个重复的索引
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="nf">test</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ID</span><span class="w"> </span><span class="kt">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">A</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="kt">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">B</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="kt">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">UNIQUE</span><span class="p">(</span><span class="n">ID</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INDEX</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- ID是一个主键,加上唯一限制,再加上索引.但事实上MySQL地唯一限制和主键限制都是通过索引实现的,因此,上面的写法实际上再相同的列上创建了三个重复的索引
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>余索引和重复索引有一些不同。如果创建了索引(A,B),再创建索引(A)就是冗余索引,因为这只是前一个索引的前缀索引.因此索引(A,B)也可以当作索引(A)来使用
@@ -470,11 +469,11 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">innodb_tbl</span> <span class="kp">ENGINE</span><span class="o">=</span><span class="n">INNODB</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">innodb_tbl</span><span class="w"> </span><span class="kp">ENGINE</span><span class="o">=</span><span class="n">INNODB</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>如果InnoDB引擎的表出现了损坏,那么一定是发生了严重的错误,需要立刻调查一下原因.InnoDB一般不会出现损坏.InnoDB的设计保证了它并不容易被损坏。如果发生损坏,一般要么是数据库的硬件问题例如内存或者磁盘问题(有可能),要么是由于数据库管理员的错误例如在MySQL外部操作了数据文件(有可能),抑或是InnoDB本身的缺陷(不太可能)</li>
@@ -514,11 +513,11 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span> <span class="kp">ENGINE</span><span class="o">=&lt;</span><span class="kp">engine</span><span class="o">&gt;</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span><span class="w"> </span><span class="kp">ENGINE</span><span class="o">=&lt;</span><span class="kp">engine</span><span class="o">&gt;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>I am g</p>
     </div>
@@ -608,7 +607,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

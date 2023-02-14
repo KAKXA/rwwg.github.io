@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/algorithm/map_put_trick/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="利用Map的put方法返回值实现的小trick" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/algorithm/map_put_trick/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-09-26T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-09-26T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-09-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-26T00:00:00+00:00" />
 <meta itemprop="name" content="利用Map的put方法返回值实现的小trick">
-<meta itemprop="description" content="利用Map的put方法返回值实现的小trick"><meta itemprop="datePublished" content="2021-09-26T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-09-26T00:00:00&#43;00:00" />
+<meta itemprop="description" content="利用Map的put方法返回值实现的小trick"><meta itemprop="datePublished" content="2021-09-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-09-26T00:00:00+00:00" />
 <meta itemprop="wordCount" content="561">
 <meta itemprop="keywords" content="leetcode,java,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="利用Map的put方法返回值实现的小trick"/>
@@ -162,11 +161,11 @@
 <h2 id="map的put方法">Map的put方法</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">value</span><span class="o">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">value</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果插入的key对应的value已经存在,则执行value替换操作,<strong>返回旧的value值</strong>,如果不存在则执行插入,返回null</p>
 <h2 id="模板题">模板题</h2>
@@ -179,7 +178,7 @@
 <h3 id="做法">做法</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -210,36 +209,36 @@
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">wordPattern</span><span class="o">(</span><span class="n">String</span> <span class="n">pattern</span><span class="o">,</span> <span class="n">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">String</span><span class="o">[]</span> <span class="n">words</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">);</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">words</span><span class="o">.</span><span class="na">length</span> <span class="o">!=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">// 神奇的地方在于,这里只用到一个map
-</span><span class="c1"></span>        <span class="n">Map</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="k">for</span> <span class="o">(</span><span class="n">Integer</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">words</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// 正确的情况下,有两种情况
-</span><span class="c1"></span>            <span class="c1">// 模式pattern.charAt(i)已经出现过,上次出现在j
-</span><span class="c1"></span>            <span class="c1">// 那么左右都应该返回j
-</span><span class="c1"></span>            <span class="c1">// 模式pattern.charAt(i)没有出现过
-</span><span class="c1"></span>            <span class="c1">// 那么左右都应该返回null
-</span><span class="c1"></span>            
-            <span class="c1">//错误的情况下,有两种情况
-</span><span class="c1"></span>            <span class="c1">// 模式pattern.charAt(i)没有出现过或者上一次出现在j,而words[i]出现在k(j != k)
-</span><span class="c1"></span>            <span class="c1">// 则左边返回null或j,右边返回k
-</span><span class="c1"></span>            <span class="c1">// 模式pattern.charAt(i)出现在j,而words[i]没出现过
-</span><span class="c1"></span>            <span class="c1">// 则左边返回j,右边返回null
-</span><span class="c1"></span>            
-            <span class="c1">// 注意,维护两个串的键的类型不同,一个是char,一个是String
-</span><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">i</span><span class="o">)</span> <span class="o">!=</span> <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">i</span><span class="o">))</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">wordPattern</span><span class="o">(</span><span class="n">String</span> <span class="n">pattern</span><span class="o">,</span> <span class="n">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span><span class="o">[]</span> <span class="n">words</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">words</span><span class="o">.</span><span class="na">length</span> <span class="o">!=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 神奇的地方在于,这里只用到一个map
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Map</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="n">Integer</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">words</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 正确的情况下,有两种情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 模式pattern.charAt(i)已经出现过,上次出现在j
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 那么左右都应该返回j
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 模式pattern.charAt(i)没有出现过
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 那么左右都应该返回null
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            
+</span></span><span class="line"><span class="cl">            <span class="c1">//错误的情况下,有两种情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 模式pattern.charAt(i)没有出现过或者上一次出现在j,而words[i]出现在k(j != k)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 则左边返回null或j,右边返回k
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 模式pattern.charAt(i)出现在j,而words[i]没出现过
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 则左边返回j,右边返回null
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            
+</span></span><span class="line"><span class="cl">            <span class="c1">// 注意,维护两个串的键的类型不同,一个是char,一个是String
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">i</span><span class="o">)</span> <span class="o">!=</span> <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">i</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -330,7 +329,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

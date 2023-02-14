@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/mysql/mysql_4/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="高性能MYSQL第四章" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/mysql/mysql_4/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-05-25T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-25T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-05-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-25T00:00:00+00:00" />
 <meta itemprop="name" content="MySQL 4: Schema与数据类型优化">
-<meta itemprop="description" content="高性能MYSQL第四章"><meta itemprop="datePublished" content="2021-05-25T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-25T00:00:00&#43;00:00" />
+<meta itemprop="description" content="高性能MYSQL第四章"><meta itemprop="datePublished" content="2021-05-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-05-25T00:00:00+00:00" />
 <meta itemprop="wordCount" content="4015">
 <meta itemprop="keywords" content="Simplified Chinese,MySQL," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL 4: Schema与数据类型优化"/>
@@ -522,19 +521,19 @@
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="n">message_text</span><span class="p">,</span> <span class="n">user_name</span>
-<span class="k">FROM</span> <span class="n">message</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="k">user</span> <span class="k">ON</span> <span class="n">message</span><span class="p">.</span><span class="n">user_id</span><span class="o">=</span><span class="k">user</span><span class="p">.</span><span class="n">id</span>
-<span class="k">WHERE</span> <span class="k">user</span><span class="p">.</span><span class="n">account_type</span><span class="o">=</span><span class="s1">&#39;premium&#39;</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">message</span><span class="p">.</span><span class="n">published</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">message_text</span><span class="p">,</span><span class="w"> </span><span class="n">user_name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">message</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">user_id</span><span class="o">=</span><span class="k">user</span><span class="p">.</span><span class="n">id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">account_type</span><span class="o">=</span><span class="s1">&#39;premium&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">published</span><span class="w"> </span><span class="k">DESC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>要更有效地执行这个查询,MySQL需要扫描message表的published字段的索引.对于每一行找到的数据,将需要到<strong>user</strong>表里检查这个用户是不是付费用户</p>
@@ -545,19 +544,19 @@
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="n">message_text</span><span class="p">,</span> <span class="n">user_name</span>
-<span class="k">FROM</span> <span class="n">user_messages</span>
-<span class="k">WHERE</span> <span class="n">account_type</span><span class="o">=</span><span class="s1">&#39;premium&#39;</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">published</span> <span class="k">DESC</span>
-<span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">message_text</span><span class="p">,</span><span class="w"> </span><span class="n">user_name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">user_messages</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_type</span><span class="o">=</span><span class="s1">&#39;premium&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">published</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="混用范式化和反范式化">混用范式化和反范式化</h2>
 <h3 id="范式的优点和缺点-1">范式的优点和缺点</h3>
@@ -617,7 +616,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -631,19 +630,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="c1">-- 计数器
-</span><span class="c1"></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">hit_counter</span> <span class="p">(</span>
- <span class="n">slot</span> <span class="kt">tinyint</span> <span class="k">unsigned</span> <span class="k">not</span> <span class="no">null</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
- <span class="n">cnt</span> <span class="kt">int</span> <span class="k">unsigned</span> <span class="k">not</span> <span class="no">null</span>
-<span class="p">)</span> <span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
-
-<span class="c1">-- 给计数器增加一百行
-</span><span class="c1">-- 选择一个随机的槽进行更新
-</span><span class="c1"></span><span class="k">UPDATE</span> <span class="n">hit_counter</span> <span class="kt">SET</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">WHERE</span> <span class="n">slot</span> <span class="o">=</span> <span class="nf">RAND</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">;</span>
-
-<span class="c1">-- 要获得统计结果,需要使用下面这样的聚合查询
-</span><span class="c1"></span><span class="k">SELECT</span> <span class="nf">SUM</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">hit_counter</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1">-- 计数器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="nf">hit_counter</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">slot</span><span class="w"> </span><span class="kt">tinyint</span><span class="w"> </span><span class="k">unsigned</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="k">unsigned</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 给计数器增加一百行
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 选择一个随机的槽进行更新
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">hit_counter</span><span class="w"> </span><span class="kt">SET</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">slot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">RAND</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 要获得统计结果,需要使用下面这样的聚合查询
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">hit_counter</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="加快alter-table操作的速度">加快ALTER TABLE操作的速度</h2>
 <ul>
@@ -668,7 +667,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -677,14 +676,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="c1">-- 会创建一张新表
-</span><span class="c1"></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">sakila</span><span class="p">.</span><span class="n">film</span>
-<span class="n">MODIFY</span> <span class="k">COLUMN</span> <span class="n">rental_duration</span> <span class="kt">TINYINT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">NOT</span> <span class="no">NULL</span> <span class="k">DEFAULT</span> <span class="mi">5</span><span class="p">;</span>
-  
-<span class="c1">-- 原地改变.frm文件
-</span><span class="c1"></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">sakila</span><span class="p">.</span><span class="n">film</span>
-<span class="k">ALTER</span> <span class="k">COLUMN</span> <span class="n">rental_duration</span> <span class="kt">SET</span> <span class="k">DEFAULT</span> <span class="mi">5</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1">-- 会创建一张新表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">film</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">MODIFY</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">rental_duration</span><span class="w"> </span><span class="kt">TINYINT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 原地改变.frm文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">sakila</span><span class="p">.</span><span class="n">film</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">rental_duration</span><span class="w"> </span><span class="kt">SET</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -779,7 +778,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

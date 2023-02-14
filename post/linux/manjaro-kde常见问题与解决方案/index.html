@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/linux/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="Manjaro KDE下遇到的问题" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/linux/manjaro-kde%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-08-07T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-08-07T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2020-08-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-07T00:00:00+00:00" />
 <meta itemprop="name" content="Manjaro KDE常见问题与解决方案">
-<meta itemprop="description" content="Manjaro KDE下遇到的问题"><meta itemprop="datePublished" content="2020-08-07T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-08-07T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Manjaro KDE下遇到的问题"><meta itemprop="datePublished" content="2020-08-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-07T00:00:00+00:00" />
 <meta itemprop="wordCount" content="2574">
 <meta itemprop="keywords" content="Linux,KDE,Manjaro,simplified chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Manjaro KDE常见问题与解决方案"/>
@@ -195,13 +194,13 @@
       <h3 id="设置主屏幕与关闭笔记本显示屏">设置主屏幕与关闭笔记本显示屏</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">xrandr --output HDMI-1 --mode 2560x1440 --rate 59.95 --auto --primary
-xrandr --output eDP-1 --off
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">xrandr --output HDMI-1 --mode 2560x1440 --rate 59.95 --auto --primary
+</span></span><span class="line"><span class="cl">xrandr --output eDP-1 --off
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="firefox修改默认缩放比">Firefox修改默认缩放比</h3>
 <p><code>about:config</code></p>
@@ -222,7 +221,7 @@ xrandr --output eDP-1 --off
 <p>在<code>/opt/deepinwine/apps/Deepin-TIM/new_run.sh</code>编辑</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -232,15 +231,15 @@ xrandr --output eDP-1 --off
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
-</span><span class="cp"></span><span class="nv">timpid</span><span class="o">=</span><span class="sb">`</span>pgrep TIM.exe<span class="sb">`</span>
-<span class="k">while</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$timpid</span><span class="s2">&#34;</span> <span class="o">]</span>
-<span class="k">do</span>
-     <span class="nb">kill</span> <span class="nv">$timpid</span>
-     <span class="nv">timpid</span><span class="o">=</span><span class="sb">`</span>pgrep TIM.exe<span class="sb">`</span>
-<span class="k">done</span>
-/opt/deepinwine/apps/Deepin-TIM/run.sh
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nv">timpid</span><span class="o">=</span><span class="sb">`</span>pgrep TIM.exe<span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$timpid</span><span class="s2">&#34;</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">     <span class="nb">kill</span> <span class="nv">$timpid</span>
+</span></span><span class="line"><span class="cl">     <span class="nv">timpid</span><span class="o">=</span><span class="sb">`</span>pgrep TIM.exe<span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">/opt/deepinwine/apps/Deepin-TIM/run.sh
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="kde功能性和美化插件">KDE功能性和美化插件</h3>
 </li>
@@ -276,39 +275,39 @@ xrandr --output eDP-1 --off
 <h2 id="安装ibus-rime">安装ibus-rime</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S ibus ibus-rime
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S ibus ibus-rime
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>打开<code>~/.xprofile</code>,添加</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -d -x
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export GTK_IM_MODULE=ibus
+</span></span><span class="line"><span class="cl">export XMODIFIERS=@im=ibus
+</span></span><span class="line"><span class="cl">export QT_IM_MODULE=ibus
+</span></span><span class="line"><span class="cl">ibus-daemon -d -x
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="配置显卡切换">配置显卡切换</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S optimus-manager
-yay install optimus-manager-qt
-sudo systemctl disable bumblebeed.service
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S optimus-manager
+</span></span><span class="line"><span class="cl">yay install optimus-manager-qt
+</span></span><span class="line"><span class="cl">sudo systemctl disable bumblebeed.service
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>将<code>/etc/X11/xorg.conf.d/</code>和<code>/etc/X11/</code>下与显卡相关的选项全部加上<code>.bak</code>后缀;
 将<code>/etc/sddm.conf</code>中的<code>DisplayCommand</code>和<code>DisplayStopCommand</code>行前加<code>#</code>;
@@ -322,93 +321,93 @@ sudo systemctl disable bumblebeed.service
 <h2 id="安装qq">安装qq</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gnome-settings-daemon
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S gnome-settings-daemon
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在AUR找到deepin.com.qq.im,安装之</p>
 <h2 id="在fish下进入virtualenv">在fish下进入virtualenv</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">source /venv/bin/activate.fish
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">source /venv/bin/activate.fish
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>退出virtualenv</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">deactivate
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">deactivate
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="安装keras-tensorflow">安装keras tensorflow</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo pacman -S python-tensorflow-cuda
-sudo pacman -S tensorboard
-pip install keras
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -S python-tensorflow-cuda
+</span></span><span class="line"><span class="cl">sudo pacman -S tensorboard
+</span></span><span class="line"><span class="cl">pip install keras
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>靠,这就是Arch Linux</p>
 <p>///下面的步骤仅作应急参考</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd 有venv的目录
-source /venv/bin/activate.fish
-pip install keras tensorflow
-# 无需加载tensorflow-gpu,对于最新版本的tensorflow,已经把CPU和GPU版本打包在一起了
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd 有venv的目录
+</span></span><span class="line"><span class="cl">source /venv/bin/activate.fish
+</span></span><span class="line"><span class="cl">pip install keras tensorflow
+</span></span><span class="line"><span class="cl"># 无需加载tensorflow-gpu,对于最新版本的tensorflow,已经把CPU和GPU版本打包在一起了
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>根据界面https://www.tensorflow.org/install/gpu 中的提示,tensorflow&gt;=2.1.0目前只支持CUDA10.1,而要下载对应CUDA10.1的cudnn</p>
 <p><a href="https://archive.archlinux.org/packages/c/cuda/">https://archive.archlinux.org/packages/c/cuda/</a> 这里有各个版本的CUDA,比如下载cuda-10.1.243-2-x86_64.pkg.tar.xz
 <a href="https://developer.nvidia.com/rdp/cudnn-archive#a-collapse802-101">https://developer.nvidia.com/rdp/cudnn-archive#a-collapse802-101</a> 这里有各个版本的cuDNN</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo pacman -U cuda-10.1.243-2-x86_64.pkg.tar.xz
-sudo p
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -U cuda-10.1.243-2-x86_64.pkg.tar.xz
+</span></span><span class="line"><span class="cl">sudo p
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>安装downgrade</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo pacman -S downgrade
-downgrade cuda
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -S downgrade
+</span></span><span class="line"><span class="cl">downgrade cuda
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>为防止之后cuda更新时升级,编辑/etc/pacman.conf
 取消IgnorePkg前的注释,并在等号后添加cuda</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">IgnorePkg = cuda
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IgnorePkg = cuda
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>///上面的步骤仅作应急参考</p>
 <h2 id="jupyterlab插件">jupyterlab插件</h2>
@@ -419,42 +418,42 @@ downgrade cuda
 <p>在<code>/etc/pacman.conf</code>中添加</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[archlinuxcn]
-Server = https://repo.archlinuxcn.org/$arch
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[archlinuxcn]
+</span></span><span class="line"><span class="cl">Server = https://repo.archlinuxcn.org/$arch
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo pacman -S archlinuxcn-keyring
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -S archlinuxcn-keyring
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="如何添加多个不同的ssh公钥私钥对">如何添加多个不同的ssh公钥私钥对</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh-keygen -f ~/.ssh/id_rsa_somthing
-bash
-eval &#34;$(ssh-agent -s)&#34;
-ssh-add ~/.ssh/id_rsa_something
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh-keygen -f ~/.ssh/id_rsa_somthing
+</span></span><span class="line"><span class="cl">bash
+</span></span><span class="line"><span class="cl">eval &#34;$(ssh-agent -s)&#34;
+</span></span><span class="line"><span class="cl">ssh-add ~/.ssh/id_rsa_something
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="jupyterlab出现socket错误时">jupyterlab出现socket错误时</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -480,40 +479,40 @@ ssh-add ~/.ssh/id_rsa_something
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@iZuf6egep77cshqz9ccxysZ aaa]# jupyter lab
-Traceback (most recent call last):
-  File &#34;/usr/local/bin/jupyter-lab&#34;, line 11, in &lt;module&gt;
-    sys.exit(main())
-  File &#34;/usr/local/lib/python3.6/site-packages/jupyter_core/application.py&#34;, line 270, in launch_instance
-    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
-  File &#34;/usr/local/lib/python3.6/site-packages/traitlets/config/application.py&#34;, line 663, in launch_instance
-    app.initialize(argv)
-  File &#34;&lt;decorator-gen-7&gt;&#34;, line 2, in initialize
-  File &#34;/usr/local/lib/python3.6/site-packages/traitlets/config/application.py&#34;, line 87, in catch_config_error
-    return method(app, *args, **kwargs)
-  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 2037, in initialize
-    self.init_webapp()
-  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 1711, in init_webapp
-    success = self._bind_http_server()
-  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 1718, in _bind_http_server
-    return self._bind_http_server_unix() if self.sock else self._bind_http_server_tcp()
-  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 1744, in _bind_http_server_tcp
-    self.http_server.listen(port, self.ip)
-  File &#34;/usr/local/lib64/python3.6/site-packages/tornado/tcpserver.py&#34;, line 151, in listen
-    sockets = bind_sockets(port, address=address)
-  File &#34;/usr/local/lib64/python3.6/site-packages/tornado/netutil.py&#34;, line 174, in bind_sockets
-    sock.bind(sockaddr)
-OSError: [Errno 99] Cannot assign requested address
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@iZuf6egep77cshqz9ccxysZ aaa]# jupyter lab
+</span></span><span class="line"><span class="cl">Traceback (most recent call last):
+</span></span><span class="line"><span class="cl">  File &#34;/usr/local/bin/jupyter-lab&#34;, line 11, in &lt;module&gt;
+</span></span><span class="line"><span class="cl">    sys.exit(main())
+</span></span><span class="line"><span class="cl">  File &#34;/usr/local/lib/python3.6/site-packages/jupyter_core/application.py&#34;, line 270, in launch_instance
+</span></span><span class="line"><span class="cl">    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
+</span></span><span class="line"><span class="cl">  File &#34;/usr/local/lib/python3.6/site-packages/traitlets/config/application.py&#34;, line 663, in launch_instance
+</span></span><span class="line"><span class="cl">    app.initialize(argv)
+</span></span><span class="line"><span class="cl">  File &#34;&lt;decorator-gen-7&gt;&#34;, line 2, in initialize
+</span></span><span class="line"><span class="cl">  File &#34;/usr/local/lib/python3.6/site-packages/traitlets/config/application.py&#34;, line 87, in catch_config_error
+</span></span><span class="line"><span class="cl">    return method(app, *args, **kwargs)
+</span></span><span class="line"><span class="cl">  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 2037, in initialize
+</span></span><span class="line"><span class="cl">    self.init_webapp()
+</span></span><span class="line"><span class="cl">  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 1711, in init_webapp
+</span></span><span class="line"><span class="cl">    success = self._bind_http_server()
+</span></span><span class="line"><span class="cl">  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 1718, in _bind_http_server
+</span></span><span class="line"><span class="cl">    return self._bind_http_server_unix() if self.sock else self._bind_http_server_tcp()
+</span></span><span class="line"><span class="cl">  File &#34;/usr/local/lib/python3.6/site-packages/notebook/notebookapp.py&#34;, line 1744, in _bind_http_server_tcp
+</span></span><span class="line"><span class="cl">    self.http_server.listen(port, self.ip)
+</span></span><span class="line"><span class="cl">  File &#34;/usr/local/lib64/python3.6/site-packages/tornado/tcpserver.py&#34;, line 151, in listen
+</span></span><span class="line"><span class="cl">    sockets = bind_sockets(port, address=address)
+</span></span><span class="line"><span class="cl">  File &#34;/usr/local/lib64/python3.6/site-packages/tornado/netutil.py&#34;, line 174, in bind_sockets
+</span></span><span class="line"><span class="cl">    sock.bind(sockaddr)
+</span></span><span class="line"><span class="cl">OSError: [Errno 99] Cannot assign requested address
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>解决方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">jupyter lab --ip=127.0.0.1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">jupyter lab --ip=127.0.0.1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="如果服务器没有配置tlsssl证书使用ssh端口转发实现加密通讯">如果服务器没有配置TLS/SSL证书,使用SSH端口转发实现加密通讯</h2>
 <h2 id="去掉manjaro应用的标题栏">去掉Manjaro应用的标题栏</h2>
@@ -541,35 +540,35 @@ Use .* for the regular expression to match all windows</p>
 <h2 id="指定tor出口节点ip">指定tor出口节点IP</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">vim Browser/TorBrowser/Data/Tor/torrc 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim Browser/TorBrowser/Data/Tor/torrc 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>添加</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ExitNodes {hk}    //指定的出口节点
-ExcludeNodes {cn} //去除的出口节点
-StrictExitNodes 1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ExitNodes {hk}    //指定的出口节点
+</span></span><span class="line"><span class="cl">ExcludeNodes {cn} //去除的出口节点
+</span></span><span class="line"><span class="cl">StrictExitNodes 1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="关闭ipv6支持">关闭ipv6支持</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">nmcli connection edit wlo1
-set ipv6.method ignore
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nmcli connection edit wlo1
+</span></span><span class="line"><span class="cl">set ipv6.method ignore
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="使用ifconfig能看到的两个inet6">使用ifconfig能看到的两个inet6</h2>
 <p>scopeid<link> 只在局域网内有用的ipv6
@@ -577,13 +576,13 @@ scopeid<global> 全球唯一分配的ipv6</p>
 <h2 id="sage-终端调为亮色调">sage 终端调为亮色调</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">vim ~/.sage/init.sage
-%colors Linux
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim ~/.sage/init.sage
+</span></span><span class="line"><span class="cl">%colors Linux
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="为vscode的sage文件提供python语法高亮">为VSCode的sage文件提供python语法高亮</h2>
 <ul>
@@ -597,7 +596,7 @@ scopeid<global> 全球唯一分配的ipv6</p>
 <p>恢复iptables默认设置:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -612,44 +611,44 @@ scopeid<global> 全球唯一分配的ipv6</p>
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 默认策略设置为ACCEPT，否则后续操作会导致连接断开，无法再次连接</span>
-sudo iptables -P INPUT ACCEPT
-sudo iptables -P FORWARD ACCEPT
-sudo iptables -P OUTPUT ACCEPT
-sudo iptables -t nat -P PREROUTING ACCEPT
-sudo iptables -t nat -P POSTROUTING ACCEPT
-sudo iptables -t nat -P OUTPUT ACCEPT
-<span class="c1">## 清空所有规则</span>
-sudo iptables -F
-sudo iptables -t nat -F
-<span class="c1">## 删除所有非系统默认的链</span>
-sudo iptables -X
-sudo iptables -t nat -X
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 默认策略设置为ACCEPT，否则后续操作会导致连接断开，无法再次连接</span>
+</span></span><span class="line"><span class="cl">sudo iptables -P INPUT ACCEPT
+</span></span><span class="line"><span class="cl">sudo iptables -P FORWARD ACCEPT
+</span></span><span class="line"><span class="cl">sudo iptables -P OUTPUT ACCEPT
+</span></span><span class="line"><span class="cl">sudo iptables -t nat -P PREROUTING ACCEPT
+</span></span><span class="line"><span class="cl">sudo iptables -t nat -P POSTROUTING ACCEPT
+</span></span><span class="line"><span class="cl">sudo iptables -t nat -P OUTPUT ACCEPT
+</span></span><span class="line"><span class="cl"><span class="c1">## 清空所有规则</span>
+</span></span><span class="line"><span class="cl">sudo iptables -F
+</span></span><span class="line"><span class="cl">sudo iptables -t nat -F
+</span></span><span class="line"><span class="cl"><span class="c1">## 删除所有非系统默认的链</span>
+</span></span><span class="line"><span class="cl">sudo iptables -X
+</span></span><span class="line"><span class="cl">sudo iptables -t nat -X
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>开启端口</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo iptables -I INPUT -p udp --dport 1714:1764 -j ACCEPT
-sudo iptables -I INPUT -p tcp --dport <span class="m">22</span> -j ACCEPT
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo iptables -I INPUT -p udp --dport 1714:1764 -j ACCEPT
+</span></span><span class="line"><span class="cl">sudo iptables -I INPUT -p tcp --dport <span class="m">22</span> -j ACCEPT
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
 <h2 id="修改输错口令次数和惩罚时间">修改输错口令次数和惩罚时间</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo vim /etc/security/faillock.conf
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo vim /etc/security/faillock.conf
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="thunderbird无法用pop3同步gmail">thunderbird无法用pop3同步gmail</h2>
 <p><a href="https://myaccount.google.com/lesssecureapps">https://myaccount.google.com/lesssecureapps</a></p>
@@ -663,11 +662,11 @@ sudo iptables -I INPUT -p tcp --dport <span class="m">22</span> -j ACCEPT
 <h2 id="c-中的神秘错误">C++ 中的神秘错误:</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#define uint unsigned
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#define uint unsigned
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>报错duplicate &lsquo;unsigned&rsquo;,这是因为&lt;types.h&gt;中定义了<code>uint</code>.</p>
 <p>##OneDrive-abraunegg</p>
@@ -679,13 +678,13 @@ sudo iptables -I INPUT -p tcp --dport <span class="m">22</span> -j ACCEPT
 <p>开启服务的方式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">systemctl --user <span class="nb">enable</span> onedrive.service
-systemctl --user start onedrive.service
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl --user <span class="nb">enable</span> onedrive.service
+</span></span><span class="line"><span class="cl">systemctl --user start onedrive.service
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -696,7 +695,7 @@ systemctl --user start onedrive.service
 <h2 id="latex-beamer-引用">Latex Beamer 引用</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -705,14 +704,14 @@ systemctl --user start onedrive.service
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-latex" data-lang="latex"><span class="c">%%% end of your presentation slides
-</span><span class="c"></span><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}</span>[allowframebreaks]<span class="nb">{</span>References<span class="nb">}</span>
-    <span class="c">%\bibliographystyle{plain}
-</span><span class="c"></span>    <span class="k">\bibliographystyle</span><span class="nb">{</span>amsalpha<span class="nb">}</span>
-    <span class="c">%\bibliography{mybeamer} also works
-</span><span class="c"></span>    <span class="k">\bibliography</span><span class="nb">{</span>./mybeamer.bib<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="c">%%% end of your presentation slides
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}</span>[allowframebreaks]<span class="nb">{</span>References<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c">%\bibliographystyle{plain}
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">\bibliographystyle</span><span class="nb">{</span>amsalpha<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c">%\bibliography{mybeamer} also works
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">\bibliography</span><span class="nb">{</span>./mybeamer.bib<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -817,7 +816,7 @@ systemctl --user start onedrive.service
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

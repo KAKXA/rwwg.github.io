@@ -13,8 +13,9 @@
       <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/post/algorithm/factoring-an-integer-trial-division-and-quadratic-sieve/</guid>
-      <description>1. Abstract   This essay is to explain the factoring of an integer 18393075391668469672027802484408130559.
-  The result and time:</description>
+      <description>1. Abstract This essay is to explain the factoring of an integer 18393075391668469672027802484408130559.
+The result and time:
+Factors Time/s Programming Language 104743 Java 1299721 1 (together with the first one) Java 283839307517 Java 475999687667509 102 (together with the third one) Java 103 (in total) 2.</description>
     </item>
     
   </channel>

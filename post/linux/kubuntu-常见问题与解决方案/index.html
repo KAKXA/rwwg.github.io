@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/linux/kubuntu-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="个人在使用KUbuntu时遇到的问题" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/linux/kubuntu-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-11-02T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-11-02T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2020-11-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-02T00:00:00+00:00" />
 <meta itemprop="name" content="KUbuntu 常见问题与解决方案">
-<meta itemprop="description" content="个人在使用KUbuntu时遇到的问题"><meta itemprop="datePublished" content="2020-11-02T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-11-02T00:00:00&#43;00:00" />
+<meta itemprop="description" content="个人在使用KUbuntu时遇到的问题"><meta itemprop="datePublished" content="2020-11-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-02T00:00:00+00:00" />
 <meta itemprop="wordCount" content="334">
 <meta itemprop="keywords" content="Linux,KUbuntu,KDE,Ubuntu,simplified chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="KUbuntu 常见问题与解决方案"/>
@@ -166,11 +165,11 @@
       <h2 id="make-fish-the-default-shell">make fish the default shell</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">chsh -s <span class="sb">`</span>which fish<span class="sb">`</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">chsh -s <span class="sb">`</span>which fish<span class="sb">`</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="vpn-cannot-save-password">VPN cannot save password</h2>
 <p>change the pattern into all users</p>
@@ -180,17 +179,17 @@ so avoid using snap</p>
 <h2 id="关闭ipv6支持">关闭ipv6支持</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">nmcli connection edit sdu_net
-set ipv6.method ignore
-save
-q
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nmcli connection edit sdu_net
+</span></span><span class="line"><span class="cl">set ipv6.method ignore
+</span></span><span class="line"><span class="cl">save
+</span></span><span class="line"><span class="cl">q
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="deepin-wine-qq-install">deepin-wine qq install</h2>
 <p><a href="https://github.com/zq1997/deepin-wine">https://github.com/zq1997/deepin-wine</a>
@@ -198,19 +197,19 @@ q
 <h2 id="fcitx-googlepinyin">fcitx-googlepinyin</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get install language-pack-zh-hans
-sudo apt-get install fcitx-googlepinyin
-im-config
-reboot
-fcitx
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get install language-pack-zh-hans
+</span></span><span class="line"><span class="cl">sudo apt-get install fcitx-googlepinyin
+</span></span><span class="line"><span class="cl">im-config
+</span></span><span class="line"><span class="cl">reboot
+</span></span><span class="line"><span class="cl">fcitx
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在panel右键configure,加号,取消只选择当前语言的勾选
 选择google pinyin
@@ -219,15 +218,15 @@ ctrl + .关闭中文符号</p>
 <p>在<code>/etc/environment</code>中添加</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GTK_IM_MODULE=fcitx
+</span></span><span class="line"><span class="cl">QT_IM_MODULE=fcitx
+</span></span><span class="line"><span class="cl">XMODIFIERS=@im=fcitx
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>重启.</p>
 <h2 id="hibernate">Hibernate</h2>
@@ -334,7 +333,7 @@ XMODIFIERS=@im=fcitx
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

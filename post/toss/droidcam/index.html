@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/toss/droidcam/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="Droidcam" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/toss/droidcam/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-04-05T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-04-05T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-04-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-05T00:00:00+00:00" />
 <meta itemprop="name" content="Droidcam在Linux下的安装与使用">
-<meta itemprop="description" content="Droidcam"><meta itemprop="datePublished" content="2021-04-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-04-05T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Droidcam"><meta itemprop="datePublished" content="2021-04-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-04-05T00:00:00+00:00" />
 <meta itemprop="wordCount" content="480">
 <meta itemprop="keywords" content="Linux,Droidcam,Ubuntu,KUbuntu,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Droidcam在Linux下的安装与使用"/>
@@ -153,29 +152,29 @@
 <p>运行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">lsmod <span class="p">|</span> grep v4l2loopback_dc
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">lsmod <span class="p">|</span> grep v4l2loopback_dc
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果有输出,进行下一步,否则:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt install v4l2loopback-utils
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt install v4l2loopback-utils
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果你的电脑有 <code>Secure-boot</code> 的设定,那么按照提示,你会设置一个Boot口令,重启电脑,并在Boot界面选择类似于 <code>enroll MOK key</code> 的一项,输入Boot口令.假如你第一次不知道怎么选并直接开机了,可以在terminal中输入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo update-secureboot-policy --enroll-key
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo update-secureboot-policy --enroll-key
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>再进行一次重启,重复以上步骤.如果不在Boot时输入Boot口令,这个第三方模块就不会加载到内核中(大概,具体的不太了解).</p>
 </li>
@@ -288,7 +287,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

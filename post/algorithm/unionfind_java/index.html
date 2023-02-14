@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/algorithm/unionfind_java/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="我的Java并查集模板" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/algorithm/unionfind_java/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-09-29T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-09-29T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-09-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-29T00:00:00+00:00" />
 <meta itemprop="name" content="我的Java并查集模板">
-<meta itemprop="description" content="我的Java并查集模板"><meta itemprop="datePublished" content="2021-09-29T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-09-29T00:00:00&#43;00:00" />
+<meta itemprop="description" content="我的Java并查集模板"><meta itemprop="datePublished" content="2021-09-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-09-29T00:00:00+00:00" />
 <meta itemprop="wordCount" content="302">
 <meta itemprop="keywords" content="java,union find,algorithm,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="我的Java并查集模板"/>
@@ -148,7 +147,7 @@
       <p>比起网上流传最广的也是最快的用数组维护的模板,我使用了<code>HashMap</code>维护,会慢一些,但是实现了对泛型的支持</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -222,79 +221,79 @@
 </span><span class="lnt">72
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">UF</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="n">Map</span><span class="o">&lt;</span><span class="n">T</span><span class="o">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">father</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nf">UF</span><span class="o">()</span> <span class="o">{</span>
-        <span class="cm">/*
-</span><span class="cm">        record every node&#39;s father
-</span><span class="cm">         */</span>
-        <span class="n">father</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
-        <span class="cm">/*
-</span><span class="cm">        add one son-father pair
-</span><span class="cm">         */</span>
-        <span class="k">if</span> <span class="o">(!</span><span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">x</span><span class="o">))</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">merge</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">,</span> <span class="n">T</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
-        <span class="cm">/*
-</span><span class="cm">        merge two UF
-</span><span class="cm">         */</span>
-        <span class="n">T</span> <span class="n">root_x</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
-        <span class="n">T</span> <span class="n">root_y</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">y</span><span class="o">);</span>
-
-        <span class="k">if</span> <span class="o">(</span><span class="n">root_x</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">root_y</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">if</span> <span class="o">(</span><span class="n">root_x</span> <span class="o">!=</span> <span class="n">root_y</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">root_x</span><span class="o">,</span> <span class="n">root_y</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">T</span> <span class="nf">find</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
-        <span class="cm">/*
-</span><span class="cm">        find root of x
-</span><span class="cm">        if x is not in UF, return null
-</span><span class="cm">         */</span>
-        <span class="k">if</span> <span class="o">(!</span><span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">x</span><span class="o">))</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="n">T</span> <span class="n">root</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">root</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">root</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">T</span> <span class="n">ori_father</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">root</span><span class="o">);</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">ori_father</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">root</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">is_connected</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">,</span> <span class="n">T</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
-        <span class="cm">/*
-</span><span class="cm">        x in uf &amp;&amp; y in uf &amp;&amp; root(x) == root(y) --&gt; return true
-</span><span class="cm">         */</span>
-        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">y</span><span class="o">))</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">==</span> <span class="k">this</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">y</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">UF</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Map</span><span class="o">&lt;</span><span class="n">T</span><span class="o">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">father</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">UF</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">        record every node&#39;s father
+</span></span></span><span class="line"><span class="cl"><span class="cm">         */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">father</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">        add one son-father pair
+</span></span></span><span class="line"><span class="cl"><span class="cm">         */</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(!</span><span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">x</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">merge</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">,</span> <span class="n">T</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">        merge two UF
+</span></span></span><span class="line"><span class="cl"><span class="cm">         */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">T</span> <span class="n">root_x</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">T</span> <span class="n">root_y</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">y</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">root_x</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">root_y</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">root_x</span> <span class="o">!=</span> <span class="n">root_y</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">root_x</span><span class="o">,</span> <span class="n">root_y</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">T</span> <span class="nf">find</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">        find root of x
+</span></span></span><span class="line"><span class="cl"><span class="cm">        if x is not in UF, return null
+</span></span></span><span class="line"><span class="cl"><span class="cm">         */</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(!</span><span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">x</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">T</span> <span class="n">root</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">root</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">root</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">T</span> <span class="n">ori_father</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">root</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">x</span> <span class="o">=</span> <span class="n">ori_father</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">root</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">is_connected</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">,</span> <span class="n">T</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">        x in uf &amp;&amp; y in uf &amp;&amp; root(x) == root(y) --&gt; return true
+</span></span></span><span class="line"><span class="cl"><span class="cm">         */</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">.</span><span class="na">father</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">y</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">==</span> <span class="k">this</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">y</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -386,7 +385,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

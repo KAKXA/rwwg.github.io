@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/algorithm/leetcode-1994/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="Leetcode 1994 好子集的数目" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/algorithm/leetcode-1994/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-02-22T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2022-02-22T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2022-02-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-22T00:00:00+00:00" />
 <meta itemprop="name" content="Leetcode 1994 好子集的数目">
-<meta itemprop="description" content="Leetcode 1994 好子集的数目"><meta itemprop="datePublished" content="2022-02-22T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2022-02-22T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Leetcode 1994 好子集的数目"><meta itemprop="datePublished" content="2022-02-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-22T00:00:00+00:00" />
 <meta itemprop="wordCount" content="980">
 <meta itemprop="keywords" content="Simplified Chinese,leetcode,dp," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode 1994 好子集的数目"/>
@@ -166,7 +165,7 @@
 <h2 id="代码">代码</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -239,78 +238,78 @@
 </span><span class="lnt">71
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="c1">// 在开头用static final来声明常量
-</span><span class="c1"></span>    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">PRIMES</span> <span class="o">=</span> <span class="o">{</span><span class="n">2</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">5</span><span class="o">,</span> <span class="n">7</span><span class="o">,</span> <span class="n">11</span><span class="o">,</span> <span class="n">13</span><span class="o">,</span> <span class="n">17</span><span class="o">,</span> <span class="n">19</span><span class="o">,</span> <span class="n">23</span><span class="o">,</span> <span class="n">29</span><span class="o">};</span>
-    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">NUM_MAX</span> <span class="o">=</span> <span class="n">30</span><span class="o">;</span>
-    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MOD</span> <span class="o">=</span> <span class="n">1000000007</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">numberOfGoodSubsets</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">freq</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">NUM_MAX</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="o">++</span><span class="n">freq</span><span class="o">[</span><span class="n">num</span><span class="o">];</span>
-        <span class="o">}</span>
-
-        <span class="c1">// f代表当我们只选择[2,i]之间的数,且选择的数的质因数使用情况为mask时的方案数
-</span><span class="c1"></span>        <span class="c1">// 后面我们会通过剪枝把使得mask符合里面的数互素的要求
-</span><span class="c1"></span>        <span class="kt">int</span><span class="o">[]</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">1</span> <span class="o">&lt;&lt;</span> <span class="n">PRIMES</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="n">f</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
-        <span class="c1">// 对于1的个数,由于1是可有可无的,所以它提供的可能性为2 * (1的个数)
-</span><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">freq</span><span class="o">[</span><span class="n">1</span><span class="o">];</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">f</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">*</span> <span class="n">2</span> <span class="o">%</span> <span class="n">MOD</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// 二维dp的外侧变量时迭代的素数,i是作为素数数组的下标存在
-</span><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">NUM_MAX</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// 不存在该素数,直接跳过
-</span><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">freq</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// subset用于
-</span><span class="c1"></span>            <span class="c1">// 1. 存储给定的nums中存在(如果根本不存在这个数,后面就要避免做无意义的计算)
-</span><span class="c1"></span>            <span class="c1">// 2. 且可能用在&#34;好子集&#34;中的数的掩码(比如4这种平方数就不可能放在好子集中)
-</span><span class="c1"></span>
-            <span class="c1">// 首先检查 i 的每个质因数是否均不超过 1 个
-</span><span class="c1"></span>            <span class="kt">int</span> <span class="n">subset</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-            <span class="kt">boolean</span> <span class="n">check</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">PRIMES</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">j</span><span class="o">)</span> <span class="o">{</span>
-                <span class="kt">int</span> <span class="n">prime</span> <span class="o">=</span> <span class="n">PRIMES</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="o">(</span><span class="n">prime</span> <span class="o">*</span> <span class="n">prime</span><span class="o">)</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">check</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-                    <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">prime</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">subset</span> <span class="o">|=</span> <span class="o">(</span><span class="n">1</span> <span class="o">&lt;&lt;</span> <span class="n">j</span><span class="o">);</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="k">if</span> <span class="o">(!</span><span class="n">check</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// 动态规划
-</span><span class="c1"></span>            <span class="c1">// 01背包经典逆序
-</span><span class="c1"></span>            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">mask</span> <span class="o">=</span> <span class="o">(</span><span class="n">1</span> <span class="o">&lt;&lt;</span> <span class="n">PRIMES</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span> <span class="n">mask</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">;</span> <span class="o">--</span><span class="n">mask</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// 保证subset的素因子包含在mask中
-</span><span class="c1"></span>                <span class="k">if</span> <span class="o">((</span><span class="n">mask</span> <span class="o">&amp;</span> <span class="n">subset</span><span class="o">)</span> <span class="o">==</span> <span class="n">subset</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="c1">// i的素分解得到掩码subset,把所有mask中的subset掩码去掉
-</span><span class="c1"></span>                    <span class="c1">// 那么就剩下不含i的素因子的mask ^ subset了,用
-</span><span class="c1"></span>                    <span class="c1">// 由于上面保证了subset包含在subset中,所以进入if语句的任意两个mask都可以保证mask1 ^ subset != mask2 ^ subset
-</span><span class="c1"></span>                    <span class="c1">// 而且 mask ^ subset &lt; mask(因为去掉了若干个1)
-</span><span class="c1"></span>                    <span class="n">f</span><span class="o">[</span><span class="n">mask</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">((</span><span class="n">f</span><span class="o">[</span><span class="n">mask</span><span class="o">]</span> <span class="o">+</span> <span class="o">((</span><span class="kt">long</span><span class="o">)</span> <span class="n">f</span><span class="o">[</span><span class="n">mask</span> <span class="o">^</span> <span class="n">subset</span><span class="o">])</span> <span class="o">*</span> <span class="n">freq</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="o">);</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">1</span><span class="o">,</span> <span class="n">maskMax</span> <span class="o">=</span> <span class="o">(</span><span class="n">1</span> <span class="o">&lt;&lt;</span> <span class="n">PRIMES</span><span class="o">.</span><span class="na">length</span><span class="o">);</span> <span class="n">mask</span> <span class="o">&lt;</span> <span class="n">maskMax</span><span class="o">;</span> <span class="o">++</span><span class="n">mask</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">ans</span> <span class="o">=</span> <span class="o">(</span><span class="n">ans</span> <span class="o">+</span> <span class="n">f</span><span class="o">[</span><span class="n">mask</span><span class="o">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在开头用static final来声明常量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">PRIMES</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">13</span><span class="o">,</span> <span class="mi">17</span><span class="o">,</span> <span class="mi">19</span><span class="o">,</span> <span class="mi">23</span><span class="o">,</span> <span class="mi">29</span><span class="o">};</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">NUM_MAX</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MOD</span> <span class="o">=</span> <span class="mi">1000000007</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">numberOfGoodSubsets</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span><span class="o">[]</span> <span class="n">freq</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">NUM_MAX</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">freq</span><span class="o">[</span><span class="n">num</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// f代表当我们只选择[2,i]之间的数,且选择的数的质因数使用情况为mask时的方案数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 后面我们会通过剪枝把使得mask符合里面的数互素的要求
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span><span class="o">[]</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">PRIMES</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 对于1的个数,由于1是可有可无的,所以它提供的可能性为2 * (1的个数)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">freq</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">f</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">%</span> <span class="n">MOD</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 二维dp的外侧变量时迭代的素数,i是作为素数数组的下标存在
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">NUM_MAX</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 不存在该素数,直接跳过
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">freq</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// subset用于
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 1. 存储给定的nums中存在(如果根本不存在这个数,后面就要避免做无意义的计算)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 2. 且可能用在&#34;好子集&#34;中的数的掩码(比如4这种平方数就不可能放在好子集中)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 首先检查 i 的每个质因数是否均不超过 1 个
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kt">int</span> <span class="n">subset</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">boolean</span> <span class="n">check</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">PRIMES</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">prime</span> <span class="o">=</span> <span class="n">PRIMES</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="o">(</span><span class="n">prime</span> <span class="o">*</span> <span class="n">prime</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">check</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">prime</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">subset</span> <span class="o">|=</span> <span class="o">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">j</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(!</span><span class="n">check</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 动态规划
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 01背包经典逆序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">mask</span> <span class="o">=</span> <span class="o">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">PRIMES</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">;</span> <span class="o">--</span><span class="n">mask</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 保证subset的素因子包含在mask中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span> <span class="o">((</span><span class="n">mask</span> <span class="o">&amp;</span> <span class="n">subset</span><span class="o">)</span> <span class="o">==</span> <span class="n">subset</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// i的素分解得到掩码subset,把所有mask中的subset掩码去掉
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="c1">// 那么就剩下不含i的素因子的mask ^ subset了,用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="c1">// 由于上面保证了subset包含在subset中,所以进入if语句的任意两个mask都可以保证mask1 ^ subset != mask2 ^ subset
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="c1">// 而且 mask ^ subset &lt; mask(因为去掉了若干个1)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">f</span><span class="o">[</span><span class="n">mask</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">((</span><span class="n">f</span><span class="o">[</span><span class="n">mask</span><span class="o">]</span> <span class="o">+</span> <span class="o">((</span><span class="kt">long</span><span class="o">)</span> <span class="n">f</span><span class="o">[</span><span class="n">mask</span> <span class="o">^</span> <span class="n">subset</span><span class="o">])</span> <span class="o">*</span> <span class="n">freq</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">mask</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">maskMax</span> <span class="o">=</span> <span class="o">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">PRIMES</span><span class="o">.</span><span class="na">length</span><span class="o">);</span> <span class="n">mask</span> <span class="o">&lt;</span> <span class="n">maskMax</span><span class="o">;</span> <span class="o">++</span><span class="n">mask</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ans</span> <span class="o">=</span> <span class="o">(</span><span class="n">ans</span> <span class="o">+</span> <span class="n">f</span><span class="o">[</span><span class="n">mask</span><span class="o">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -401,7 +400,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

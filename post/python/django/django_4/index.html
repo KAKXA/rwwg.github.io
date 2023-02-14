@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/python/django/django_4/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,13 +43,12 @@
 <meta property="og:description" content="Django 官方文档第4部分以及Django模板部分学习笔记" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/python/django/django_4/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-05-17T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-17T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-05-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-17T00:00:00+00:00" />
 <meta itemprop="name" content="Django 官方文档第4部分">
-<meta itemprop="description" content="Django 官方文档第4部分以及Django模板部分学习笔记"><meta itemprop="datePublished" content="2021-05-17T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-17T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="514">
+<meta itemprop="description" content="Django 官方文档第4部分以及Django模板部分学习笔记"><meta itemprop="datePublished" content="2021-05-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-05-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="516">
 <meta itemprop="keywords" content="Simplified Chinese,python,django," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Django 官方文档第4部分"/>
 <meta name="twitter:description" content="Django 官方文档第4部分以及Django模板部分学习笔记"/>
@@ -164,7 +163,7 @@
 <p><code>polls/templates/polls/detail.html</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -180,21 +179,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">question</span><span class="o">.</span><span class="n">question_text</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-
-<span class="c1"># 如果有报错,把报错信息作为网页输出</span>
-<span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">error_message</span> <span class="o">%</span><span class="p">}</span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">error_message</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">strong</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
-
-<span class="c1">#</span>
-<span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">&#34;{</span><span class="si">% u</span><span class="s2">rl &#39;polls:vote&#39; question.id %}&#34;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&#34;post&#34;</span><span class="o">&gt;</span>
-<span class="p">{</span><span class="o">%</span> <span class="n">csrf_token</span> <span class="o">%</span><span class="p">}</span>
-<span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">question</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">all</span> <span class="o">%</span><span class="p">}</span>
-    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&#34;radio&#34;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;choice&#34;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&#34;choice{{ forloop.counter }}&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&#34;{{ choice.id }}&#34;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">&#34;choice{{ forloop.counter }}&#34;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">choice</span><span class="o">.</span><span class="n">choice_text</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-<span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
-<span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&#34;submit&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&#34;Vote&#34;</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">question</span><span class="o">.</span><span class="n">question_text</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果有报错,把报错信息作为网页输出</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">error_message</span> <span class="o">%</span><span class="p">}</span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">error_message</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">strong</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">&#34;{</span><span class="si">% u</span><span class="s2">rl &#39;polls:vote&#39; question.id %}&#34;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&#34;post&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="o">%</span> <span class="n">csrf_token</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">question</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">all</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&#34;radio&#34;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;choice&#34;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&#34;choice{{ forloop.counter }}&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&#34;{{ choice.id }}&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">&#34;choice{{ forloop.counter }}&#34;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">choice</span><span class="o">.</span><span class="n">choice_text</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&#34;submit&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&#34;Vote&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="django-模板语言">Django 模板语言</h2>
 <h4 id="语法设计四个构造">语法设计四个构造</h4>
@@ -202,84 +201,84 @@
 <p>由<code>{{}}</code>包围.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-django" data-lang="django"><span class="cp">{{</span> <span class="nv">variable</span> <span class="cp">}}</span><span class="x">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-django" data-lang="django"><span class="line"><span class="cl"><span class="cp">{{</span> <span class="nv">variable</span> <span class="cp">}}</span><span class="x">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>从上下文中输出一个值,上下文是一个类似于字典的对象,将键映射到值</p>
 <p>字典查找,属性查找和列表索引查找均以点符号实现</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-django" data-lang="django"><span class="cp">{{</span> <span class="nv">my_dict.key</span> <span class="cp">}}</span><span class="x">
-</span><span class="x"></span><span class="cp">{{</span> <span class="nv">myobject.attribute</span> <span class="cp">}}</span><span class="x">
-</span><span class="x"></span><span class="cp">{{</span> <span class="nv">my_list.0</span> <span class="cp">}}</span><span class="x">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-django" data-lang="django"><span class="line"><span class="cl"><span class="cp">{{</span> <span class="nv">my_dict.key</span> <span class="cp">}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="x"></span><span class="cp">{{</span> <span class="nv">myobject.attribute</span> <span class="cp">}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="x"></span><span class="cp">{{</span> <span class="nv">my_list.0</span> <span class="cp">}}</span><span class="x">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果变量解析为可调用对象,则模板系统将不带任何参数的情况下调用它,并使用其结果代替可调用对象.</p>
 <h5 id="标签">标签</h5>
 <p>由<code>{% %}</code>包围</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-django" data-lang="django"><span class="cp">{%</span> <span class="k">csrf_token</span> <span class="cp">%}</span><span class="x">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-django" data-lang="django"><span class="line"><span class="cl"><span class="cp">{%</span> <span class="k">csrf_token</span> <span class="cp">%}</span><span class="x">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>标签在渲染过程中提供了任意逻辑.</p>
 <p>大多数标签都接受参数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-django" data-lang="django"><span class="cp">{%</span> <span class="k">cycle</span> <span class="s1">&#39;odd&#39;</span> <span class="s1">&#39;even&#39;</span> <span class="cp">%}</span><span class="x">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-django" data-lang="django"><span class="line"><span class="cl"><span class="cp">{%</span> <span class="k">cycle</span> <span class="s1">&#39;odd&#39;</span> <span class="s1">&#39;even&#39;</span> <span class="cp">%}</span><span class="x">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>if else</code>语句</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-django" data-lang="django"><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user.is_authenticated</span> <span class="cp">%}</span><span class="x">Hello, </span><span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="x">.</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-django" data-lang="django"><span class="line"><span class="cl"><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user.is_authenticated</span> <span class="cp">%}</span><span class="x">Hello, </span><span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="x">.</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="过滤器">过滤器</h5>
 <p>变换变量和标签参数的值.</p>
 <p>比如下面的代码能够实现将<code>django</code>变量对应的值的每个单词开头字母变成大写</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-django" data-lang="django"><span class="cp">{{</span> <span class="nv">django</span><span class="o">|</span><span class="nf">title</span> <span class="cp">}}</span><span class="x">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-django" data-lang="django"><span class="line"><span class="cl"><span class="cp">{{</span> <span class="nv">django</span><span class="o">|</span><span class="nf">title</span> <span class="cp">}}</span><span class="x">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>html页面从数据库中读出<code>DateTimeField</code>字段时,显示的时间格式和数据库中存放的格式不一致，比如数据库字段内容为<code>2012-08-26 16:00:00</code>，但是页面显示的却是<code>Aug. 26, 2012, 4 p.m.</code>下面的代码能够实现把<code>my_date</code>变量的格式处理为<code>Y-m-d</code>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-django" data-lang="django"><span class="cp">{{</span> <span class="nv">my_date</span><span class="o">|</span><span class="nf">date</span><span class="s2">:&#34;Y-m-d&#34;</span> <span class="cp">}}</span><span class="x">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-django" data-lang="django"><span class="line"><span class="cl"><span class="cp">{{</span> <span class="nv">my_date</span><span class="o">|</span><span class="nf">date</span><span class="s2">:&#34;Y-m-d&#34;</span> <span class="cp">}}</span><span class="x">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="注释">注释</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-django" data-lang="django"><span class="c">{# this is a comment #}</span><span class="x">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-django" data-lang="django"><span class="line"><span class="cl"><span class="c">{# this is a comment #}</span><span class="x">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -370,7 +369,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

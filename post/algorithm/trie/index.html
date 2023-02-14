@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/algorithm/trie/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="Trie的Python实现" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/algorithm/trie/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-05-01T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-01T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-05-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-01T00:00:00+00:00" />
 <meta itemprop="name" content="Trie的Python实现">
-<meta itemprop="description" content="Trie的Python实现"><meta itemprop="datePublished" content="2021-05-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-01T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Trie的Python实现"><meta itemprop="datePublished" content="2021-05-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-05-01T00:00:00+00:00" />
 <meta itemprop="wordCount" content="178">
 <meta itemprop="keywords" content="trie,algorithm,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Trie的Python实现"/>
@@ -149,7 +148,7 @@
 <p>将一个字符串列表转成一个前缀树,然后查询一个字符串是否在</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -174,30 +173,30 @@
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 将strs这个字符串列表转为前缀树</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">strs</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">strs</span><span class="p">:</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="n">trie</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-            <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">i</span><span class="p">,{})</span>
-        <span class="c1"># 用None表示结束标志</span>
-        <span class="n">d</span><span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="c1"># 检查前缀树中有没有s这个字符串</span>
-<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="n">trie</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-            <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="bp">None</span> <span class="ow">in</span> <span class="n">d</span>
-
-<span class="c1"># 用法</span>
-<span class="n">strs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1234&#39;</span><span class="p">,</span><span class="s1">&#39;1235&#39;</span><span class="p">,</span><span class="s1">&#39;1345&#39;</span><span class="p">,</span><span class="s1">&#39;1111&#39;</span><span class="p">,</span><span class="s1">&#39;2345&#39;</span><span class="p">,</span><span class="s1">&#39;1222&#39;</span><span class="p">,</span><span class="s1">&#39;2223&#39;</span><span class="p">]</span>
-<span class="n">trie</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="n">f</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">strs</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="s1">&#39;2223&#39;</span><span class="p">))</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 将strs这个字符串列表转为前缀树</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">strs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">strs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d</span> <span class="o">=</span> <span class="n">trie</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">i</span><span class="p">,{})</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 用None表示结束标志</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 检查前缀树中有没有s这个字符串</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d</span> <span class="o">=</span> <span class="n">trie</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">None</span> <span class="ow">in</span> <span class="n">d</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 用法</span>
+</span></span><span class="line"><span class="cl"><span class="n">strs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1234&#39;</span><span class="p">,</span><span class="s1">&#39;1235&#39;</span><span class="p">,</span><span class="s1">&#39;1345&#39;</span><span class="p">,</span><span class="s1">&#39;1111&#39;</span><span class="p">,</span><span class="s1">&#39;2345&#39;</span><span class="p">,</span><span class="s1">&#39;1222&#39;</span><span class="p">,</span><span class="s1">&#39;2223&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">trie</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">strs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="s1">&#39;2223&#39;</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -288,7 +287,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

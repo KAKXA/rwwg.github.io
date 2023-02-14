@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/algorithm/morris-%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="Morris 中序遍历" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/algorithm/morris-%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-06-29T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-06-29T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-06-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-29T00:00:00+00:00" />
 <meta itemprop="name" content="Morris 中序遍历">
-<meta itemprop="description" content="Morris 中序遍历"><meta itemprop="datePublished" content="2021-06-29T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-06-29T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Morris 中序遍历"><meta itemprop="datePublished" content="2021-06-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-06-29T00:00:00+00:00" />
 <meta itemprop="wordCount" content="677">
 <meta itemprop="keywords" content="Simplified Chinese,Binary Tree,Morris,algorithm," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Morris 中序遍历"/>
@@ -172,7 +171,7 @@
 <h1 id="代码实现">代码实现</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -205,38 +204,38 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">morrisIn</span><span class="o">(</span><span class="n">Node</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
-        <span class="k">return</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="c1">// 用于遍历的变量
-</span><span class="c1"></span>    <span class="n">Node</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-    <span class="c1">// cur左子树最右(在中序遍历中最后)结点
-</span><span class="c1"></span>    <span class="n">Node</span> <span class="n">mostRight</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-    <span class="k">while</span> <span class="o">(</span><span class="n">cur</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
-        <span class="n">mostRight</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">mostRight</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
-            <span class="c1">// 找到最右的结点
-</span><span class="c1"></span>            <span class="k">while</span> <span class="o">(</span><span class="n">mostRight</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span><span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">mostRight</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="n">cur</span><span class="o">){</span>
-                <span class="n">mostRight</span> <span class="o">=</span> <span class="n">mostRight</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">// 如果最右结点的右指针为空,意味着还未被cur遍历到过,从而指向cur
-</span><span class="c1"></span>            <span class="c1">// 即mostRight在中序遍历中的下一个结点是cur
-</span><span class="c1"></span>            <span class="k">if</span><span class="o">(</span><span class="n">mostRight</span><span class="o">.</span><span class="na">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
-                <span class="n">mostRight</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">cur</span><span class="o">;</span>
-                <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span><span class="k">else</span> <span class="o">{</span>	
-                <span class="c1">// 如果最右指针为非空,那一定是指向cur,意味着cur已经被遍历到过一次了
-</span><span class="c1"></span>                <span class="n">mostRight</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">cur</span><span class="o">.</span><span class="na">value</span><span class="o">+</span><span class="s">&#34; &#34;</span><span class="o">);</span>
-        <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">morrisIn</span><span class="o">(</span><span class="n">Node</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 用于遍历的变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Node</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// cur左子树最右(在中序遍历中最后)结点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Node</span> <span class="n">mostRight</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">cur</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mostRight</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">mostRight</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 找到最右的结点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">while</span> <span class="o">(</span><span class="n">mostRight</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span><span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">mostRight</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="n">cur</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">mostRight</span> <span class="o">=</span> <span class="n">mostRight</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 如果最右结点的右指针为空,意味着还未被cur遍历到过,从而指向cur
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 即mostRight在中序遍历中的下一个结点是cur
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="o">(</span><span class="n">mostRight</span><span class="o">.</span><span class="na">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">mostRight</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">cur</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span> <span class="o">{</span>	
+</span></span><span class="line"><span class="cl">                <span class="c1">// 如果最右指针为非空,那一定是指向cur,意味着cur已经被遍历到过一次了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">mostRight</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">cur</span><span class="o">.</span><span class="na">value</span><span class="o">+</span><span class="s">&#34; &#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="缺陷">缺陷</h1>
 <ol>
@@ -338,7 +337,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

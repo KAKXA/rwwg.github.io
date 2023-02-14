@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/java/arraylist_init/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="Java8中ArrayList在一条语句中完成初始化的4种方法" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/java/arraylist_init/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-09-23T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-09-23T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-09-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-23T00:00:00+00:00" />
 <meta itemprop="name" content="Java8中ArrayList在一条语句中完成初始化的4种方法">
-<meta itemprop="description" content="Java8中ArrayList在一条语句中完成初始化的4种方法"><meta itemprop="datePublished" content="2021-09-23T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-09-23T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Java8中ArrayList在一条语句中完成初始化的4种方法"><meta itemprop="datePublished" content="2021-09-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-09-23T00:00:00+00:00" />
 <meta itemprop="wordCount" content="440">
 <meta itemprop="keywords" content="Simplified Chinese,java," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java8中ArrayList在一条语句中完成初始化的4种方法"/>
@@ -161,21 +160,21 @@
 <p>使用<code>Arrays.asList</code>,返回一个定义在<code>List</code>类中的不可变的<code>ArrayList</code>,从而需要用<code>java.util.ArrayList</code>包装一下.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">jdks</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&#34;jdk1&#34;</span><span class="o">,</span> <span class="s">&#34;jkd2&#34;</span><span class="o">));</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">jdks</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&#34;jdk1&#34;</span><span class="o">,</span> <span class="s">&#34;jkd2&#34;</span><span class="o">));</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="collections工具类">Collections工具类</h2>
 <p>使用<code>Collections.nCopies</code>,可以构造多个重复元素构成的<code>List</code>,其也返回一个不可变的<code>ArrayList</code>,需要用<code>java.util.ArrayList</code>包装一下.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">apples</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">Collections</span><span class="o">.</span><span class="na">nCopies</span><span class="o">(</span><span class="n">3</span><span class="o">,</span> <span class="s">&#34;apple&#34;</span><span class="o">));</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">apples</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">Collections</span><span class="o">.</span><span class="na">nCopies</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;apple&#34;</span><span class="o">));</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="匿名内部类">匿名内部类</h2>
 <p>下式中,有两个花括号:</p>
@@ -186,30 +185,30 @@
 <p>等号右侧<code>new</code>了这个<code>ArrayList</code>的子类的实例并**向上转型为<code>ArrayList</code>的引用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{{</span>
-    <span class="n">add</span><span class="o">(</span><span class="s">&#34;Tom&#34;</span><span class="o">);</span>
-    <span class="n">add</span><span class="o">(</span><span class="s">&#34;Sally&#34;</span><span class="o">);</span>
-    <span class="n">add</span><span class="o">(</span><span class="s">&#34;John&#34;</span><span class="o">);</span>
-<span class="o">}};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">add</span><span class="o">(</span><span class="s">&#34;Tom&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">add</span><span class="o">(</span><span class="s">&#34;Sally&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">add</span><span class="o">(</span><span class="s">&#34;John&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>关于匿名内部类的详细内容,请看<a href="https://rwwg.github.io/post/java/java_nested_classes/">Java内部类</a></p>
 <h2 id="jdk8-stream">JDK8 Stream</h2>
 <p><code>Collectors</code>类实现了很多归约操作,比如将流转换成集合和聚合元素</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;blue&#34;</span><span class="o">,</span> <span class="s">&#34;red&#34;</span><span class="o">,</span> <span class="s">&#34;yellow&#34;</span><span class="o">).</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;blue&#34;</span><span class="o">,</span> <span class="s">&#34;red&#34;</span><span class="o">,</span> <span class="s">&#34;yellow&#34;</span><span class="o">).</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -299,7 +298,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

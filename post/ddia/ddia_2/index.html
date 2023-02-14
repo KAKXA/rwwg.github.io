@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/ddia/ddia_2/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="DDIA:2.数据模型与查询语言" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/ddia/ddia_2/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-07-24T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-07-24T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-07-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-24T00:00:00+00:00" />
 <meta itemprop="name" content="DDIA:2.数据模型与查询语言">
-<meta itemprop="description" content="DDIA:2.数据模型与查询语言"><meta itemprop="datePublished" content="2021-07-24T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-07-24T00:00:00&#43;00:00" />
+<meta itemprop="description" content="DDIA:2.数据模型与查询语言"><meta itemprop="datePublished" content="2021-07-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-07-24T00:00:00+00:00" />
 <meta itemprop="wordCount" content="2074">
 <meta itemprop="keywords" content="Simplified Chinese,DDIA,database,sql,nosql," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="DDIA:2.数据模型与查询语言"/>
@@ -262,32 +261,32 @@
 <p>在(&ldquo;动态类型&rdquo;(运行时检查)文档数据库中,只需开始写入具有新字段的新文档,并在应用程序中使用代码来处理读取旧文档的情况</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">user</span> <span class="o">&amp;&amp;</span> <span class="n">user</span><span class="o">.</span><span class="na">name</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">user</span><span class="o">.</span><span class="na">first_name</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// Documents written before Dec 8, 2013 don&#39;t have first_name
-</span><span class="c1"></span>    <span class="n">user</span><span class="o">.</span><span class="na">first_name</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">)[</span><span class="n">0</span><span class="o">];</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">(</span><span class="n">user</span> <span class="o">&amp;&amp;</span> <span class="n">user</span><span class="o">.</span><span class="na">name</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">user</span><span class="o">.</span><span class="na">first_name</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Documents written before Dec 8, 2013 don&#39;t have first_name
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">user</span><span class="o">.</span><span class="na">first_name</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">)[</span><span class="mi">0</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>在&quot;静态类型&quot;(编译时检查)的关系型数据库中,执行迁移操作:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">users</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">first_name</span> <span class="nb">text</span><span class="p">;</span>
-<span class="k">UPDATE</span> <span class="n">users</span> <span class="k">SET</span> <span class="n">first_name</span> <span class="o">=</span> <span class="n">split_part</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>         <span class="c1">-- PostgreSQL
-</span><span class="c1"></span><span class="k">UPDATE</span> <span class="n">users</span> <span class="k">SET</span> <span class="n">first_name</span> <span class="o">=</span> <span class="n">substring_index</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>     <span class="c1">-- MySQL
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="nb">text</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split_part</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">         </span><span class="c1">-- PostgreSQL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">substring_index</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">     </span><span class="c1">-- MySQL
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -327,7 +326,7 @@
 <p>假设你是一名海洋生物学家，每当你看到海洋中的动物时，你都会在数据库中添加一条观察记录。现在你想生成一个报告，说明你每月看到多少鲨鱼</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -349,27 +348,27 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">db</span><span class="p">.</span><span class="nx">observations</span><span class="p">.</span><span class="nx">mapReduce</span><span class="p">(</span><span class="kd">function</span> <span class="nx">map</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// 每个匹配查询的文档都会调用一次JavaScript函数map，将this设置为文档对象
-</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">observationTimestamp</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
-        <span class="kd">var</span> <span class="nx">month</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">observationTimestamp</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-      <span class="c1">// map函数发出一个键（包括年份和月份的字符串，如&#34;2013-12&#34;或&#34;2014-1&#34;）和一个值（该观察记录中的动物数量）
-</span><span class="c1"></span>        <span class="nx">emit</span><span class="p">(</span><span class="nx">year</span> <span class="o">+</span> <span class="s2">&#34;-&#34;</span> <span class="o">+</span> <span class="nx">month</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">numAnimals</span><span class="p">);</span>
-    <span class="p">},</span>
-    <span class="kd">function</span> <span class="nx">reduce</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">values</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// map发出的键值对按键来分组。对于具有相同键（即，相同的月份和年份）的所有键值对，调用一次reduce函数
-</span><span class="c1"></span>      <span class="c1">// reduce函数将特定月份内所有观测记录中的动物数量相加
-</span><span class="c1"></span>        <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">sum</span><span class="p">(</span><span class="nx">values</span><span class="p">);</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
-          <span class="c1">// 声明式地指定只考虑鲨鱼种类的过滤器
-</span><span class="c1"></span>          <span class="nx">family</span><span class="o">:</span> <span class="s2">&#34;Sharks&#34;</span>
-        <span class="p">},</span>
-      <span class="c1">// 将最终的输出写入到monthlySharkReport集合中
-</span><span class="c1"></span>        <span class="nx">out</span><span class="o">:</span> <span class="s2">&#34;monthlySharkReport&#34;</span>
-    <span class="p">});</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">db</span><span class="p">.</span><span class="nx">observations</span><span class="p">.</span><span class="nx">mapReduce</span><span class="p">(</span><span class="kd">function</span> <span class="nx">map</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 每个匹配查询的文档都会调用一次JavaScript函数map，将this设置为文档对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">observationTimestamp</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">month</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">observationTimestamp</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1">// map函数发出一个键（包括年份和月份的字符串，如&#34;2013-12&#34;或&#34;2014-1&#34;）和一个值（该观察记录中的动物数量）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">emit</span><span class="p">(</span><span class="nx">year</span> <span class="o">+</span> <span class="s2">&#34;-&#34;</span> <span class="o">+</span> <span class="nx">month</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">numAnimals</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">reduce</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">values</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1">// map发出的键值对按键来分组。对于具有相同键（即，相同的月份和年份）的所有键值对，调用一次reduce函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    	<span class="c1">// reduce函数将特定月份内所有观测记录中的动物数量相加
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">sum</span><span class="p">(</span><span class="nx">values</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="c1">// 声明式地指定只考虑鲨鱼种类的过滤器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nx">family</span><span class="o">:</span> <span class="s2">&#34;Sharks&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1">// 将最终的输出写入到monthlySharkReport集合中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">out</span><span class="o">:</span> <span class="s2">&#34;monthlySharkReport&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -488,7 +487,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

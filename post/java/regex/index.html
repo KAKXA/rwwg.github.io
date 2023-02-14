@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/java/regex/" />
@@ -36,7 +36,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,11 +46,10 @@
 <meta property="og:url" content="https://rwwg.github.io/post/java/regex/" /><meta property="article:section" content="post" />
 
 
-
 <meta itemprop="name" content="正则表达式与Java中的应用">
 <meta itemprop="description" content="正则表达式主要用于复杂字符串处理.">
 
-<meta itemprop="wordCount" content="1658">
+<meta itemprop="wordCount" content="1657">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="正则表达式与Java中的应用"/>
 <meta name="twitter:description" content="正则表达式主要用于复杂字符串处理."/>
@@ -318,7 +317,7 @@
 <h2 id="java正则表达式写法">java正则表达式写法</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -333,25 +332,25 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.regex.*</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">String</span> <span class="n">content</span> <span class="o">=</span> <span class="s">&#34;20.88.255.100&#34;</span><span class="o">;</span>
-
-        <span class="c1">// 匹配IP的正则表达式作为参考
-</span><span class="c1"></span>        <span class="n">String</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">&#34;(((25[0-5])|(2[0-4]\\d)|(1\\d{2})|([1-9]?\\d))\\.){3}((25[1-5])|(2[1-4]\\d)|(1\\d{2})|([1-9]?\\d))&#34;</span><span class="o">;</span>
-
-        <span class="kt">boolean</span> <span class="n">isMatch</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">matches</span><span class="o">(</span><span class="n">pattern</span><span class="o">,</span> <span class="n">content</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;is IP?&#34;</span> <span class="o">+</span> <span class="n">isMatch</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span> 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.regex.*</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">content</span> <span class="o">=</span> <span class="s">&#34;20.88.255.100&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 匹配IP的正则表达式作为参考
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">&#34;(((25[0-5])|(2[0-4]\\d)|(1\\d{2})|([1-9]?\\d))\\.){3}((25[1-5])|(2[1-4]\\d)|(1\\d{2})|([1-9]?\\d))&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">boolean</span> <span class="n">isMatch</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">matches</span><span class="o">(</span><span class="n">pattern</span><span class="o">,</span> <span class="n">content</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;is IP?&#34;</span> <span class="o">+</span> <span class="n">isMatch</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="捕获组">捕获组</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -378,44 +377,42 @@
 </span><span class="lnt">25
 </span><span class="lnt">26
 </span><span class="lnt">27
-</span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span>
-<span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="o">){</span>
-
-        <span class="c1">// 按指定模式在字符串查找
-</span><span class="c1"></span>        <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="s">&#34;This order was placed for QT3000! OK?&#34;</span><span class="o">;</span>
-        <span class="n">String</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">&#34;(\\D*)(\\d+)(.*)&#34;</span><span class="o">;</span>
-
-        <span class="c1">// 创建 Pattern 对象
-</span><span class="c1"></span>        <span class="n">Pattern</span> <span class="n">r</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">pattern</span><span class="o">);</span>
-
-        <span class="c1">// 现在创建 matcher 对象
-</span><span class="c1"></span>        <span class="n">Matcher</span> <span class="n">m</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">find</span><span class="o">(</span> <span class="o">))</span> <span class="o">{</span>
-            <span class="c1">// group(0)表示整个匹配到的串
-</span><span class="c1"></span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Found value: &#34;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="n">0</span><span class="o">)</span> <span class="o">);</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Found value: &#34;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="n">1</span><span class="o">)</span> <span class="o">);</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Found value: &#34;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="n">2</span><span class="o">)</span> <span class="o">);</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Found value: &#34;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="n">3</span><span class="o">)</span> <span class="o">);</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;NO MATCH&#34;</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="o">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 按指定模式在字符串查找
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="s">&#34;This order was placed for QT3000! OK?&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">&#34;(\\D*)(\\d+)(.*)&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 创建 Pattern 对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Pattern</span> <span class="n">r</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">pattern</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 现在创建 matcher 对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Matcher</span> <span class="n">m</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">find</span><span class="o">(</span> <span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// group(0)表示整个匹配到的串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Found value: &#34;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Found value: &#34;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Found value: &#34;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span> <span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Found value: &#34;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span> <span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;NO MATCH&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="matcher类">Matcher类</h3>
 <h4 id="start和end方法">start和end方法</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -443,33 +440,33 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java">
-<span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
- 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RegexMatches</span>
-<span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">REGEX</span> <span class="o">=</span> <span class="s">&#34;\\bcat\\b&#34;</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">INPUT</span> <span class="o">=</span>
-                                    <span class="s">&#34;cat cat cat cattie cat&#34;</span><span class="o">;</span>
- 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="o">){</span>
-       <span class="n">Pattern</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">REGEX</span><span class="o">);</span>
-       <span class="n">Matcher</span> <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">INPUT</span><span class="o">);</span> <span class="c1">// 获取 matcher 对象
-</span><span class="c1"></span>       <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
- 
-       <span class="c1">// 在当前匹配到的串后,下一个匹配
-</span><span class="c1"></span>       <span class="k">while</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">find</span><span class="o">())</span> <span class="o">{</span>
-         <span class="n">count</span><span class="o">++;</span>
-         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Match number &#34;</span><span class="o">+</span><span class="n">count</span><span class="o">);</span>
-         <span class="c1">// 当前匹配的上一个匹配的开始下标
-</span><span class="c1"></span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;start(): &#34;</span><span class="o">+</span><span class="n">m</span><span class="o">.</span><span class="na">start</span><span class="o">());</span>
-         <span class="c1">// 当前匹配的上一个匹配的结束下标  
-</span><span class="c1"></span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;end(): &#34;</span><span class="o">+</span><span class="n">m</span><span class="o">.</span><span class="na">end</span><span class="o">());</span>
-      <span class="o">}</span>
-   <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RegexMatches</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">REGEX</span> <span class="o">=</span> <span class="s">&#34;\\bcat\\b&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">INPUT</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s">&#34;cat cat cat cattie cat&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="o">){</span>
+</span></span><span class="line"><span class="cl">       <span class="n">Pattern</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">REGEX</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">       <span class="n">Matcher</span> <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">INPUT</span><span class="o">);</span> <span class="c1">// 获取 matcher 对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">       <span class="c1">// 在当前匹配到的串后,下一个匹配
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="k">while</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">find</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">count</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Match number &#34;</span><span class="o">+</span><span class="n">count</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">         <span class="c1">// 当前匹配的上一个匹配的开始下标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;start(): &#34;</span><span class="o">+</span><span class="n">m</span><span class="o">.</span><span class="na">start</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">         <span class="c1">// 当前匹配的上一个匹配的结束下标  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;end(): &#34;</span><span class="o">+</span><span class="n">m</span><span class="o">.</span><span class="na">end</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">      <span class="o">}</span>
+</span></span><span class="line"><span class="cl">   <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="matches和lookingat方法">matches和lookingAt方法</h4>
 <ul>
@@ -477,7 +474,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -507,40 +504,40 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span>
-<span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">REGEX</span> <span class="o">=</span> <span class="s">&#34;foo&#34;</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">INPUT</span> <span class="o">=</span> <span class="s">&#34;fooooooooooooooooo&#34;</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">INPUT2</span> <span class="o">=</span> <span class="s">&#34;ooooofoooooooooooo&#34;</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Pattern</span> <span class="n">pattern</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Matcher</span> <span class="n">matcher</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Matcher</span> <span class="n">matcher2</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="o">){</span>
-        <span class="n">pattern</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">REGEX</span><span class="o">);</span>
-        <span class="n">matcher</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">INPUT</span><span class="o">);</span>
-        <span class="n">matcher2</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">INPUT2</span><span class="o">);</span>
-
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Current REGEX is: &#34;</span><span class="o">+</span><span class="n">REGEX</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Current INPUT is: &#34;</span><span class="o">+</span><span class="n">INPUT</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Current INPUT2 is: &#34;</span><span class="o">+</span><span class="n">INPUT2</span><span class="o">);</span>
-
-
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;lookingAt(): &#34;</span><span class="o">+</span><span class="n">matcher</span><span class="o">.</span><span class="na">lookingAt</span><span class="o">());</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;matches(): &#34;</span><span class="o">+</span><span class="n">matcher</span><span class="o">.</span><span class="na">matches</span><span class="o">());</span>
-        <span class="c1">// 由于要求从头开始匹配,所以lookingAt匹配不到INPUT2,更别说matches了 
-</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;lookingAt(): &#34;</span><span class="o">+</span><span class="n">matcher2</span><span class="o">.</span><span class="na">lookingAt</span><span class="o">());</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">REGEX</span> <span class="o">=</span> <span class="s">&#34;foo&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">INPUT</span> <span class="o">=</span> <span class="s">&#34;fooooooooooooooooo&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">INPUT2</span> <span class="o">=</span> <span class="s">&#34;ooooofoooooooooooo&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Pattern</span> <span class="n">pattern</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Matcher</span> <span class="n">matcher</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Matcher</span> <span class="n">matcher2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="o">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pattern</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">REGEX</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">matcher</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">INPUT</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">matcher2</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">INPUT2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Current REGEX is: &#34;</span><span class="o">+</span><span class="n">REGEX</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Current INPUT is: &#34;</span><span class="o">+</span><span class="n">INPUT</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Current INPUT2 is: &#34;</span><span class="o">+</span><span class="n">INPUT2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;lookingAt(): &#34;</span><span class="o">+</span><span class="n">matcher</span><span class="o">.</span><span class="na">lookingAt</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;matches(): &#34;</span><span class="o">+</span><span class="n">matcher</span><span class="o">.</span><span class="na">matches</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 由于要求从头开始匹配,所以lookingAt匹配不到INPUT2,更别说matches了 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;lookingAt(): &#34;</span><span class="o">+</span><span class="n">matcher2</span><span class="o">.</span><span class="na">lookingAt</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="replacefirst-和-replaceall-方法">replaceFirst 和 replaceAll 方法</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -562,32 +559,32 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span>
-<span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">REGEX</span> <span class="o">=</span> <span class="s">&#34;dog&#34;</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">INPUT</span> <span class="o">=</span> <span class="s">&#34;The dog says meow. &#34;</span> <span class="o">+</span>
-            <span class="s">&#34;All dogs say meow.&#34;</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">REPLACE</span> <span class="o">=</span> <span class="s">&#34;cat&#34;</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Pattern</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">REGEX</span><span class="o">);</span>
-        <span class="c1">// get a matcher object
-</span><span class="c1"></span>        <span class="n">Matcher</span> <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">INPUT</span><span class="o">);</span>
-        <span class="c1">// 只换第一个dog
-</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">replaceFirst</span><span class="o">(</span><span class="n">REPLACE</span><span class="o">));</span>
-        <span class="c1">// 换全部dog
-</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="n">REPLACE</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">REGEX</span> <span class="o">=</span> <span class="s">&#34;dog&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">INPUT</span> <span class="o">=</span> <span class="s">&#34;The dog says meow. &#34;</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;All dogs say meow.&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">REPLACE</span> <span class="o">=</span> <span class="s">&#34;cat&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Pattern</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">REGEX</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// get a matcher object
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Matcher</span> <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">INPUT</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 只换第一个dog
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">replaceFirst</span><span class="o">(</span><span class="n">REPLACE</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 换全部dog
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="n">REPLACE</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="appendreplacement和appendtail方法">appendReplacement和appendTail方法</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -615,33 +612,33 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span>
-<span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">REGEX</span> <span class="o">=</span> <span class="s">&#34;a*b&#34;</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">INPUT</span> <span class="o">=</span> <span class="s">&#34;aabfooaabfooabfoobkkk&#34;</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">REPLACE</span> <span class="o">=</span> <span class="s">&#34;-&#34;</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Pattern</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">REGEX</span><span class="o">);</span>
-        <span class="c1">// 获取 matcher 对象
-</span><span class="c1"></span>        <span class="n">Matcher</span> <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">INPUT</span><span class="o">);</span>
-        <span class="n">StringBuffer</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
-        <span class="k">while</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">find</span><span class="o">()){</span>
-            <span class="n">m</span><span class="o">.</span><span class="na">appendReplacement</span><span class="o">(</span><span class="n">sb</span><span class="o">,</span><span class="n">REPLACE</span><span class="o">);</span>
-            <span class="c1">// sb是一个StringBuffer，REPLACE是待替换的字符串
-</span><span class="c1"></span>            <span class="c1">// 这个方法会把匹配到的内容替换为REPLACE
-</span><span class="c1"></span>            <span class="c1">// 并且把从上次替换的位置到这次替换位置之间的字符串也拿到
-</span><span class="c1"></span>            <span class="c1">// 然后，加上这次替换后的结果一起追加到StringBuffer里
-</span><span class="c1"></span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-        <span class="o">}</span>
-        <span class="c1">// 把最后一次匹配到内容之后的字符串追加到StringBuffer中
-</span><span class="c1"></span>        <span class="n">m</span><span class="o">.</span><span class="na">appendTail</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">REGEX</span> <span class="o">=</span> <span class="s">&#34;a*b&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">INPUT</span> <span class="o">=</span> <span class="s">&#34;aabfooaabfooabfoobkkk&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">REPLACE</span> <span class="o">=</span> <span class="s">&#34;-&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Pattern</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">REGEX</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 获取 matcher 对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Matcher</span> <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">INPUT</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">StringBuffer</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">find</span><span class="o">()){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">m</span><span class="o">.</span><span class="na">appendReplacement</span><span class="o">(</span><span class="n">sb</span><span class="o">,</span><span class="n">REPLACE</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// sb是一个StringBuffer，REPLACE是待替换的字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 这个方法会把匹配到的内容替换为REPLACE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 并且把从上次替换的位置到这次替换位置之间的字符串也拿到
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 然后，加上这次替换后的结果一起追加到StringBuffer里
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 把最后一次匹配到内容之后的字符串追加到StringBuffer中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">m</span><span class="o">.</span><span class="na">appendTail</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -724,7 +721,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

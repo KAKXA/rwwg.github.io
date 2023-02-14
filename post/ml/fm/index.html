@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/ml/fm/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="因子分解机" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/ml/fm/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-04-01T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-04-01T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-04-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-01T00:00:00+00:00" />
 <meta itemprop="name" content="Factorization Machine">
-<meta itemprop="description" content="因子分解机"><meta itemprop="datePublished" content="2021-04-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-04-01T00:00:00&#43;00:00" />
+<meta itemprop="description" content="因子分解机"><meta itemprop="datePublished" content="2021-04-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-04-01T00:00:00+00:00" />
 <meta itemprop="wordCount" content="435">
 <meta itemprop="keywords" content="machine-learning,Simplified Chinese,FM," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Factorization Machine"/>
@@ -161,12 +160,12 @@ $$
 其中 $Q$ 是 正交矩阵,$\Lambda$ 是由 $W$ 特征值组成的对角矩阵</p>
 <p>由于 $W$ 的特征值都非负,不妨
 $$
-\Lambda = \Lambda ' ^ T \cdot \Lambda'
+\Lambda = \Lambda &rsquo; ^ T \cdot \Lambda'
 $$
-其中 $\Lambda'$ 每行对角线上的元素是 $\Lambda$ 对应位置的正平方根</p>
+其中 $\Lambda&rsquo;$ 每行对角线上的元素是 $\Lambda$ 对应位置的正平方根</p>
 <p>故
 $$
-W = Q ^ T \Lambda ' ^ T \Lambda' Q = (\Lambda' Q) ^ T (\Lambda&rsquo;Q)
+W = Q ^ T \Lambda &rsquo; ^ T \Lambda&rsquo; Q = (\Lambda&rsquo; Q) ^ T (\Lambda&rsquo;Q)
 $$
 即 $W$ 可以写成一个实矩阵和其转置的乘积.</p>
 <p>令
@@ -272,7 +271,7 @@ $$
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

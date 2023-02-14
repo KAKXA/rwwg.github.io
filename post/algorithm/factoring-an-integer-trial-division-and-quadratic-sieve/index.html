@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/algorithm/factoring-an-integer-trial-division-and-quadratic-sieve/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="Factoring an Integer Trial Division And Quadratic Sieve" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/algorithm/factoring-an-integer-trial-division-and-quadratic-sieve/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-01-12T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-01-12T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2020-01-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-12T00:00:00+00:00" />
 <meta itemprop="name" content="How to factor a big integer?">
-<meta itemprop="description" content="Factoring an Integer Trial Division And Quadratic Sieve"><meta itemprop="datePublished" content="2020-01-12T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-12T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Factoring an Integer Trial Division And Quadratic Sieve"><meta itemprop="datePublished" content="2020-01-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-01-12T00:00:00+00:00" />
 <meta itemprop="wordCount" content="2235">
 <meta itemprop="keywords" content="number theory,english," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to factor a big integer?"/>
@@ -233,8 +232,8 @@ so we find two factors 103 and 97. This method is a factorization of <strong>Fer
 <li>
 <p>Now what we need is to find two square integers. It is hard to find numbers meeting the equation most of the time, and the method can be improved. In 1920s, <strong>Maurice Kraitchik</strong>[1] came up with an enhancement, consider:
 $$
-a^2-b^2\equiv0\pmod N\<br>
-(a+b)(a-b)\equiv0\pmod N\<br>
+a^2-b^2\equiv0\pmod N\
+(a+b)(a-b)\equiv0\pmod N\
 N|(a+b)(a-b)
 $$
 (a+b) and (a-b) is respectively by at least one of N&rsquo;s prime factors only if</p>
@@ -258,9 +257,9 @@ x_{i}\equiv a_{i}^2\pmod N\ \ \
 $$
 It can be verified by computer that it is hard to find an x which is a square number in finite time. Now postulate that:
 $$
-x_i\times x_j= t^2\ \ \ \ \ \ \ t\in \mathbb{Z} \<br>
-x_{i} \equiv a_{i}^2\pmod N\<br>
-x_{j} \equiv a_{j}^2\pmod N\<br>
+x_i\times x_j= t^2\ \ \ \ \ \ \ t\in \mathbb{Z} \
+x_{i} \equiv a_{i}^2\pmod N\
+x_{j} \equiv a_{j}^2\pmod N\
 i\ne j
 $$
 Now, although the two numbers are not square numbers, their multiplication is. So:
@@ -281,7 +280,7 @@ Q = (Q(x_1),Q(x_2),&hellip;,Q(x_n))
 $$
 At the same time, for each one in Q, present it as a multiplication of integers in Y, like:
 $$
-Y=(2,3,5)\<br>
+Y=(2,3,5)\
 Q(x)=300 = 2^2\times3^1\times5^2
 $$
 now develop a vector for Q(x) itself:
@@ -296,9 +295,9 @@ $$</p>
 <li>
 <p>To get appropriate Y, consider:
 $$
-([\sqrt{N}] + x)^2 \equiv Q(x) \pmod N\<br>
-(\frac {Q(x)}{N})=1\<br>
-(\frac{p_1p_2&hellip;p_n}{N})= 1\<br>
+([\sqrt{N}] + x)^2 \equiv Q(x) \pmod N\
+(\frac {Q(x)}{N})=1\
+(\frac{p_1p_2&hellip;p_n}{N})= 1\
 $$
 If each p satisfies:
 $$
@@ -312,12 +311,12 @@ their product should be a square number. Constructing a proper Y helps to find Q
 <li>
 <p>Let us change every Q(x) in Q to Q(x)&rsquo;s vector presentation on Y. Thus, if the dimension of Y is y, the dimension of Q, the number of Y-smooth Q(x) that are found, is q, we construct a y*q matrix A[2]**. For example, for 6,8,9,12 and Y(2,3), the matrix A is like:</p>
 <p>$$
-\begin{pmatrix} 1 &amp; 1 &amp; 0 &amp; 0 \<br>
-1 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}\<br>
+\begin{pmatrix} 1 &amp; 1 &amp; 0 &amp; 0 \
+1 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}\
 $$
 while q is greater than y, just like the above matrix A indicates, there must be at least a vector x which satisfies:
 $$
-A_{y\times q}x_{q\times 1}\equiv0\pmod 2\<br>
+A_{y\times q}x_{q\times 1}\equiv0\pmod 2\
 x = (i_1,i_2,i_3,&hellip;,i_q)^T\ \ \ \ \ \ i \in{0,1}
 $$
 as for its proof, consider:
@@ -326,21 +325,21 @@ Ax = 0
 $$
 according to linear algebra, we know that, if rank(A) is smaller than n, which is the number of A&rsquo;s column vectors, there will be (rank(A) - n) vectors which represent the system of polynomial solution. Then:
 $$
-Ax \bmod 2=0\bmod 2\<br>
-A\times(x\bmod2)=0\bmod2\<br>
+Ax \bmod 2=0\bmod 2\
+A\times(x\bmod2)=0\bmod2\
 Ax\equiv0\pmod2\ \ \ \ \ \ \
 x = (i_1,i_2,i_3,&hellip;,i_q)^T\ \ \ \ \ \ i \in{0,1}
 $$
 now solve the matrix A:
 $$
-{\begin{pmatrix} 1 &amp; 1 &amp; 0 &amp; 0 \<br>
+{\begin{pmatrix} 1 &amp; 1 &amp; 0 &amp; 0 \
 1 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}\}
 \begin{pmatrix} x_1\x_2\x_3\x_4\end{pmatrix}
 \equiv
-\begin{pmatrix} 0\0\0\0\end{pmatrix}\pmod2\<br>
+\begin{pmatrix} 0\0\0\0\end{pmatrix}\pmod2\
 \begin{pmatrix} x_1\x_2\x_3\x_4\end{pmatrix}\equiv
-\begin{pmatrix}0\0\1\0\end{pmatrix}\pmod2\<br>
-or\<br>
+\begin{pmatrix}0\0\1\0\end{pmatrix}\pmod2\
+or\
 \begin{pmatrix} x_1\x_2\x_3\x_4\end{pmatrix}\equiv
 \begin{pmatrix} 1\1\0\1\end{pmatrix}\pmod2
 $$</p>
@@ -355,7 +354,7 @@ $$</p>
 <p>The quadratic sieve is likely run as this flow chart:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -373,23 +372,23 @@ $$</p>
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">graph TD
-A.1[Construct y-dimension vector Y ] --&gt; B
-A.2[&#34;Construct Q(x)&#34;] --&gt; B[Get a new x]
-B --&gt;|&#34;Q(x) is Y-Smooth&#34;| D[record x to set Q]
-B --&gt;|&#34;Q(x) is not Y-Smooth&#34;| B
-D --&gt;|Q includes more than y elements| E[&#34;Construct 0,1 matrix A &lt;br&gt;through Q(x) and Y&#34;]
-D --&gt;|Q includes few than y+1 elements| B
-E --&gt; F[&#34;Solve Ax=0(mod 2)&#34;]
-F --&gt; G[&#34;Multiply the sqaure root R of &lt;br&gt; corresponding Q(x)s&#39; product&#34;]
-F --&gt; H[&#34;Calculate the product X of corresponding (x+[N^(0.5)]&#34;]
-H --&gt; I[&#34;Calculate gcd(X+R,N) as s1,gcd(X-R,N) as s2&#34;]
-G --&gt; I
-I --&gt;|s1 and s2 are not equal to 1| J
-I --&gt;|s1 or s2 are equal to 1| K[&#34;Try another solution of Ax=0(mod 2)&#34;]
-K --&gt;G
-J[&#34;Found two factors s1, s2&#34;]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph TD
+</span></span><span class="line"><span class="cl">A.1[Construct y-dimension vector Y ] --&gt; B
+</span></span><span class="line"><span class="cl">A.2[&#34;Construct Q(x)&#34;] --&gt; B[Get a new x]
+</span></span><span class="line"><span class="cl">B --&gt;|&#34;Q(x) is Y-Smooth&#34;| D[record x to set Q]
+</span></span><span class="line"><span class="cl">B --&gt;|&#34;Q(x) is not Y-Smooth&#34;| B
+</span></span><span class="line"><span class="cl">D --&gt;|Q includes more than y elements| E[&#34;Construct 0,1 matrix A &lt;br&gt;through Q(x) and Y&#34;]
+</span></span><span class="line"><span class="cl">D --&gt;|Q includes few than y+1 elements| B
+</span></span><span class="line"><span class="cl">E --&gt; F[&#34;Solve Ax=0(mod 2)&#34;]
+</span></span><span class="line"><span class="cl">F --&gt; G[&#34;Multiply the sqaure root R of &lt;br&gt; corresponding Q(x)s&#39; product&#34;]
+</span></span><span class="line"><span class="cl">F --&gt; H[&#34;Calculate the product X of corresponding (x+[N^(0.5)]&#34;]
+</span></span><span class="line"><span class="cl">H --&gt; I[&#34;Calculate gcd(X+R,N) as s1,gcd(X-R,N) as s2&#34;]
+</span></span><span class="line"><span class="cl">G --&gt; I
+</span></span><span class="line"><span class="cl">I --&gt;|s1 and s2 are not equal to 1| J
+</span></span><span class="line"><span class="cl">I --&gt;|s1 or s2 are equal to 1| K[&#34;Try another solution of Ax=0(mod 2)&#34;]
+</span></span><span class="line"><span class="cl">K --&gt;G
+</span></span><span class="line"><span class="cl">J[&#34;Found two factors s1, s2&#34;]
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -415,9 +414,9 @@ $$</p>
 <li>
 <p>To simplify the matrix, from 75,168,360,560 we can construct a matrix and:
 $$
-\begin{pmatrix}0 &amp; 1 &amp; 1 &amp; 0\<br>
-1 &amp; 1 &amp; 0 &amp; 0\<br>
-0 &amp; 0 &amp; 1 &amp; 1\<br>
+\begin{pmatrix}0 &amp; 1 &amp; 1 &amp; 0\
+1 &amp; 1 &amp; 0 &amp; 0\
+0 &amp; 0 &amp; 1 &amp; 1\
 0 &amp; 1 &amp; 0 &amp; 1\end{pmatrix}x\equiv0\pmod2
 $$</p>
 </li>
@@ -430,14 +429,14 @@ $$</p>
 <li>
 <p>Now calculate the products R,X with corresponding Q(x) and (x+45). We find:
 $$
-X=5402838\<br>
+X=5402838\
 R=50400
 $$</p>
 </li>
 <li>
 <p>Then
 $$
-s1=\gcd(X+R)=157\ne1\<br>
+s1=\gcd(X+R)=157\ne1\
 s2=\gcd(X-R)=13\ne1
 $$</p>
 </li>
@@ -469,8 +468,8 @@ $$</p>
 <li>
 <p>The solution for A
 $$
-Ax\equiv0\pmod 2\<br>
-x=\<br>
+Ax\equiv0\pmod 2\
+x=\
 (0\ 0\ 0\ 0\ 0\ 1\ 0\ 1\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 1\ 0\ 0\ \ 1\ 0\ 0\ 1\ 1\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 1\ 1\ 1\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 1\ 0\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 0\ 1\ 0\ 1\ 0\ 1\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 1\ 1\ 1\ 0 1\ 1\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 1\ 1\ 1\ 0\ 1\ 1\ 1\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 1\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 1\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 1\ 1\ 1\ 1\ 0\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 1\ 1\ 0\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 0\ 1\ 1\ 1\ 1\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 1\ 1\ 0\ 1\ 1\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 1\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 1\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 1\ 1\ 1\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 0\ 1\ 1\ 1)^T
 $$</p>
 </li>
@@ -484,7 +483,7 @@ $$</p>
 <li>
 <p>At last, we get the other two factors:
 $$
-\gcd(R+X,135107421725854039500365153)= 475999687667509\<br>
+\gcd(R+X,135107421725854039500365153)= 475999687667509\
 \gcd(R-X,135107421725854039500365153)= 283839307517
 $$</p>
 </li>
@@ -600,7 +599,7 @@ $$</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

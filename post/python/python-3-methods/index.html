@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/python/python-3-methods/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="3 Python methods" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/python/python-3-methods/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-03-20T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-03-20T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-03-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-20T00:00:00+00:00" />
 <meta itemprop="name" content="Python的实例方法,类方法与静态方法">
-<meta itemprop="description" content="3 Python methods"><meta itemprop="datePublished" content="2021-03-20T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-03-20T00:00:00&#43;00:00" />
+<meta itemprop="description" content="3 Python methods"><meta itemprop="datePublished" content="2021-03-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-03-20T00:00:00+00:00" />
 <meta itemprop="wordCount" content="228">
 <meta itemprop="keywords" content="python,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python的实例方法,类方法与静态方法"/>
@@ -151,7 +150,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -160,14 +159,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
-	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">pass</span>
-	<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-		<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">example</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
-<span class="n">example</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="k">pass</span>
+</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">example</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">example</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>最常见的是实例方法,只能从实例调用,self就是实例这个参数.</p>
 <ol start="2">
@@ -175,7 +174,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -192,22 +191,22 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
-	<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="n">Example</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-	<span class="nd">@classmethod</span>
-	<span class="k">def</span> <span class="nf">get_count</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
-		<span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">count</span>
-
-<span class="n">example1</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
-<span class="n">example2</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">Example</span><span class="o">.</span><span class="n">get_count</span><span class="p">())</span>
-<span class="c1"># 2</span>
-<span class="k">print</span><span class="p">(</span><span class="n">example1</span><span class="o">.</span><span class="n">get_count</span><span class="p">())</span>
-<span class="c1"># 2</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Example</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="nd">@classmethod</span>
+</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="nf">get_count</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">count</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">example1</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">example2</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">Example</span><span class="o">.</span><span class="n">get_count</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 2</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">example1</span><span class="o">.</span><span class="n">get_count</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 2</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>既可以用实例也可以用类调用,返回类变量(而非类的实例中的变量)</p>
 <ol start="3">
@@ -215,7 +214,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -223,13 +222,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
-	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="k">pass</span>
-	<span class="nd">@staticmethod</span>
-	<span class="k">def</span> <span class="nf">set_env</span><span class="p">():</span>
-		<span class="n">ENV</span> <span class="o">=</span> <span class="mi">0</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="k">pass</span>
+</span></span><span class="line"><span class="cl">	<span class="nd">@staticmethod</span>
+</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="nf">set_env</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">		<span class="n">ENV</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>类中的某些方法在实现时,不需要引用类或者实例,比如设置环境变量,此时就不用传 <code>self</code> 或者 <code>cls</code> 参数.</p>
     </div>
@@ -319,7 +318,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

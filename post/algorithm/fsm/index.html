@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/algorithm/fsm/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="有限状态机" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/algorithm/fsm/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-09-03T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-09-03T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-09-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-03T00:00:00+00:00" />
 <meta itemprop="name" content="有限状态机">
-<meta itemprop="description" content="有限状态机"><meta itemprop="datePublished" content="2021-09-03T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-09-03T00:00:00&#43;00:00" />
+<meta itemprop="description" content="有限状态机"><meta itemprop="datePublished" content="2021-09-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-09-03T00:00:00+00:00" />
 <meta itemprop="wordCount" content="971">
 <meta itemprop="keywords" content="Simplified Chinese,FSM,algorithm,leetcode," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="有限状态机"/>
@@ -209,7 +208,7 @@
 <table>
 <thead>
 <tr>
-<th>' '</th>
+<th>&rsquo; '</th>
 <th>+/-</th>
 <th>number</th>
 <th>in_number</th>
@@ -252,7 +251,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -308,61 +307,61 @@
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="kd">class</span> <span class="nc">FSM</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="n">state</span> <span class="o">=</span> <span class="s">&#34;start&#34;</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="kt">long</span> <span class="n">res</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">[]&gt;</span> <span class="n">transitions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-    <span class="kd">public</span> <span class="nf">FSM</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;start&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;start&#34;</span><span class="o">,</span> <span class="s">&#34;sign&#34;</span><span class="o">,</span> <span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
-        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;sign&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
-        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
-        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">get_col</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// 通过字符获取其属于数组中哪一列的情况
-</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39; &#39;</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;+&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">1</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">c</span><span class="o">))</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">2</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">3</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">get</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// 根据字符c进行状态变化
-</span><span class="c1"></span>        <span class="n">state</span> <span class="o">=</span> <span class="n">transitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">state</span><span class="o">)[</span><span class="n">get_col</span><span class="o">(</span><span class="n">c</span><span class="o">)];</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">state</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;number&#34;</span><span class="o">))</span> <span class="o">{</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="n">10</span> <span class="o">+</span> <span class="n">c</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="o">;</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">sign</span> <span class="o">==</span> <span class="n">1</span> <span class="o">?</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">,</span> <span class="n">res</span><span class="o">)</span> <span class="o">:</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(-(</span><span class="kt">long</span><span class="o">)</span><span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">state</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;sign&#34;</span><span class="o">))</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;+&#39;</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">sign</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="n">sign</span> <span class="o">=</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">myAtoi</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">FSM</span> <span class="n">fsm</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FSM</span><span class="o">();</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">:</span> <span class="n">str</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">fsm</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="n">fsm</span><span class="o">.</span><span class="na">sign</span> <span class="o">*</span> <span class="n">fsm</span><span class="o">.</span><span class="na">res</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">FSM</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="n">state</span> <span class="o">=</span> <span class="s">&#34;start&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">long</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">[]&gt;</span> <span class="n">transitions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">FSM</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;start&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;start&#34;</span><span class="o">,</span> <span class="s">&#34;sign&#34;</span><span class="o">,</span> <span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
+</span></span><span class="line"><span class="cl">        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;sign&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
+</span></span><span class="line"><span class="cl">        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;number&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
+</span></span><span class="line"><span class="cl">        <span class="n">transitions</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">,</span> <span class="s">&#34;finish&#34;</span><span class="o">});</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">get_col</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 通过字符获取其属于数组中哪一列的情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39; &#39;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;+&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">c</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">3</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">get</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 根据字符c进行状态变化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">state</span> <span class="o">=</span> <span class="n">transitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">state</span><span class="o">)[</span><span class="n">get_col</span><span class="o">(</span><span class="n">c</span><span class="o">)];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">state</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;number&#34;</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">c</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">=</span> <span class="n">sign</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">,</span> <span class="n">res</span><span class="o">)</span> <span class="o">:</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(-(</span><span class="kt">long</span><span class="o">)</span><span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">state</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;sign&#34;</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;+&#39;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sign</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">myAtoi</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">FSM</span> <span class="n">fsm</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FSM</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">:</span> <span class="n">str</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fsm</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="n">fsm</span><span class="o">.</span><span class="na">sign</span> <span class="o">*</span> <span class="n">fsm</span><span class="o">.</span><span class="na">res</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其它模板题绝赞收集中</p>
     </div>
@@ -454,7 +453,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

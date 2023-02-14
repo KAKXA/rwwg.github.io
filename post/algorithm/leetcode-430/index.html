@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/algorithm/leetcode-430/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,11 @@
 <meta property="og:description" content="430. 扁平化多级双向链表" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/algorithm/leetcode-430/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-09-29T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-09-29T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-09-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-29T00:00:00+00:00" />
 <meta itemprop="name" content="Leetcode 430. 扁平化多级双向链表">
-<meta itemprop="description" content="430. 扁平化多级双向链表"><meta itemprop="datePublished" content="2021-09-29T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-09-29T00:00:00&#43;00:00" />
+<meta itemprop="description" content="430. 扁平化多级双向链表"><meta itemprop="datePublished" content="2021-09-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-09-29T00:00:00+00:00" />
 <meta itemprop="wordCount" content="515">
 <meta itemprop="keywords" content="linked_List,dfs,leetcode,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode 430. 扁平化多级双向链表"/>
@@ -154,7 +153,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -210,61 +209,61 @@
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/*
-</span><span class="cm">// Definition for a Node.
-</span><span class="cm">class Node {
-</span><span class="cm">    public int val;
-</span><span class="cm">    public Node prev;
-</span><span class="cm">    public Node next;
-</span><span class="cm">    public Node child;
-</span><span class="cm">};
-</span><span class="cm">*/</span>
-
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">Node</span> <span class="nf">flatten</span><span class="o">(</span><span class="n">Node</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">head</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">Node</span> <span class="nf">dfs</span><span class="o">(</span><span class="n">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Node</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
-        <span class="c1">// 记录链表的最后一个节点
-</span><span class="c1"></span>        <span class="n">Node</span> <span class="n">last</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="n">tmp</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// pre指向交界节点
-</span><span class="c1"></span>            <span class="n">Node</span> <span class="n">pre</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
-            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-            <span class="c1">//  如果有子节点，那么首先处理子节点
-</span><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">child</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">Node</span> <span class="n">childLast</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">child</span><span class="o">);</span>
-
-                <span class="c1">//  将 node 与 child 相连
-</span><span class="c1"></span>                <span class="n">pre</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="na">child</span><span class="o">;</span>
-                <span class="n">pre</span><span class="o">.</span><span class="na">child</span><span class="o">.</span><span class="na">prev</span> <span class="o">=</span> <span class="n">pre</span><span class="o">;</span>
-
-                <span class="c1">//  如果 next 不为空，就将 last 与 next 相连
-</span><span class="c1"></span>                <span class="k">if</span> <span class="o">(</span><span class="n">tmp</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">childLast</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
-                    <span class="n">tmp</span><span class="o">.</span><span class="na">prev</span> <span class="o">=</span> <span class="n">childLast</span><span class="o">;</span>
-                <span class="o">}</span>
-
-                <span class="c1">// 将 child 置为空
-</span><span class="c1"></span>                <span class="n">pre</span><span class="o">.</span><span class="na">child</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-
-                <span class="c1">// 难点在于这里last在两种不同情况下的细节处理
-</span><span class="c1"></span>                <span class="c1">// 如果交界节点pre是其链表的最后节点,那么,最后返回的应该是其子节点中的最后一个节点
-</span><span class="c1"></span>                <span class="n">last</span> <span class="o">=</span> <span class="n">childLast</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// 难点在于这里last在两种不同情况下的细节处理
-</span><span class="c1"></span>                <span class="c1">// 只要没有子节点的节点,我们都把pre赋给它
-</span><span class="c1"></span>                <span class="n">last</span> <span class="o">=</span> <span class="n">pre</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">last</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">// Definition for a Node.
+</span></span></span><span class="line"><span class="cl"><span class="cm">class Node {
+</span></span></span><span class="line"><span class="cl"><span class="cm">    public int val;
+</span></span></span><span class="line"><span class="cl"><span class="cm">    public Node prev;
+</span></span></span><span class="line"><span class="cl"><span class="cm">    public Node next;
+</span></span></span><span class="line"><span class="cl"><span class="cm">    public Node child;
+</span></span></span><span class="line"><span class="cl"><span class="cm">};
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Node</span> <span class="nf">flatten</span><span class="o">(</span><span class="n">Node</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dfs</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">head</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Node</span> <span class="nf">dfs</span><span class="o">(</span><span class="n">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Node</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 记录链表的最后一个节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Node</span> <span class="n">last</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">(</span><span class="n">tmp</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// pre指向交界节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">Node</span> <span class="n">pre</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//  如果有子节点，那么首先处理子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">child</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Node</span> <span class="n">childLast</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">child</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1">//  将 node 与 child 相连
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">pre</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="na">child</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span><span class="o">.</span><span class="na">child</span><span class="o">.</span><span class="na">prev</span> <span class="o">=</span> <span class="n">pre</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1">//  如果 next 不为空，就将 last 与 next 相连
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span> <span class="o">(</span><span class="n">tmp</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">childLast</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">tmp</span><span class="o">.</span><span class="na">prev</span> <span class="o">=</span> <span class="n">childLast</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1">// 将 child 置为空
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">pre</span><span class="o">.</span><span class="na">child</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1">// 难点在于这里last在两种不同情况下的细节处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="c1">// 如果交界节点pre是其链表的最后节点,那么,最后返回的应该是其子节点中的最后一个节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">last</span> <span class="o">=</span> <span class="n">childLast</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 难点在于这里last在两种不同情况下的细节处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="c1">// 只要没有子节点的节点,我们都把pre赋给它
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">last</span> <span class="o">=</span> <span class="n">pre</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">last</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -356,7 +355,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

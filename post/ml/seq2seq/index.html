@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.110.0 with theme even" />
 
 
 <link rel="canonical" href="https://rwwg.github.io/post/ml/seq2seq/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2fbdedfdac4022f2b437f73113e055fe7ed3b0001b7470be0b1dc9d72f4dc3a6.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,13 +43,12 @@
 <meta property="og:description" content="Seq2Seq" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rwwg.github.io/post/ml/seq2seq/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-03-27T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-03-27T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2021-03-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-27T00:00:00+00:00" />
 <meta itemprop="name" content="Seq2Seq">
-<meta itemprop="description" content="Seq2Seq"><meta itemprop="datePublished" content="2021-03-27T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-03-27T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="516">
+<meta itemprop="description" content="Seq2Seq"><meta itemprop="datePublished" content="2021-03-27T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-03-27T00:00:00+00:00" />
+<meta itemprop="wordCount" content="522">
 <meta itemprop="keywords" content="NLP,machine learning,seq2seq,Simplified Chinese," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Seq2Seq"/>
 <meta name="twitter:description" content="Seq2Seq"/>
@@ -184,26 +183,26 @@ $$
 s_i = g(y_{i - 1}, s_{i - 1}, c)
 $$</p>
 <h2 id="训练模型">训练模型</h2>
-<p>$ T' $ : 输出序列的词汇长度</p>
+<p>$ T&rsquo; $ : 输出序列的词汇长度</p>
 <p>要最大化输出序列关于输入序列的条件概率:
 $$
-P(y_0,\cdots,y_{T'}|x_0,\cdots,x_T)
+P(y_0,\cdots,y_{T&rsquo;}|x_0,\cdots,x_T)
 $$
 即
 $$
-\prod_{i = 0}^{T'} P(y_i|y_0,\cdots,y_{i - 1},x_0,\cdots,x_T)
+\prod_{i = 0}^{T&rsquo;} P(y_i|y_0,\cdots,y_{i - 1},x_0,\cdots,x_T)
 $$
 即
 $$
-\prod_{i = 0}^{T'} P(y_i|y_0,\cdots,y_{i - 1},c)
+\prod_{i = 0}^{T&rsquo;} P(y_i|y_0,\cdots,y_{i - 1},c)
 $$
 损失函数为
 $$
--\sum_{i = 0}^{T'} \log P(y_i|y_0,\cdots,y_{i - 1},c)
+-\sum_{i = 0}^{T&rsquo;} \log P(y_i|y_0,\cdots,y_{i - 1},c)
 $$</p>
 <h2 id="seq2seq模型预测">Seq2Seq模型预测</h2>
 <h3 id="束搜索">束搜索</h3>
-<p>在每个时间步,选择k个条件概率最大的候选词汇.如在第i步,对之前的 $k ^ {i - 1}$ 中可能的序列分别寻找k个使得当前条件概率最大的候选词汇.复杂度为 $k ^ {T'}$.在最后的这 $k ^ {T'}$ 种序列中,选择使得
+<p>在每个时间步,选择k个条件概率最大的候选词汇.如在第i步,对之前的 $k ^ {i - 1}$ 中可能的序列分别寻找k个使得当前条件概率最大的候选词汇.复杂度为 $k ^ {T&rsquo;}$.在最后的这 $k ^ {T&rsquo;}$ 种序列中,选择使得
 $$
 \frac{1}{L ^ \alpha} \sum_{i = 0}^{L} \log P(y_0,\cdots,y_{i - 1},c)
 $$
@@ -303,7 +302,7 @@ $$</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {
