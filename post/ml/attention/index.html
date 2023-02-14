@@ -79,10 +79,14 @@
   <ul class="mobile-menu-list">
     <a href="/">
         <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
       </a><a href="/tags/">
         <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about.md">
+        <li class="mobile-menu-item">About</li>
       </a>
   </ul>
 
@@ -106,9 +110,13 @@
     <li class="menu-item">
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
+        <a class="menu-item-link" href="/categories/">Categories</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about.md">About</a>
       </li>
   </ul>
 </nav>
@@ -163,7 +171,7 @@ $$</p>
 <li>以时间步 i - 1 的<strong>解码器</strong>的隐藏状态和各个时间步<strong>编码器</strong> 的隐藏状态作为函数 $a$ 的输入,将$T$ 个输出同时输入到 $softmax$ 函数中;</li>
 <li>以 $softmax$ 函数的输出作为权重, 对每个时间步的隐藏状态做加权平均,得到背景变量.</li>
 </ol>
-<p><img src="/attention.png" alt="image"></p>
+<p><img src="/transformer/attention.png" alt="image"></p>
 <blockquote>
 <p><strong>矢量化计算背景变量</strong></p>
 <p>假设编码器和解码器的隐藏单元个数均为 $h$ ,且函数 $a(s, h) = s^T h$ .</p>
