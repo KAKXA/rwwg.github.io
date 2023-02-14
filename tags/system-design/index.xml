@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>system design on Ge&#39;s Blog</title>
+    <title>system design on GESBLOG</title>
     <link>https://rwwg.github.io/tags/system-design/</link>
-    <description>Recent content in system design on Ge&#39;s Blog</description>
+    <description>Recent content in system design on GESBLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 21 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/system-design/index.xml" rel="self" type="application/rss+xml" />
