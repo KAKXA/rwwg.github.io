@@ -6,31 +6,22 @@
     <description>Recent content in Tags on GESBLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Simplified Chinese</title>
-      <link>https://rwwg.github.io/tags/simplified-chinese/</link>
-      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sleep</title>
-      <link>https://rwwg.github.io/tags/sleep/</link>
-      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://rwwg.github.io/tags/sleep/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Fri, 13 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://rwwg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CAS</title>
       <link>https://rwwg.github.io/tags/cas/</link>
       <pubDate>Fri, 13 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://rwwg.github.io/tags/cas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simplified Chinese</title>
+      <link>https://rwwg.github.io/tags/simplified-chinese/</link>
+      <pubDate>Fri, 13 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://rwwg.github.io/tags/simplified-chinese/</guid>
       <description></description>
     </item>
     
